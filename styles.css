@@ -49,3 +49,14 @@ footer{padding:20px 28px 30px;color:var(--mu);font-size:12px;text-align:center}
 .toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,80px);background:var(--ac);color:#fff;padding:10px 18px;border-radius:12px;font-size:13px;transition:transform .35s cubic-bezier(.2,.8,.2,1);z-index:50;opacity:0}.toast.show{transform:translate(-50%,0);opacity:1}
 .count{transition:color .3s}
 @media(max-width:1000px){.kpis{grid-template-columns:1fr 1fr}.kpi .v{font-size:19px}.g2,.g3{grid-template-columns:1fr}.search input{width:170px}.top,main,.tabs{padding-left:14px;padding-right:14px}.kpis.mini{grid-template-columns:1fr 1fr}.movers{grid-template-columns:1fr}h1{font-size:14.5px}}
+
+.vhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.vsliders{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}.vsl label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mu);margin-bottom:4px}.vsl label b{color:var(--tx);font-variant-numeric:tabular-nums}.vsl input{width:100%}
+.vsliders p{grid-column:1/-1;margin:4px 0 0}
+table.vt td.wrap{white-space:normal;text-align:left;min-width:320px;font-size:12.5px;line-height:1.4}
+tr.selfrow{background:#5b8cff1f}tr.medrow td{font-weight:700;border-top:2px solid var(--bd)}
+.cat{display:grid;grid-template-columns:100px 90px 1fr 92px;gap:10px;align-items:center;padding:9px 11px;border-radius:10px;background:var(--bg2);font-size:13px}
+.imp{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;text-align:center}.impHigh{background:#ef444422;color:var(--dn)}.impMedium{background:#f59e0b22;color:#f59e0b}.impLow{background:#22c55e22;color:var(--up)}
+.scores{display:flex;flex-direction:column;gap:10px;margin-bottom:10px}.scores>div{display:grid;grid-template-columns:110px 1fr 44px;gap:8px;align-items:center}.sbar{height:8px;background:var(--bg2);border-radius:8px;overflow:hidden}.sbar i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));border-radius:8px;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+#vScore p{font-size:13px;line-height:1.55}
+@media(max-width:1000px){.vsliders{grid-template-columns:1fr}.cat{grid-template-columns:1fr 1fr}}

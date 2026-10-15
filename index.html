@@ -29,6 +29,7 @@
   <button data-tab="portfolio">Portfolio Builder</button>
   <button data-tab="activity">Company Activity</button>
   <button data-tab="macro">Macro</button>
+  <button data-tab="valuation">Valuation &amp; M&amp;A</button>
   <span class="ink" id="ink"></span>
 </nav>
 <main>
@@ -90,8 +91,39 @@
     <div class="card"><h3>10Y vs 2Y yield (YTD)</h3><div id="spread" class="chart tall sk"></div></div>
   </div>
 </section>
+
+<section id="valuation" class="tab">
+  <div class="card vhead"><div><h3 style="margin:0">Valuation &amp; M&amp;A workbench</h3><p class="muted small" style="margin:4px 0 0">DCF · trading comps · precedent transactions · scenarios · Monte Carlo. Projections are <b>model estimates</b>, not forecasts or advice.</p></div><div class="seg" id="vSeg"></div></div>
+  <div class="kpis" id="vK"></div>
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><h3>DCF assumptions</h3><div class="filters"><select id="vScen"></select><button class="chip" id="vReset">Reset</button></div></div><div id="vSliders" class="vsliders"></div></div>
+    <div class="card"><div class="card-h"><h3>Revenue, EBIT margin &amp; free cash flow: history + 10-year projection</h3></div><div id="vProj" class="chart tall sk"></div></div>
+  </div>
+  <div class="card"><div class="card-h"><h3>Projection detail (selected scenario)</h3><span class="muted small">FCFF = EBIT×(1−t) + D&amp;A − Capex − ΔNWC · mid-year discounting · stub-year adjusted</span></div><div class="tablewrap"><table id="vTable" class="vt"></table></div></div>
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><h3>Sensitivity: fair value per share (WACC × terminal growth)</h3></div><div id="vSens" class="chart sk"></div></div>
+    <div class="card"><div class="card-h"><h3>EV → equity bridge</h3></div><div id="vBridge" class="chart sk"></div><p class="muted small" id="vBridgeNote"></p></div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="card-h"><h3>Trading comparables</h3><span class="muted small">Multiples recomputed in USD from Yahoo data</span></div><div class="tablewrap"><table id="vComps"></table></div><div id="vPrec" class="small" style="margin-top:10px"></div></div>
+    <div class="card"><div class="card-h"><h3>Football field</h3><span class="muted small">red = price · green = triangulated fair value</span></div><div id="vFF" class="chart tall sk"></div></div>
+  </div>
+  <div class="card"><div class="card-h"><h3>Scenarios &amp; probability-weighted value</h3><span class="muted small">Click a row to load that scenario</span></div><div class="tablewrap"><table id="vScenTbl" class="vt"></table></div></div>
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><h3>Monte Carlo distribution of fair value</h3></div><div id="vMC" class="chart sk"></div><p class="muted small" id="vMCNote"></p></div>
+    <div class="card"><div class="card-h"><h3>Catalyst calendar</h3></div><div id="vCat" class="feed"></div></div>
+  </div>
+  <div class="card"><div class="card-h"><h3>Tail-scenario timing: which quarters the release hits the income statement</h3></div><div id="vQ" class="chart sk"></div><p class="muted small" id="vQNote"></p></div>
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><h3>Scored assessment</h3></div><div class="grid g2" style="margin:0"><div id="vRadar" class="chart sk"></div><div id="vScore"></div></div></div>
+    <div class="card"><div class="card-h"><h3>Key inputs &amp; sources</h3></div><div id="vAssump"></div>
+      <p class="muted small">Sources: Yahoo Finance via yfinance (annual statements, TTM figures, consensus revenue/EPS, analyst targets, peer data); SEC EDGAR XBRL companyfacts (cross-check of reported revenue and operating income); U.S. Treasury 10Y par yield (risk-free); hand-authored assumptions in <code>data/valuation_assumptions.json</code>. Scenario probabilities, margins, tails and precedent ranges are <b>analyst estimates</b>. <b>Not investment advice.</b></p></div>
+  </div>
+  <div class="card"><div class="card-h"><h3>SEC XBRL cross-check (reported, USD m)</h3></div><div class="tablewrap"><table id="vSec"></table></div></div>
+</section>
 </main>
 <footer><p id="foot"></p><p>Data snapshot from Yahoo Finance (yfinance), SEC EDGAR, U.S. Treasury and BCRA. For educational and portfolio purposes only — <b>not investment advice</b>.</p></footer>
 <div id="toast" class="toast"></div>
 <script src="app.js"></script>
+<script src="valuation.js"></script>
 </body></html>

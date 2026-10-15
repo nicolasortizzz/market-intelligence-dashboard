@@ -13,7 +13,7 @@ UNIVERSE = {
  "GS":"Financials","V":"Financials","JNJ":"Health Care","UNH":"Health Care","PFE":"Health Care","LLY":"Health Care",
  "XOM":"Energy","CVX":"Energy","PG":"Consumer Staples","KO":"Consumer Staples","WMT":"Consumer Staples",
  "CAT":"Industrials","BA":"Industrials","NEE":"Utilities","AMT":"Real Estate","LIN":"Materials",
- "YPF":"Argentina ADR","GGAL":"Argentina ADR","MELI":"Argentina ADR","PAM":"Argentina ADR"}
+ "YPF":"Argentina ADR","GGAL":"Argentina ADR","MELI":"Argentina ADR","PAM":"Argentina ADR","NIO":"Consumer Disc."}
 BENCH = "SPY"
 
 def clean(x):
@@ -137,12 +137,20 @@ def main():
         h = yf.Ticker("ARS=X").history(period="5d")
         macro["fx"]["ARS_market_yahoo"] = float(h["Close"].iloc[-1])
     except Exception: pass
-    try:
-        r = requests.get("https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones", timeout=30, verify=False).json()
-        for d in r["results"]["detalle"]:
-            if d["codigoMoneda"] == "USD":
-                macro["fx"]["ARS_BCRA"] = d["tipoCotizacion"]; macro["fx"]["BCRA_date"] = r["results"]["fecha"]
-    except Exception as ex: print("bcra fail", ex)
+    for attempt in range(5):  # BCRA endpoint is flaky (TLS resets): retry, then fall back to the previous snapshot
+        try:
+            r = requests.get("https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones", timeout=30, verify=False).json()
+            for d in r["results"]["detalle"]:
+                if d["codigoMoneda"] == "USD":
+                    macro["fx"]["ARS_BCRA"] = d["tipoCotizacion"]; macro["fx"]["BCRA_date"] = r["results"]["fecha"]
+            break
+        except Exception as ex:
+            print("bcra retry", attempt, ex); time.sleep(3)
+    if "ARS_BCRA" not in macro["fx"]:
+        try:
+            old = json.load(open(os.path.join(OUT, "macro.json")))["fx"]
+            if old.get("ARS_BCRA"): macro["fx"].update({k: old[k] for k in ("ARS_BCRA", "BCRA_date")}); macro["fx"]["BCRA_stale"] = True
+        except Exception: pass
     dump("macro.json", macro)
     print("done", now, len(companies), len(events), len(insiders))
 

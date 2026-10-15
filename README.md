@@ -4,9 +4,11 @@
 
 🔗 **Live dashboard:** https://nicolasortizzz.github.io/market-intelligence-dashboard/
 
-An interactive, fully static market-intelligence web app built on **real data** for 30 large companies (26 US large caps across 11 sectors plus the Argentine ADRs YPF, GGAL, MELI and PAM), benchmarked against the S&P 500 (SPY). It brings together prices, risk metrics, fundamentals, a Markowitz portfolio builder, SEC filings, insider trades and US Treasury yields.
+An interactive, fully static market-intelligence web app built on **real data** for 31 companies (26 US large caps across 11 sectors, the Argentine ADRs YPF, GGAL, MELI and PAM, and NIO), benchmarked against the S&P 500 (SPY). It brings together prices, risk metrics, fundamentals, a Markowitz portfolio builder, SEC filings, insider trades and US Treasury yields.
 
 ![Overview](docs/overview.png)
+
+![Valuation & M&A](docs/valuation.png)
 
 ## Features
 
@@ -14,9 +16,10 @@ An interactive, fully static market-intelligence web app built on **real data** 
 |---|---|
 | **Overview** | KPI cards, a sector treemap sized by market cap and colored by return (1D/1M/YTD/1Y), top movers, a sortable screener with 30-day sparklines |
 | **Company** | Candlestick or line chart with range selector (1M–2Y), range slider, MA50/MA200, volume, multi-ticker comparison (rebased returns), fundamentals, analyst recommendation trend and mean target, dividends, drawdown |
-| **Risk & Correlation** | Risk/return scatter (bubble = market cap) with **brush selection** that filters the table, plus a 30×30 correlation heatmap |
+| **Risk & Correlation** | Risk/return scatter (bubble = market cap) with **brush selection** that filters the table, plus a 31×31 correlation heatmap |
 | **Portfolio Builder** | Weight sliders, add/remove assets, **Equal / Min-variance / Max-Sharpe** optimizers, an efficient-frontier cloud colored by Sharpe, the capital market line and parametric 1-day VaR (95%) |
 | **Company Activity** | SEC EDGAR feed of 8-K/10-Q/10-K/Form 4/20-F/6-K filings (180 days) with filters, parsed Form 4 insider transactions, net insider flow by ticker, a filing timeline and upcoming earnings dates |
+| **Valuation & M&A** | DCF workbench for **META, UNH, DIS, NIO**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
 | **Macro** | US Treasury par yield curve (latest vs ~1M and ~6M ago), 10Y vs 2Y with the spread, and the official USD/ARS rate from BCRA |
 
 Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS** toggle (BCRA official rate), dark/light theme, skeleton loaders, animated counters and transitions, a responsive layout and deep links (`#company/MELI`).
@@ -43,6 +46,49 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 - **Insider flow**: up to the 6 most recent Form 4 filings per company are parsed. Value = shares × price, with dispositions counted as negative. Grants and awards without a price add zero value.
 - **ARS amounts**: USD values × the BCRA official rate on the snapshot date. They are a conversion only.
 
+
+## Valuation & M&A tab: methodology
+
+🔗 **Live:** https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation
+
+> ⚠️ Everything in this tab beyond the reported financials is a **model estimate**: projections, margins, scenario probabilities, tail events and precedent ranges are analyst assumptions kept in [`data/valuation_assumptions.json`](data/valuation_assumptions.json). It is a teaching and portfolio tool, **not investment advice**.
+
+**Inputs (real data, `data/valuation.json`, from `scripts/fetch_valuation.py`)**
+- Yahoo Finance via yfinance: annual income statement, cash flow and balance sheet (revenue, operating income, D&A, capex, FCF, debt, cash, minority interest), TTM revenue/EBITDA, consensus revenue and EPS estimates (current and next FY), analyst targets, the 52-week range and beta.
+- SEC EDGAR XBRL `companyfacts`: reported revenue, operating income, net income, capex and operating cash flow (US-GAAP, annual CY frames), shown as a cross-check table.
+- Risk-free rate: latest U.S. Treasury 10Y par yield (`macro.json`).
+- NIO reports in CNY. Statements are converted to USD at the Yahoo CNY/USD rate in the snapshot. The ADS ratio is 1:1.
+
+**DCF (FCFF, 10 years)**
+- Revenue: years 1-2 use Yahoo consensus growth (± a scenario adjustment), years 3-5 a scenario growth rate, and years 6-10 fade linearly to terminal growth.
+- EBIT margin moves linearly from the last fiscal year to the scenario target by year 5. D&A and capex (% of revenue) move from the current or guided level to steady state by year 6. META's year-1 capex reflects its 2026 guidance of $130-145B.
+- FCFF = EBIT×(1−t) + D&A − capex − ΔNWC (no tax shield on losses). Discounting is mid-year with a stub-year adjustment: only the unelapsed fraction of the current fiscal year is counted, because the balance sheet already reflects the rest.
+- Terminal value uses the value-driver formula: NOPAT₁₁ × (1 − g/RONIC) / (WACC − g), with RONIC = 15%.
+- WACC = market-value weights of equity and debt. Ke = rf + β × ERP (4.5%) + country risk (NIO +1.5%). β is Blume-adjusted (0.67β + 0.33), with documented overrides for UNH (0.85) and NIO (1.6). Kd = rf + spread, after tax.
+- Equity = EV − net debt − minority interest − scenario one-offs (e.g. fines or settlements). Per share uses market cap / price, adjusted for assumed dilution or buybacks over 3 years. The value is floored at 0 (limited liability).
+
+**Relative valuation and M&A**
+- Trading comps: peer EV/EBITDA, EV/Sales and P/E are **recomputed in USD** (Yahoo's own ratios mix ADR quote and reporting currencies). The IQR is applied to the target's TTM metrics. Outliers are excluded (EV/EBITDA > 60x, P/E > 80x, negatives), and a method is used only with ≥ 2 valid peers.
+- Precedent transactions: sector EV/EBITDA (or EV/Sales for NIO) ranges anchored on named deals (e.g. Disney-21CF, CVS-Aetna, Cigna-Express Scripts, Microsoft-Activision, Geely-Volvo) **are estimates**, plus a 15-40% control premium on the unaffected price.
+- **Football field**: 52-week range, analyst targets, comps IQR, precedents, takeout range, DCF scenario range and Monte Carlo P10-P90.
+- **Triangulated fair value** = 60% probability-weighted DCF + 40% median comps value. Analyst targets are shown only as a cross-check.
+
+**Scenarios, tails and Monte Carlo**
+- Each company has Bear / Base / Bull plus two tail scenarios with subjective probabilities that sum to 100%:
+  - **DIS**: Avengers: Doomsday mega-hit (Dec 18, 2026 release). The quarterly model splits incremental revenue and operating income across Studio, Home/Disney+, Consumer Products and Experiences for FQ1-FQ4 FY27. A second tail is linear-TV collapse plus recession.
+  - **META**: AI super-cycle; regulatory shock (EU DMA, youth-safety litigation, fines).
+  - **UNH**: DOJ / False Claims outcome; Medicare Advantage risk-adjustment overhaul.
+  - **NIO**: price war plus cash-crunch dilution; battery-swap standard plus subsidy upside.
+- Monte Carlo (4,000 runs): draw a scenario by probability, then perturb WACC (σ 0.75pp), terminal g (σ 0.4pp), margin (σ 12% relative) and mid-term growth (σ 1.5pp).
+- **Scorecard**: quality, growth and risk scores are qualitative (rationale shown in the app). The valuation score is formula-based: 5 + 10 × implied upside, clipped to 1-10.
+
+**Refresh:** `python scripts/fetch_data.py && python scripts/fetch_valuation.py`. Edit the assumptions in `data/valuation_assumptions.json`.
+
+**Valuation caveats**
+- With a 10Y yield of ~5.2%, discount rates are high. DCF values are very sensitive to WACC and g (see the heatmap), and terminal value is 55-66% of EV.
+- Yahoo statements are standardized and can differ from company-reported "segment operating income" (e.g. DIS). Peer sets are small, and some peers report in other currencies.
+- Scenario probabilities and tails are judgment calls. Event-driven tails (box office, DOJ outcomes, subsidies) are illustrative, not predictions.
+
 ## Data snapshot and refresh
 
 The site is static: it reads the JSON files in `data/` (`market.json`, `prices.json`, `activity.json`, `macro.json`), each of which carries a `generatedAt` UTC timestamp. The current snapshot uses the **market close of 2026-10-14**.
@@ -51,7 +97,8 @@ To refresh:
 
 ```bash
 pip install -r requirements.txt
-python scripts/fetch_data.py      # ~2 minutes; rewrites data/*.json
+python scripts/fetch_data.py      # ~2 minutes; rewrites market/prices/activity/macro.json
+python scripts/fetch_valuation.py # ~20 seconds; rewrites valuation.json
 python -m http.server 8000        # preview at http://localhost:8000
 git add data && git commit -m "Refresh data snapshot" && git push
 ```

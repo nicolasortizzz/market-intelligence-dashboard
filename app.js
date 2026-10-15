@@ -60,7 +60,7 @@ function switchTab(t){S.tab=t;$$("#tabs button").forEach(b=>b.classList.toggle("
 function openCo(t){S.sel=t;S.drawn.company=0;switchTab("company")}
 function renderAll(){tape();switchTab(S.tab)}
 function renderTab(){const t=S.tab;if(S.drawn[t])return void $$(`#${t} .js-plotly-plot`).forEach(e=>Plotly.Plots.resize(e));S.drawn[t]=1;
-  ({overview:()=>{overviewK();treemap();movers("ret1d");screener()},company,risk:()=>{scatter();heat();selTable()},portfolio:()=>{sliders();frontier()},activity:()=>{activityK();feed();insiders();timeline();earnings()},macro})[t]()}
+  ({overview:()=>{overviewK();treemap();movers("ret1d");screener()},company,risk:()=>{scatter();heat();selTable()},portfolio:()=>{sliders();frontier()},activity:()=>{activityK();feed();insiders();timeline();earnings()},macro,valuation:()=>valTab()})[t]()}
 
 function overviewK(){const c=S.m.companies,cap=c.reduce((a,b)=>a+(b.marketCap||0),0),adv=c.filter(x=>x.ret1d>0).length;
   const spy=S.p.SPY.c,sr=spy.at(-1)/spy.at(-2)-1,s1y=spy.at(-1)/spy.at(-253)-1,mv=[...c].sort((a,b)=>b.ret1d-a.ret1d)[0];

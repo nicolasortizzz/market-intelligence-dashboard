@@ -1,0 +1,108 @@
+{
+  "_note": "Hand-authored analyst assumptions (ESTIMATES, not data). Edited by hand; NOT overwritten by the fetch scripts. Growth/margins are fractions. 'yr1/yr2 growth' default to Yahoo consensus revenue estimates unless overridden.",
+  "erp": 0.045,
+  "erpSource": "Equity risk premium ~4.5%: close to Damodaran's implied ERP for the S&P 500 (2025-26 range ~4.3-4.6%).",
+  "probDefault": "Scenario probabilities are subjective analyst judgments informed by the catalysts listed; they sum to 100%.",
+  "companies": {
+    "META": {
+      "sector": "Internet platforms / digital advertising",
+      "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.009, "tax": 0.17,
+      "daPct0": 0.093, "daPctT": 0.16, "capexPct1": 0.54, "capexPctT": 0.20, "nwcPct": 0.02,
+      "terminalG": 0.03, "shareChange": -0.01, "precedentEvEbitda": [16, 24], "controlPremium": [0.15, 0.30],
+      "precedentNote": "Mega-cap internet control deals are rare (antitrust); range anchored on large strategic tech deals such as Microsoft-LinkedIn (2016, ~$26B) and Microsoft-Activision Blizzard (2023, ~$69B). A takeover of META is not realistic; the M&A view is a theoretical 'private-market value' cross-check.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": -0.06, "midGrowth": 0.06, "ebitT": 0.31, "capexPctT": 0.24, "desc": "AI capex ($130-145B guided for 2026) does not earn its cost of capital; ad growth slows to mid-single digits and D&A from the data-center build compresses margins."},
+        {"id": "base", "name": "Base", "p": 0.45, "growthAdj": 0, "midGrowth": 0.11, "ebitT": 0.38, "capexPctT": 0.20, "desc": "Consensus revenue for 2026-27, then low-double-digit growth; AI improves ad ranking and pricing, while capex intensity normalizes from ~54% of revenue to ~20% by year 6."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0.03, "midGrowth": 0.15, "ebitT": 0.42, "capexPctT": 0.18, "desc": "Meta AI and business agents monetize (click-to-message, WhatsApp), plus a compute-for-hire business; operating leverage returns."},
+        {"id": "aiTail", "name": "Tail: AI super-cycle", "p": 0.05, "growthAdj": 0.05, "midGrowth": 0.20, "ebitT": 0.45, "capexPctT": 0.18, "desc": "Personal-agent platform becomes a new revenue pillar (subscriptions + enterprise compute), and revenue compounds near 20%."},
+        {"id": "regTail", "name": "Tail: Regulatory shock", "p": 0.10, "growthAdj": -0.08, "midGrowth": 0.05, "ebitT": 0.30, "capexPctT": 0.22, "oneOff": -25e9, "desc": "EU DMA 'pay-or-consent' limits plus US youth-safety/privacy litigation and FTC remedies curb ad targeting; ~$25B in fines/settlements (2026 Q2 already booked $2.4B of legal charges)."}
+      ],
+      "catalysts": [
+        {"date": "2026-10-28", "q": "Q3 2026", "event": "Q3 2026 earnings (guide $61-64B revenue) and 2027 capex outlook", "impact": "High", "dir": "±"},
+        {"date": "2027-01-28", "q": "Q4 2026", "event": "FY2026 results; first 2027 expense/capex guide", "impact": "High", "dir": "±"},
+        {"date": "2027-H1", "q": "2027", "event": "EU DMA compliance decisions / US FTC and state AG youth-safety cases", "impact": "Medium", "dir": "−"},
+        {"date": "2027", "q": "2027", "event": "Meta AI / business-agent monetization disclosure (ARPU uplift)", "impact": "High", "dir": "+"}
+      ],
+      "score": {"quality": 9, "growth": 8, "risk": 6, "valuation": null,
+        "rationale": "Quality: best-in-class ad platform with ~41% operating margin (FY2025) and >3B daily users; a net-cash-light balance sheet after the AI build-out is still investment-grade. Growth: consensus has revenue +26% in 2026 and +21% in 2027, exceptional for a $1.9T company. Risk: the main risk is capital intensity (2026 capex is ~55% of revenue, which drove Q2 FCF down to $0.8B) and regulation (EU DMA, youth-safety suits). Valuation: scored from the model's implied upside."}
+    },
+    "UNH": {
+      "sector": "Managed care / health services",
+      "betaAdj": "blume", "betaOverride": 0.85, "crp": 0, "kdSpread": 0.012, "tax": 0.22,
+      "daPct0": 0.0098, "daPctT": 0.010, "capexPct1": 0.008, "capexPctT": 0.008, "nwcPct": -0.01,
+      "terminalG": 0.03, "shareChange": -0.01, "precedentEvEbitda": [10, 14], "controlPremium": [0.20, 0.35],
+      "precedentNote": "Managed-care precedents: CVS-Aetna (2018, ~$69B), Cigna-Express Scripts (2018, ~$67B), UnitedHealth-Change Healthcare (2022, ~$13B). Sector control deals have typically cleared around 10-14x EBITDA (estimate). UNH's own takeover is implausible because of its size; this is a private-market cross-check.",
+      "betaNote": "The 5Y beta (0.62) understates the risk now that the business is impaired; an assumed 0.85 is used (editable).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": -0.02, "midGrowth": 0.04, "ebitT": 0.045, "desc": "Medical cost trend stays ~8-10%; 2028 Medicare Advantage rates disappoint and Optum Health value-based care stays loss-making. Margins stuck near 4-5%."},
+        {"id": "base", "name": "Base", "p": 0.45, "growthAdj": 0, "midGrowth": 0.06, "ebitT": 0.065, "desc": "Repricing plus a final 2027 MA rate of +2.48% (~5% effective incl. risk-score trend), and benefit cuts and exits restore margins to ~6.5% by year 5, still below the 8%+ of 2022-23."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0.01, "midGrowth": 0.075, "ebitT": 0.08, "desc": "Cost trend normalizes, MA rate tailwinds continue and Optum recovers. Margins return toward the historical ~8%."},
+        {"id": "dojTail", "name": "Tail: DOJ / False Claims outcome", "p": 0.10, "growthAdj": -0.02, "midGrowth": 0.035, "ebitT": 0.04, "oneOff": -30e9, "desc": "The criminal and civil DOJ probes into MA billing and risk-adjustment coding (see the Senate Grassley report, Jan 2026) end in a large settlement (~$30B assumed) and coding restrictions."},
+        {"id": "maTail", "name": "Tail: MA risk-adjustment overhaul", "p": 0.05, "growthAdj": -0.03, "midGrowth": 0.03, "ebitT": 0.035, "desc": "CMS extends the exclusion of chart-review and in-home HRA diagnoses (already partly applied in 2027 rates), structurally lowering MA revenue per member."}
+      ],
+      "catalysts": [
+        {"date": "2027-01-15", "q": "Q4 2026", "event": "FY2026 results and 2027 EPS guidance", "impact": "High", "dir": "±"},
+        {"date": "2027-02", "q": "Q1 2027", "event": "CMS CY2028 Medicare Advantage Advance Notice", "impact": "High", "dir": "±"},
+        {"date": "2027-04", "q": "Q2 2027", "event": "CMS CY2028 final Rate Announcement", "impact": "High", "dir": "±"},
+        {"date": "Ongoing", "q": "2026-27", "event": "DOJ criminal and civil probes into MA billing", "impact": "High", "dir": "−"},
+        {"date": "Quarterly", "q": "Each Q", "event": "Medical care ratio (MCR) vs. guidance: utilization and cost trend", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 7, "growth": 4, "risk": 4, "valuation": null,
+        "rationale": "Quality: unmatched scale (FY2025 revenue $448B) and the Optum vertical integration; however, operating margin fell from 8.7% (2023) to 4.2% (2025). Growth: consensus has 2026 revenue roughly flat and 2027 at +3%, the weakest growth in decades. Risk: elevated, with DOJ criminal and civil probes, political scrutiny of MA coding, and a cost trend running above rate increases. Valuation: scored from the model's implied upside."}
+    },
+    "DIS": {
+      "sector": "Media & entertainment / experiences",
+      "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.011, "tax": 0.23,
+      "daPct0": 0.056, "daPctT": 0.06, "capexPct1": 0.085, "capexPctT": 0.075, "nwcPct": 0.01,
+      "terminalG": 0.025, "shareChange": -0.01, "precedentEvEbitda": [10, 14], "controlPremium": [0.20, 0.40],
+      "precedentNote": "Media precedents: Disney-21st Century Fox (2019, ~$71B), Discovery-WarnerMedia (2022, ~$43B), Amazon-MGM (2022, ~$8.5B), Skydance-Paramount (2025, ~$8B). Content and IP-rich assets have typically traded around 10-14x EBITDA in control deals (estimate).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": -0.03, "midGrowth": 0.025, "ebitT": 0.13, "desc": "Linear TV declines faster, ESPN DTC cannibalizes affiliate fees, the parks cycle softens and the $60B Experiences capex plan earns lower returns."},
+        {"id": "base", "name": "Base", "p": 0.45, "growthAdj": 0, "midGrowth": 0.045, "ebitT": 0.16, "desc": "Consensus FY26-27 (+7.5% / +4.5%); streaming margins expand toward double digits; Experiences grows mid-single digits."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0.01, "midGrowth": 0.06, "ebitT": 0.18, "desc": "Streaming reaches ~15% margins and the franchise slate (Marvel, Star Wars, Pixar) lifts Studio and Consumer Products; new cruise ships and park expansions ramp."},
+        {"id": "marvelTail", "name": "Tail: Avengers: Doomsday mega-hit", "p": 0.10, "growthAdj": 0.015, "midGrowth": 0.05, "ebitT": 0.165, "quarterly": true, "desc": "Avengers: Doomsday (wide release Dec 18, 2026; global presales >$100M) grosses ~$2.8B worldwide vs ~$1.6B assumed in the base case. Spider-Man: Brand New Day (Sony-distributed, Jul 31, 2026) already lifted Marvel merchandise and Disney+ hours. Incremental income flows through FY2027 quarters (see the timing chart) and adds a franchise halo."},
+        {"id": "linearTail", "name": "Tail: Linear collapse + consumer recession", "p": 0.05, "growthAdj": -0.05, "midGrowth": 0.01, "ebitT": 0.11, "desc": "Cord-cutting accelerates sharply and park attendance falls in a US recession."}
+      ],
+      "boxOffice": {"baseWW": 1.6e9, "hitWW": 2.8e9, "studioShare": 0.45, "studioMargin": 0.65,
+        "quarters": [
+          {"q": "FQ1 FY27 (Oct-Dec 2026)", "report": "~Feb 2027", "studio": 0.45, "home": 0, "cp": 0.30, "exp": 0.10},
+          {"q": "FQ2 FY27 (Jan-Mar 2027)", "report": "~May 2027", "studio": 0.50, "home": 0.10, "cp": 0.30, "exp": 0.30},
+          {"q": "FQ3 FY27 (Apr-Jun 2027)", "report": "~Aug 2027", "studio": 0.05, "home": 0.60, "cp": 0.25, "exp": 0.35},
+          {"q": "FQ4 FY27 (Jul-Sep 2027)", "report": "~Nov 2027", "studio": 0, "home": 0.30, "cp": 0.15, "exp": 0.25}],
+        "homeRev": 0.30e9, "homeMargin": 0.70, "cpRev": 0.45e9, "cpMargin": 0.50, "expRev": 0.35e9, "expMargin": 0.30,
+        "note": "ESTIMATES. Studio share is the distributor's take of worldwide gross (~55% domestic, ~40% international). Marketing is already committed in the base case, so incremental box office drops through at ~65%. Home/Disney+ covers PVOD, licensing and subscriber retention. CP covers merchandise royalties. Experiences covers attraction and attendance uplift."},
+      "catalysts": [
+        {"date": "2026-11-12", "q": "FQ4 FY26", "event": "FY2026 results; FY27 guidance and buyback", "impact": "High", "dir": "±"},
+        {"date": "2026-12-18", "q": "FQ1 FY27", "event": "Avengers: Doomsday wide release", "impact": "Medium", "dir": "+"},
+        {"date": "2027-02", "q": "FQ1 FY27", "event": "FQ1 results: first box-office and CP read-through", "impact": "Medium", "dir": "±"},
+        {"date": "2027", "q": "FY27", "event": "ESPN DTC subscriber trajectory; parks expansion openings", "impact": "Medium", "dir": "±"},
+        {"date": "2027-12-17", "q": "FQ1 FY28", "event": "Avengers: Secret Wars (scheduled)", "impact": "Medium", "dir": "+"}
+      ],
+      "score": {"quality": 7, "growth": 5, "risk": 6, "valuation": null,
+        "rationale": "Quality: unrivaled IP library plus a parks moat; operating margin improved from 8% (FY22) to 15% (FY25) as streaming turned profitable. Growth: consensus has mid-single-digit growth (FY26 +7.5%, FY27 +4.5%). Risk: moderate, with ~$41B of net debt, structural linear-TV decline and a heavy Experiences capex cycle (~8.5% of revenue). Valuation: scored from the model's implied upside. A single blockbuster is worth well under $1/share as a one-off (see the timing chart); sustained franchise strength matters far more than one release."}
+    },
+    "NIO": {
+      "sector": "China EV maker",
+      "betaAdj": "none", "betaOverride": 1.6, "crp": 0.015, "kdSpread": 0.04, "tax": 0.15,
+      "daPct0": 0.107, "daPctT": 0.05, "capexPct1": 0.06, "capexPctT": 0.05, "nwcPct": -0.03,
+      "terminalG": 0.03, "shareChange": 0.04, "precedentEvSales": [0.6, 1.5], "precedentEvEbitda": null, "controlPremium": [0.20, 0.40],
+      "precedentNote": "Auto and EV precedents are sales-based, because many targets are loss-making: Geely-Volvo Cars (2010, $1.8B), Stellantis-Leapmotor 21% stake (2023, ~€1.5B), VW-XPeng ~5% stake (2023, ~$0.7B). Strategic stakes in Chinese EV makers have priced around 0.6-1.5x sales (estimate). State-backed investors (e.g. Hefei, CYVN/Abu Dhabi) have repeatedly recapitalized NIO.",
+      "betaNote": "Yahoo's 5Y beta (0.92) is distorted by NIO's idiosyncratic volatility; an assumed 1.6 plus a 1.5% China country-risk premium is used.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": -0.15, "midGrowth": 0.06, "ebitT": 0.015, "shareChange": 0.08, "desc": "The price war led by BYD and Tesla erodes the 18% vehicle margin, ONVO/firefly volumes stall, and NIO keeps raising equity (~8%/yr dilution). It never earns a sustainable profit."},
+        {"id": "base", "name": "Base", "p": 0.45, "growthAdj": 0, "midGrowth": 0.12, "ebitT": 0.04, "desc": "Consensus 2026-27 (+47% / +19%); Q2 2026 gross margin of 18.4% holds, and operating leverage brings a ~4% EBIT margin by year 5. Dilution ~4%/yr for 3 years."},
+        {"id": "bull", "name": "Bull", "p": 0.12, "growthAdj": 0.05, "midGrowth": 0.18, "ebitT": 0.07, "shareChange": 0.02, "desc": "Three brands scale and battery swap (>3,000 stations, plus 1,000 more in 2026) becomes a moat and a partner network; exports to Europe and the Middle East grow."},
+        {"id": "cashTail", "name": "Tail: Price war + cash crunch", "p": 0.13, "growthAdj": -0.25, "midGrowth": 0.03, "ebitT": -0.03, "shareChange": 0.15, "desc": "Subsidy and trade-in support for China EV purchases fades (purchase-tax exemption halved from 2026), the price war intensifies, and NIO needs a deeply dilutive rescue round. Equity value approaches option value."},
+        {"id": "swapTail", "name": "Tail: Swap standard + subsidy upside", "p": 0.05, "growthAdj": 0.08, "midGrowth": 0.25, "ebitT": 0.09, "shareChange": 0.01, "desc": "Battery-as-a-Service and swap networks are adopted as an industry standard with partner OEMs (licensing revenue), alongside new stimulus for NEVs."}
+      ],
+      "catalysts": [
+        {"date": "Monthly (1st)", "q": "Each month", "event": "Delivery reports (Q3 guide 108-111k)", "impact": "Medium", "dir": "±"},
+        {"date": "2026-11", "q": "Q3 2026", "event": "Q3 2026 results: margin durability vs. the price war", "impact": "High", "dir": "±"},
+        {"date": "2027-01", "q": "Q1 2027", "event": "China NEV policy for 2027 (purchase-tax, trade-in subsidies)", "impact": "High", "dir": "±"},
+        {"date": "Ad hoc", "q": "Any", "event": "Equity raises / strategic investment (dilution)", "impact": "High", "dir": "−"}
+      ],
+      "score": {"quality": 3, "growth": 9, "risk": 2, "valuation": null,
+        "rationale": "Quality: still loss-making at the operating level (FY2025 EBIT margin −16%), though the Q2 2026 gross margin reached 18.4% with four straight quarters of positive operating cash flow. Growth: very high, with consensus revenue +47% in 2026 and +19% in 2027. Risk: very high, given a brutal China price war, repeated dilution, policy dependence and geopolitical/ADR risk. Valuation: scored from the model's implied upside, with very wide dispersion."}
+    }
+  }
+}

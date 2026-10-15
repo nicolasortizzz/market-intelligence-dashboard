@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Intelligence Dashboard — Nicolas Ortiz</title>
+<meta name="description" content="Interactive market intelligence dashboard with real Yahoo Finance, SEC EDGAR and US Treasury data.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235b8cff%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="logo">MI</div><div><h1>Nicolas Ortiz — Economist | Financial &amp; Data Analyst</h1><p class="sub">Market Intelligence Dashboard · <span id="asof">loading…</span></p></div></div>
+  <div class="actions">
+    <div class="search"><input id="search" placeholder="Search ticker or company…" autocomplete="off"><div id="sugg" class="sugg"></div></div>
+    <button id="ccy" class="chip" title="Toggle currency">USD</button>
+    <button id="theme" class="icon" title="Toggle theme">◐</button>
+    <a class="icon" href="https://github.com/nicolasortizzz" target="_blank" rel="noopener" title="GitHub">GH</a>
+    <a class="icon" href="https://www.linkedin.com/in/nicolas-ortizzz/" target="_blank" rel="noopener" title="LinkedIn">in</a>
+  </div>
+</header>
+<div id="ticker-tape" class="tape"><div class="tape-inner" id="tape"></div></div>
+<nav class="tabs" id="tabs">
+  <button data-tab="overview" class="active">Overview</button>
+  <button data-tab="company">Company</button>
+  <button data-tab="risk">Risk &amp; Correlation</button>
+  <button data-tab="portfolio">Portfolio Builder</button>
+  <button data-tab="activity">Company Activity</button>
+  <button data-tab="macro">Macro</button>
+  <span class="ink" id="ink"></span>
+</nav>
+<main>
+<section id="overview" class="tab active">
+  <div class="kpis" id="kpis"></div>
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><h3>Sector treemap</h3><select id="tmMetric"><option value="ret1d">1D return</option><option value="ret1m">1M return</option><option value="retYtd">YTD return</option><option value="ret1y">1Y return</option></select></div><div id="treemap" class="chart tall sk"></div></div>
+    <div class="card"><div class="card-h"><h3>Top movers</h3><div class="seg" id="moverSeg"><button data-k="ret1d" class="on">1D</button><button data-k="ret1m">1M</button><button data-k="ret1y">1Y</button></div></div><div id="movers" class="movers"></div></div>
+  </div>
+  <div class="card"><div class="card-h"><h3>Screener</h3><div class="filters"><select id="secFilter"><option value="">All sectors</option></select><input id="scrQ" placeholder="Filter…"></div></div><div class="tablewrap"><table id="screener"></table></div></div>
+</section>
+
+<section id="company" class="tab">
+  <div class="card co-head" id="coHead"></div>
+  <div class="card"><div class="card-h"><h3>Price chart</h3><div class="filters">
+    <div class="seg" id="chartType"><button data-k="candle" class="on">Candles</button><button data-k="line">Line</button></div>
+    <label class="tog"><input type="checkbox" id="ma50" checked> MA50</label><label class="tog"><input type="checkbox" id="ma200" checked> MA200</label>
+    <input id="compare" placeholder="Compare (e.g. MSFT, SPY)">
+  </div></div><div id="price" class="chart xtall sk"></div></div>
+  <div class="grid g3">
+    <div class="card"><h3>Fundamentals</h3><div id="fund" class="kv"></div></div>
+    <div class="card"><h3>Analyst recommendations</h3><div id="recs" class="chart sk"></div><p class="muted" id="target"></p></div>
+    <div class="card"><h3>Dividends (last 2 years)</h3><div id="divs" class="chart sk"></div></div>
+  </div>
+  <div class="card"><div class="card-h"><h3>Drawdown</h3></div><div id="dd" class="chart sk"></div></div>
+</section>
+
+<section id="risk" class="tab">
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><h3>Risk / return (1Y, annualized)</h3><span class="muted small">Drag to select · selection updates table</span></div><div id="scatter" class="chart tall sk"></div></div>
+    <div class="card"><div class="card-h"><h3>Correlation matrix (daily returns, 1Y)</h3></div><div id="heat" class="chart tall sk"></div></div>
+  </div>
+  <div class="card"><h3>Selection</h3><div class="tablewrap"><table id="selTable"></table></div></div>
+</section>
+
+<section id="portfolio" class="tab">
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><h3>Weights</h3><div class="filters"><button class="chip" id="pEq">Equal</button><button class="chip" id="pMin">Min variance</button><button class="chip" id="pMax">Max Sharpe</button></div></div>
+      <div class="pick"><select id="pAdd"></select><button class="chip" id="pAddBtn">+ Add</button></div>
+      <div id="sliders" class="sliders"></div></div>
+    <div class="card"><div class="card-h"><h3>Efficient frontier (Markowitz, long-only)</h3></div><div class="kpis mini" id="pK"></div><div id="frontier" class="chart tall sk"></div></div>
+  </div>
+</section>
+
+<section id="activity" class="tab">
+  <div class="kpis" id="aK"></div>
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><h3>Filings feed (SEC EDGAR, 180 days)</h3><div class="filters"><select id="fForm"><option value="">All forms</option></select><select id="fTk"><option value="">All tickers</option></select></div></div><div id="feed" class="feed"></div></div>
+    <div class="card"><div class="card-h"><h3>Insider transactions (Form 4)</h3><div class="filters"><div class="seg" id="insSeg"><button data-k="" class="on">All</button><button data-k="A">Buys/grants</button><button data-k="D">Sales</button></div></div></div><div id="insChart" class="chart sk"></div><div id="insFeed" class="feed short"></div></div>
+  </div>
+  <div class="card"><h3>Filing timeline</h3><div id="timeline" class="chart sk"></div></div>
+  <div class="card"><h3>Upcoming earnings</h3><div id="earn" class="earn"></div></div>
+</section>
+
+<section id="macro" class="tab">
+  <div class="kpis" id="mK"></div>
+  <div class="grid g2">
+    <div class="card"><h3>US Treasury par yield curve</h3><div id="curve" class="chart tall sk"></div></div>
+    <div class="card"><h3>10Y vs 2Y yield (YTD)</h3><div id="spread" class="chart tall sk"></div></div>
+  </div>
+</section>
+</main>
+<footer><p id="foot"></p><p>Data snapshot from Yahoo Finance (yfinance), SEC EDGAR, U.S. Treasury and BCRA. For educational and portfolio purposes only — <b>not investment advice</b>.</p></footer>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body></html>

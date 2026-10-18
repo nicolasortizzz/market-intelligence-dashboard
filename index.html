@@ -93,22 +93,22 @@
 </section>
 
 <section id="valuation" class="tab">
-  <div class="card vhead"><div><h3 style="margin:0">Valuation &amp; M&amp;A workbench</h3><p class="muted small" style="margin:4px 0 0">DCF · trading comps · precedent transactions · scenarios · Monte Carlo. Projections are <b>model estimates</b>, not forecasts or advice.</p></div><div class="seg" id="vSeg"></div></div>
+  <div class="card vhead"><div><h3 style="margin:0">Valuation &amp; M&amp;A workbench</h3><p class="muted small" style="margin:4px 0 0">DCF / residual income (banks) · trading comps · precedent transactions · scenarios · Monte Carlo. Projections are <b>model estimates</b>, not forecasts or advice.</p></div><div class="seg" id="vSeg"></div></div>
   <div class="kpis" id="vK"></div>
   <div class="grid g2">
     <div class="card"><div class="card-h"><h3>DCF assumptions</h3><div class="filters"><select id="vScen"></select><button class="chip" id="vReset">Reset</button></div></div><div id="vSliders" class="vsliders"></div></div>
-    <div class="card"><div class="card-h"><h3>Revenue, EBIT margin &amp; free cash flow: history + 10-year projection</h3></div><div id="vProj" class="chart tall sk"></div></div>
+    <div class="card"><div class="card-h"><h3 id="vProjT">Revenue, EBIT margin &amp; free cash flow: history + 10-year projection</h3></div><div id="vProj" class="chart tall sk"></div></div>
   </div>
-  <div class="card"><div class="card-h"><h3>Projection detail (selected scenario)</h3><span class="muted small">FCFF = EBIT×(1−t) + D&amp;A − Capex − ΔNWC · mid-year discounting · stub-year adjusted</span></div><div class="tablewrap"><table id="vTable" class="vt"></table></div></div>
+  <div class="card"><div class="card-h"><h3>Projection detail (selected scenario)</h3><span class="muted small" id="vTableNote">FCFF = EBIT×(1−t) + D&amp;A − Capex − ΔNWC · mid-year discounting · stub-year adjusted</span></div><div class="tablewrap"><table id="vTable" class="vt"></table></div></div>
   <div class="grid g2">
-    <div class="card"><div class="card-h"><h3>Sensitivity: fair value per share (WACC × terminal growth)</h3></div><div id="vSens" class="chart sk"></div></div>
+    <div class="card"><div class="card-h"><h3 id="vSensT">Sensitivity: fair value per share (WACC × terminal growth)</h3></div><div id="vSens" class="chart sk"></div></div>
     <div class="card"><div class="card-h"><h3>EV → equity bridge</h3></div><div id="vBridge" class="chart sk"></div><p class="muted small" id="vBridgeNote"></p></div>
   </div>
   <div class="card" id="rvBox"><div class="card-h"><h3 id="rvTitle">Reverse DCF: what does the market price imply?</h3><span class="muted small">Solves the DCF backwards: price → implied growth and margin</span></div>
     <div class="kpis" id="rvK" style="margin-bottom:12px"></div>
     <div class="grid g2" style="margin-bottom:10px">
       <div><div id="rvSliders" class="vsliders"></div><div id="rvCurve" class="chart sk"></div></div>
-      <div><h3 class="small" style="margin:0 0 6px">Implied value per share: revenue CAGR (yrs 1-5) × steady-state EBIT margin <span class="muted">· yellow line = market price · ★ = Base case · axes centred on the implied point · colour on a log scale vs price</span></h3><div id="rvGrid" class="chart tall sk" style="height:560px"></div></div>
+      <div><h3 class="small" style="margin:0 0 6px" id="rvGridT">Implied value per share: revenue CAGR (yrs 1-5) × steady-state EBIT margin <span class="muted">· yellow line = market price · ★ = Base case · axes centred on the implied point · colour on a log scale vs price</span></h3><div id="rvGrid" class="chart tall sk" style="height:560px"></div></div>
     </div>
     <div id="rvNote" class="small"></div>
   </div>

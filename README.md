@@ -19,7 +19,7 @@ An interactive, fully static market-intelligence web app built on **real data** 
 | **Risk & Correlation** | Risk/return scatter (bubble = market cap) with **brush selection** that filters the table, plus a 31×31 correlation heatmap |
 | **Portfolio Builder** | Weight sliders, add/remove assets, **Equal / Min-variance / Max-Sharpe** optimizers, an efficient-frontier cloud colored by Sharpe, the capital market line and parametric 1-day VaR (95%) |
 | **Company Activity** | SEC EDGAR feed of 8-K/10-Q/10-K/Form 4/20-F/6-K filings (180 days) with filters, parsed Form 4 insider transactions, net insider flow by ticker, a filing timeline and upcoming earnings dates |
-| **Valuation & M&A** | DCF workbench for **META, UNH, DIS, NIO**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
+| **Valuation & M&A** | DCF workbench for **META, UNH, DIS, NIO**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a **reverse DCF** (growth and margin implied by the current price, with a growth × margin grid), a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
 | **Macro** | US Treasury par yield curve (latest vs ~1M and ~6M ago), 10Y vs 2Y with the spread, and the official USD/ARS rate from BCRA |
 
 Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS** toggle (BCRA official rate), dark/light theme, skeleton loaders, animated counters and transitions, a responsive layout and deep links (`#company/MELI`).
@@ -67,6 +67,16 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 - WACC = market-value weights of equity and debt. Ke = rf + β × ERP (4.5%) + country risk (NIO +1.5%). β is Blume-adjusted (0.67β + 0.33), with documented overrides for UNH (0.85) and NIO (1.6). Kd = rf + spread, after tax.
 - Equity = EV − net debt − minority interest − scenario one-offs (e.g. fines or settlements). Per share uses market cap / price, adjusted for assumed dilution or buybacks over 3 years. The value is floored at 0 (limited liability).
 
+**Reverse DCF (what the price implies)**
+
+![Reverse DCF](docs/reverse_dcf.png)
+
+- Runs the same DCF engine backwards (same WACC, tax, D&A/capex glide paths, ΔNWC, dilution, net debt, minority interest and terminal value) against the latest close in `data/reverse_dcf.json` (`scripts/fetch_reverse_dcf.py`, yfinance).
+- **Implied revenue CAGR**: a flat growth rate for years 1-5 (fading linearly to terminal g over years 6-10) that makes the DCF value equal the market price, at a chosen steady-state EBIT margin (default: the Base-case target). Solved by bisection; the 10-year CAGR is shown for a like-for-like comparison with the Base case, whose growth is front-loaded by consensus.
+- **Implied EBIT margin**: the year-5+ margin that matches the price while holding the Base-case revenue path.
+- A growth × margin heatmap of value per share with the market-price contour, a value-vs-growth curve marking implied, Base-case and historical growth, and sliders for WACC, terminal growth and target margin.
+- Example (NIO, close of 2026-10-16, $3.43): ~17.7% revenue CAGR for 5 years (13.2% over 10) at a 4% EBIT margin, or a ~4.1% steady-state margin on Base-case growth, i.e. roughly the Base case. Figures update with the data and the sliders.
+
 **Relative valuation and M&A**
 - Trading comps: peer EV/EBITDA, EV/Sales and P/E are **recomputed in USD** (Yahoo's own ratios mix ADR quote and reporting currencies). The IQR is applied to the target's TTM metrics. Outliers are excluded (EV/EBITDA > 60x, P/E > 80x, negatives), and a method is used only with ≥ 2 valid peers.
 - Precedent transactions: sector EV/EBITDA (or EV/Sales for NIO) ranges anchored on named deals (e.g. Disney-21CF, CVS-Aetna, Cigna-Express Scripts, Microsoft-Activision, Geely-Volvo) **are estimates**, plus a 15-40% control premium on the unaffected price.
@@ -82,7 +92,7 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 - Monte Carlo (4,000 runs): draw a scenario by probability, then perturb WACC (σ 0.75pp), terminal g (σ 0.4pp), margin (σ 12% relative) and mid-term growth (σ 1.5pp).
 - **Scorecard**: quality, growth and risk scores are qualitative (rationale shown in the app). The valuation score is formula-based: 5 + 10 × implied upside, clipped to 1-10.
 
-**Refresh:** `python scripts/fetch_data.py && python scripts/fetch_valuation.py`. Edit the assumptions in `data/valuation_assumptions.json`.
+**Refresh:** `python scripts/fetch_data.py && python scripts/fetch_valuation.py && python scripts/fetch_reverse_dcf.py`. Edit the assumptions in `data/valuation_assumptions.json`.
 
 **Valuation caveats**
 - With a 10Y yield of ~5.2%, discount rates are high. DCF values are very sensitive to WACC and g (see the heatmap), and terminal value is 55-66% of EV.
@@ -99,6 +109,7 @@ To refresh:
 pip install -r requirements.txt
 python scripts/fetch_data.py      # ~2 minutes; rewrites market/prices/activity/macro.json
 python scripts/fetch_valuation.py # ~20 seconds; rewrites valuation.json
+python scripts/fetch_reverse_dcf.py # a few seconds; latest closes for the reverse DCF
 python -m http.server 8000        # preview at http://localhost:8000
 git add data && git commit -m "Refresh data snapshot" && git push
 ```

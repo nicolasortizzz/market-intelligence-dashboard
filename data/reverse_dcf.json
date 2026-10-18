@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T22:08:25Z",
+ "generatedAt": "2026-10-18T23:12:04Z",
  "quotes": {
   "META": {
    "price": 709.33,
@@ -21,6 +21,18 @@
   },
   "NIO": {
    "price": 3.43,
+   "priceDate": "2026-10-16",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "YPF": {
+   "price": 52.1,
+   "priceDate": "2026-10-16",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "GGAL": {
+   "price": 36.02,
    "priceDate": "2026-10-16",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"

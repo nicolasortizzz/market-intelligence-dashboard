@@ -74,7 +74,7 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 - Runs the same DCF engine backwards (same WACC, tax, D&A/capex glide paths, ΔNWC, dilution, net debt, minority interest and terminal value) against the latest close in `data/reverse_dcf.json` (`scripts/fetch_reverse_dcf.py`, yfinance).
 - **Implied revenue CAGR**: a flat growth rate for years 1-5 (fading linearly to terminal g over years 6-10) that makes the DCF value equal the market price, at a chosen steady-state EBIT margin (default: the Base-case target). Solved by bisection; the 10-year CAGR is shown for a like-for-like comparison with the Base case, whose growth is front-loaded by consensus.
 - **Implied EBIT margin**: the year-5+ margin that matches the price while holding the Base-case revenue path.
-- A growth × margin heatmap of value per share with the market-price contour, a value-vs-growth curve marking implied, Base-case and historical growth, and sliders for WACC, terminal growth and target margin.
+- A growth × margin heatmap of value per share with the market-price contour. Its axes are adaptive: centred on the implied point (implied CAGR, target margin) and sized so most cells fall within ~0.3×-3× the current price (colour on a log scale vs price, ¼×-4×); they are rebuilt whenever the price or a slider changes. NIO's margin axis is extended to 18%. a value-vs-growth curve marking implied, Base-case and historical growth, and sliders for WACC, terminal growth and target margin.
 - Example (NIO, close of 2026-10-16, $3.43): ~17.7% revenue CAGR for 5 years (13.2% over 10) at a 4% EBIT margin, or a ~4.1% steady-state margin on Base-case growth, i.e. roughly the Base case. Figures update with the data and the sliders.
 
 **Relative valuation and M&A**

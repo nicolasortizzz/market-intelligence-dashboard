@@ -19,6 +19,23 @@ function reverse(tk){
   const imp=gImp!=null?dcf(tk,"base",{...ov,gPath:gImp,ebitT:mT}):null;
   const H=b.hist,h0=H[0],hN=H.at(-1),nH=+hN.y-+h0.y,histCagr=nH>0?Math.pow(hN.rev/h0.rev,1/nH)-1:null;
   return{ov,base,mT,px,gImp,mImp,imp,baseCagr5:cagr(base),baseCagr10:cagr10(base),impCagr10:imp?cagr10(imp):null,histCagr,histYrs:`FY${h0.y}–FY${hN.y}`,G,M,fG}}
+/* Adaptive heatmap axes, rebuilt around today's price on every redraw (sliders included):
+   centre = implied point (implied CAGR at the target margin, target margin). Half-width per axis = 0.6 × the mean distance
+   from the centre to the values where the DCF hits 0.3× and 3× the price, so the price contour runs through the middle and
+   most cells sit roughly within 0.3×-3× price. A "nice" step keeps ~11 points per axis. Per-ticker extra bounds
+   (RV_EXTRA, e.g. NIO margin up to 18%) widen the range and the step is enlarged to keep ≤12 rows. */
+const RV_EXTRA={NIO:{mMax:0.18}},NICE=[0.0025,0.005,0.01,0.015,0.02,0.025,0.03,0.04,0.05,0.075,0.1];
+const axFmt=v=>(v*100).toFixed(1)+"%";
+function niceAxis(c,lo,hi,maxN=12){const st=NICE.find(x=>(hi-lo)/x<=maxN-2)||NICE.at(-1),k0=Math.floor((lo-c)/st+1e-9),k1=Math.ceil((hi-c)/st-1e-9),out=[];
+  for(let k=k0;k<=k1;k++)out.push(+(c+k*st).toFixed(5));return out}
+function rvAxes(tk,R){const P=R.px.p,ex=RV_EXTRA[tk]||{};
+  const gc=R.gImp??R.baseCagr5,mc=R.mT;
+  const fg=x=>dcf(tk,"base",{...R.ov,gPath:x,ebitT:mc}).ps,fm=x=>dcf(tk,"base",{...R.ov,gPath:gc,ebitT:x}).ps;
+  const span=(f,c,lo,hi)=>{const a=bisect(f,lo,c,0.3*P)??lo,b=bisect(f,c,hi,3*P)??hi;return 0.6*((c-a)+(b-c))/2};
+  let hg=clamp(span(fg,gc,R.G[0],R.G[1]),0.01,0.25),hm=clamp(span(fm,mc,R.M[0],R.M[1]),0.005,0.2);
+  let gLo=Math.max(gc-hg,R.G[0]),gHi=Math.min(gc+hg,R.G[1]),mLo=Math.max(mc-hm,R.M[0]),mHi=Math.min(mc+hm,R.M[1]);
+  if(ex.mMax!=null)mHi=Math.max(mHi,ex.mMax);if(ex.mMin!=null)mLo=Math.min(mLo,ex.mMin);
+  return{gc,mc,gs:niceAxis(gc,gLo,gHi,12),ms:niceAxis(mc,mLo,mHi,12)}}
 function drawReverse(){const tk=V.tk,el=$("#rvBox");if(!el)return;const R=reverse(tk),b=R.base.b,c=b.c,fu=fx(),st=RV.st[tk]||{},gr=pct2;
   $("#rvTitle").textContent=`Reverse DCF: what does ${tk} at ${usd(R.px.p)} imply?`;
   renderKpis($("#rvK"),[kpi(`Market price (${R.px.d})`,R.px.p,R.px.src,usd),
@@ -40,16 +57,16 @@ function drawReverse(){const tk=V.tk,el=$("#rvBox");if(!el)return;const R=revers
        {x:R.baseCagr5,yref:"paper",y:0.92,text:"Base "+pct(R.baseCagr5),showarrow:false,font:{color:css("--up"),size:11}},
        ...(R.histCagr!=null?[{x:R.histCagr,yref:"paper",y:0.8,text:`Hist. ${R.histYrs} ${pct(R.histCagr)}`,showarrow:false,font:{color:css("--mu"),size:11}}]:[])]});
   // sensitivity grid: growth x margin with market-price contour
-  const gs=[],ms=[];for(let x=-0.05;x<=0.4001;x+=0.05)gs.push(+x.toFixed(4));for(let m=-0.02;m<=0.18001;m+=0.01)ms.push(+m.toFixed(4));
+  const {gs,ms,gc,mc}=rvAxes(tk,R);
   const z=ms.map(m=>gs.map(g=>dcf(tk,"base",{...R.ov,gPath:g,ebitT:m}).ps*fu));
   const P0=R.px.p*fu;
-  // colour = log2(value / price), clipped to ±3 (⅛× … 8× the price) so high-margin cells don't wash out; labels/hover show the true $ value
-  const LC=3,lz=z.map(r=>r.map(v=>clamp(Math.log2(Math.max(v,1e-9)/P0),-LC,LC))),cur=S.ccy==="ARS"?"ARS ":"$",fv=v=>cur+(v>=100?v.toFixed(0):v>=10?v.toFixed(1):v.toFixed(2));
-  const tv=[-3,-2,-1,0,1,2,3],tt=tv.map(k=>(k===-LC?"≤ ":k===LC?"≥ ":"")+fv(P0*Math.pow(2,k))+(k===0?" (price)":""));
+  // colour = log2(value / price), clipped to ±2 (¼× … 4× the price) so high-margin cells don't wash out; labels/hover show the true $ value
+  const LC=2,lz=z.map(r=>r.map(v=>clamp(Math.log2(Math.max(v,1e-9)/P0),-LC,LC))),cur=S.ccy==="ARS"?"ARS ":"$",fv=v=>cur+(v>=100?v.toFixed(0):v>=10?v.toFixed(1):v.toFixed(2));
+  const tv=[-2,-1,0,1,2],tt=tv.map(k=>(k===-LC?"≤ ":k===LC?"≥ ":"")+fv(P0*Math.pow(2,k))+(k===0?" (price)":""));
   plot("rvGrid",[{type:"heatmap",x:gs,y:ms,z:lz,customdata:z,text:z.map(r=>r.map(v=>(S.ccy==="ARS"?"":"$")+v.toFixed(v>100?0:2))),texttemplate:"%{text}",textfont:{size:10},colorscale:[[0,"#b91c1c"],[.5,"#334155"],[1,"#15803d"]],zmin:-LC,zmax:LC,zauto:false,hovertemplate:"CAGR %{x:.1%} · EBIT margin %{y:.1%}<br>%{text}/share<extra></extra>",colorbar:{thickness:10,tickvals:tv,ticktext:tt,title:{text:"$/share (log scale)",side:"right"}}},
     {type:"contour",x:gs,y:ms,z,contours:{coloring:"none",start:R.px.p*fu,end:R.px.p*fu,size:1,showlabels:true,labelfont:{color:"#fff",size:11}},line:{color:"#fde047",width:3},showscale:false,hoverinfo:"skip",name:"Market price"},
     {type:"scatter",mode:"markers",x:[R.baseCagr5],y:[R.base.ebitT],marker:{symbol:"star",size:15,color:"#fff",line:{color:"#000",width:1}},name:"Base case",hovertemplate:"Base case<extra></extra>"}],
-    {xaxis:{title:"Revenue CAGR, years 1-5",tickformat:".0%",dtick:0.05},yaxis:{title:"Steady-state EBIT margin (yr 5+)",tickformat:".0%",dtick:0.01},showlegend:false,margin:{l:64,r:10,t:10,b:50}});
+    {xaxis:{title:"Revenue CAGR, years 1-5",tickvals:gs,ticktext:gs.map(axFmt)},yaxis:{title:"Steady-state EBIT margin (yr 5+)",tickvals:ms,ticktext:ms.map(axFmt)},showlegend:false,margin:{l:64,r:10,t:10,b:50}});
   // interpretation
   const cons=c.revenueEstimate||{},c0=cons["0y"]?.growth,c1=cons["+1y"]?.growth;
   const gTxt=R.gImp==null?`No revenue CAGR between ${pct(R.G[0],0)} and ${pct(R.G[1],0)} reconciles to the price at a ${pct(R.mT)} margin`:`At a ${pct(R.mT)} steady-state EBIT margin, ${usd(R.px.p)} implies revenue compounding at <b>${pct(R.gImp)}</b> a year for five years (then fading to ${pct(R.base.g)}), i.e. a 10-year CAGR of ${pct(R.impCagr10)}`;

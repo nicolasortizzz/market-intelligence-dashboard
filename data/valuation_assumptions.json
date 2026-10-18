@@ -2,6 +2,7 @@
   "_note": "Hand-authored analyst assumptions (ESTIMATES, not data). Edited by hand; NOT overwritten by the fetch scripts. Growth/margins are fractions. 'yr1/yr2 growth' default to Yahoo consensus revenue estimates unless overridden.",
   "erp": 0.045,
   "erpSource": "Equity risk premium ~4.5%: close to Damodaran's implied ERP for the S&P 500 (2025-26 range ~4.3-4.6%).",
+  "crpNote": "Argentina country-risk premium = full J.P. Morgan EMBI spread for Argentina, 648 bp at the close of 2026-10-16 (Rava / argentinadatos), added to the cost of equity of YPF and GGAL (lambda = 1).",
   "probDefault": "Scenario probabilities are subjective analyst judgments informed by the catalysts listed; they sum to 100%.",
   "companies": {
     "META": {
@@ -103,6 +104,41 @@
       ],
       "score": {"quality": 3, "growth": 9, "risk": 2, "valuation": null,
         "rationale": "Quality: still loss-making at the operating level (FY2025 EBIT margin −16%), though the Q2 2026 gross margin reached 18.4% with four straight quarters of positive operating cash flow. Growth: very high, with consensus revenue +47% in 2026 and +19% in 2027. Risk: very high, given a brutal China price war, repeated dilution, policy dependence and geopolitical/ADR risk. Valuation: scored from the model's implied upside, with very wide dispersion."}
+    },
+    "YPF": {
+      "sector": "Argentine integrated oil & gas (Vaca Muerta shale)", "betaAdj": "none", "betaOverride": 1.1, "betaNote": "Yahoo's 5Y beta (-0.11) is meaningless for a state-controlled ADR; an assumed 1.1 (integrated oil, moderately levered) is used, plus the 6.48% Argentina EMBI as country risk.", "crp": 0.0648, "kdSpread": 0.035, "tax": 0.35, "g1": 0.26, "g2": -0.02, "ebit1": 0.2, "growthNote": "Year 1 (FY2026) = H1 2026 reported revenue $11.52B + ~$11.5B H2 at the guided ~$75 Brent ≈ $23B (+26% in USD). Year 2 assumes Brent normalizing toward ~$70 offsets shale volume growth (≈ -2%). Yahoo consensus for YPF is in ARS and is not used for USD growth.", "daPct0": 0.175, "daPctT": 0.14, "capexPct1": 0.25, "capexPctT": 0.16, "nwcPct": 0.05, "terminalG": 0.015, "ronic": 0.12, "shareChange": 0.0, "precedentEvEbitda": [3.5, 6.0], "controlPremium": [0.2, 0.35], "precedentNote": "Argentine upstream deals have priced at roughly 3.5-6x EV/EBITDA (estimate): Pluspetrol's purchase of ExxonMobil's Vaca Muerta assets (2024, ~$1B), Vista's acquisition of Petronas' 50% of La Amarga Chica (2025, ~$1.2B incl. shares) and YPF's farm-outs. A takeover of YPF is not realistic (51% held by the State under the 2012 expropriation law); the M&A view is a theoretical private-market cross-check.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": -0.05, "midGrowth": 0.03, "ebitT": 0.13, "ebit1": 0.18, "desc": "Brent falls to ~$60, the shale ramp slips (pipeline/rig constraints) and domestic fuel prices lag import parity again; EBIT margin ~13%."},
+        {"id": "base", "name": "Base", "p": 0.45, "growthAdj": 0, "midGrowth": 0.08, "ebitT": 0.19, "desc": "2026 at the ~$8B EBITDA guide (Brent ~$82), then Brent ~$70; shale oil from 215 kbbl/d (2026 avg, 250 exit) toward the LLL Oil plateau (~240 kbbl/d for that project alone by 2032) via the VMOS export pipeline; mature-field exits keep lifting costs ~$8/boe."},
+        {"id": "bull", "name": "Bull", "p": 0.17, "growthAdj": 0.03, "midGrowth": 0.12, "ebitT": 0.23, "desc": "Vaca Muerta becomes an export platform: VMOS on time, LLL Oil approved under RIGI, Argentina LNG reaches FID, and fuel pricing stays at import parity."},
+        {"id": "macroTail", "name": "Tail: Macro crisis / devaluation", "p": 0.1, "growthAdj": -0.12, "midGrowth": 0.02, "ebitT": 0.1, "ebit1": 0.16, "crpAdd": 0.04, "desc": "A disorderly devaluation and the return of export duties, fuel-price freezes and FX controls (2019-style); country risk widens by ~400 bp and margins compress for years."},
+        {"id": "courtTail", "name": "Tail: Petersen/Burford case revived", "p": 0.03, "growthAdj": -0.03, "midGrowth": 0.04, "ebitT": 0.14, "crpAdd": 0.03, "oneOff": -1500000000.0, "desc": "The US Supreme Court takes Petersen/Eton Park's October 2026 petition and reinstates the $16.1B judgment against the Republic (the Second Circuit voided it on 2026-03-27 and confirmed YPF itself is not liable). Turnover of the State's 51% stake would hit governance and sovereign risk; ~$1.5B of assumed legal/financing costs plus a wider country-risk premium."}
+      ],
+      "catalysts": [
+        {"date": "2026-11", "q": "Q3 2026", "event": "Q3 2026 results: shale ramp vs 250 kbbl/d exit target, FCF vs ~$2B guide", "impact": "High", "dir": "±"},
+        {"date": "2026-12 / 2027-01", "q": "Q4 2026", "event": "US Supreme Court cert decision on the Petersen/Eton Park petition ($16.1B judgment vs Argentina)", "impact": "High", "dir": "±"},
+        {"date": "2027", "q": "2027", "event": "VMOS export pipeline start-up; RIGI approval of the LLL Oil project (~$25B capex over 15 years)", "impact": "High", "dir": "+"},
+        {"date": "2027-10", "q": "Q4 2027", "event": "Argentine presidential election (fuel-pricing and export-duty regime)", "impact": "High", "dir": "±"},
+        {"date": "Daily", "q": "Any", "event": "Brent price (2026 guide assumes ~$82 average, $75 for H2)", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 6, "growth": 8, "risk": 3, "valuation": null, "rationale": "Quality: Argentina's largest integrated producer; record Q2 2026 adjusted EBITDA of $2.8B (43% margin), lifting cost down to ~$8/boe and net leverage of 1.1x. Growth: high, from Vaca Muerta shale (+47% y/y in Q2 2026) and export projects. Risk: high, given Argentine macro and policy risk, State control (51%), Brent exposure and the long tail of the expropriation litigation. Valuation: scored from the model's implied upside."}
+    },
+    "GGAL": {
+      "sector": "Argentine financial group (bank, cards, insurance, asset management)", "model": "bank", "betaAdj": "none", "betaOverride": 1.15, "betaNote": "Yahoo's 5Y beta (0.29) reflects local trading frictions; an assumed 1.15 (EM bank) is used, plus the 6.48% Argentina EMBI as country risk.", "crp": 0.0648, "kdSpread": 0.0, "tax": 0.35, "terminalG": 0.03, "shareChange": 0.0, "precedentPB": [0.5, 1.3], "controlPremium": [0.2, 0.35], "precedentNote": "Argentine bank control deals have priced well below LatAm norms (estimates): Grupo Galicia's purchase of HSBC Argentina (2024, ~$550M, below book), Banco Macro's purchase of Itaú Argentina (2023, ~$50M) and BBVA/others' minority deals; LatAm control deals in normal times ~1.0-1.5x book. Range used: 0.5-1.3x P/BV.", "compsNote": "P/BV is the primary bank multiple. Peer P/E is TTM while GGAL's TTM earnings are depressed (ROE ~2% after the 2025 disinflation and credit-loss cycle), so P/E is applied to the FY2026e consensus EPS and shown for reference only; the triangulated fair value uses P/BV comps.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "roeAdj": -0.04, "midGrowth": 0.05, "ebitT": 0.12, "desc": "Non-performing loans stay ~10% (Q2 2026: 10.6%), loan growth stalls and margins compress as rates fall; sustainable ROE ~12%, below the cost of equity."},
+        {"id": "base", "name": "Base", "p": 0.45, "roeAdj": 0, "midGrowth": 0.1, "ebitT": 0.18, "desc": "Consensus EPS for 2026-27, credit quality normalizes, the HSBC (Galicia Más) integration savings stick; ROE converges to ~18% in USD terms and book value grows ~10%/yr."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "roeAdj": 0.03, "midGrowth": 0.15, "ebitT": 0.22, "desc": "Financial deepening: private credit/GDP rises from ~10% toward LatAm levels (~30-40%), with lower funding costs and fee growth (Naranja X); ROE ~22%."},
+        {"id": "macroTail", "name": "Tail: Macro crisis / devaluation", "p": 0.1, "roeAdj": -0.12, "midGrowth": -0.05, "ebitT": 0.09, "crpAdd": 0.04, "desc": "Disorderly devaluation: inflation re-accelerates (IAS 29 monetary losses), NPLs spike and USD book value shrinks; country risk widens by ~400 bp."},
+        {"id": "regTail", "name": "Tail: Regulatory shock", "p": 0.05, "roeAdj": -0.05, "midGrowth": 0.04, "ebitT": 0.11, "oneOff": -400000000.0, "desc": "Return of interest-rate caps, higher reserve requirements or forced Treasury financing, or a windfall/bank tax; ~$0.4B one-off hit to equity."}
+      ],
+      "catalysts": [
+        {"date": "2026-11", "q": "Q3 2026", "event": "Q3 2026 results: NPL trend (10.6% in Q2), ROE vs 11.3% in Q2", "impact": "High", "dir": "±"},
+        {"date": "Monthly", "q": "Each month", "event": "INDEC CPI and BCRA rate decisions (funding cost, monetary-position loss)", "impact": "Medium", "dir": "±"},
+        {"date": "Daily", "q": "Any", "event": "Argentina EMBI spread (648 bp on 2026-10-16) and the official FX band", "impact": "High", "dir": "±"},
+        {"date": "2027-10", "q": "Q4 2027", "event": "Argentine presidential election", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 7, "growth": 7, "risk": 3, "valuation": null, "rationale": "Quality: Argentina's largest private financial group (~16% share of private loans and deposits), capital ratio 23.7% and efficiency 35% in Q2 2026. Growth: credit penetration is among the lowest in LatAm, so loan growth can be strong if disinflation holds. Risk: high, given NPLs at 10.6%, IAS 29 inflation accounting, FX and sovereign exposure, and regulatory history. Valuation: scored from the model's implied upside."}
     }
   }
 }

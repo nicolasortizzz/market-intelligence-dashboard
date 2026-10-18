@@ -75,6 +75,16 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 - **Implied revenue CAGR**: a flat growth rate for years 1-5 (fading linearly to terminal g over years 6-10) that makes the DCF value equal the market price, at a chosen steady-state EBIT margin (default: the Base-case target). Solved by bisection; the 10-year CAGR is shown for a like-for-like comparison with the Base case, whose growth is front-loaded by consensus.
 - **Implied EBIT margin**: the year-5+ margin that matches the price while holding the Base-case revenue path.
 - A growth × margin heatmap of value per share with the market-price contour. Its axes are adaptive: centred on the implied point (implied CAGR, target margin) and sized so most cells fall within ~0.3×-3× the current price (colour on a log scale vs price, ¼×-4×); they are rebuilt whenever the price or a slider changes. NIO's margin axis is extended to 18%. a value-vs-growth curve marking implied, Base-case and historical growth, and sliders for WACC, terminal growth and target margin.
+- **Historical 5-year revenue CAGR** (`data/revenue_history.json`, `scripts/fetch_revenue_history.py`): reported revenue FY2020→FY2025, i.e. 5 compounding periods, shown as a KPI next to the implied CAGR, as a dash-dot reference line on the value-vs-growth curve and the heatmap (the FY2022-25 3-year CAGR stays as a fainter line), in the "Key inputs & sources" table, and with its source and span in the card tooltip and footnote.
+  | Ticker | Span | Currency | 5y CAGR | Source |
+  |---|---|---|---|---|
+  | META | FY2020→FY2025 | USD | 18.5% | SEC XBRL `RevenueFromContractWithCustomerExcludingAssessedTax` |
+  | UNH | FY2020→FY2025 | USD | 11.7% | SEC XBRL `Revenues` |
+  | DIS | FY2020 (ended 2020-10-03)→FY2025 (ended 2025-09-27) | USD | 7.6% | SEC XBRL `Revenues` |
+  | NIO | FY2020→FY2025 | RMB (constant currency) | 40.0% (USD convenience translation 38.1%) | SEC XBRL, 20-F |
+  | YPF | FY2020→FY2025 | USD (functional currency) | 13.7% | SEC XBRL `ifrs-full:Revenue` (USD), 20-F; Yahoo's ARS-labelled figures not used |
+  | GGAL | FY2020→FY2025 | USD at year-end BCRA A3500 (84.15 / 1,455) | 19.9% (real ARS 10.3%) | 20-F FY2020 + 4Q2025 release |
+- GGAL "revenue" = net operating revenue before loan-loss provisions (net operating income + provisions). Each year is in pesos of its own year end (IAS 29); the real-ARS CAGR restates FY2020 to Dec-2025 pesos with INDEC CPI. After provisions the CAGR is 15.0% in USD / 5.8% real. The Dec-2020 official rate under capital controls flatters the USD figure, and the HSBC Argentina acquisition (Dec-2024) makes growth partly inorganic.
 - Example (NIO, close of 2026-10-16, $3.43): ~17.7% revenue CAGR for 5 years (13.2% over 10) at a 4% EBIT margin, or a ~4.1% steady-state margin on Base-case growth, i.e. roughly the Base case. Figures update with the data and the sliders.
 
 **Argentine names: YPF and GGAL**
@@ -120,6 +130,7 @@ pip install -r requirements.txt
 python scripts/fetch_data.py      # ~2 minutes; rewrites market/prices/activity/macro.json
 python scripts/fetch_valuation.py # ~20 seconds; rewrites valuation.json
 python scripts/fetch_reverse_dcf.py # a few seconds; latest closes for the reverse DCF
+python scripts/fetch_revenue_history.py # FY2020-FY2025 revenue (SEC XBRL; GGAL hand-entered)
 python -m http.server 8000        # preview at http://localhost:8000
 git add data && git commit -m "Refresh data snapshot" && git push
 ```

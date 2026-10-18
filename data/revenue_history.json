@@ -1,0 +1,176 @@
+{
+ "generatedAt": "2026-10-18T23:26:26Z",
+ "periods": 5,
+ "companies": {
+  "META": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 85965000000,
+    "FY2021": 117929000000,
+    "FY2022": 116609000000,
+    "FY2023": 134902000000,
+    "FY2024": 164501000000,
+    "FY2025": 200966000000
+   },
+   "cagr5": 0.18511415178759827,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0001326801-23-000013",
+    "0001628280-26-003942"
+   ]
+  },
+  "UNH": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 257141000000,
+    "FY2021": 287597000000,
+    "FY2022": 324162000000,
+    "FY2023": 371622000000,
+    "FY2024": 400278000000,
+    "FY2025": 447567000000
+   },
+   "cagr5": 0.11721651214881779,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000731766-23-000008",
+    "0000731766-26-000062"
+   ]
+  },
+  "DIS": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-10-03",
+   "endEnd": "2025-09-27",
+   "currency": "USD",
+   "values": {
+    "FY2020": 65388000000,
+    "FY2021": 67418000000,
+    "FY2022": 82722000000,
+    "FY2023": 88898000000,
+    "FY2024": 91361000000,
+    "FY2025": 94425000000
+   },
+   "cagr5": 0.07626145769160764,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001744489-22-000213",
+    "0001744489-25-000155"
+   ],
+   "note": "Disney fiscal years end on the Saturday nearest 30 September (FY2020 ended 2020-10-03)."
+  },
+  "NIO": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "CNY",
+   "values": {
+    "FY2020": 16257933000,
+    "FY2021": 36136423000,
+    "FY2022": 49268561000,
+    "FY2023": 55617933000,
+    "FY2024": 65731559000,
+    "FY2025": 87487510000
+   },
+   "cagr5": 0.4001550958146094,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, CNY; 10-K/20-F)",
+   "accn": [
+    "0001104659-23-051990",
+    "0001104659-26-041765"
+   ],
+   "usd": {
+    "values": {
+     "FY2020": 2491637000,
+     "FY2021": 5670593000,
+     "FY2022": 7143270000,
+     "FY2023": 7833622000,
+     "FY2024": 9005187000,
+     "FY2025": 12510547000
+    },
+    "cagr5": 0.38088752274490734,
+    "note": "USD convenience translations from each 20-F (year-end RMB/USD rate), so they mix FX moves"
+   },
+   "note": "Constant currency (RMB, reporting currency)."
+  },
+  "YPF": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 9690000000,
+    "FY2021": 13682000000,
+    "FY2022": 18757000000,
+    "FY2023": 17311000000,
+    "FY2024": 19293000000,
+    "FY2025": 18448000000
+   },
+   "cagr5": 0.1374311101742436,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (ifrs-full:Revenue, USD; 10-K/20-F)",
+   "accn": [
+    "0001193125-23-097822",
+    "0001193125-26-126363"
+   ],
+   "note": "USD facts from YPF's 20-F (functional currency USD); Yahoo's ARS-labelled fields are not used."
+  },
+  "GGAL": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "definition": "Net operating revenue before loan-loss provisions (net operating income + loan-loss provisions: NII, net fees, financial-instrument, FX, insurance and other operating income)",
+   "values": {
+    "FY2020": 2583374925.7278666,
+    "FY2025": 6400760137.457045
+   },
+   "cagr5": 0.1989713969286777,
+   "fx": {
+    "FY2020": [
+     "2020-12-31",
+     84.15
+    ],
+    "FY2025": [
+     "2025-12-31",
+     1455.0
+    ],
+    "source": "BCRA Com. A3500"
+   },
+   "ars": {
+    "FY2020_nominal_Dec2020": 217391000000.0,
+    "FY2025_Dec2025": 9313106000000.0,
+    "cpi": {
+     "2020-12": 385.8826,
+     "2025-12": 10121.3715,
+     "source": "INDEC IPC nacional (datos.gob.ar 148.3_INIVELNAL_DICI_M_26)"
+    },
+    "FY2020_in_Dec2025_pesos": 5701980529198.517,
+    "realCagr5": 0.10309715173224543
+   },
+   "afterProvisions": {
+    "realCagr5": 0.05829481027268857,
+    "usdCagr5": 0.1502751185989888
+   },
+   "source": "Grupo Galicia Form 20-F FY2020 (selected financial data, IFRS, Dec-2020 pesos); Grupo Galicia 4Q2025 earnings release (12M income statement, Dec-2025 pesos)",
+   "urls": [
+    "https://www.sec.gov/Archives/edgar/data/1114700/000119312521129010/d58474d20f.htm",
+    "https://b.gfgsa.com/app/uploads/2026/03/PressRelease_GrupoGalicia_4Q2025_EN.pdf"
+   ],
+   "note": "IAS 29: each year is in pesos of its own year end, converted at that year-end official rate. The Dec-2020 official rate was set under strict capital controls (parallel rate ~2x), which flatters the USD CAGR; FY2025 includes the acquired HSBC Argentina (Galicia M\u00e1s) from Dec-2024, so growth is partly inorganic."
+  }
+ }
+}

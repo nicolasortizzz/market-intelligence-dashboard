@@ -40,13 +40,16 @@ function drawReverse(){const tk=V.tk,el=$("#rvBox");if(!el)return;const R=revers
        {x:R.baseCagr5,yref:"paper",y:0.92,text:"Base "+pct(R.baseCagr5),showarrow:false,font:{color:css("--up"),size:11}},
        ...(R.histCagr!=null?[{x:R.histCagr,yref:"paper",y:0.8,text:`Hist. ${R.histYrs} ${pct(R.histCagr)}`,showarrow:false,font:{color:css("--mu"),size:11}}]:[])]});
   // sensitivity grid: growth x margin with market-price contour
-  const gs=[],ms=[];for(let x=-0.05;x<=0.4001;x+=0.05)gs.push(+x.toFixed(4));for(let m=-0.02;m<=0.12001;m+=0.01)ms.push(+m.toFixed(4));
+  const gs=[],ms=[];for(let x=-0.05;x<=0.4001;x+=0.05)gs.push(+x.toFixed(4));for(let m=-0.02;m<=0.18001;m+=0.01)ms.push(+m.toFixed(4));
   const z=ms.map(m=>gs.map(g=>dcf(tk,"base",{...R.ov,gPath:g,ebitT:m}).ps*fu));
   const P0=R.px.p*fu;
-  plot("rvGrid",[{type:"heatmap",x:gs,y:ms,z,text:z.map(r=>r.map(v=>(S.ccy==="ARS"?"":"$")+v.toFixed(v>100?0:2))),texttemplate:"%{text}",textfont:{size:10},colorscale:[[0,"#b91c1c"],[.5,"#334155"],[1,"#15803d"]],zmin:0,zmax:2*P0,zauto:false,hovertemplate:"CAGR %{x:.1%} · EBIT margin %{y:.1%}<br>%{text}/share<extra></extra>",colorbar:{thickness:10,tickformat:"$,.2f",title:{text:"$/share",side:"right"}}},
+  // colour = log2(value / price), clipped to ±3 (⅛× … 8× the price) so high-margin cells don't wash out; labels/hover show the true $ value
+  const LC=3,lz=z.map(r=>r.map(v=>clamp(Math.log2(Math.max(v,1e-9)/P0),-LC,LC))),cur=S.ccy==="ARS"?"ARS ":"$",fv=v=>cur+(v>=100?v.toFixed(0):v>=10?v.toFixed(1):v.toFixed(2));
+  const tv=[-3,-2,-1,0,1,2,3],tt=tv.map(k=>(k===-LC?"≤ ":k===LC?"≥ ":"")+fv(P0*Math.pow(2,k))+(k===0?" (price)":""));
+  plot("rvGrid",[{type:"heatmap",x:gs,y:ms,z:lz,customdata:z,text:z.map(r=>r.map(v=>(S.ccy==="ARS"?"":"$")+v.toFixed(v>100?0:2))),texttemplate:"%{text}",textfont:{size:10},colorscale:[[0,"#b91c1c"],[.5,"#334155"],[1,"#15803d"]],zmin:-LC,zmax:LC,zauto:false,hovertemplate:"CAGR %{x:.1%} · EBIT margin %{y:.1%}<br>%{text}/share<extra></extra>",colorbar:{thickness:10,tickvals:tv,ticktext:tt,title:{text:"$/share (log scale)",side:"right"}}},
     {type:"contour",x:gs,y:ms,z,contours:{coloring:"none",start:R.px.p*fu,end:R.px.p*fu,size:1,showlabels:true,labelfont:{color:"#fff",size:11}},line:{color:"#fde047",width:3},showscale:false,hoverinfo:"skip",name:"Market price"},
     {type:"scatter",mode:"markers",x:[R.baseCagr5],y:[R.base.ebitT],marker:{symbol:"star",size:15,color:"#fff",line:{color:"#000",width:1}},name:"Base case",hovertemplate:"Base case<extra></extra>"}],
-    {xaxis:{title:"Revenue CAGR, years 1-5",tickformat:".0%",dtick:0.05},yaxis:{title:"Steady-state EBIT margin (yr 5+)",tickformat:".0%"},showlegend:false,margin:{l:64,r:10,t:10,b:50}});
+    {xaxis:{title:"Revenue CAGR, years 1-5",tickformat:".0%",dtick:0.05},yaxis:{title:"Steady-state EBIT margin (yr 5+)",tickformat:".0%",dtick:0.01},showlegend:false,margin:{l:64,r:10,t:10,b:50}});
   // interpretation
   const cons=c.revenueEstimate||{},c0=cons["0y"]?.growth,c1=cons["+1y"]?.growth;
   const gTxt=R.gImp==null?`No revenue CAGR between ${pct(R.G[0],0)} and ${pct(R.G[1],0)} reconciles to the price at a ${pct(R.mT)} margin`:`At a ${pct(R.mT)} steady-state EBIT margin, ${usd(R.px.p)} implies revenue compounding at <b>${pct(R.gImp)}</b> a year for five years (then fading to ${pct(R.base.g)}), i.e. a 10-year CAGR of ${pct(R.impCagr10)}`;

@@ -38,7 +38,7 @@ function dcf(tk,sid,ov={}){
   const m0=b.ebit0/b.rev0,cap0=a.capexPct1,da0=b.da0/b.rev0;
   const today=new Date(S.m.asOf),rows=[];let rev=b.rev0,pv=0;
   for(let i=1;i<=N;i++){
-    let gr=i===1?b.g1+(s.growthAdj||0):i===2?b.g2+(s.growthAdj||0)*.8:i<=5?mid:mid+(g-mid)*(i-5)/5;
+    let gr=ov.gPath!=null?(i<=5?ov.gPath:ov.gPath+(g-ov.gPath)*(i-5)/5):i===1?b.g1+(s.growthAdj||0):i===2?b.g2+(s.growthAdj||0)*.8:i<=5?mid:mid+(g-mid)*(i-5)/5; // gPath: flat yrs 1-5 growth (reverse DCF)
     gr=Math.max(gr,-0.5);const prev=rev;rev*=1+gr;
     const m=i>=5?ebitT:m0+(ebitT-m0)*i/5,ebit=rev*m,dap=i>=6?a.daPctT:da0+(a.daPctT-da0)*i/6,cpp=i>=6?capexT:cap0+(capexT-cap0)*(i-1)/5;
     const nopat=ebit>0?ebit*(1-tax):ebit,da=rev*dap,capex=rev*cpp,dnwc=(rev-prev)*a.nwcPct,fcf=nopat+da-capex-dnwc;

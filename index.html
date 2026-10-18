@@ -104,6 +104,14 @@
     <div class="card"><div class="card-h"><h3>Sensitivity: fair value per share (WACC × terminal growth)</h3></div><div id="vSens" class="chart sk"></div></div>
     <div class="card"><div class="card-h"><h3>EV → equity bridge</h3></div><div id="vBridge" class="chart sk"></div><p class="muted small" id="vBridgeNote"></p></div>
   </div>
+  <div class="card" id="rvBox"><div class="card-h"><h3 id="rvTitle">Reverse DCF: what does the market price imply?</h3><span class="muted small">Solves the DCF backwards: price → implied growth and margin</span></div>
+    <div class="kpis" id="rvK" style="margin-bottom:12px"></div>
+    <div class="grid g2" style="margin-bottom:10px">
+      <div><div id="rvSliders" class="vsliders"></div><div id="rvCurve" class="chart sk"></div></div>
+      <div><h3 class="small" style="margin:0 0 6px">Implied value per share: revenue CAGR (yrs 1-5) × steady-state EBIT margin <span class="muted">· yellow line = market price · ★ = Base case</span></h3><div id="rvGrid" class="chart tall sk"></div></div>
+    </div>
+    <div id="rvNote" class="small"></div>
+  </div>
   <div class="grid">
     <div class="card"><div class="card-h"><h3>Trading comparables</h3><span class="muted small">Multiples recomputed in USD from Yahoo data</span></div><div class="tablewrap"><table id="vComps"></table></div><div id="vPrec" class="small" style="margin-top:10px"></div></div>
     <div class="card"><div class="card-h"><h3>Football field</h3><span class="muted small">red = price · green = triangulated fair value</span></div><div id="vFF" class="chart tall sk"></div></div>
@@ -126,4 +134,5 @@
 <div id="toast" class="toast"></div>
 <script src="app.js"></script>
 <script src="valuation.js"></script>
+<script src="reverse_dcf.js"></script>
 </body></html>

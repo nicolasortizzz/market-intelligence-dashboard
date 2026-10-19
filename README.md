@@ -89,6 +89,12 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 - GGAL "revenue" = net operating revenue before loan-loss provisions (net operating income + provisions). Each year is in pesos of its own year end (IAS 29); the real-ARS CAGR restates FY2020 to Dec-2025 pesos with INDEC CPI. After provisions the CAGR is 15.0% in USD / 5.8% real. The Dec-2020 official rate under capital controls flatters the USD figure, and the HSBC Argentina acquisition (Dec-2024) makes growth partly inorganic.
 - Example (NIO, close of 2026-10-16, $3.43): ~17.7% revenue CAGR for 5 years (13.2% over 10) at a 4% EBIT margin, or a ~4.1% steady-state margin on Base-case growth, i.e. roughly the Base case. Figures update with the data and the sliders.
 
+**Historical WACC (standard for every ticker)**
+- `scripts/fetch_wacc_history.py` → `data/wacc_history.json`; shown in the "Historical WACC" card (table + line chart, current model WACC highlighted as a star). Banks (GGAL) show the **cost of equity** instead, labelled.
+- Per calendar year-end FY2021-FY2025 plus today: risk-free = US 10Y Treasury (^TNX) on that date; beta = 60 monthly returns vs the S&P 500 ending that date, Blume-adjusted (0.67 × raw + 0.33; min 24 months, NIO has 39/51 months in 2021/22); ERP = Damodaran implied ERP (FCFE) at the start of the following year (4.24%, 5.94%, 4.60%, 4.33%, 4.23%); CRP = Argentina EMBI at year-end for YPF/GGAL (1,688 / 2,213 / 1,906 / 635 / 571 bp, api.argentinadatos.com) and Damodaran's rating-based China CRP for NIO (0.70% / 1.22% / 1.03% / 0.94% / 0.91%); cost of debt = interest expense / average total debt (floored at rf, capped at rf + 10%), else rf + the model credit spread (+ EMBI for YPF), after tax at the effective rate; weights = market cap at year-end vs book debt at the fiscal year-end.
+- All in USD terms (ASML: USD ADR beta and US rf, EUR debt at the ECB year-end rate; NIO debt at year-end CNY/USD). The model WACC can differ from today's historical-method value because the DCF uses documented beta overrides and a 4.5% ERP.
+- Caveats: FY2021 debt is carried back from FY2022 where Yahoo's statements stop (flagged with *), and legacy low-coupon debt makes interest / debt fall below rf, so Kd is often floored at rf.
+
 **Argentine names: YPF and GGAL**
 - **Country risk**: the cost of equity adds the full J.P. Morgan EMBI spread for Argentina, **648 bp at the close of 2026-10-16**, on top of rf (10Y UST) + β × ERP. Betas are documented overrides (YPF 1.1, GGAL 1.15) because Yahoo's 5Y betas (−0.11 and 0.29) are distorted by local ownership and trading.
 - **YPF** (1 ADS = 1 Class D share): its functional currency is the **USD** and Yahoo's annual/quarterly statements are in USD, even though Yahoo labels the company "ARS". Debt, cash and TTM revenue/EBITDA are therefore rebuilt from the USD statements (balance sheet 2026-06-30, TTM = Q3 2025-Q2 2026), and Yahoo's ARS revenue consensus is not used for USD growth: FY2026 = H1 2026 reported revenue ($11.5B) + ~$11.5B in H2 at the guided ~$75 Brent (+26%), FY2027 ≈ −2% as Brent normalizes. Year-1 EBIT margin is set at 20% (H1 2026: 23%). Peers: VIST, PAM, PBR, EC. Scenarios include a macro-crisis/devaluation tail (+400 bp country risk, export duties and price controls) and a low-probability tail in which the US Supreme Court revives the $16.1B Petersen/Eton Park judgment against the Republic (voided by the Second Circuit on 2026-03-27, which also confirmed YPF is not liable; plaintiffs petitioned the Supreme Court in October 2026).
@@ -141,6 +147,7 @@ python scripts/fetch_data.py      # ~2 minutes; rewrites market/prices/activity/
 python scripts/fetch_valuation.py # ~20 seconds; rewrites valuation.json
 python scripts/fetch_reverse_dcf.py # a few seconds; latest closes for the reverse DCF
 python scripts/fetch_revenue_history.py # FY2020-FY2025 revenue (SEC XBRL; GGAL hand-entered)
+python scripts/fetch_wacc_history.py   # FY2021-FY2025 + current WACC (Damodaran ERP/CRP, EMBI, ^TNX, ^GSPC)
 python -m http.server 8000        # preview at http://localhost:8000
 git add data && git commit -m "Refresh data snapshot" && git push
 ```

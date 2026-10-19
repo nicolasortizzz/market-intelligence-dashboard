@@ -104,6 +104,8 @@
     <div class="card"><div class="card-h"><h3 id="vSensT">Sensitivity: fair value per share (WACC × terminal growth)</h3></div><div id="vSens" class="chart sk"></div></div>
     <div class="card"><div class="card-h"><h3>EV → equity bridge</h3></div><div id="vBridge" class="chart sk"></div><p class="muted small" id="vBridgeNote"></p></div>
   </div>
+  <div class="card" id="whBox"><div class="card-h"><h3 id="whTitle">Historical WACC</h3><span class="muted small">FY2021–FY2025 year-ends + today · current model value highlighted</span></div>
+    <div class="tablewrap"><table id="whTbl" class="vt"></table></div><div id="whChart" class="chart sk" style="height:260px"></div><p class="muted small" id="whNote"></p></div>
   <div class="card" id="rvBox"><div class="card-h"><h3 id="rvTitle">Reverse DCF: what does the market price imply?</h3><span class="muted small">Solves the DCF backwards: price → implied growth and margin</span></div>
     <div class="kpis" id="rvK" style="margin-bottom:12px"></div>
     <div class="grid g2" style="margin-bottom:10px">
@@ -135,4 +137,5 @@
 <script src="app.js"></script>
 <script src="valuation.js"></script>
 <script src="reverse_dcf.js"></script>
+<script src="wacc_hist.js"></script>
 </body></html>

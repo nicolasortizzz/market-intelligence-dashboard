@@ -18,8 +18,10 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "UNH": ("us-gaap", ["Revenues"], "USD"),
        "DIS": ("us-gaap", ["Revenues"], "USD"),
        "NIO": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax"], "CNY"),
-       "YPF": ("ifrs-full", ["Revenue"], "USD")}
-END = 2025  # last completed fiscal year for all six names
+       "YPF": ("ifrs-full", ["Revenue"], "USD"),
+       "MU": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
+       "ASML": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax"], "EUR")}
+END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",
                    "source": "Grupo Galicia Form 20-F FY2020 (selected financial data, IFRS, Dec-2020 pesos)",
                    "url": "https://www.sec.gov/Archives/edgar/data/1114700/000119312521129010/d58474d20f.htm"},
@@ -54,6 +56,13 @@ def cpi():
     r = requests.get("https://apis.datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&format=json&limit=1000", timeout=60).json()
     return {row[0][:7]: row[1] for row in r["data"]}
 
+def ecb(day):
+    """ECB euro reference rate (USD per EUR) on the last fixing on or before `day`."""
+    d = dt.date.fromisoformat(day)
+    r = requests.get(f"https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod={(d - dt.timedelta(days=10)).isoformat()}&endPeriod={day}&format=csvdata", timeout=30)
+    rows = r.text.strip().splitlines(); h = rows[0].split(","); v = rows[-1].split(",")
+    return v[h.index("TIME_PERIOD")], float(v[h.index("OBS_VALUE")])
+
 def cagr(a, b, n): return (b / a) ** (1 / n) - 1
 
 def main():
@@ -74,6 +83,19 @@ def main():
                         "note": "USD convenience translations from each 20-F (year-end RMB/USD rate), so they mix FX moves"}
             d["note"] = "Constant currency (RMB, reporting currency)."
         if t == "YPF": d["note"] = "USD facts from YPF's 20-F (functional currency USD); Yahoo's ARS-labelled fields are not used."
+        if t == "MU":
+            if END + 1 in s:
+                d["latest"] = {"start": f"FY{y0 + 1}", "end": f"FY{END + 1}", "endEnd": s[END + 1]["end"], "cagr5": cagr(s[y0 + 1]["val"], s[END + 1]["val"], 5),
+                               "values": {f"FY{y0 + 1}": s[y0 + 1]["val"], f"FY{END + 1}": s[END + 1]["val"]}}
+            d["note"] = ("Micron's fiscal year ends on the Thursday closest to 31 August (FY2020 ended 2020-09-03, FY2025 ended 2025-08-28). "
+                         "FY2020-FY2025 runs from a mid-cycle year to an early AI-upcycle year; memory revenue is highly cyclical (FY2023 fell 49%)."
+                         + (f" On the latest five fiscal years (FY{y0 + 1}-FY{END + 1}, FY{END + 1} ended {s[END + 1]['end']}) the CAGR is {d['latest']['cagr5'] * 100:.1f}%, driven by the 2026 HBM/DRAM price spike." if "latest" in d else ""))
+        if t == "ASML":
+            (e0d, e0), (e1d, e1) = ecb(a["end"]), ecb(b["end"])
+            d["usd"] = {"values": {f"FY{y0}": a["val"] * e0, f"FY{END}": b["val"] * e1}, "cagr5": cagr(a["val"] * e0, b["val"] * e1, 5),
+                        "fx": {f"FY{y0}": [e0d, e0], f"FY{END}": [e1d, e1], "source": "ECB euro reference rate"},
+                        "note": f"translated at the ECB year-end rates ({e0} USD/EUR on {e0d}, {e1} on {e1d}), so it mixes FX moves"}
+            d["note"] = "Constant currency (EUR, reporting currency; US GAAP 20-F net sales)."
         if t == "DIS": d["note"] = "Disney fiscal years end on the Saturday nearest 30 September (FY2020 ended 2020-10-03)."
         res["companies"][t] = d; print(t, d["start"], d["end"], unit, round(d["cagr5"] * 100, 2)); time.sleep(0.3)
     # GGAL

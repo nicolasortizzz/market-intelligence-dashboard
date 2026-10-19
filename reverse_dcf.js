@@ -9,10 +9,10 @@ async function loadRev(){if(RV.Q)return;try{RV.Q=await fetch("data/reverse_dcf.j
   try{RV.H=await fetch("data/revenue_history.json").then(r=>r.json())}catch(e){RV.H={companies:{}}}}
 /* historical 5-year revenue CAGR (FY2020→FY2025, 5 compounding periods) from data/revenue_history.json */
 const H5=tk=>RV.H?.companies?.[tk]||null;
-const h5Ccy=h=>h.currency==="CNY"?"RMB (constant currency)":h.ars?"USD at year-end BCRA rates":h.currency;
+const h5Ccy=h=>h.currency==="CNY"?"RMB (constant currency)":h.currency==="EUR"?"EUR (constant currency)":h.ars?"USD at year-end BCRA rates":h.currency;
 const h5Foot=(tk,h)=>!h?"":`Historical 5-year revenue CAGR ${h.start}→${h.end} (5 compounding periods; fiscal years ending ${h.startEnd} and ${h.endEnd}): <b>${pct(h.cagr5)}</b> in ${h5Ccy(h)}${h.usd?`; ${pct(h.usd.cagr5)} in USD (${h.usd.note})`:""}${h.ars?`; <b>${pct(h.ars.realCagr5)}</b> in real ARS (FY2020 restated to Dec-2025 pesos with INDEC CPI ${h.ars.cpi["2020-12"].toFixed(1)}→${h.ars.cpi["2025-12"].toFixed(1)}); FX ${h.fx.FY2020[1]} (${h.fx.FY2020[0]}) and ${h.fx.FY2025[1]} (${h.fx.FY2025[0]}) ARS/USD${h.afterProvisions?`. After loan-loss provisions (net operating income): ${pct(h.afterProvisions.usdCagr5)} USD, ${pct(h.afterProvisions.realCagr5)} real ARS`:""}`:""}. Definition: ${h.definition}. Source: ${h.source}.${h.note?" "+h.note:""}`;
 function addH5Row(tk){const h=H5(tk),kv=$("#vAssump .kv");if(!h||!kv||kv.querySelector(".h5"))return;
-  kv.insertAdjacentHTML("beforeend",`<span class="h5" title="${h.source}">Revenue CAGR, 5y historical (${h.start}–${h.end})</span><span class="h5" title="${h.source}">${pct(h.cagr5)} ${h.currency==="CNY"?"(RMB)":h.ars?`(USD) · ${pct(h.ars.realCagr5)} real ARS`:"(USD)"}</span>`)}
+  kv.insertAdjacentHTML("beforeend",`<span class="h5" title="${h.source}">Revenue CAGR, 5y historical (${h.start}–${h.end})</span><span class="h5" title="${h.source}">${pct(h.cagr5)} ${h.currency==="CNY"?"(RMB)":h.currency==="EUR"?`(EUR) · ${pct(h.usd.cagr5)} in USD`:h.ars?`(USD) · ${pct(h.ars.realCagr5)} real ARS`:"(USD)"}${h.latest?` · ${h.latest.start}–${h.latest.end}: ${pct(h.latest.cagr5)}`:""}</span>`)}
 function mktPx(tk){const q=RV.Q?.quotes?.[tk],c=V.D.companies[tk];return q?{p:q.price,d:q.priceDate,src:"yfinance close"}:{p:c.price,d:c.priceDate,src:"valuation snapshot"}}
 function bisect(f,lo,hi,target,it=70){let flo=f(lo)-target,fhi=f(hi)-target;if(!isFinite(flo)||!isFinite(fhi)||flo*fhi>0)return null;
   for(let i=0;i<it;i++){const m=(lo+hi)/2,fm=f(m)-target;if(Math.abs(fm)<1e-7||hi-lo<1e-7)return m;if(fm*flo<0){hi=m;fhi=fm}else{lo=m;flo=fm}}return(lo+hi)/2}
@@ -21,7 +21,7 @@ function reverse(tk){
   const ov=revOv(tk),base=dcf(tk,"base",ov),st=RV.st[tk]||{},mT=st.m??base.ebitT,px=mktPx(tk);
   const G=[-0.3,0.8],M=[-0.1,0.6];
   const fG=x=>dcf(tk,"base",{...ov,gPath:x,ebitT:mT}).ps,fM=x=>dcf(tk,"base",{...ov,ebitT:x}).ps;
-  const gImp=bisect(fG,G[0],G[1],px.p),mImp=bisect(fM,M[0],M[1],px.p);
+  const gImp=bisect(fG,G[0],G[1],px.p),mImp=bisect(fM,M[0],M[1],px.p)??bisect(fM,M[1],0.95,px.p); // wider margin bracket only if needed (MU/ASML)
   const b=base.b,cagr=r=>Math.pow(r.rows[4].rev/b.rev0,1/5)-1,cagr10=r=>Math.pow(r.rows[9].rev/b.rev0,0.1)-1;
   const imp=gImp!=null?dcf(tk,"base",{...ov,gPath:gImp,ebitT:mT}):null;
   const H=b.hist||[],h0=H[0],hN=H.at(-1),nH=H.length>1?+hN.y-+h0.y:0,hist3=nH>0?Math.pow(hN.rev/h0.rev,1/nH)-1:null,h5=H5(tk);
@@ -90,7 +90,7 @@ function drawReverse(){const tk=V.tk,el=$("#rvBox");if(!el)return;const R=revers
   const mTxt=R.mImp==null?"Holding Base-case growth, no EBIT margin in the tested range matches the price.":`Holding Base-case growth instead, the price implies a steady-state EBIT margin of <b>${pct(R.mImp,2)}</b> vs ${pct(R.base.ebitT)} in the Base case (FY${b.hist.at(-1).y} actual: ${pct(b.ebit0/b.rev0)}).`;
   const pw=probWeighted(tk,R.ov).pw,cm=comps(tk),cMid=compMidOf(cm),tri=cMid!=null?0.6*pw+0.4*cMid:pw;
   const verdict=(R.base.ps>R.px.p?`The Base-case DCF of <b>${usd(R.base.ps)}</b> sits ${pct(R.base.ps/R.px.p-1)} above the price: the market is pricing a <b>less optimistic</b> path than the Base case.`:`The Base-case DCF of <b>${usd(R.base.ps)}</b> sits ${pct(1-R.base.ps/R.px.p)} below the price: the market is pricing a ${R.base.ps/R.px.p>0.9?"slightly ":""}<b>more optimistic</b> path than the Base case.`)+` The tab's triangulated fair value (<b>${usd(tri)}</b> = 60% probability-weighted DCF ${usd(pw)} + 40% comps ${cMid!=null?usd(cMid):"—"}) is ${tri>R.px.p?"above":"below"} the price; the comps leg is ${cMid==null?"n/a":cMid>pw?"above":"below"} the DCF leg${cMid!=null&&Math.abs(cMid/pw-1)>0.3?", so multiples and cash flows disagree materially":""}.`;
-  const lev=(()=>{const lo=dcf(tk,"base",{...R.ov,ebitT:R.base.ebitT-0.01}).ps,hi=dcf(tk,"base",{...R.ov,ebitT:R.base.ebitT+0.01}).ps;return`Sensitivity: ±1pp of steady-state EBIT margin moves the Base-case value by about ${usd((hi-lo)/2)}/share (${pct((hi-lo)/2/R.base.ps)}), ${R.base.ebitT<0.1?"so for a thin-margin business the margin, not the growth rate, is the main swing factor.":"."}`})();
+  const lev=(()=>{const lo=dcf(tk,"base",{...R.ov,ebitT:R.base.ebitT-0.01}).ps,hi=dcf(tk,"base",{...R.ov,ebitT:R.base.ebitT+0.01}).ps;return`Sensitivity: ±1pp of steady-state EBIT margin moves the Base-case value by about ${usd((hi-lo)/2)}/share (${pct((hi-lo)/2/R.base.ps)})${R.base.ebitT<0.1?", so for a thin-margin business the margin, not the growth rate, is the main swing factor.":"."}`})();
   $("#rvNote").innerHTML=`<p>${gTxt}. ${vs}</p><p>${mTxt} ${verdict}</p><p class="muted small">${lev} Same engine and inputs as the DCF above (tax ${pct(R.base.b.a.tax)}, D&amp;A/capex glide paths, ΔNWC, dilution ${pct(R.base.s.shareChange??R.base.b.a.shareChange)}/yr for 3 years, ${b.netDebt<0?"net cash "+bn(-b.netDebt):"net debt "+bn(b.netDebt)}, minority interest ${bn(b.minority)}). Solved by bisection. Price: ${R.px.src}, ${R.px.d}. Model estimates, not investment advice.</p>${R.h5?`<p class="muted small" id="rvH5">${h5Foot(tk,R.h5)}</p>`:""}`;rvH5Tip(tk,R);
 }
 function drawReverseBank(tk,R,b,c,fu,st,gr,L){

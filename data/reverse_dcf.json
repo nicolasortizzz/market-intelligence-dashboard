@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T23:12:04Z",
+ "generatedAt": "2026-10-19T22:25:21Z",
  "quotes": {
   "META": {
    "price": 709.33,
@@ -34,6 +34,18 @@
   "GGAL": {
    "price": 36.02,
    "priceDate": "2026-10-16",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "MU": {
+   "price": 904.9,
+   "priceDate": "2026-10-19",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ASML": {
+   "price": 1647.12,
+   "priceDate": "2026-10-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   }

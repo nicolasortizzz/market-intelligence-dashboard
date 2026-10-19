@@ -16,7 +16,10 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "DIS": ["NFLX", "CMCSA", "WBD", "SONY", "PSKY"],
            "NIO": ["TSLA", "LI", "XPEV", "RIVN", "BYDDY"],
            "YPF": ["VIST", "PAM", "PBR", "EC"],
-           "GGAL": ["BMA", "BBAR", "SUPV", "ITUB", "CIB"]}
+           "GGAL": ["BMA", "BBAR", "SUPV", "ITUB", "CIB"],
+           "MU": ["000660.KS", "005930.KS", "WDC", "SNDK", "NVDA", "AMD"],   # NVDA/AMD: reference only (excluded from comps stats)
+           "ASML": ["AMAT", "LRCX", "KLAC", "8035.T"]}
+SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}          # ticker -> local shares per ADR (GGAL: 1 ADS = 10 Class B shares)
 ROWS = {"income": ["Total Revenue", "Gross Profit", "Operating Income", "EBIT", "EBITDA", "Normalized EBITDA",
@@ -59,7 +62,9 @@ def multiples(t):
     """Peer multiples recomputed consistently in USD (Yahoo's own ratios mix ADR/reporting currencies)."""
     i = yf.Ticker(t).info or {}
     fin = i.get("financialCurrency") or "USD"; k = fx_to_usd(fin)
-    mc = i.get("marketCap"); debt = (i.get("totalDebt") or 0) / k; cash = (i.get("totalCash") or 0) / k
+    mc = i.get("marketCap"); qc = i.get("currency") or "USD"
+    if mc and qc != "USD": mc = mc / fx_to_usd(qc)   # local listings (KRW, JPY): market cap to USD
+    debt = (i.get("totalDebt") or 0) / k; cash = (i.get("totalCash") or 0) / k
     rev = (i.get("totalRevenue") or 0) / k or None; ebitda = (i.get("ebitda") or 0) / k or None
     ni = (i.get("netIncomeToCommon") or 0) / k or None
     book = None
@@ -96,6 +101,36 @@ def sec_facts(cik_map, t):
             if fy and tag not in out:
                 out[tag] = {"unit": unit, "ns": ns, "fy": dict(sorted(fy.items())[-10:])}
     return out
+
+def ecb_eurusd():
+    """ECB euro foreign exchange reference rate (USD per EUR), latest observation."""
+    r = requests.get("https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?lastNObservations=1&format=csvdata", timeout=30)
+    row = r.text.strip().splitlines(); hdr = row[0].split(","); v = row[-1].split(",")
+    return v[hdr.index("TIME_PERIOD")], float(v[hdr.index("OBS_VALUE")])
+
+def sec_append(d, cik):
+    """Append the latest 10-K fiscal year (missing in Yahoo's annual statements) from SEC XBRL companyfacts."""
+    j = requests.get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json", headers=UA, timeout=60).json()["facts"]["us-gaap"]
+    def fy(tags):
+        for t in tags:
+            out = {}
+            for e in j.get(t, {}).get("units", {}).get("USD", []):
+                if e.get("form") == "10-K" and e.get("fp") == "FY" and len(e.get("frame", "")) == 6: out[e["end"]] = e["val"]
+            if out: return out
+        return {}
+    rev = fy(["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"]); end = max(rev)
+    if end[:7] <= d["income"]["years"][-1][:7]: return
+    m = {("income", "Total Revenue"): rev, ("income", "Operating Income"): fy(["OperatingIncomeLoss"]),
+         ("income", "Net Income"): fy(["NetIncomeLoss"]), ("income", "Reconciled Depreciation"): fy(["DepreciationDepletionAndAmortization", "Depreciation"]),
+         ("cashflow", "Capital Expenditure"): {k: -v for k, v in fy(["PaymentsToAcquirePropertyPlantAndEquipment"]).items()},
+         ("cashflow", "Operating Cash Flow"): fy(["NetCashProvidedByUsedInOperatingActivities"])}
+    for sec in ("income", "cashflow"):
+        st = d[sec]; st["years"].append(end)
+        for r in [r for r in st if r != "years"]: st[r].append(m.get((sec, r), {}).get(end))
+    cf = d["cashflow"]
+    if cf.get("Free Cash Flow") is not None and cf.get("Operating Cash Flow") and cf.get("Capital Expenditure"):
+        cf["Free Cash Flow"][-1] = (cf["Operating Cash Flow"][-1] or 0) + (cf["Capital Expenditure"][-1] or 0)
+    d["secAppended"] = {"fyEnd": end, "source": "SEC EDGAR XBRL companyfacts (10-K)"}
 
 def bcra(date_from, date_to):
     """BCRA Com. A3500 wholesale USD rate: (date, ARS per USD) for the last quote in the window."""
@@ -172,8 +207,13 @@ def main():
     res = json.load(open(path)) if only and os.path.exists(path) else {"companies": {}}
     res["generatedAt"] = now
     if not only or "NIO" in only: res.setdefault("fx", {})["CNYUSD"] = cny
-    fd, ars = bcra((dt.date.today() - dt.timedelta(days=10)).isoformat(), dt.date.today().isoformat())
-    if ars: res["fx"].update({"ARSUSD_BCRA": ars, "ARS_date": fd}); FXC["ARS"] = ars
+    if not only or "ASML" in only:
+        ed, ev = ecb_eurusd()
+        res.setdefault("fx", {}).update({"EURUSD": 1 / ev, "EURUSD_ecb": ev, "EUR_date": ed, "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"})
+        FXC["EUR"] = 1 / ev
+    if not only or {"YPF", "GGAL"} & set(only):   # ARS rate only refreshed with the Argentine names
+        fd, ars = bcra((dt.date.today() - dt.timedelta(days=10)).isoformat(), dt.date.today().isoformat())
+        if ars: res["fx"].update({"ARSUSD_BCRA": ars, "ARS_date": fd}); FXC["ARS"] = ars
     FXC["CNY"] = cny
     for t, peers in TARGETS.items():
         if only and t not in only: continue
@@ -204,6 +244,7 @@ def main():
             time.sleep(0.2)
         if t in USD_STMT: usd_stmt_fix(d, k)
         if t in BANKS: bank_block(d, k, BANKS[t])
+        if t in SEC_APPEND: sec_append(d, cik[t])
         d["fetchedAt"] = now
         res["companies"][t] = d
         print(t, d["price"], d["financialCurrency"])

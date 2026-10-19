@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T23:26:26Z",
+ "generatedAt": "2026-10-19T22:27:35Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -126,6 +126,81 @@
     "0001193125-26-126363"
    ],
    "note": "USD facts from YPF's 20-F (functional currency USD); Yahoo's ARS-labelled fields are not used."
+  },
+  "MU": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-09-03",
+   "endEnd": "2025-08-28",
+   "currency": "USD",
+   "values": {
+    "FY2020": 21435000000,
+    "FY2021": 27705000000,
+    "FY2022": 30758000000,
+    "FY2023": 15540000000,
+    "FY2024": 25111000000,
+    "FY2025": 37378000000
+   },
+   "cagr5": 0.11763119291842661,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0000723125-22-000048",
+    "0000723125-26-000023"
+   ],
+   "latest": {
+    "start": "FY2021",
+    "end": "FY2026",
+    "endEnd": "2026-09-03",
+    "cagr5": 0.36893046480928793,
+    "values": {
+     "FY2021": 27705000000,
+     "FY2026": 133188000000
+    }
+   },
+   "note": "Micron's fiscal year ends on the Thursday closest to 31 August (FY2020 ended 2020-09-03, FY2025 ended 2025-08-28). FY2020-FY2025 runs from a mid-cycle year to an early AI-upcycle year; memory revenue is highly cyclical (FY2023 fell 49%). On the latest five fiscal years (FY2021-FY2026, FY2026 ended 2026-09-03) the CAGR is 36.9%, driven by the 2026 HBM/DRAM price spike."
+  },
+  "ASML": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "EUR",
+   "values": {
+    "FY2020": 13978500000,
+    "FY2021": 18611000000,
+    "FY2022": 21173400000,
+    "FY2023": 27558500000,
+    "FY2024": 28262900000,
+    "FY2025": 32667300000
+   },
+   "cagr5": 0.18503324439054114,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, EUR; 10-K/20-F)",
+   "accn": [
+    "0000937966-23-000014",
+    "0001628280-26-011378"
+   ],
+   "usd": {
+    "values": {
+     "FY2020": 17153017350.000002,
+     "FY2025": 38384077500.0
+    },
+    "cagr5": 0.17479507208665757,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      1.2271
+     ],
+     "FY2025": [
+      "2025-12-31",
+      1.175
+     ],
+     "source": "ECB euro reference rate"
+    },
+    "note": "translated at the ECB year-end rates (1.2271 USD/EUR on 2020-12-31, 1.175 on 2025-12-31), so it mixes FX moves"
+   },
+   "note": "Constant currency (EUR, reporting currency; US GAAP 20-F net sales)."
   },
   "GGAL": {
    "start": "FY2020",

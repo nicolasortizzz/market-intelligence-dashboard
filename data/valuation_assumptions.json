@@ -139,6 +139,52 @@
         {"date": "2027-10", "q": "Q4 2027", "event": "Argentine presidential election", "impact": "High", "dir": "±"}
       ],
       "score": {"quality": 7, "growth": 7, "risk": 3, "valuation": null, "rationale": "Quality: Argentina's largest private financial group (~16% share of private loans and deposits), capital ratio 23.7% and efficiency 35% in Q2 2026. Growth: credit penetration is among the lowest in LatAm, so loan growth can be strong if disinflation holds. Risk: high, given NPLs at 10.6%, IAS 29 inflation accounting, FX and sovereign exposure, and regulatory history. Valuation: scored from the model's implied upside."}
+    },
+    "MU": {
+      "sector": "Memory semiconductors (DRAM, HBM, NAND)", "betaAdj": "none", "betaOverride": 1.6, "betaNote": "Yahoo's 5Y beta (2.23) is inflated by the 2026 memory squeeze; an assumed 1.6 (cyclical semiconductor) is used.", "crp": 0, "kdSpread": 0.012, "tax": 0.15, "ebit1": 0.78,
+      "growthNote": "Fiscal years end on the Thursday closest to 31 August (FY2026 = 53 weeks ended 2026-09-03). FY2026 is taken from the 10-K via SEC XBRL because Yahoo's annual statements stop at FY2025. Year 1 / year 2 = consensus FY2027 / FY2028 revenue ($275.5B / $318.9B). Memory is highly cyclical, so years 3-5 assume DRAM/NAND pricing normalizes (Base −12%/yr) and the steady-state EBIT margin is a mid-cycle 38%, versus 74.6% in FY2026 and roughly 25% on average over FY2016-25 (HBM mix and long-term supply agreements justify a higher mid-cycle than history).",
+      "daPct0": 0.071, "daPctT": 0.17, "capexPct1": 0.18, "capexPctT": 0.25, "nwcPct": 0.15, "terminalG": 0.03, "ronic": 0.15, "shareChange": 0.0,
+      "precedentEvEbitda": [4, 7], "controlPremium": [0.20, 0.35], "compsRef": ["NVDA", "AMD"],
+      "precedentNote": "Memory control deals have cleared around 5-8x mid-cycle EBITDA (estimates): Western Digital-SanDisk (2016, ~$19B), the Bain-led Toshiba Memory (Kioxia) buyout (2018, ~$18B), SK Hynix-Intel NAND/Solidigm (2020-21, $9B). Because TTM EBITDA is at a cyclical peak, a lower 4-7x is applied. A takeover of MU is not realistic (size, CFIUS, China SAMR); this is a private-market cross-check.",
+      "compsNote": "Comps statistics use SK Hynix, Samsung Electronics (a conglomerate: memory, foundry, phones), WDC and SNDK. NVDA and AMD are shown for reference only (AI compute customers, not memory peers) and excluded from the medians. All multiples are on TTM figures at a memory-cycle peak, so they overstate mid-cycle value.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": -0.25, "midGrowth": -0.20, "ebitT": 0.25, "desc": "Industry capacity additions (Samsung, SK Hynix, CXMT) and HBM qualification wins by rivals turn DRAM into oversupply from 2028; prices fall sharply and margins return to the historical ~25% average."},
+        {"id": "base", "name": "Base", "p": 0.43, "growthAdj": 0, "midGrowth": -0.12, "ebitT": 0.38, "desc": "Consensus FY2027-28 (+107% / +16%) as AI servers absorb HBM and high-capacity DRAM; then pricing normalizes over FY2029-31 and the margin settles at a mid-cycle 38%, above history thanks to HBM mix and long-term agreements."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0.05, "midGrowth": -0.04, "ebitT": 0.45, "desc": "HBM4/HBM4E share above 25%, multi-year take-or-pay contracts with hyperscalers and disciplined industry capex keep the downturn shallow."},
+        {"id": "crashTail", "name": "Tail: AI capex bust / memory crash", "p": 0.12, "growthAdj": -0.40, "midGrowth": -0.25, "ebitT": 0.15, "ebit1": 0.55, "desc": "Hyperscaler AI capex is cut in 2027 (ROI disappointment), inventory piled up at customers is dumped and contract prices halve; a 2023-style downturn on a much larger revenue base."},
+        {"id": "superTail", "name": "Tail: Memory-bound AI super-cycle", "p": 0.05, "growthAdj": 0.10, "midGrowth": 0.05, "ebitT": 0.50, "desc": "Memory bandwidth becomes the binding constraint of AI compute (agentic inference, long context); demand outruns supply for years and the cycle flattens into a growth market."},
+        {"id": "taiwanTail", "name": "Tail: Taiwan / East Asia geopolitical shock", "p": 0.03, "growthAdj": -0.30, "midGrowth": -0.15, "ebitT": 0.20, "crpAdd": 0.02, "oneOff": -40000000000.0, "desc": "A blockade or conflict around Taiwan, where Micron makes most of its DRAM and HBM (Taichung, Taoyuan); ~$40B of assumed asset losses and rebuild costs, supply chaos and a higher risk premium."}
+      ],
+      "catalysts": [
+        {"date": "Late Oct 2026", "q": "Q3 CY26", "event": "Hyperscaler (MSFT, GOOGL, META, AMZN) Q3 results and 2027 capex guides", "impact": "High", "dir": "±"},
+        {"date": "~2026-12-17", "q": "FQ1 FY27", "event": "FQ1 FY2027 results and FQ2 guide (consensus revenue ~$61.7B)", "impact": "High", "dir": "±"},
+        {"date": "Monthly", "q": "Each month", "event": "DRAM/NAND contract prices (TrendForce) and HBM4 qualification news", "impact": "High", "dir": "±"},
+        {"date": "Ad hoc", "q": "Any", "event": "US/China export controls (China banned Micron in CII in 2023), CHIPS Act milestones (Idaho, New York fabs)", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 7, "growth": 8, "risk": 4, "valuation": null, "rationale": "Quality: one of three DRAM/HBM makers, net cash, FY2026 operating margin 74.6% at the top of the cycle. Growth: consensus doubles revenue in FY2027 on HBM and AI server demand. Risk: memory is the most cyclical part of semis (FY2023 operating loss of $5.4B), and Taiwan concentration plus China export policy add tail risk. Valuation: scored from the model's implied upside on mid-cycle margins."}
+    },
+    "ASML": {
+      "sector": "Semiconductor equipment (EUV/DUV lithography)", "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.007, "tax": 0.17,
+      "growthNote": "ASML reports in EUR (US GAAP 20-F). The model is computed in EUR and converted to USD per ADR (1 ADR = 1 ordinary share) at the ECB euro reference rate stored in valuation.json. Year 1 / year 2 = consensus FY2026 / FY2027 net sales (€44.5B / €57.2B, +36% / +29%).",
+      "daPct0": 0.045, "daPctT": 0.04, "capexPct1": 0.05, "capexPctT": 0.045, "nwcPct": 0.10, "terminalG": 0.03, "ronic": 0.25, "shareChange": -0.01,
+      "precedentEvEbitda": [15, 25], "controlPremium": [0.20, 0.35], "compsRef": ["8035.T"],
+      "precedentNote": "Semiconductor-equipment control deals (estimates): ASML-Cymer (2013, ~$3.7B), KLA-Orbotech (2019, ~$3.4B), and the abandoned AMAT-Tokyo Electron (2015) and Lam-KLA (2016) mergers, around 15-25x EBITDA. A takeover of ASML is not realistic (monopoly in EUV, Dutch/EU strategic asset); this is a private-market cross-check.",
+      "compsNote": "Comps statistics use AMAT, LRCX and KLAC. Tokyo Electron (8035.T) is shown for reference only: Yahoo's fields for it are internally inconsistent (reported trailing P/E 39x vs 7.6x recomputed from its market cap and net income), so it is excluded from the medians.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": -0.15, "midGrowth": 0.0, "ebitT": 0.35, "desc": "AI capex digestion in 2027-28: logic and DRAM customers push out EUV orders, China DUV demand (over 30% of 2024-25 system sales) fades, and margins fall back to ~35%."},
+        {"id": "base", "name": "Base", "p": 0.45, "growthAdj": 0, "midGrowth": 0.06, "ebitT": 0.42, "desc": "Consensus 2026-27 as AI drives leading-edge logic and HBM/DRAM EUV layers; then mid-single-digit growth and a 42% EBIT margin (service and High-NA mix)."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0.04, "midGrowth": 0.10, "ebitT": 0.46, "desc": "High-NA EUV (EXE:5200) is adopted at the 1.4nm node and in DRAM from 2028, with higher ASPs and service revenue."},
+        {"id": "chinaTail", "name": "Tail: China export restrictions tighten", "p": 0.08, "growthAdj": -0.10, "midGrowth": 0.02, "ebitT": 0.36, "desc": "US/Dutch rules extend to immersion DUV servicing and spare parts for China, cutting China revenue to a fraction and stranding the installed base."},
+        {"id": "highNATail", "name": "Tail: High-NA everywhere + AI super-cycle", "p": 0.05, "growthAdj": 0.06, "midGrowth": 0.14, "ebitT": 0.50, "desc": "High-NA becomes standard for logic and DRAM and AI capex keeps compounding; ASML exceeds the top of its 2030 targets (€60B sales, 56-60% gross margin)."},
+        {"id": "taiwanTail", "name": "Tail: Taiwan geopolitical shock", "p": 0.05, "growthAdj": -0.35, "midGrowth": -0.02, "ebitT": 0.28, "crpAdd": 0.02, "oneOff": -5000000000.0, "desc": "A blockade or conflict around Taiwan halts TSMC's leading-edge expansion (ASML's largest customer); ~€5B of assumed write-offs on installed tools and receivables, and a higher risk premium."}
+      ],
+      "catalysts": [
+        {"date": "~2027-01-28", "q": "Q4 2026", "event": "Q4/FY2026 results and 2027 guidance; EUV bookings", "impact": "High", "dir": "±"},
+        {"date": "~2027-01-15", "q": "Q4 2026", "event": "TSMC 2027 capex guide (leading-edge and High-NA plans)", "impact": "High", "dir": "±"},
+        {"date": "Ad hoc", "q": "Any", "event": "US / Dutch export-control updates for China (DUV servicing)", "impact": "High", "dir": "−"},
+        {"date": "2027-2028", "q": "2027-28", "event": "High-NA EUV insertion decisions (Intel 14A, TSMC A14, DRAM makers)", "impact": "High", "dir": "+"}
+      ],
+      "score": {"quality": 10, "growth": 8, "risk": 6, "valuation": null, "rationale": "Quality: sole supplier of EUV lithography, FY2025 operating margin 34.6% and a growing installed-base service business. Growth: consensus net sales +36% in 2026 and +29% in 2027 on AI-driven logic and memory demand. Risk: lumpy orders tied to a few customers (TSMC, Samsung, Intel, SK Hynix), China export controls and Taiwan concentration. Valuation: scored from the model's implied upside."}
     }
   }
 }

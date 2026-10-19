@@ -19,7 +19,7 @@ An interactive, fully static market-intelligence web app built on **real data** 
 | **Risk & Correlation** | Risk/return scatter (bubble = market cap) with **brush selection** that filters the table, plus a 31×31 correlation heatmap |
 | **Portfolio Builder** | Weight sliders, add/remove assets, **Equal / Min-variance / Max-Sharpe** optimizers, an efficient-frontier cloud colored by Sharpe, the capital market line and parametric 1-day VaR (95%) |
 | **Company Activity** | SEC EDGAR feed of 8-K/10-Q/10-K/Form 4/20-F/6-K filings (180 days) with filters, parsed Form 4 insider transactions, net insider flow by ticker, a filing timeline and upcoming earnings dates |
-| **Valuation & M&A** | DCF workbench for **META, UNH, DIS, NIO, YPF** plus a residual-income (bank) model for **GGAL**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a **reverse DCF** (growth and margin implied by the current price, with a growth × margin grid), a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
+| **Valuation & M&A** | DCF workbench for **META, UNH, DIS, NIO, YPF, MU, ASML** plus a residual-income (bank) model for **GGAL**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a **reverse DCF** (growth and margin implied by the current price, with a growth × margin grid), a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
 | **Macro** | US Treasury par yield curve (latest vs ~1M and ~6M ago), 10Y vs 2Y with the spread, and the official USD/ARS rate from BCRA |
 
 Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS** toggle (BCRA official rate), dark/light theme, skeleton loaders, animated counters and transitions, a responsive layout and deep links (`#company/MELI`).
@@ -84,6 +84,8 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
   | NIO | FY2020→FY2025 | RMB (constant currency) | 40.0% (USD convenience translation 38.1%) | SEC XBRL, 20-F |
   | YPF | FY2020→FY2025 | USD (functional currency) | 13.7% | SEC XBRL `ifrs-full:Revenue` (USD), 20-F; Yahoo's ARS-labelled figures not used |
   | GGAL | FY2020→FY2025 | USD at year-end BCRA A3500 (84.15 / 1,455) | 19.9% (real ARS 10.3%) | 20-F FY2020 + 4Q2025 release |
+  | MU | FY2020 (ended 2020-09-03)→FY2025 (ended 2025-08-28) | USD | 11.8% (latest FY2021→FY2026: 36.9%) | SEC XBRL `RevenueFromContractWithCustomerExcludingAssessedTax` (10-K) |
+  | ASML | FY2020→FY2025 | EUR (constant currency) | 18.5% (USD at ECB year-end rates 17.5%) | SEC XBRL US GAAP 20-F net sales (EUR) |
 - GGAL "revenue" = net operating revenue before loan-loss provisions (net operating income + provisions). Each year is in pesos of its own year end (IAS 29); the real-ARS CAGR restates FY2020 to Dec-2025 pesos with INDEC CPI. After provisions the CAGR is 15.0% in USD / 5.8% real. The Dec-2020 official rate under capital controls flatters the USD figure, and the HSBC Argentina acquisition (Dec-2024) makes growth partly inorganic.
 - Example (NIO, close of 2026-10-16, $3.43): ~17.7% revenue CAGR for 5 years (13.2% over 10) at a 4% EBIT margin, or a ~4.1% steady-state margin on Base-case growth, i.e. roughly the Base case. Figures update with the data and the sliders.
 
@@ -95,6 +97,12 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 - **Bank comps**: P/BV (primary) and P/E for BMA, BBAR, SUPV, ITUB and CIB. Peer P/E is TTM while GGAL's TTM earnings are depressed (ROE ~2%), so P/E is applied to FY2026e consensus EPS and shown for reference only; the triangulated value uses P/BV. Precedents use 0.5-1.3x P/BV (Galicia-HSBC Argentina 2024, Macro-Itaú Argentina 2023; estimates).
 - **Reverse analysis for a bank** solves for the **implied sustainable ROE** (holding Base book growth) and the implied book-value CAGR (holding the target ROE), with an ROE × book-growth heatmap centred on the implied point.
 - Refresh only these two without touching the other snapshots: `python scripts/fetch_valuation.py YPF GGAL`.
+
+**Semiconductors: MU and ASML**
+- **MU (Micron)**: fiscal years end on the Thursday closest to 31 August (FY2026 = 53 weeks ended 2026-09-03). Yahoo's annual statements stop at FY2025, so FY2026 (revenue $133.2B, operating income $99.3B, D&A, capex, operating cash flow) is appended from the 10-K via SEC XBRL (`SEC_APPEND` in `fetch_valuation.py`). Years 1-2 use consensus FY2027-28 revenue (+107% / +16%) with a year-1 EBIT margin of 78%. Because memory is highly cyclical, years 3-5 assume pricing normalizes (Base −12%/yr) and the steady-state EBIT margin is a **mid-cycle 38%** (FY2026: 74.6%; FY2016-25 average ~25%). Beta: an assumed 1.6 (Yahoo 2.23). Comps: SK Hynix, Samsung Electronics, WDC, SNDK (KRW listings converted to USD); NVDA and AMD are shown as reference only and excluded from the medians. Precedents: 4-7x peak EBITDA (memory deals at ~5-8x mid-cycle).
+- **ASML**: reports in EUR (US GAAP 20-F). The model runs in EUR and converts to USD per ADR (1 ADR = 1 share) at the **ECB euro reference rate** (`fx.EURUSD_ecb`, with date, in `valuation.json`). Consensus net sales FY2026-27 (+36% / +29%), then +6%/yr and a 42% EBIT margin in the Base case. Comps: AMAT, LRCX, KLAC; Tokyo Electron (8035.T) is reference only because its Yahoo fields are internally inconsistent. Precedents: 15-25x EBITDA (ASML-Cymer, KLA-Orbotech, abandoned AMAT-TEL and Lam-KLA).
+- Scenarios: **MU** Bear/Base/Bull plus an AI-capex bust / memory crash (12%), a memory-bound AI super-cycle (5%) and a Taiwan/East Asia shock (3%, ~$40B one-off). **ASML** Bear/Base/Bull plus tighter China export restrictions (8%), High-NA everywhere + AI super-cycle (5%) and a Taiwan shock (5%, ~€5B one-off).
+- Reverse DCF: the margin solve widens its bracket to 95% when no margin up to 60% matches the price (needed for both names). Refresh only these two: `python scripts/fetch_valuation.py MU ASML && python scripts/fetch_reverse_dcf.py MU ASML`.
 
 **Relative valuation and M&A**
 - Trading comps: peer EV/EBITDA, EV/Sales and P/E are **recomputed in USD** (Yahoo's own ratios mix ADR quote and reporting currencies). The IQR is applied to the target's TTM metrics. Outliers are excluded (EV/EBITDA > 60x, P/E > 80x, negatives), and a method is used only with ≥ 2 valid peers.
@@ -108,6 +116,8 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
   - **META**: AI super-cycle; regulatory shock (EU DMA, youth-safety litigation, fines).
   - **UNH**: DOJ / False Claims outcome; Medicare Advantage risk-adjustment overhaul.
   - **NIO**: price war plus cash-crunch dilution; battery-swap standard plus subsidy upside.
+  - **MU**: AI-capex bust / memory crash; memory-bound AI super-cycle; Taiwan / East Asia geopolitical shock.
+  - **ASML**: China export restrictions; High-NA EUV everywhere + AI super-cycle; Taiwan geopolitical shock.
 - Monte Carlo (4,000 runs): draw a scenario by probability, then perturb WACC (σ 0.75pp), terminal g (σ 0.4pp), margin (σ 12% relative) and mid-term growth (σ 1.5pp).
 - **Scorecard**: quality, growth and risk scores are qualitative (rationale shown in the app). The valuation score is formula-based: 5 + 10 × implied upside, clipped to 1-10.
 

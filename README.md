@@ -137,6 +137,8 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 
 ## Data snapshot and refresh
 
+**One command:** `make update` (or `./update.sh`, `python scripts/update_all.py`) runs every fetch script in order, validates the output and prints a before/after table of prices and fair values; `make deploy` also pushes `main` and `gh-pages`. See [UPDATING.md](UPDATING.md) for setup, what stays manual and how to add a ticker.
+
 The site is static: it reads the JSON files in `data/` (`market.json`, `prices.json`, `activity.json`, `macro.json`), each of which carries a `generatedAt` UTC timestamp. The current snapshot uses the **market close of 2026-10-14**.
 
 To refresh:

@@ -1,0 +1,10 @@
+{
+ "generatedAt": "2026-10-19T23:44:45Z",
+ "bp": 648,
+ "date": "2026-10-16",
+ "source": "J.P. Morgan EMBI Argentina via api.argentinadatos.com",
+ "modelCrp": {
+  "YPF": 0.0648,
+  "GGAL": 0.0648
+ }
+}

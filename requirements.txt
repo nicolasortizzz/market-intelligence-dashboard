@@ -1,4 +1,9 @@
-yfinance>=0.2.50
-pandas
-numpy
-requests
+# Pinned versions used for the 2026-10 snapshots (Python 3.13)
+yfinance==1.7.0
+pandas==3.0.6
+numpy==2.5.4
+requests==2.34.2
+urllib3==2.8.0
+openpyxl==3.1.5   # Damodaran xlsx archives
+xlrd==2.0.2       # Damodaran histimpl.xls
+playwright==1.64.0  # optional: fair-value diff / validation in headless Chromium (then: playwright install chromium)

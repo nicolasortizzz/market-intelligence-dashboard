@@ -13,7 +13,8 @@ UNIVERSE = {
  "GS":"Financials","V":"Financials","JNJ":"Health Care","UNH":"Health Care","PFE":"Health Care","LLY":"Health Care",
  "XOM":"Energy","CVX":"Energy","PG":"Consumer Staples","KO":"Consumer Staples","WMT":"Consumer Staples",
  "CAT":"Industrials","BA":"Industrials","NEE":"Utilities","AMT":"Real Estate","LIN":"Materials",
- "YPF":"Argentina ADR","GGAL":"Argentina ADR","MELI":"Argentina ADR","PAM":"Argentina ADR","NIO":"Consumer Disc."}
+ "YPF":"Argentina ADR","GGAL":"Argentina ADR","MELI":"Argentina ADR","PAM":"Argentina ADR","NIO":"Consumer Disc.",
+ "MU":"Technology","ASML":"Technology"}
 BENCH = "SPY"
 
 def clean(x):

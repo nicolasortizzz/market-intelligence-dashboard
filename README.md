@@ -19,7 +19,7 @@ An interactive, fully static market-intelligence web app built on **real data** 
 | **Risk & Correlation** | Risk/return scatter (bubble = market cap) with **brush selection** that filters the table, plus a 31×31 correlation heatmap |
 | **Portfolio Builder** | Weight sliders, add/remove assets, **Equal / Min-variance / Max-Sharpe** optimizers, an efficient-frontier cloud colored by Sharpe, the capital market line and parametric 1-day VaR (95%) |
 | **Company Activity** | SEC EDGAR feed of 8-K/10-Q/10-K/Form 4/20-F/6-K filings (180 days) with filters, parsed Form 4 insider transactions, net insider flow by ticker, a filing timeline and upcoming earnings dates |
-| **Valuation & M&A** | DCF workbench for **META, UNH, DIS, NIO, YPF, MU, ASML, VST, ABEV, UBER, BE** plus a residual-income (bank) model for **GGAL**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a **reverse DCF** (growth and margin implied by the current price, with a growth × margin grid), a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
+| **Valuation & M&A** | DCF workbench for **META, UNH, DIS, NIO, YPF, MU, ASML, VST, ABEV, UBER, BE, AVGO** plus a residual-income (bank) model for **GGAL**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a **reverse DCF** (growth and margin implied by the current price, with a growth × margin grid), a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
 | **Macro** | US Treasury par yield curve (latest vs ~1M and ~6M ago), 10Y vs 2Y with the spread, and the official USD/ARS rate from BCRA |
 
 Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS** toggle (BCRA official rate), dark/light theme, skeleton loaders, animated counters and transitions, a responsive layout and deep links (`#company/MELI`).
@@ -90,6 +90,7 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
   | ABEV | FY2020→FY2025 | BRL (constant currency) | 8.6% (USD at BCB PTAX year-end rates 7.4%) | SEC XBRL `ifrs-full:Revenue` (20-F) |
   | UBER | FY2020→FY2025 | USD | 36.1% (FY2020 COVID-depressed; also principal-reporting changes and acquisitions) | SEC XBRL `us-gaap:Revenues` (10-K) |
   | BE | FY2020→FY2025 | USD | 20.6% | SEC XBRL `us-gaap:Revenues` (10-K) |
+  | AVGO | FY2020→FY2025 | USD | 21.7% (partly inorganic: VMware from FY2024; FY ends ~early Nov) | SEC XBRL `us-gaap:Revenues` (10-K) |
 - GGAL "revenue" = net operating revenue before loan-loss provisions (net operating income + provisions). Each year is in pesos of its own year end (IAS 29); the real-ARS CAGR restates FY2020 to Dec-2025 pesos with INDEC CPI. After provisions the CAGR is 15.0% in USD / 5.8% real. The Dec-2020 official rate under capital controls flatters the USD figure, and the HSBC Argentina acquisition (Dec-2024) makes growth partly inorganic.
 - Example (NIO, close of 2026-10-16, $3.43): ~17.7% revenue CAGR for 5 years (13.2% over 10) at a 4% EBIT margin, or a ~4.1% steady-state margin on Base-case growth, i.e. roughly the Base case. Figures update with the data and the sliders.
 
@@ -102,6 +103,9 @@ Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS
 
 **Clean power: BE**
 - **BE (Bloom Energy)**: solid-oxide fuel cells; consensus FY2026-27 (+104% / +65%) on AI data-center on-site power (AEP, Oracle, Brookfield), then 25% growth and a 20% steady-state EBIT margin in the Base case. Convertible notes are valued **if-converted** (`converts`): in-the-money notes (0% 2030 at $194.97, 3% Green 2029/2028) add conversion shares and are removed from debt (terms from the Q2-2026 10-Q). Beta set to 2.0 (Yahoo 3.78). Comps exclude peers with negative TTM EBITDA (`compsExcludeNegEbitda`: PLUG, FCEL, BLDP, FLNC), leaving GEV/ETN/VRT; precedents on EV/Sales 5-10x. Tails: data-center capex bust (10%), loss of the 48E ITC (5%), large hyperscaler contract win (7%).
+
+**Semis + software: AVGO**
+- **AVGO (Broadcom)**: custom AI accelerators/XPUs and Ethernet networking plus VMware software. Consensus FY2026-27 (+66% / +64%), then 15% growth and a 52% steady-state **GAAP** EBIT margin (after VMware intangible amortisation and SBC; D&A glides from ~14% to 3% of revenue as intangibles roll off). ~$59B of debt from VMware in the EV bridge; split-adjusted shares; buybacks offset SBC. Peers NVDA, AMD, MRVL, QCOM, TXN, ADI, ANET (ORCL/MSFT reference-only). Tails: AI capex bust / ASIC in-sourcing (10%), China/Taiwan TSMC shock (4%, ~$30B), multi-GW ASIC ramps (6%).
 
 **Historical WACC (standard for every ticker)**
 - `scripts/fetch_wacc_history.py` → `data/wacc_history.json`; shown in the "Historical WACC" card (table + line chart, current model WACC highlighted as a star). Banks (GGAL) show the **cost of equity** instead, labelled.

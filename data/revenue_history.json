@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T02:10:15Z",
+ "generatedAt": "2026-10-20T02:41:55Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -312,6 +312,29 @@
     "0001628280-26-006516"
    ],
    "note": "Total revenue (product, installation, service, electricity). FY2025 includes the first large AI data-center deployments (AEP, Oracle, Equinix) and Korea (SK ecoplant) volumes; Korea shipments are lumpy year to year."
+  },
+  "AVGO": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-11-01",
+   "endEnd": "2025-11-02",
+   "currency": "USD",
+   "values": {
+    "FY2020": 23888000000,
+    "FY2021": 27450000000,
+    "FY2022": 33203000000,
+    "FY2023": 35819000000,
+    "FY2024": 51574000000,
+    "FY2025": 63887000000
+   },
+   "cagr5": 0.21743712435641926,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0001730168-22-000118",
+    "0001730168-25-000121"
+   ],
+   "note": "Broadcom fiscal years end on the Sunday closest to 31 October (FY2020 ended 2020-11-01, FY2025 on 2025-11-02). Growth is partly inorganic: VMware (closed 2023-11-22, ~$69B) added ~$13-14B of annual infrastructure-software revenue from FY2024; FY2025 also reflects the AI ASIC/networking ramp. Organic semiconductor growth is lower than the headline CAGR."
   },
   "GGAL": {
    "start": "FY2020",

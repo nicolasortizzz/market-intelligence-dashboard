@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T02:08:44Z",
+ "generatedAt": "2026-10-20T02:41:55Z",
  "quotes": {
   "META": {
    "price": 705.44,
@@ -69,6 +69,12 @@
   },
   "BE": {
    "price": 226.22,
+   "priceDate": "2026-10-19",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AVGO": {
+   "price": 334.59,
    "priceDate": "2026-10-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"

@@ -405,6 +405,46 @@
         {"date": "Ad hoc", "q": "Any", "event": "Tesla tie-up speculation and related-party transactions with Musk companies", "impact": "Medium", "dir": "±"}
       ],
       "score": {"quality": 8, "growth": 10, "risk": 3, "valuation": null, "rationale": "Quality: dominant launch provider (~90% of mass to orbit) and the largest satellite constellation, Connectivity runs at a ~45% operating margin. Growth: revenue +161% y/y in Q3 2026. Risk: ~$65B a year of capex mostly for AI compute, short public history, dual-class control by Elon Musk, related-party dealings and heavy dependence on the AI cycle. Valuation from the model."}
+    },
+    "005930.KS": {
+      "sector": "Memory semiconductors (DRAM, HBM, NAND), foundry/System LSI, smartphones and consumer electronics, displays (SDC) and Harman",
+      "betaAdj": "blume",
+      "betaOverride": null,
+      "crp": 0.0064,
+      "crpLabel": "Korea CRP, Damodaran Jan-2026 (Aa2)",
+      "kdSpread": 0.006,
+      "tax": 0.22,
+      "ebit1": 0.47,
+      "growthNote": "Modelled in KRW (K-IFRS consolidated statements) and converted to USD at a single official rate: the ECB reference-rate cross (KRW/EUR ÷ USD/EUR, same fixing date), so mid-term growth is in constant-currency terms. Values are per share and apply to both common (005930.KS) and preferred (005935.KS) shares, which carry the same economic claim (preferred: no vote, +KRW 1 dividend; it trades at a ~22% discount). The London GDR (SMSN.IL) represents 25 common shares. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (KRW ~710T / ~979T, +113% / +38%) on the 2026 memory super-cycle: DRAM and NAND contract prices up several-fold, and HBM3E/HBM4 qualification at NVIDIA and AMD. H1-2026 operating margin was 48% (Q2: KRW 89.5T on 171.5T revenue). Memory is cyclical, so in the Base case revenue falls ~6% a year in years 3-5 and the EBIT margin normalises to 22% (2015-2025 average ~13%, peak 2018 24%). Capex ~10-11% of revenue (P4/P5 Pyeongtaek, Taylor fab), D&A ~9%. Tax 22%. Net cash (~KRW 168T) and minority interest (~KRW 12T) are in the EV bridge. Buybacks reduce the share count ~1% a year.",
+      "daPct0": 0.14,
+      "daPctT": 0.09,
+      "capexPct1": 0.1,
+      "capexPctT": 0.11,
+      "nwcPct": 0.05,
+      "terminalG": 0.025,
+      "ronic": 0.15,
+      "shareChange": -0.01,
+      "compsRef": ["AAPL", "1810.HK"],
+      "precedentEvEbitda": [5, 9],
+      "controlPremium": [0.2, 0.4],
+      "precedentNote": "Memory/semiconductor control deals (estimates): SK hynix-Intel NAND (2020-25, $9B, ~6x EBITDA), Bain consortium-Toshiba Memory/Kioxia (2018, $18B), WDC-SanDisk (2016, $19B, ~10x), Micron-Elpida (2013). A takeover of Samsung Electronics (chaebol control via Samsung Life/C&T, national champion) is not realistic; 5-9x EBITDA on peak-cycle TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: SK hynix (KRW, converted), Micron, SanDisk and Western Digital (memory/storage) and TSMC (foundry). Apple and Xiaomi (HKD) are device references, shown but excluded from the statistics. All memory names are on peak-cycle TTM earnings, so multiples look low (SK hynix ~6x EBITDA).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.05, "midGrowth": -0.08, "ebitT": 0.12, "ebit1": 0.45, "desc": "The memory up-cycle peaks in 2026: DRAM/NAND prices roll over in 2027 as Samsung, SK hynix, Micron and CXMT add capacity; Samsung stays behind in HBM4 and foundry keeps losing money. Margins fall back to the long-run ~12%."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.06, "ebitT": 0.22, "desc": "Consensus 2026-27 (AI-driven DRAM/HBM and enterprise SSD shortage), then a normal down-cycle: revenue falls ~6% a year in years 3-5 and the EBIT margin normalises to ~22%, above history thanks to HBM and a leaner foundry."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0, "g2": 0.45, "midGrowth": 0.02, "ebitT": 0.3, "desc": "AI demand keeps memory tight through 2028; Samsung wins a large HBM4 share at NVIDIA, the Taylor foundry lands Tesla/AI customers, and the cycle flattens; margin ~30%."},
+        {"id": "crashTail", "name": "Tail: memory downcycle / price crash", "p": 0.1, "growthAdj": 0, "g2": -0.25, "midGrowth": -0.05, "ebitT": 0.06, "ebit1": 0.42, "desc": "A 2023-style bust: AI capex pause plus Chinese capacity (CXMT, YMTC) collapse DRAM/NAND prices in 2027; inventory write-downs and memory losses, with mobile and display carrying the group."},
+        {"id": "koreaTail", "name": "Tail: Korea / North Korea shock", "p": 0.05, "growthAdj": 0, "g2": -0.2, "midGrowth": -0.1, "ebitT": 0.08, "ebit1": 0.4, "crpAdd": 0.04, "oneOff": -75000000000.0, "desc": "Military escalation on the peninsula, or a severe domestic political or chaebol-governance crisis, disrupts Pyeongtaek/Hwaseong fabs and exports; ~US$75B of assumed damage and lost profit and ~400 bp more country risk."},
+        {"id": "hbmTail", "name": "Tail: HBM win in AI / super-cycle", "p": 0.08, "growthAdj": 0, "g2": 0.6, "midGrowth": 0.06, "ebitT": 0.35, "desc": "Samsung becomes the lead HBM4/HBM4E supplier for NVIDIA, Google and AMD, custom HBM base dies run in its foundry, and memory behaves like a structural growth market; margins stay ~35%."}
+      ],
+      "catalysts": [
+        {"date": "~2026-10-30", "q": "Q3 2026", "event": "Q3 2026 full results (preliminary earnings ~Oct 8) and memory price outlook", "impact": "High", "dir": "±"},
+        {"date": "Monthly", "q": "Any", "event": "DRAM/NAND contract prices (TrendForce) and Korea chip exports (1st of month)", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "HBM4 qualification and volume share at NVIDIA (Rubin) and AMD", "impact": "High", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "US export controls on China fabs (Xi'an NAND) and Section 232 chip tariffs", "impact": "Medium", "dir": "−"},
+        {"date": "Ad hoc", "q": "Any", "event": "North Korea provocations / Korean politics; Value-up programme and buybacks", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 8, "growth": 7, "risk": 5, "valuation": null, "rationale": "Quality: #1 DRAM and NAND maker, vertically integrated (memory, foundry, devices, displays) with net cash. Growth: consensus +113% revenue in 2026 on the AI memory super-cycle, but it is cyclical. Risk: memory price cycles, HBM catch-up vs SK hynix, loss-making foundry, chaebol governance, Korea geopolitical risk. Valuation from the model."}
     }
   }
 }

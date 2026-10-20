@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T21:25:11Z",
+ "generatedAt": "2026-10-20T22:20:39Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -438,6 +438,45 @@
     "https://b.gfgsa.com/app/uploads/2026/03/PressRelease_GrupoGalicia_4Q2025_EN.pdf"
    ],
    "note": "IAS 29: each year is in pesos of its own year end, converted at that year-end official rate. The Dec-2020 official rate was set under strict capital controls (parallel rate ~2x), which flatters the USD CAGR; FY2025 includes the acquired HSBC Argentina (Galicia M\u00e1s) from Dec-2024, so growth is partly inorganic."
+  },
+  "005930.KS": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "KRW",
+   "values": {
+    "FY2020": 236806988000000.0,
+    "FY2021": 279604799000000.0,
+    "FY2022": 302231360000000.0,
+    "FY2023": 258935494000000.0,
+    "FY2024": 300870903000000.0,
+    "FY2025": 333605938000000.0
+   },
+   "cagr5": 0.07094668695741269,
+   "usd": {
+    "values": {
+     "FY2020": 217504382466.1677,
+     "FY2025": 230996368256.98022
+    },
+    "cagr5": 0.012109329157308446,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      1088.7458234862684
+     ],
+     "FY2025": [
+      "2025-12-31",
+      1444.2042553191488
+     ],
+     "source": "ECB reference-rate cross (KRW/EUR / USD/EUR)"
+    },
+    "note": "translated at the ECB year-end cross rates (1088.7 KRW/USD on 2020-12-31, 1444.2 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated revenue (K-IFRS)",
+   "source": "Samsung Electronics annual business reports and Q4 earnings releases (FY2020-FY2021); Yahoo Finance statements (FY2022-FY2025)",
+   "accn": [],
+   "note": "Constant currency (KRW, reporting currency). FY2020-FY2025 includes a full memory cycle: the 2021-22 boom, the 2023 bust (-14%) and the AI-driven recovery; FY2026 (consensus ~KRW 710T, +113%) is outside the window."
   },
   "SPCX": {
    "start": "FY2023",

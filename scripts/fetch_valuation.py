@@ -26,7 +26,11 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "AVGO": ["NVDA", "AMD", "MRVL", "QCOM", "TXN", "ADI", "ANET", "ORCL", "MSFT"],
            "VIST": ["YPF", "PAM", "PBR", "EC", "EOG", "DVN", "FANG"],
            "TSM": ["005930.KS", "INTC", "UMC", "GFS", "0981.HK", "ASML", "AMAT"],
+           "005930.KS": ["000660.KS", "MU", "TSM", "AAPL", "1810.HK", "SNDK", "WDC"],
            "SPCX": ["RKLB", "ASTS", "IRDM", "SATS", "VSAT", "LMT", "NOC", "TMUS"]}
+# Local-currency listings (Samsung: KRX common in KRW). Price, market cap, 52w range and targets are converted to USD at the
+# official rate (fx.KRWUSD: ECB reference rates, KRW/EUR divided by USD/EUR, same fixing date); KRW originals are kept as *Local.
+LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred shares (KRX)", "SMSN.IL": "GDR, London (1 GDR = 25 common shares)"}}}
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}
@@ -138,6 +142,33 @@ def cbc_twd():
         except Exception as ex: print("cbc retry", ex)
         time.sleep(3)
     return None, None
+
+def ecb_cross(ccy):
+    """ECB reference rate cross: units of `ccy` per USD = (ccy per EUR) / (USD per EUR), both on the same latest fixing date."""
+    for _ in range(4):
+        try:
+            out = {}
+            for c in (ccy, "USD"):
+                r = requests.get(f"https://data-api.ecb.europa.eu/service/data/EXR/D.{c}.EUR.SP00.A?lastNObservations=1&format=csvdata", timeout=30)
+                row = r.text.strip().splitlines(); hdr = row[0].split(","); v = row[-1].split(",")
+                out[c] = (v[hdr.index("TIME_PERIOD")], float(v[hdr.index("OBS_VALUE")]))
+            if out[ccy][0] == out["USD"][0]: return out[ccy][0], out[ccy][1] / out["USD"][1]
+        except Exception as ex: print("ecb cross retry", ex)
+        time.sleep(3)
+    return None, None
+
+def local_listing(d, cfg, k):
+    """Convert a local listing's market fields to USD; keep the originals and quote related lines (preferred, GDR)."""
+    fx = FXC[cfg["ccy"]]
+    for f_ in ("price", "low52", "high52", "targetLow", "targetMean", "targetMedian", "targetHigh", "marketCap", "enterpriseValue"):
+        if d.get(f_) is not None: d[f_ + "Local"] = d[f_]; d[f_] = d[f_] / fx
+    d["currencyLocal"] = cfg["ccy"]; d["currency"] = "USD"; d["related"] = {}
+    for t, lbl in cfg["related"].items():
+        try:
+            i = yf.Ticker(t).info or {}; h = yf.Ticker(t).history(period="10d")["Close"].dropna()
+            d["related"][t] = {"label": lbl, "price": f(h.iloc[-1]), "priceDate": h.index[-1].strftime("%Y-%m-%d"), "currency": i.get("currency"),
+                               "shares": i.get("sharesOutstanding")}
+        except Exception as ex: print("related fail", t, ex)
 
 def ptax(day=None):
     """Banco Central do Brasil PTAX (selling rate, BRL per USD): last fixing on or before `day` (default today)."""
@@ -277,6 +308,10 @@ def main():
         td, tv = cbc_twd()
         if tv: res.setdefault("fx", {}).update({"TWDUSD": tv, "TWD_date": td, "TWD_source": "Central Bank of the R.O.C. (Taiwan), NT$/US$ interbank closing rate (cbc.gov.tw)"}); FXC["TWD"] = tv
     elif res.get("fx", {}).get("TWDUSD"): FXC["TWD"] = res["fx"]["TWDUSD"]
+    if not only or "005930.KS" in only:   # KRW only refreshed with Samsung
+        kd_, kv = ecb_cross("KRW")
+        if kv: res.setdefault("fx", {}).update({"KRWUSD": kv, "KRW_date": kd_, "KRW_source": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)"}); FXC["KRW"] = kv
+    elif res.get("fx", {}).get("KRWUSD"): FXC["KRW"] = res["fx"]["KRWUSD"]
     if not only or {"YPF", "GGAL"} & set(only):   # ARS rate only refreshed with the Argentine names
         fd, ars = bcra((dt.date.today() - dt.timedelta(days=10)).isoformat(), dt.date.today().isoformat())
         if ars: res["fx"].update({"ARSUSD_BCRA": ars, "ARS_date": fd}); FXC["ARS"] = ars
@@ -311,6 +346,7 @@ def main():
         if t in USD_STMT: usd_stmt_fix(d, k)
         if t in BANKS: bank_block(d, k, BANKS[t])
         if t in SEC_APPEND: sec_append(d, cik[t])
+        if t in LOCAL_LISTING: local_listing(d, LOCAL_LISTING[t], k)
         if t in FILING_OVERRIDE: filing_override(d, FILING_OVERRIDE[t])
         d["fetchedAt"] = now
         res["companies"][t] = d

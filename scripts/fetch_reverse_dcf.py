@@ -7,7 +7,8 @@ import json, os, datetime as dt
 import yfinance as yf
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "reverse_dcf.json")
-TICKERS = ["META", "UNH", "DIS", "NIO", "YPF", "GGAL", "MU", "ASML", "VST", "ABEV", "UBER", "BE", "AVGO", "VIST", "TSM", "SPCX"]
+TICKERS = ["META", "UNH", "DIS", "NIO", "YPF", "GGAL", "MU", "ASML", "VST", "ABEV", "UBER", "BE", "AVGO", "VIST", "TSM", "SPCX", "005930.KS"]
+LOCAL = {"005930.KS": "KRW"}   # local-currency listings: close converted to USD at the valuation.json official rate (fx.<CCY>USD)
 
 
 def main():
@@ -20,7 +21,12 @@ def main():
         h = h.dropna(subset=["Close"])
         if h.empty:
             continue
-        quotes[tk] = {"price": round(float(h["Close"].iloc[-1]), 4),
+        px = float(h["Close"].iloc[-1]); extra = {}
+        if tk in LOCAL:
+            fx = json.load(open(os.path.join(os.path.dirname(OUT), "valuation.json")))["fx"]; cc = LOCAL[tk]
+            extra = {"priceLocal": px, "currencyLocal": cc, "fx": fx[cc + "USD"], "fxDate": fx.get(cc + "_date"), "fxSource": fx.get(cc + "_source")}
+            px = px / fx[cc + "USD"]
+        quotes[tk] = {"price": round(px, 4), **extra,
                       "priceDate": h.index[-1].strftime("%Y-%m-%d"),
                       "field": "Close (unadjusted, last trading day)",
                       "source": "Yahoo Finance via yfinance"}

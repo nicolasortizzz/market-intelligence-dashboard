@@ -29,7 +29,9 @@ ERP = {2021: 0.0424, 2022: 0.0594, 2023: 0.0460, 2024: 0.0433, 2025: 0.0423}
 CHINA_CRP = {2021: 0.00695887, 2022: 0.01217149, 2023: 0.01031353, 2024: 0.00941126, 2025: 0.00912949}
 BRAZIL_CRP = {2021: 0.02970905, 2022: 0.05193169, 2023: 0.04400441, 2024: 0.03341000, 2025: 0.03240970}
 TAIWAN_CRP = {2021: 0.00597750, 2022: 0.01034577, 2023: 0.00876650, 2024: 0.00799958, 2025: 0.00776007}   # Aa3; ctryprem21-24 archives and Jan-2026 file
-COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP), "TSM": ("Taiwan", TAIWAN_CRP)}   # Damodaran rating-based CRP; add new EM countries here
+KOREA_CRP = {2021: 0.00490700, 2022: 0.00852000, 2023: 0.00721900, 2024: 0.00658800, 2025: 0.00639100}   # Aa2; ctryprem21-24 archives and Jan-2026 file
+COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP), "TSM": ("Taiwan", TAIWAN_CRP), "005930.KS": ("Korea", KOREA_CRP)}
+LOCAL_PX = {"005930.KS": "KRW=X"}   # local-currency listings: prices converted to USD (Yahoo FX) for beta and market cap; today uses the model's ECB rate   # Damodaran rating-based CRP; add new EM countries here
 # Recently listed names: years before the IPO (and today, while < 24 monthly returns exist) use an ESTIMATED proxy beta =
 # segment-revenue-weighted median of the Blume-adjusted 60-month peer betas at that date, and the equity weight uses
 # private-market marks (secondary/tender offers, widely reported; estimates) instead of a listed market cap.
@@ -42,7 +44,7 @@ PROXY = {"SPCX": {"ipo": "2026-06-12",
               2023: (180e9, "Dec-2023 tender offer, ~$180B"), 2024: (350e9, "Dec-2024 tender offer, ~$350B"),
               2025: (800e9, "Dec-2025 tender offer, ~$800B")}}}
 ERP_SRC = "Damodaran, Historical Implied Equity Risk Premiums (histimpl.xls, implied premium FCFE, start of the following year)"
-CRP_SRC = "Damodaran, Country Default Spreads and Risk Premiums (ctryprem21-24.xlsx archives and the Jan-2026 ctryprem.xlsx; rating-based CRP: China A1, Brazil Ba2/Ba1, Taiwan Aa3)"
+CRP_SRC = "Damodaran, Country Default Spreads and Risk Premiums (ctryprem21-24.xlsx archives and the Jan-2026 ctryprem.xlsx; rating-based CRP: China A1, Brazil Ba2/Ba1, Taiwan Aa3, Korea Aa2)"
 
 def f(x):
     try: x = float(x); return None if math.isnan(x) or math.isinf(x) else x
@@ -71,8 +73,9 @@ def close_at(h, day):
     return (f(s.iloc[-1]), s.index[-1].strftime("%Y-%m-%d")) if len(s) else (None, None)
 
 def beta(px, spx, day):
-    a = px[px.index.tz_localize(None) <= pd.Timestamp(day)]["Close"].resample("ME").last()
-    b = spx[spx.index.tz_localize(None) <= pd.Timestamp(day)]["Close"].resample("ME").last()
+    na = lambda h: h["Close"].set_axis(h.index.tz_localize(None))   # drop the tz so KRX (Asia/Seoul) and NYSE month-ends align
+    a = na(px)[lambda x: x.index <= pd.Timestamp(day)].resample("ME").last()
+    b = na(spx)[lambda x: x.index <= pd.Timestamp(day)].resample("ME").last()
     r = pd.concat([a.pct_change(), b.pct_change()], axis=1).dropna().iloc[-60:]
     if len(r) < 24: return None, None, len(r)
     raw = np.cov(r.iloc[:, 0], r.iloc[:, 1])[0, 1] / np.var(r.iloc[:, 1], ddof=1)
@@ -109,14 +112,14 @@ def main():
     V = json.load(open(os.path.join(D, "valuation.json")))
     emb = embi(); today = dt.date.today().isoformat()
     tnx = yf.Ticker("^TNX").history(start="2015-12-01"); spx = yf.Ticker("^GSPC").history(start="2015-12-01")
-    cny = yf.Ticker("CNY=X").history(start="2020-12-01"); twd = yf.Ticker("TWD=X").history(start="2020-12-01")
+    cny = yf.Ticker("CNY=X").history(start="2020-12-01"); twd = yf.Ticker("TWD=X").history(start="2020-12-01"); krw = yf.Ticker("KRW=X").history(start="2020-12-01")
     out = {"generatedAt": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "years": YEARS,
            "method": {"rf": "US 10-year Treasury yield (Yahoo ^TNX) at the calendar year-end",
                       "beta": "60 monthly returns vs the S&P 500 (^GSPC) ending at year-end (min 24), Blume-adjusted 0.67 x raw + 0.33",
                       "erp": ERP_SRC, "crp": "Argentina: J.P. Morgan EMBI spread at year-end (api.argentinadatos.com riesgo-pais); China: " + CRP_SRC,
                       "kd": "Interest expense / average total debt (Yahoo statements) clamped to [rf, rf+10%]; else rf + model credit spread (+ EMBI for YPF); after tax at the effective rate (0-35%)",
                       "weights": "Market cap (shares x close at year-end) vs book total debt at fiscal year-end, USD",
-                      "currency": "USD terms for all tickers (ASML/ABEV: USD ADR beta and US rf; EUR debt at the ECB, BRL debt at the BCB PTAX and TWD debt at the Yahoo TWD=X year-end rate)"},
+                      "currency": "USD terms for all tickers (ASML/ABEV: USD ADR beta and US rf; EUR debt at the ECB, BRL debt at the BCB PTAX and TWD debt at the Yahoo TWD=X year-end rate; Samsung: KRX price converted to USD at Yahoo KRW=X daily, KRW debt at year-end KRW=X)"},
            "erp": ERP, "companies": {}}
     PXC = {}
     for tk, a in A["companies"].items():
@@ -124,6 +127,9 @@ def main():
         if not c: continue
         bank = a.get("model") == "bank"; k = yf.Ticker(tk)
         px = k.history(start="2015-12-01", auto_adjust=False)
+        if tk in LOCAL_PX:   # convert the local close to USD at the daily Yahoo FX rate (beta and market cap in USD terms)
+            fxh = yf.Ticker(LOCAL_PX[tk]).history(start="2015-12-01")["Close"]; fxh.index = fxh.index.tz_localize(None).normalize()
+            idx = px.index.tz_localize(None).normalize(); px = px.copy(); px["Close"] = px["Close"].values / fxh.reindex(idx, method="ffill").values
         try: sh = k.get_shares_full(start="2020-06-01")
         except Exception: sh = None
         B, I = c["balance"], c["income"]; by = B.get("years", [])
@@ -168,7 +174,7 @@ def main():
                 s = None
                 if sh is not None and len(sh):
                     ss = sh[sh.index.tz_localize(None) <= pd.Timestamp(day)]; s = f(ss.iloc[-1]) if len(ss) else None
-                if Y == "current": s = c["marketCap"] / c["price"]; p = c["price"]
+                if Y == "current": s = c["marketCap"] / c["price"]; p = c["price"]   # already USD for local listings (fetch_valuation converts)
                 if not s: s = c["marketCap"] / c["price"]; row["flag"] = (row.get("flag", "") + "; current share count used").strip("; ")
                 E = p * s if p else None
                 if tk in PROXY and day < PROXY[tk]["ipo"]:
@@ -177,6 +183,7 @@ def main():
                 if cur == "CNY": fx = close_at(cny, day)[0] if Y != "current" else V["fx"]["CNYUSD"]
                 if cur == "EUR": fx = 1 / ecb(day if Y != "current" else V["fx"]["EUR_date"])
                 if cur == "BRL": fx = ptax(day) if Y != "current" else V["fx"]["BRLUSD"]
+                if cur == "KRW": fx = close_at(krw, day)[0] if Y != "current" else V["fx"]["KRWUSD"]
                 if cur == "TWD": fx = close_at(twd, day)[0] if Y != "current" else V["fx"]["TWDUSD"]   # year-ends: Yahoo TWD=X; today: CBC closing rate
                 dl = debt.get(ys) if ys else None
                 if dl is None and ys:

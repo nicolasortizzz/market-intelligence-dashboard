@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T02:59:08Z",
+ "generatedAt": "2026-10-20T22:20:03Z",
  "quotes": {
   "META": {
    "price": 705.44,
@@ -93,6 +93,17 @@
   },
   "SPCX": {
    "price": 147.79,
+   "priceDate": "2026-10-20",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "005930.KS": {
+   "price": 159.2815,
+   "priceLocal": 211500.0,
+   "currencyLocal": "KRW",
+   "fx": 1327.8377173428446,
+   "fxDate": "2026-10-20",
+   "fxSource": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)",
    "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"

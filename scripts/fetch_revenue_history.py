@@ -46,6 +46,22 @@ SPCX = {"values": {"FY2023": 10387e6, "FY2024": 14015e6, "FY2025": 18674e6}, "en
         "ttm": {"end": "2026-09-30", "val": 32043e6, "accn": "0001628280-26-066482"},  # 9M-2026 27,083 + Q4-2025 4,960
         "accn": ["0001628280-26-042639"]}
 
+# Samsung Electronics (005930.KS): not an SEC filer. K-IFRS consolidated revenue (KRW million) from the annual business reports /
+# Q4 earnings releases (FY2020 236,806,988; FY2021 279,604,799); FY2022-FY2025 also match Yahoo's statements.
+SAMSUNG = {"FY2020": 236806988e6, "FY2021": 279604799e6, "FY2022": 302231360e6, "FY2023": 258935494e6, "FY2024": 300870903e6, "FY2025": 333605938e6}
+
+def ecb_ccy(ccy, day):
+    """ECB reference rate for `ccy` per EUR on the last fixing on or before `day`."""
+    d = dt.date.fromisoformat(day)
+    for i in range(5):
+        try:
+            r = requests.get(f"https://data-api.ecb.europa.eu/service/data/EXR/D.{ccy}.EUR.SP00.A?startPeriod={(d - dt.timedelta(days=10)).isoformat()}&endPeriod={day}&format=csvdata", timeout=30)
+            rows = r.text.strip().splitlines(); h = rows[0].split(","); v = rows[-1].split(",")
+            return v[h.index("TIME_PERIOD")], float(v[h.index("OBS_VALUE")])
+        except Exception as ex:
+            if i == 4: raise
+            print("ecb retry", ex); time.sleep(5)
+
 # Filed annual figures not (yet) in XBRL companyfacts; each value checked against the filed document.
 SEC_FALLBACK = {"TSM": {2025: {"val": 3809054000000, "end": "2025-12-31", "accn": "0001628280-26-025362", "usd": 121423000000,
                                "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-16, net revenue NT$3,809,054M / US$121,423M convenience translation; not in companyfacts frames)"}},
@@ -182,6 +198,20 @@ def main():
         "source": g0["source"] + "; " + g1["source"], "urls": [g0["url"], g1["url"]],
         "note": "IAS 29: each year is in pesos of its own year end, converted at that year-end official rate. The Dec-2020 official rate was set under strict capital controls (parallel rate ~2x), which flatters the USD CAGR; FY2025 includes the acquired HSBC Argentina (Galicia Más) from Dec-2024, so growth is partly inorganic."}
     print("GGAL usd", res["companies"]["GGAL"]["cagr5"], "real", res["companies"]["GGAL"]["ars"]["realCagr5"])
+    v = SAMSUNG; fxs = {}
+    for y, day in (("FY2020", "2020-12-31"), ("FY2025", "2025-12-31")):
+        (kd_, krw), (_, usd) = ecb_ccy("KRW", day), ecb_ccy("USD", day); fxs[y] = [kd_, krw / usd]
+    res["companies"]["005930.KS"] = {
+        "start": "FY2020", "end": "FY2025", "startEnd": "2020-12-31", "endEnd": "2025-12-31", "currency": "KRW", "values": v,
+        "cagr5": cagr(v["FY2020"], v["FY2025"], 5),
+        "usd": {"values": {y: v[y] / fxs[y][1] for y in fxs}, "cagr5": cagr(v["FY2020"] / fxs["FY2020"][1], v["FY2025"] / fxs["FY2025"][1], 5),
+                "fx": {**fxs, "source": "ECB reference-rate cross (KRW/EUR / USD/EUR)"},
+                "note": f"translated at the ECB year-end cross rates ({fxs['FY2020'][1]:.1f} KRW/USD on {fxs['FY2020'][0]}, {fxs['FY2025'][1]:.1f} on {fxs['FY2025'][0]}), so it mixes FX moves"},
+        "definition": "Consolidated revenue (K-IFRS)", "source": "Samsung Electronics annual business reports and Q4 earnings releases (FY2020-FY2021); Yahoo Finance statements (FY2022-FY2025)",
+        "accn": [],
+        "note": ("Constant currency (KRW, reporting currency). FY2020-FY2025 includes a full memory cycle: the 2021-22 boom, the 2023 bust (-14%) and the AI-driven "
+                 "recovery; FY2026 (consensus ~KRW 710T, +113%) is outside the window.")}
+    print("005930.KS", round(res["companies"]["005930.KS"]["cagr5"] * 100, 2))
     v = SPCX["values"]; n = 2
     res["companies"]["SPCX"] = {
         "start": "FY2023", "end": "FY2025", "startEnd": SPCX["ends"][0], "endEnd": SPCX["ends"][1], "currency": "USD", "periods": n,

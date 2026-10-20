@@ -117,3 +117,6 @@ jobs:
 - `compsRef`: peers shown but excluded from the comps statistics. `peExcludePeers`: peers excluded from P/E only (e.g. one-off tax gains).
 - `peNIExclude` (USD) + `peNIExcludeLabel`: one-off items removed from the company's TTM net income before P/E (UBER: tax valuation-allowance release).
 - `nonOpAssets` {`row`, `label`, optional `fallback`}: balance-sheet row (fetched in `fetch_valuation.py` `ROWS["balance"]`) added to equity in the DCF, comps and precedent bridges (UBER equity stakes).
+- `converts` [{`name`, `principal`, `convPrice`}] + `convertsNote`: convertible notes, if-converted when the price is above the conversion price (shares added, principal removed from debt). Update from each 10-Q.
+- `compsExcludeNegEbitda`: drop peers with negative TTM EBITDA from all comps statistics (still shown).
+- YPF/GGAL "today" WACC rows use the model CRP from `valuation_assumptions.json` (changed only by `fetch_embi.py --apply`), so rerunning `fetch_wacc_history.py` no longer moves them; year-end rows use the EMBI at each year-end.

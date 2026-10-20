@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T01:55:42Z",
+ "generatedAt": "2026-10-20T02:10:15Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -289,6 +289,29 @@
     "0001543151-26-000015"
    ],
    "note": "FY2020 revenue was COVID-depressed (Mobility gross bookings fell ~46% in 2020 while Delivery surged), so the 5y CAGR overstates the run-rate; it also reflects accounting changes (UK/business-model shifts to principal reporting from 2022 raised revenue vs gross bookings) and the Postmates (2020) and Transplace (2021, Freight) acquisitions."
+  },
+  "BE": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 794247000,
+    "FY2021": 972176000,
+    "FY2022": 1199125000,
+    "FY2023": 1333470000,
+    "FY2024": 1473856000,
+    "FY2025": 2023994000
+   },
+   "cagr5": 0.20573183434282116,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001628280-23-004301",
+    "0001628280-26-006516"
+   ],
+   "note": "Total revenue (product, installation, service, electricity). FY2025 includes the first large AI data-center deployments (AEP, Oracle, Equinix) and Korea (SK ecoplant) volumes; Korea shipments are lumpy year to year."
   },
   "GGAL": {
    "start": "FY2020",

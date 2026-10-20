@@ -16,6 +16,7 @@ Method (same for every ticker; new tickers are picked up automatically from data
   * Banks (GGAL): cost of equity only (Ke = rf + beta x ERP + CRP); WACC is not meaningful for a bank.
 Usage: python scripts/fetch_wacc_history.py
 """
+import re
 import json, os, io, math, datetime as dt, warnings
 import numpy as np, pandas as pd, requests, yfinance as yf
 warnings.filterwarnings("ignore")
@@ -122,7 +123,12 @@ def main():
             rf, rfd = close_at(tnx, day); rf = rf / 100 if rf else None
             bA, bRaw, n = beta(px, spx, day)
             erp = ERP.get(Y, A["erp"]) if Y != "current" else A["erp"]
-            if tk in ("YPF", "GGAL"): crp, crpd = emb(day); crpSrc = f"EMBI Argentina {round(crp * 1e4)} bp ({crpd})"
+            if tk in ("YPF", "GGAL") and Y == "current" and a.get("crp"):
+                # 'today' uses the model CRP (valuation_assumptions.json, changed only by fetch_embi.py --apply), not the live EMBI,
+                # so a rerun matches the Valuation tab and does not move YPF/GGAL when another ticker is added
+                crp = a["crp"]; m = re.search(r"(\d{4}-\d{2}-\d{2})", A.get("crpNote", "")); crpd = m.group(1) if m else "model"
+                crpSrc = f"EMBI Argentina {round(crp * 1e4)} bp ({crpd})"
+            elif tk in ("YPF", "GGAL"): crp, crpd = emb(day); crpSrc = f"EMBI Argentina {round(crp * 1e4)} bp ({crpd})"
             elif tk in COUNTRY_CRP:
                 cn, tbl = COUNTRY_CRP[tk]
                 crp = tbl.get(Y, a.get("crp", 0)) if Y != "current" else a.get("crp", 0); crpSrc = f"Damodaran {cn} CRP" if Y != "current" else "model CRP"

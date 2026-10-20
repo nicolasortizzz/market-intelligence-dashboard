@@ -23,7 +23,8 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "ASML": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax"], "EUR"),
        "VST": ("us-gaap", ["Revenues"], "USD"),
        "ABEV": ("ifrs-full", ["Revenue"], "BRL"),
-       "UBER": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD")}
+       "UBER": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "BE": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD")}
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",
                    "source": "Grupo Galicia Form 20-F FY2020 (selected financial data, IFRS, Dec-2020 pesos)",
@@ -113,6 +114,9 @@ def main():
             d["note"] = ("FY2020 revenue was COVID-depressed (Mobility gross bookings fell ~46% in 2020 while Delivery surged), so the 5y CAGR overstates the "
                          "run-rate; it also reflects accounting changes (UK/business-model shifts to principal reporting from 2022 raised revenue vs gross bookings) "
                          "and the Postmates (2020) and Transplace (2021, Freight) acquisitions.")
+        if t == "BE":
+            d["note"] = ("Total revenue (product, installation, service, electricity). FY2025 includes the first large AI data-center deployments "
+                         "(AEP, Oracle, Equinix) and Korea (SK ecoplant) volumes; Korea shipments are lumpy year to year.")
         if t == "ABEV":
             (p0d, p0), (p1d, p1) = ptax(a["end"]), ptax(b["end"])
             d["usd"] = {"values": {f"FY{y0}": a["val"] / p0, f"FY{END}": b["val"] / p1}, "cagr5": cagr(a["val"] / p0, b["val"] / p1, 5),

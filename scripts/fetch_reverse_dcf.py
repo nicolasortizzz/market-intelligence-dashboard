@@ -7,7 +7,7 @@ import json, os, datetime as dt
 import yfinance as yf
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "reverse_dcf.json")
-TICKERS = ["META", "UNH", "DIS", "NIO", "YPF", "GGAL", "MU", "ASML", "VST", "ABEV", "UBER"]
+TICKERS = ["META", "UNH", "DIS", "NIO", "YPF", "GGAL", "MU", "ASML", "VST", "ABEV", "UBER", "BE"]
 
 
 def main():

@@ -21,7 +21,8 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "ASML": ["AMAT", "LRCX", "KLAC", "8035.T"],
            "VST": ["CEG", "NRG", "TLN", "PEG", "ETR"],
            "ABEV": ["BUD", "HEINY", "FMX", "CABGY", "STZ"],
-           "UBER": ["LYFT", "DASH", "GRAB", "CART", "ABNB", "BKNG"]}
+           "UBER": ["LYFT", "DASH", "GRAB", "CART", "ABNB", "BKNG"],
+           "BE": ["PLUG", "FCEL", "BLDP", "GEV", "ETN", "VRT", "FLNC"]}
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}          # ticker -> local shares per ADR (GGAL: 1 ADS = 10 Class B shares)

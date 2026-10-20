@@ -425,6 +425,7 @@
       "ronic": 0.15,
       "shareChange": -0.01,
       "compsRef": ["AAPL", "1810.HK"],
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Memory earnings in the TTM window are at a cycle peak (TTM EBITDA ~2.9x the FY2022-25 average), so TTM-based comps (~$419/share) would capitalise peak profits; the through-cycle window includes the 2023 bust and the 2026 boom."},
       "precedentEvEbitda": [5, 9],
       "controlPremium": [0.2, 0.4],
       "precedentNote": "Memory/semiconductor control deals (estimates): SK hynix-Intel NAND (2020-25, $9B, ~6x EBITDA), Bain consortium-Toshiba Memory/Kioxia (2018, $18B), WDC-SanDisk (2016, $19B, ~10x), Micron-Elpida (2013). A takeover of Samsung Electronics (chaebol control via Samsung Life/C&T, national champion) is not realistic; 5-9x EBITDA on peak-cycle TTM EBITDA is a cross-check only.",

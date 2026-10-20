@@ -90,12 +90,18 @@ function probWeighted(tk,ov){const sc=V.A.companies[tk].scenarios;let w=0,v=0;co
 function comps(tk){if(isBank(tk))return compsBank(tk);const b=inputs(tk),c=b.c,ref=b.a.compsRef||[],peers=c.peers.filter(p=>p.marketCap).map(p=>ref.includes(p.ticker)?{...p,ref:1}:p),self=c.self;
   const clean=(arr,lo,hi)=>arr.filter(x=>x!=null&&x>lo&&x<hi),pS=peers.filter(p=>!p.ref&&!(b.a.compsExcludeNegEbitda&&!(p.ebitda>0))); // reference-only peers are shown but excluded from the statistics
   const evE=clean(pS.map(p=>p.evEbitda),0,60),evS=clean(pS.map(p=>p.evSales),0.02,30),pe=clean(pS.filter(p=>!(b.a.peExcludePeers||[]).includes(p.ticker)).map(p=>p.pe),0,80);
-  const ebitda=(c.ebitdaTTM||0)/b.k,rev=(c.revenueTTM||0)/b.k,ni=self.netIncome!=null?self.netIncome-(b.a.peNIExclude||0):null; // peNIExclude: one-off items (e.g. tax valuation-allowance release) removed before P/E
+  let ebitda=(c.ebitdaTTM||0)/b.k,rev=(c.revenueTTM||0)/b.k,ni=self.netIncome!=null?self.netIncome-(b.a.peNIExclude||0):null; // peNIExclude: one-off items (e.g. tax valuation-allowance release) removed before P/E
   const toPS=ev=>Math.max(ev-b.netDebt-b.minority+(b.nonOp||0),0)/b.shares,r={};
+  // compsCycle (per-ticker option for cyclicals, e.g. memory): peer TTM multiples are applied to THROUGH-CYCLE earnings = average of the
+  // last N fiscal years plus TTM (each once), not peak TTM; only the listed metrics feed the comps value (EV/Sales off: mix differs).
+  let cyc=null;const cc=b.a.compsCycle;
+  if(cc){const I=c.income,n=cc.years||4,avg=(row,ttm)=>{const v=(I[row]||[]).filter(x=>x!=null).slice(-n).map(x=>x/b.k);v.push(ttm);return{v:v.reduce((p,q)=>p+q,0)/v.length,yrs:I.years.filter((y,i)=>(I[row]||[])[i]!=null).slice(-n).map(y=>"FY"+y.slice(0,4))}};
+    const e=avg("EBITDA",ebitda),m=avg("Net Income",ni),ttmE=ebitda,ttmN=ni;ebitda=e.v;ni=m.v;
+    cyc={yrs:e.yrs,ebitda,ni,ttmE,ttmN,use:cc.metrics||["evEbitda","pe"],note:cc.note||""}}
   if(ebitda>0&&evE.length>=2)r.evEbitda=[quant(evE,.25),median2(evE),quant(evE,.75)].map(m=>toPS(m*ebitda));
   if(rev>0&&evS.length>=2)r.evSales=[quant(evS,.25),median2(evS),quant(evS,.75)].map(m=>toPS(m*rev));
   if(ni>0&&pe.length>=2)r.pe=[quant(pe,.25),median2(pe),quant(pe,.75)].map(m=>m*ni/b.shares);
-  return{peers,self,r,ebitda,rev,ni,med:{evE:median2(evE),evS:median2(evS),pe:median2(pe)}}}
+  return{peers,self,r,ebitda,rev,ni,cyc,use:cyc?.use,med:{evE:median2(evE),evS:median2(evS),pe:median2(pe)}}}
 function compsBank(tk){const b=inputs(tk),c=b.c,peers=c.peers.filter(p=>p.marketCap),bk=c.bank;
   const self={...c.self,pb:c.price/b.bv0,pe:bk.niTTMperADR>0?c.price/bk.niTTMperADR:null,roe:bk.niTTMperADR/b.bv0,forwardPE:bk.eps0y?c.price/bk.eps0y:null};
   const clean=(arr,lo,hi)=>arr.filter(x=>x!=null&&x>lo&&x<hi),pb=clean(peers.map(p=>p.pb),0.1,6),pe=clean(peers.map(p=>p.pe),0,80),r={};
@@ -159,6 +165,8 @@ var drawVal=function(full){const tk=V.tk,a=V.A.companies[tk],ov=V.ov[tk]||{},r=d
   const P=[{...cm.self,ticker:tk+" (target)",isSelf:1},...cm.peers];
   if(BK)$("#vComps").innerHTML=`<thead><tr><th>Company</th><th>Mkt cap</th><th>Book (USD)</th><th>P/BV</th><th>P/E (TTM)</th><th>P/E FY26e</th><th>ROE (TTM)</th></tr></thead><tbody>${P.map(p=>`<tr class="${p.isSelf?"selfrow":""}"><td><span class="tkr">${p.ticker}</span> <span class="muted small">${(p.name||"").slice(0,24)}</span></td><td>${bn(p.marketCap)}</td><td>${p.isSelf?bn(b.bv0*b.shares):bn(p.book)}</td><td>${num(p.pb,2)}x</td><td>${p.pe?num(p.pe,1)+"x":"n.m."}</td><td>${p.isSelf&&p.forwardPE?num(p.forwardPE,1)+"x":"—"}</td><td>${pct(p.roe)}</td></tr>`).join("")}<tr class="medrow"><td>Peer median</td><td></td><td></td><td>${num(cm.med.pb,2)}x</td><td>${cm.med.pe?num(cm.med.pe,1)+"x":"n.m."}</td><td colspan="2"></td></tr></tbody>`;
   else $("#vComps").innerHTML=`<thead><tr><th>Company</th><th>Mkt cap</th><th>EV</th><th>EV/Sales</th><th>EV/EBITDA</th><th>P/E (TTM)</th><th>Fwd P/E</th><th>EBITDA mgn</th><th>Rev. growth</th></tr></thead><tbody>${P.map(p=>`<tr class="${p.isSelf?"selfrow":""}"><td><span class="tkr">${p.ticker}</span> <span class="muted small">${(p.name||"").slice(0,24)}${p.ref?" · ref. only":""}</span></td><td>${bn(p.marketCap)}</td><td>${bn(p.ev)}</td><td>${num(p.evSales,2)}x</td><td>${p.evEbitda?num(p.evEbitda,1)+"x":"n.m."}</td><td>${p.pe?num(p.pe,1)+"x":"n.m."}</td><td>${p.forwardPE?num(p.forwardPE,1)+"x":"—"}</td><td>${pct(p.ebitdaMargin)}</td><td>${sp(p.revenueGrowth)}</td></tr>`).join("")}<tr class="medrow"><td>Peer median</td><td></td><td></td><td>${num(cm.med.evS,2)}x</td><td>${cm.med.evE?num(cm.med.evE,1)+"x":"n.m."}</td><td>${cm.med.pe?num(cm.med.pe,1)+"x":"n.m."}</td><td colspan="3" class="muted small">Outliers excluded (EV/EBITDA > 60x, P/E > 80x, negatives)</td></tr></tbody>`;
+  if(!BK&&cm.cyc){const y=cm.cyc,fmt=k=>cm.r[k]?`${k==="evEbitda"?"EV/EBITDA":k==="pe"?"P/E":"EV/Sales"} ${usd(cm.r[k][0])}–${usd(cm.r[k][2])} (median ${usd(cm.r[k][1])})`:"";
+    $("#vComps").insertAdjacentHTML("beforeend",`<caption style="caption-side:bottom;text-align:left" class="muted small"><b>Cycle-adjusted comps:</b> peer median TTM multiples applied to through-cycle earnings, the average of ${y.yrs.join(", ")} and TTM: EBITDA ${bn(y.ebitda)} (TTM ${bn(y.ttmE)}), net income ${bn(y.ni)} (TTM ${bn(y.ttmN)}). Comps value = median of ${y.use.map(fmt).filter(Boolean).join(" and ")} → <b>${usd(compMidOf(cm))}</b>/share; EV/Sales is shown but not used. ${y.note}</caption>`)}
   $("#vPrec").innerHTML=`<p><b>Precedent / M&A view:</b> ${pr.basis} → <b>${usd(pr.lo)} – ${usd(pr.hi)}</b>/share. Control premium ${Math.round(pr.cp[0]*100)}–${Math.round(pr.cp[1]*100)}% on the unaffected price → <b>${usd(pr.premLo)} – ${usd(pr.premHi)}</b>.</p><p class="muted small">${a.precedentNote}</p>${a.compsNote?`<p class="muted small">${a.compsNote}</p>`:""}`;
   // football field
   const mc=monteCarlo(tk),scs=pw.list.map(x=>x.ps);

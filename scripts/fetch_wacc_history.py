@@ -28,9 +28,10 @@ YEARS = [2021, 2022, 2023, 2024, 2025]
 ERP = {2021: 0.0424, 2022: 0.0594, 2023: 0.0460, 2024: 0.0433, 2025: 0.0423}
 CHINA_CRP = {2021: 0.00695887, 2022: 0.01217149, 2023: 0.01031353, 2024: 0.00941126, 2025: 0.00912949}
 BRAZIL_CRP = {2021: 0.02970905, 2022: 0.05193169, 2023: 0.04400441, 2024: 0.03341000, 2025: 0.03240970}
-COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP)}   # Damodaran rating-based CRP; add new EM countries here
+TAIWAN_CRP = {2021: 0.00597750, 2022: 0.01034577, 2023: 0.00876650, 2024: 0.00799958, 2025: 0.00776007}   # Aa3; ctryprem21-24 archives and Jan-2026 file
+COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP), "TSM": ("Taiwan", TAIWAN_CRP)}   # Damodaran rating-based CRP; add new EM countries here
 ERP_SRC = "Damodaran, Historical Implied Equity Risk Premiums (histimpl.xls, implied premium FCFE, start of the following year)"
-CRP_SRC = "Damodaran, Country Default Spreads and Risk Premiums (ctryprem21-24.xlsx archives and the Jan-2026 ctryprem.xlsx; rating-based CRP: China A1, Brazil Ba2/Ba1)"
+CRP_SRC = "Damodaran, Country Default Spreads and Risk Premiums (ctryprem21-24.xlsx archives and the Jan-2026 ctryprem.xlsx; rating-based CRP: China A1, Brazil Ba2/Ba1, Taiwan Aa3)"
 
 def f(x):
     try: x = float(x); return None if math.isnan(x) or math.isinf(x) else x
@@ -97,14 +98,14 @@ def main():
     V = json.load(open(os.path.join(D, "valuation.json")))
     emb = embi(); today = dt.date.today().isoformat()
     tnx = yf.Ticker("^TNX").history(start="2015-12-01"); spx = yf.Ticker("^GSPC").history(start="2015-12-01")
-    cny = yf.Ticker("CNY=X").history(start="2020-12-01")
+    cny = yf.Ticker("CNY=X").history(start="2020-12-01"); twd = yf.Ticker("TWD=X").history(start="2020-12-01")
     out = {"generatedAt": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "years": YEARS,
            "method": {"rf": "US 10-year Treasury yield (Yahoo ^TNX) at the calendar year-end",
                       "beta": "60 monthly returns vs the S&P 500 (^GSPC) ending at year-end (min 24), Blume-adjusted 0.67 x raw + 0.33",
                       "erp": ERP_SRC, "crp": "Argentina: J.P. Morgan EMBI spread at year-end (api.argentinadatos.com riesgo-pais); China: " + CRP_SRC,
                       "kd": "Interest expense / average total debt (Yahoo statements) clamped to [rf, rf+10%]; else rf + model credit spread (+ EMBI for YPF); after tax at the effective rate (0-35%)",
                       "weights": "Market cap (shares x close at year-end) vs book total debt at fiscal year-end, USD",
-                      "currency": "USD terms for all tickers (ASML/ABEV: USD ADR beta and US rf; EUR debt at the ECB and BRL debt at the BCB PTAX year-end rate)"},
+                      "currency": "USD terms for all tickers (ASML/ABEV: USD ADR beta and US rf; EUR debt at the ECB, BRL debt at the BCB PTAX and TWD debt at the Yahoo TWD=X year-end rate)"},
            "erp": ERP, "companies": {}}
     for tk, a in A["companies"].items():
         c = V["companies"].get(tk)
@@ -152,6 +153,7 @@ def main():
                 if cur == "CNY": fx = close_at(cny, day)[0] if Y != "current" else V["fx"]["CNYUSD"]
                 if cur == "EUR": fx = 1 / ecb(day if Y != "current" else V["fx"]["EUR_date"])
                 if cur == "BRL": fx = ptax(day) if Y != "current" else V["fx"]["BRLUSD"]
+                if cur == "TWD": fx = close_at(twd, day)[0] if Y != "current" else V["fx"]["TWDUSD"]   # year-ends: Yahoo TWD=X; today: CBC closing rate
                 dl = debt.get(ys) if ys else None
                 if dl is None and ys:
                     later = sorted(x for x in debt if x > ys)

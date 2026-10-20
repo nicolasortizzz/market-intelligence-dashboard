@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T02:48:18Z",
+ "generatedAt": "2026-10-20T02:56:41Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -358,6 +358,41 @@
     "0001193125-26-187099"
    ],
    "note": "Reported in USD (IFRS, USD functional currency). FY2020 was COVID-depressed (Brent ~$42, Vaca Muerta activity halted in Q2-2020); growth is mostly organic shale ramp-up, but FY2025 is partly inorganic: Vista acquired Petronas' 50% of La Amarga Chica (LLL) in Apr-2025, adding ~40k boe/d gross. Revenue also moves with Brent."
+  },
+  "TSM": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "TWD",
+   "values": {
+    "FY2020": 1339254800000,
+    "FY2021": 1587415000000,
+    "FY2022": 2263891300000,
+    "FY2023": 2161735800000,
+    "FY2024": 2894307700000,
+    "FY2025": 3809054000000
+   },
+   "cagr5": 0.23251094213517876,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (ifrs-full:Revenue, TWD; 10-K/20-F)",
+   "accn": [
+    "0001193125-23-107214",
+    "0001628280-26-025362"
+   ],
+   "usd": {
+    "values": {
+     "FY2020": 47694300000,
+     "FY2021": 57224800000,
+     "FY2022": 73670400000,
+     "FY2023": 70598800000,
+     "FY2024": 88268000000,
+     "FY2025": 121423000000
+    },
+    "cagr5": 0.20549911514630437,
+    "note": "USD convenience translations from each 20-F (year-end NT$/US$ rate), so they mix FX moves"
+   },
+   "note": "Constant currency (TWD, reporting currency; IFRS net revenue). FY2020-FY2025 is almost entirely organic, driven by HPC/AI accelerators (N5/N3, CoWoS); FY2023 dipped on the smartphone/PC inventory correction."
   },
   "GGAL": {
    "start": "FY2020",

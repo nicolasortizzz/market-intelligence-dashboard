@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T02:45:25Z",
+ "generatedAt": "2026-10-20T02:59:08Z",
  "quotes": {
   "META": {
    "price": 705.44,
@@ -81,6 +81,12 @@
   },
   "VIST": {
    "price": 70.86,
+   "priceDate": "2026-10-19",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "TSM": {
+   "price": 420.22,
    "priceDate": "2026-10-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"

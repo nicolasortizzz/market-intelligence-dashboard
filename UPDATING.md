@@ -122,3 +122,4 @@ jobs:
 - YPF/GGAL "today" WACC rows use the model CRP from `valuation_assumptions.json` (changed only by `fetch_embi.py --apply`), so rerunning `fetch_wacc_history.py` no longer moves them; year-end rows use the EMBI at each year-end.
 - Argentine names (`ARG` in `fetch_wacc_history.py`: YPF, GGAL, VIST) use the EMBI Argentina spread as CRP; `fetch_embi.py --apply` updates all of them.
 - `SEC_FALLBACK` in `fetch_revenue_history.py`: annual revenue for a filed 10-K/20-F that is not yet in XBRL companyfacts (checked against the filed document; VIST FY2025).
+- TWD: `cbc_twd()` in `fetch_valuation.py` reads the CBC NT$/US$ closing rate (refreshed only with TSM; `verify=False` because the cbc.gov.tw certificate is rejected by Python 3.13). WACC-history year-end TWD debt uses Yahoo TWD=X. `adrRatio` labels the ADR ratio (TSM 5).

@@ -336,6 +336,31 @@
         {"date": "Ongoing", "q": "Any", "event": "Brent price and OPEC+ decisions; EMBI Argentina spread", "impact": "Medium", "dir": "±"}
       ],
       "score": {"quality": 7, "growth": 8, "risk": 4, "valuation": null, "rationale": "Quality: low-cost Vaca Muerta acreage (~$4.5/boe lifting cost) and a strong execution record. Growth: production roughly doubled with LLL and keeps ramping as export pipelines open. Risk: Argentine macro and policy (export duties, capital controls), Brent exposure and heavy capex funded partly with debt. Valuation from the model."}
+    },
+    "TSM": {
+      "sector": "Semiconductor foundry (leading-edge logic and advanced packaging)", "betaAdj": "blume", "betaOverride": null, "crp": 0.0078, "crpLabel": "Taiwan CRP, Damodaran Jan-2026 (Aa3)", "kdSpread": 0.008, "tax": 0.17, "ebit1": 0.56, "adrRatio": 5,
+      "growthNote": "Computed in TWD (IFRS) and converted to USD per ADR at the Central Bank of the R.O.C. (Taiwan) NT$/US$ closing rate; 1 ADR = 5 common shares (20-F FY2025: 'each ADS represents five (5) common shares'; 25.93B common = 5.19B ADR-equivalents). The NYSE ADR trades at a premium of ~13% to the Taipei line (NT$2,410 × 5 / 32.445 = US$371). Year 1 / year 2 = consensus FY2026 / FY2027 revenue (NT$5.56T / NT$7.65T, +46% / +38%), driven by AI accelerators (NVIDIA, Broadcom/Google, AMD, AWS) on N3/N2 and CoWoS advanced packaging, plus wafer price increases. GAAP operating margin 51% in FY2025 (TTM 59%); year-1 EBIT margin 56%, steady state 52% in the Base case as overseas fabs (Arizona, Kumamoto, Dresden) dilute gross margin by ~2-3 points and N2 ramps. Heavy capex (~US$52-56B in 2026, ~33% of revenue, falling to 25%) and depreciation (~17% of revenue). Tax 17% (Taiwan 20% statutory less R&D credits). Net cash (~NT$3.2T) is added in the EV bridge. Mid-term growth is in USD-equivalent terms because the exchange rate is held flat.",
+      "daPct0": 0.17, "daPctT": 0.17, "capexPct1": 0.33, "capexPctT": 0.25, "nwcPct": 0.03, "terminalG": 0.03, "ronic": 0.25, "shareChange": 0.0,
+      "compsRef": ["ASML", "AMAT"],
+      "precedentEvEbitda": [12, 18], "controlPremium": [0.20, 0.35],
+      "precedentNote": "Foundry / semiconductor-manufacturing control deals (estimates): Intel-Tower Semiconductor (2022, $5.4B, ~14x EBITDA, blocked), GlobalWafers-Siltronic (2021, ~$5B, ~13x, blocked), SK hynix-Intel NAND (2020-25, $9B), UMC-Fujitsu Mie fab (2019), Vanguard/NXP VSMC JV (2024). A takeover of TSMC (~$2.2T, Taiwan strategic asset) is impossible; 12-18x EBITDA is a private-market cross-check only.",
+      "compsNote": "Comps: Samsung Electronics (memory + foundry; KRW, converted to USD), Intel (incl. Intel Foundry), UMC (mature-node foundry; TWD), GlobalFoundries, SMIC (HKD listing, USD reporting). ASML and AMAT are equipment references, shown but excluded from the statistics. Usual outlier filters: EV/EBITDA above 60x (SMIC) and P/E above 80x drop out; loss-making peers have no P/E.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": -0.20, "midGrowth": 0.06, "ebitT": 0.46, "ebit1": 0.52, "desc": "AI orders normalise after 2026, smartphone/PC demand stays weak and Samsung/Intel win some N2-class volume; overseas fabs dilute margins more than planned; growth slows to mid-single digits."},
+        {"id": "base", "name": "Base", "p": 0.42, "growthAdj": 0, "midGrowth": 0.15, "ebitT": 0.52, "desc": "Consensus 2026-27 (AI accelerators, CoWoS capacity doubling, N2 ramp), then ~15% growth fading as AI capex matures; pricing power offsets overseas-fab dilution; margin ~52%."},
+        {"id": "bull", "name": "Bull", "p": 0.14, "growthAdj": 0.08, "midGrowth": 0.20, "ebitT": 0.56, "desc": "Custom ASICs and GPUs keep compounding; TSMC keeps near-monopoly share at N2/A16 and in advanced packaging and raises prices further; margin ~56%."},
+        {"id": "taiwanTail", "name": "Tail: China-Taiwan blockade / conflict", "p": 0.05, "growthAdj": -0.50, "midGrowth": 0.0, "ebitT": 0.30, "ebit1": 0.30, "crpAdd": 0.05, "oneOff": -150000000000.0, "desc": "A PLA blockade or conflict halts most Taiwan fab output and exports for an extended period; customers rush to Arizona/Japan/Samsung; ~US$150B of assumed lost profit, damage and costs, and country risk jumps by ~500 bp."},
+        {"id": "tariffTail", "name": "Tail: US tariffs / export controls", "p": 0.07, "growthAdj": -0.15, "midGrowth": 0.10, "ebitT": 0.44, "desc": "Section 232 chip tariffs, forced US capacity build-outs and tighter export controls on China customers raise costs and cut addressable demand; US fabs run at structurally lower margins."},
+        {"id": "aiBustTail", "name": "Tail: AI capex bust", "p": 0.07, "growthAdj": -0.35, "midGrowth": 0.03, "ebitT": 0.42, "ebit1": 0.48, "desc": "Hyperscalers cut AI capex sharply; CoWoS and N3/N2 utilisation falls, depreciation from the 2025-27 capex wave squeezes margins and revenue falls in FY2027."},
+        {"id": "superTail", "name": "Tail: AI super-cycle", "p": 0.03, "growthAdj": 0.15, "midGrowth": 0.28, "ebitT": 0.60, "desc": "AI compute demand keeps doubling (inference, sovereign AI, robotics); TSMC sells out N2/A16 and packaging for years with large price increases; revenue triples by 2030 and margins reach ~60%."}
+      ],
+      "catalysts": [
+        {"date": "Monthly (~10th)", "q": "Any", "event": "Monthly revenue releases (Taiwan)", "impact": "Medium", "dir": "±"},
+        {"date": "~2027-01-15", "q": "Q4 2026", "event": "Q4 2026 results and 2027 capex / growth guidance", "impact": "High", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "US Section 232 semiconductor tariffs and export-control changes", "impact": "High", "dir": "−"},
+        {"date": "Ongoing", "q": "Any", "event": "Cross-Strait tensions (PLA exercises, US-China summits)", "impact": "High", "dir": "−"}
+      ],
+      "score": {"quality": 10, "growth": 8, "risk": 5, "valuation": null, "rationale": "Quality: >90% share of leading-edge logic and the dominant advanced-packaging supplier, ~59% operating margin and net cash. Growth: consensus +46% revenue in 2026 on AI. Risk: geopolitical concentration in Taiwan, US tariffs/export controls, customer concentration (NVIDIA, Apple) and heavy capex. Valuation from the model."}
     }
   }
 }

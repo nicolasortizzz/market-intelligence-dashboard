@@ -26,7 +26,8 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "UBER": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "BE": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "AVGO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
-       "VIST": ("ifrs-full", ["Revenue"], "USD")}
+       "VIST": ("ifrs-full", ["Revenue"], "USD"),
+       "TSM": ("ifrs-full", ["Revenue"], "TWD")}
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",
                    "source": "Grupo Galicia Form 20-F FY2020 (selected financial data, IFRS, Dec-2020 pesos)",
@@ -36,7 +37,9 @@ GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6
                    "url": "https://b.gfgsa.com/app/uploads/2026/03/PressRelease_GrupoGalicia_4Q2025_EN.pdf"}}
 
 # Filed annual figures not (yet) in XBRL companyfacts; each value checked against the filed document.
-SEC_FALLBACK = {"VIST": {2025: {"val": 2474197000, "end": "2025-12-31", "accn": "0001193125-26-187099",
+SEC_FALLBACK = {"TSM": {2025: {"val": 3809054000000, "end": "2025-12-31", "accn": "0001628280-26-025362", "usd": 121423000000,
+                               "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-16, net revenue NT$3,809,054M / US$121,423M convenience translation; not in companyfacts frames)"}},
+                "VIST": {2025: {"val": 2474197000, "end": "2025-12-31", "accn": "0001193125-26-187099",
                                 "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-28, 'Revenue from contracts with customers' US$2,474,197k; not in companyfacts)"}}}
 
 def sec_series(cik, ns, tags, unit):
@@ -126,6 +129,13 @@ def main():
             d["note"] = ("FY2020 revenue was COVID-depressed (Mobility gross bookings fell ~46% in 2020 while Delivery surged), so the 5y CAGR overstates the "
                          "run-rate; it also reflects accounting changes (UK/business-model shifts to principal reporting from 2022 raised revenue vs gross bookings) "
                          "and the Postmates (2020) and Transplace (2021, Freight) acquisitions.")
+        if t == "TSM":
+            u = sec_series(cik[t], ns, tags, "USD")
+            for y, v in SEC_FALLBACK["TSM"].items(): u.setdefault(y, {"val": v["usd"]})
+            d["usd"] = {"values": {f"FY{y}": u[y]["val"] for y in range(y0, END + 1) if y in u}, "cagr5": cagr(u[y0]["val"], u[END]["val"], 5),
+                        "note": "USD convenience translations from each 20-F (year-end NT$/US$ rate), so they mix FX moves"}
+            d["note"] = ("Constant currency (TWD, reporting currency; IFRS net revenue). FY2020-FY2025 is almost entirely organic, "
+                         "driven by HPC/AI accelerators (N5/N3, CoWoS); FY2023 dipped on the smartphone/PC inventory correction.")
         if t == "VIST":
             d["note"] = ("Reported in USD (IFRS, USD functional currency). FY2020 was COVID-depressed (Brent ~$42, Vaca Muerta activity halted in Q2-2020); "
                          "growth is mostly organic shale ramp-up, but FY2025 is partly inorganic: Vista acquired Petronas' 50% of La Amarga Chica (LLL) in Apr-2025, "

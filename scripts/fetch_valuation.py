@@ -6,7 +6,7 @@ Argentine names: YPF keeps its books in USD (functional currency) although Yahoo
 its balance sheet / TTM figures are taken from the USD statements. GGAL is valued as a bank (residual income):
 book value per ADR = IAS 29-restated equity (ARS) / ADR-equivalent shares / BCRA A3500 rate on the balance-sheet date.
 """
-import json, os, time, datetime as dt, math
+import json, os, re, time, datetime as dt, math
 import numpy as np, pandas as pd, requests, yfinance as yf
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "data")
@@ -24,7 +24,8 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "UBER": ["LYFT", "DASH", "GRAB", "CART", "ABNB", "BKNG"],
            "BE": ["PLUG", "FCEL", "BLDP", "GEV", "ETN", "VRT", "FLNC"],
            "AVGO": ["NVDA", "AMD", "MRVL", "QCOM", "TXN", "ADI", "ANET", "ORCL", "MSFT"],
-           "VIST": ["YPF", "PAM", "PBR", "EC", "EOG", "DVN", "FANG"]}
+           "VIST": ["YPF", "PAM", "PBR", "EC", "EOG", "DVN", "FANG"],
+           "TSM": ["005930.KS", "INTC", "UMC", "GFS", "0981.HK", "ASML", "AMAT"]}
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}          # ticker -> local shares per ADR (GGAL: 1 ADS = 10 Class B shares)
@@ -114,6 +115,17 @@ def ecb_eurusd():
     r = requests.get("https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?lastNObservations=1&format=csvdata", timeout=30)
     row = r.text.strip().splitlines(); hdr = row[0].split(","); v = row[-1].split(",")
     return v[hdr.index("TIME_PERIOD")], float(v[hdr.index("OBS_VALUE")])
+
+def cbc_twd():
+    """Central Bank of the R.O.C. (Taiwan) NT$/US$ interbank closing rate: latest date on the CBC key-indicator page."""
+    for _ in range(3):
+        try:
+            t = requests.get("https://www.cbc.gov.tw/en/lp-700-2.html", headers={"User-Agent": "Mozilla/5.0"}, timeout=40, verify=False).text  # cbc.gov.tw cert lacks a Subject Key Identifier (rejected by Python 3.13); public read-only page, as for api.bcra.gob.ar
+            m = re.search(r'data-th="Date"><span>(\d{4})/(\d{2})/(\d{2})</span></td>\s*<td data-th="NTD/USD"><span>([\d.]+)</span>', t)
+            if m: return f"{m.group(1)}-{m.group(2)}-{m.group(3)}", float(m.group(4))
+        except Exception as ex: print("cbc retry", ex)
+        time.sleep(3)
+    return None, None
 
 def ptax(day=None):
     """Banco Central do Brasil PTAX (selling rate, BRL per USD): last fixing on or before `day` (default today)."""
@@ -234,6 +246,10 @@ def main():
     if not only or "ABEV" in only:
         bd, bv = ptax()
         if bv: res.setdefault("fx", {}).update({"BRLUSD": bv, "BRL_date": bd, "BRL_source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"}); FXC["BRL"] = bv
+    if not only or "TSM" in only:   # TWD only refreshed with TSM
+        td, tv = cbc_twd()
+        if tv: res.setdefault("fx", {}).update({"TWDUSD": tv, "TWD_date": td, "TWD_source": "Central Bank of the R.O.C. (Taiwan), NT$/US$ interbank closing rate (cbc.gov.tw)"}); FXC["TWD"] = tv
+    elif res.get("fx", {}).get("TWDUSD"): FXC["TWD"] = res["fx"]["TWDUSD"]
     if not only or {"YPF", "GGAL"} & set(only):   # ARS rate only refreshed with the Argentine names
         fd, ars = bcra((dt.date.today() - dt.timedelta(days=10)).isoformat(), dt.date.today().isoformat())
         if ars: res["fx"].update({"ARSUSD_BCRA": ars, "ARS_date": fd}); FXC["ARS"] = ars

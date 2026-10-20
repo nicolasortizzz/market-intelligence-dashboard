@@ -25,8 +25,10 @@ YEARS = [2021, 2022, 2023, 2024, 2025]
 # Damodaran archives (verified 2026-10-19). Implied ERP (FCFE) for the start of year Y+1, China rating-based CRP.
 ERP = {2021: 0.0424, 2022: 0.0594, 2023: 0.0460, 2024: 0.0433, 2025: 0.0423}
 CHINA_CRP = {2021: 0.00695887, 2022: 0.01217149, 2023: 0.01031353, 2024: 0.00941126, 2025: 0.00912949}
+BRAZIL_CRP = {2021: 0.02970905, 2022: 0.05193169, 2023: 0.04400441, 2024: 0.03341000, 2025: 0.03240970}
+COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP)}   # Damodaran rating-based CRP; add new EM countries here
 ERP_SRC = "Damodaran, Historical Implied Equity Risk Premiums (histimpl.xls, implied premium FCFE, start of the following year)"
-CRP_SRC = "Damodaran, Country Default Spreads and Risk Premiums (ctryprem21-24.xlsx archives and the Jan-2026 ctryprem.xlsx; rating-based CRP, China A1)"
+CRP_SRC = "Damodaran, Country Default Spreads and Risk Premiums (ctryprem21-24.xlsx archives and the Jan-2026 ctryprem.xlsx; rating-based CRP: China A1, Brazil Ba2/Ba1)"
 
 def f(x):
     try: x = float(x); return None if math.isnan(x) or math.isinf(x) else x
@@ -62,6 +64,16 @@ def beta(px, spx, day):
     raw = np.cov(r.iloc[:, 0], r.iloc[:, 1])[0, 1] / np.var(r.iloc[:, 1], ddof=1)
     return 0.67 * raw + 0.33, raw, len(r)
 
+def ptax(day):
+    """BCB PTAX selling rate (BRL per USD) on the last fixing <= day; Yahoo BRL=X as a fallback."""
+    d = dt.date.fromisoformat(day)
+    u = ("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@i,dataFinalCotacao=@f)"
+         f"?@i='{(d - dt.timedelta(days=10)).strftime('%m-%d-%Y')}'&@f='{d.strftime('%m-%d-%Y')}'&$format=json")
+    try: return float(requests.get(u, timeout=40).json()["value"][-1]["cotacaoVenda"])
+    except Exception:
+        h = yf.Ticker("BRL=X").history(start=(d - dt.timedelta(days=10)).isoformat(), end=(d + dt.timedelta(days=1)).isoformat())
+        return float(h["Close"].iloc[-1])
+
 ECBC = {}
 def ecb(day):
     """ECB reference rate (USD per EUR) on the last fixing <= day; retries, then Yahoo EURUSD=X as a fallback."""
@@ -90,7 +102,7 @@ def main():
                       "erp": ERP_SRC, "crp": "Argentina: J.P. Morgan EMBI spread at year-end (api.argentinadatos.com riesgo-pais); China: " + CRP_SRC,
                       "kd": "Interest expense / average total debt (Yahoo statements) clamped to [rf, rf+10%]; else rf + model credit spread (+ EMBI for YPF); after tax at the effective rate (0-35%)",
                       "weights": "Market cap (shares x close at year-end) vs book total debt at fiscal year-end, USD",
-                      "currency": "USD terms for all tickers (ASML: USD ADR beta and US rf; EUR debt converted at the ECB year-end rate)"},
+                      "currency": "USD terms for all tickers (ASML/ABEV: USD ADR beta and US rf; EUR debt at the ECB and BRL debt at the BCB PTAX year-end rate)"},
            "erp": ERP, "companies": {}}
     for tk, a in A["companies"].items():
         c = V["companies"].get(tk)
@@ -111,7 +123,9 @@ def main():
             bA, bRaw, n = beta(px, spx, day)
             erp = ERP.get(Y, A["erp"]) if Y != "current" else A["erp"]
             if tk in ("YPF", "GGAL"): crp, crpd = emb(day); crpSrc = f"EMBI Argentina {round(crp * 1e4)} bp ({crpd})"
-            elif tk == "NIO": crp = CHINA_CRP.get(Y, a.get("crp", 0)) if Y != "current" else a.get("crp", 0); crpSrc = "Damodaran China CRP" if Y != "current" else "model CRP"
+            elif tk in COUNTRY_CRP:
+                cn, tbl = COUNTRY_CRP[tk]
+                crp = tbl.get(Y, a.get("crp", 0)) if Y != "current" else a.get("crp", 0); crpSrc = f"Damodaran {cn} CRP" if Y != "current" else "model CRP"
             else: crp, crpSrc = 0.0, "none"
             betaUsed = bA if bA is not None else (a.get("betaOverride") or c.get("beta") or 1)
             ke = rf + betaUsed * erp + crp
@@ -130,6 +144,7 @@ def main():
                 fx = 1.0
                 if cur == "CNY": fx = close_at(cny, day)[0] if Y != "current" else V["fx"]["CNYUSD"]
                 if cur == "EUR": fx = 1 / ecb(day if Y != "current" else V["fx"]["EUR_date"])
+                if cur == "BRL": fx = ptax(day) if Y != "current" else V["fx"]["BRLUSD"]
                 dl = debt.get(ys) if ys else None
                 if dl is None and ys:
                     later = sorted(x for x in debt if x > ys)

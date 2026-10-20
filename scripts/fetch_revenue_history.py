@@ -20,7 +20,9 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "NIO": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax"], "CNY"),
        "YPF": ("ifrs-full", ["Revenue"], "USD"),
        "MU": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
-       "ASML": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax"], "EUR")}
+       "ASML": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax"], "EUR"),
+       "VST": ("us-gaap", ["Revenues"], "USD"),
+       "ABEV": ("ifrs-full", ["Revenue"], "BRL")}
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",
                    "source": "Grupo Galicia Form 20-F FY2020 (selected financial data, IFRS, Dec-2020 pesos)",
@@ -63,6 +65,13 @@ def ecb(day):
     rows = r.text.strip().splitlines(); h = rows[0].split(","); v = rows[-1].split(",")
     return v[h.index("TIME_PERIOD")], float(v[h.index("OBS_VALUE")])
 
+def ptax(day):
+    """BCB PTAX selling rate (BRL per USD), last fixing on or before `day`."""
+    d = dt.date.fromisoformat(day)
+    u = ("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@i,dataFinalCotacao=@f)"
+         f"?@i='{(d - dt.timedelta(days=10)).strftime('%m-%d-%Y')}'&@f='{d.strftime('%m-%d-%Y')}'&$format=json")
+    v = requests.get(u, timeout=40).json()["value"][-1]; return v["dataHoraCotacao"][:10], float(v["cotacaoVenda"])
+
 def cagr(a, b, n): return (b / a) ** (1 / n) - 1
 
 def main():
@@ -96,6 +105,16 @@ def main():
                         "fx": {f"FY{y0}": [e0d, e0], f"FY{END}": [e1d, e1], "source": "ECB euro reference rate"},
                         "note": f"translated at the ECB year-end rates ({e0} USD/EUR on {e0d}, {e1} on {e1d}), so it mixes FX moves"}
             d["note"] = "Constant currency (EUR, reporting currency; US GAAP 20-F net sales)."
+        if t == "VST":
+            d["note"] = ("Total revenues including hedging/derivative results. Growth is partly inorganic: Energy Harbor (nuclear + retail, closed 2024-03-01) "
+                         "added ~4 GW of nuclear; FY2021 includes Winter Storm Uri.")
+        if t == "ABEV":
+            (p0d, p0), (p1d, p1) = ptax(a["end"]), ptax(b["end"])
+            d["usd"] = {"values": {f"FY{y0}": a["val"] / p0, f"FY{END}": b["val"] / p1}, "cagr5": cagr(a["val"] / p0, b["val"] / p1, 5),
+                        "fx": {f"FY{y0}": [p0d, p0], f"FY{END}": [p1d, p1], "source": "BCB PTAX"},
+                        "note": f"translated at the BCB PTAX year-end rates ({p0} BRL/USD on {p0d}, {p1} on {p1d}), so it mixes FX moves"}
+            d["note"] = ("Constant currency (BRL, reporting currency; IFRS 20-F net revenue). Includes Argentina (Quilmes) under IAS 29 hyperinflation "
+                         "accounting, which inflates nominal growth in some years.")
         if t == "DIS": d["note"] = "Disney fiscal years end on the Saturday nearest 30 September (FY2020 ended 2020-10-03)."
         res["companies"][t] = d; print(t, d["start"], d["end"], unit, round(d["cagr5"] * 100, 2)); time.sleep(0.3)
     # GGAL

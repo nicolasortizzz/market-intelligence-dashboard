@@ -66,7 +66,8 @@ consensus revision, restated statements) that deserves a look at the assumptions
 1. `scripts/fetch_valuation.py`: add `"TICKER": [peers...]` to `TARGETS`. Special cases: `USD_STMT` (statements in
    USD although Yahoo says otherwise), `BANKS` (residual-income model; value = local shares per ADR),
    `SEC_APPEND` (Yahoo's annual statements lag the latest 10-K). Non-USD reporters need a `fx["<CUR>USD"]` entry
-   (units per USD; CNY and EUR are handled).
+   (units per USD; CNY via Yahoo, EUR via the ECB and BRL via the BCB PTAX are handled; add a fetcher for a new currency
+   next to `ecb_eurusd()` / `ptax()` and a label in the "Reporting currency" row of `valuation.js`).
 2. `data/valuation_assumptions.json`: copy an existing company block and edit sector, beta (`betaAdj`/`betaOverride`),
    `crp`, `kdSpread`, `tax`, D&A / capex / NWC glide paths, `terminalG`, precedents, `controlPremium`, 3 base
    scenarios plus low-probability high-impact tails (probabilities must sum to 1), catalysts and score.
@@ -76,7 +77,8 @@ consensus revision, restated statements) that deserves a look at the assumptions
 5. `scripts/fetch_revenue_history.py`: add `"TICKER": (namespace, [XBRL tags], currency)` to `SEC` for the 5-year
    revenue CAGR card and chart line (FY2020-FY2025; add notes for odd fiscal years or currencies).
 6. The 5-year WACC card needs nothing extra: `fetch_wacc_history.py` covers every company in the assumptions file
-   (add a CRP rule there for a new emerging-market country).
+   (for a new emerging-market name add its Damodaran CRP series to `COUNTRY_CRP`, as for NIO/China and ABEV/Brazil,
+   and a currency rule for debt conversion if it reports in a new currency; set `crp` and `crpLabel` in the assumptions).
 7. Run `python scripts/fetch_valuation.py TICKER && python scripts/fetch_reverse_dcf.py TICKER` (ticker-scoped,
    leaves other tickers untouched), then `make update ARGS="--skip market,valuation,reverse"`, preview with
    `make serve`, and update the README.

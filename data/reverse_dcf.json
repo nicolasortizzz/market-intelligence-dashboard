@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-19T23:43:21Z",
+ "generatedAt": "2026-10-20T01:39:07Z",
  "quotes": {
   "META": {
    "price": 705.44,
@@ -45,6 +45,18 @@
   },
   "ASML": {
    "price": 1647.12,
+   "priceDate": "2026-10-19",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "VST": {
+   "price": 149.7,
+   "priceDate": "2026-10-19",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ABEV": {
+   "price": 3.25,
    "priceDate": "2026-10-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"

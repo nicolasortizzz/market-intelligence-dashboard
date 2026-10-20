@@ -18,7 +18,9 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "YPF": ["VIST", "PAM", "PBR", "EC"],
            "GGAL": ["BMA", "BBAR", "SUPV", "ITUB", "CIB"],
            "MU": ["000660.KS", "005930.KS", "WDC", "SNDK", "NVDA", "AMD"],   # NVDA/AMD: reference only (excluded from comps stats)
-           "ASML": ["AMAT", "LRCX", "KLAC", "8035.T"]}
+           "ASML": ["AMAT", "LRCX", "KLAC", "8035.T"],
+           "VST": ["CEG", "NRG", "TLN", "PEG", "ETR"],
+           "ABEV": ["BUD", "HEINY", "FMX", "CABGY", "STZ"]}
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}          # ticker -> local shares per ADR (GGAL: 1 ADS = 10 Class B shares)
@@ -107,6 +109,19 @@ def ecb_eurusd():
     r = requests.get("https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?lastNObservations=1&format=csvdata", timeout=30)
     row = r.text.strip().splitlines(); hdr = row[0].split(","); v = row[-1].split(",")
     return v[hdr.index("TIME_PERIOD")], float(v[hdr.index("OBS_VALUE")])
+
+def ptax(day=None):
+    """Banco Central do Brasil PTAX (selling rate, BRL per USD): last fixing on or before `day` (default today)."""
+    d = dt.date.fromisoformat(day) if day else dt.date.today()
+    a = (d - dt.timedelta(days=10)).strftime("%m-%d-%Y"); b = d.strftime("%m-%d-%Y")
+    u = ("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@i,dataFinalCotacao=@f)"
+         f"?@i='{a}'&@f='{b}'&$format=json")
+    for _ in range(3):
+        try:
+            v = requests.get(u, timeout=40).json()["value"][-1]
+            return v["dataHoraCotacao"][:10], float(v["cotacaoVenda"])
+        except Exception as ex: print("ptax retry", ex); time.sleep(3)
+    return None, None
 
 def sec_append(d, cik):
     """Append the latest 10-K fiscal year (missing in Yahoo's annual statements) from SEC XBRL companyfacts."""
@@ -211,6 +226,9 @@ def main():
         ed, ev = ecb_eurusd()
         res.setdefault("fx", {}).update({"EURUSD": 1 / ev, "EURUSD_ecb": ev, "EUR_date": ed, "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"})
         FXC["EUR"] = 1 / ev
+    if not only or "ABEV" in only:
+        bd, bv = ptax()
+        if bv: res.setdefault("fx", {}).update({"BRLUSD": bv, "BRL_date": bd, "BRL_source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"}); FXC["BRL"] = bv
     if not only or {"YPF", "GGAL"} & set(only):   # ARS rate only refreshed with the Argentine names
         fd, ars = bcra((dt.date.today() - dt.timedelta(days=10)).isoformat(), dt.date.today().isoformat())
         if ars: res["fx"].update({"ARSUSD_BCRA": ars, "ARS_date": fd}); FXC["ARS"] = ars

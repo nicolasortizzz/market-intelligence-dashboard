@@ -185,6 +185,52 @@
         {"date": "2027-2028", "q": "2027-28", "event": "High-NA EUV insertion decisions (Intel 14A, TSMC A14, DRAM makers)", "impact": "High", "dir": "+"}
       ],
       "score": {"quality": 10, "growth": 8, "risk": 6, "valuation": null, "rationale": "Quality: sole supplier of EUV lithography, FY2025 operating margin 34.6% and a growing installed-base service business. Growth: consensus net sales +36% in 2026 and +29% in 2027 on AI-driven logic and memory demand. Risk: lumpy orders tied to a few customers (TSMC, Samsung, Intel, SK Hynix), China export controls and Taiwan concentration. Valuation: scored from the model's implied upside."}
+    },
+    "VST": {
+      "sector": "US independent power producer (nuclear, gas, retail electricity)", "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.02, "tax": 0.18, "ebit1": 0.20,
+      "growthNote": "Year 1 / year 2 = consensus FY2026 / FY2027 revenue ($22.3B / $24.0B, +26% / +8%), boosted by acquired gas plants and data-center contracts. Reported revenue and operating income include hedge and derivative marks, so the year-1 EBIT margin is set at 20% (2026 adjusted EBITDA guide ≈ 33% of revenue less ~13% D&A incl. nuclear fuel). Steady-state EBIT margin 24% in the Base case, as nuclear PPAs with hyperscalers (Comanche Peak) lock in higher prices. Buybacks of ~$1B/yr retire ~3%/yr of shares for 3 years. The 45U nuclear production tax credit (through 2032) supports a floor on nuclear revenue and lowers the cash tax rate (18% assumed).",
+      "daPct0": 0.12, "daPctT": 0.11, "capexPct1": 0.14, "capexPctT": 0.10, "nwcPct": 0.02, "terminalG": 0.025, "ronic": 0.12, "shareChange": -0.03,
+      "precedentEvEbitda": [8, 13], "controlPremium": [0.15, 0.30],
+      "precedentNote": "Power-generation control deals (estimates): Vistra-Energy Harbor (2024, ~$3.4B), Constellation-Calpine (announced 2025, ~$26.6B EV incl. debt), NRG-LS Power gas and C&I assets (2025, ~$12B), Talen's purchases of PJM gas plants (2025). Deals have cleared around 8-13x forward EBITDA, below where listed nuclear-heavy IPPs now trade. A takeover of VST is unlikely (size, FERC/NRC approvals); this is a private-market cross-check.",
+      "compsNote": "Comps: CEG (nuclear-heavy, the closest peer), NRG (retail + gas), TLN (nuclear + PJM gas), plus the regulated utilities PEG and ETR as low-beta references. Utilities trade on lower multiples, which pulls down the median; reported TTM EBITDA includes hedge marks.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": -0.08, "midGrowth": 0.02, "ebitT": 0.17, "ebit1": 0.17, "desc": "Fewer and cheaper data-center PPAs than hoped, low gas prices flatten ERCOT/PJM forward curves, and PJM capacity prices fall from record levels after market-rule changes; margins revert toward pre-2024 levels."},
+        {"id": "base", "name": "Base", "p": 0.43, "growthAdj": 0, "midGrowth": 0.06, "ebitT": 0.24, "desc": "Consensus 2026-27, then ~6% growth as more nuclear and gas output is contracted with hyperscalers at premium prices (Comanche Peak deal as the template); the 45U nuclear PTC sets a floor; buybacks continue."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0.04, "midGrowth": 0.09, "ebitT": 0.28, "desc": "Multiple long-term nuclear PPAs (including uprates and new gas peakers co-located with data centers) re-rate the fleet as contracted infrastructure; ERCOT load growth keeps scarcity pricing high."},
+        {"id": "dcTail", "name": "Tail: Data-center demand bust", "p": 0.10, "growthAdj": -0.12, "midGrowth": 0.0, "ebitT": 0.14, "ebit1": 0.15, "desc": "Hyperscalers cut AI capex or efficiency gains (smaller models, better chips) slash power needs; announced campuses are cancelled, forward power prices collapse and PPA talks stall."},
+        {"id": "nuclearTail", "name": "Tail: Nuclear outage / regulatory shock", "p": 0.05, "growthAdj": -0.05, "midGrowth": 0.03, "ebitT": 0.16, "oneOff": -3000000000.0, "desc": "An extended forced outage at Comanche Peak or Beaver Valley, an NRC safety order, FERC limits on behind-the-meter co-location, or repeal of the 45U PTC; ~$3B of assumed lost margin and repair costs."},
+        {"id": "ercotTail", "name": "Tail: ERCOT price-spike event", "p": 0.05, "growthAdj": 0.02, "midGrowth": 0.05, "ebitT": 0.22, "oneOff": -2500000000.0, "desc": "A Winter Storm Uri-style event (Feb 2021 cost Vistra ~$1.6B): plants trip while prices hit the $5,000/MWh cap and the retail book is short; ~$2.5B one-off loss, followed by tighter market rules and higher prices."}
+      ],
+      "catalysts": [
+        {"date": "~2026-11-06", "q": "Q3 2026", "event": "Q3 2026 results; 2027 adjusted EBITDA guidance and buyback update", "impact": "High", "dir": "±"},
+        {"date": "Ad hoc", "q": "Any", "event": "New nuclear / gas PPAs with hyperscalers (Comanche Peak follow-ons)", "impact": "High", "dir": "+"},
+        {"date": "~2026-12", "q": "Q4 2026", "event": "PJM capacity auction results and FERC co-location rulings", "impact": "Medium", "dir": "±"},
+        {"date": "Seasonal", "q": "Summer/Winter", "event": "ERCOT peak-demand and winter-storm risk", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 7, "growth": 7, "risk": 5, "valuation": null, "rationale": "Quality: one of the largest US competitive generators (~41 GW incl. ~6.4 GW nuclear) with an integrated retail book that hedges output. Growth: consensus +26% revenue in 2026 on acquisitions and data-center demand; contracted nuclear PPAs add visibility. Risk: commodity and weather exposure (Uri), policy and FERC co-location rules, and leverage (~$20B debt). Valuation: scored from the model's implied upside."}
+    },
+    "ABEV": {
+      "sector": "Beverages (beer, soft drinks) - Brazil, LatAm North/South, Canada", "betaAdj": "none", "betaOverride": 0.75, "betaNote": "Yahoo's 5Y beta (0.22) is distorted by BRL moves and local trading; an assumed 0.75 (EM consumer staples ADR) is used, plus Brazil CRP.", "crp": 0.0324, "crpLabel": "Brazil CRP, Damodaran Jan-2026 (Ba1)", "kdSpread": 0.02, "tax": 0.24,
+      "growthNote": "Ambev reports in BRL (IFRS 20-F). The model is computed in BRL and converted to USD per ADR (1 ADR = 1 common share; Yahoo market cap / ADR price = 15.4B shares, matching the share count) at the Banco Central do Brasil PTAX rate stored in valuation.json. Year 1 / year 2 = consensus FY2026 / FY2027 net revenue in BRL (+2.6% / +4.9%). Because the model holds the FX rate flat, mid-term growth (3.5%) is set in USD-equivalent terms, i.e. below nominal BRL growth by the expected inflation gap. Argentina (Quilmes) is reported under IAS 29 hyperinflation accounting.",
+      "daPct0": 0.07, "daPctT": 0.065, "capexPct1": 0.06, "capexPctT": 0.06, "nwcPct": -0.05, "terminalG": 0.025, "ronic": 0.25, "shareChange": -0.005,
+      "precedentEvEbitda": [11, 16], "controlPremium": [0.20, 0.35],
+      "precedentNote": "Brewing control deals (estimates): AB InBev-SABMiller (2016, ~$100B+), Heineken-Brasil Kirin (2017, ~€0.7B), Constellation-Grupo Modelo US business (2013, ~$4.75B), Asahi-CUB (2020, ~$11B), around 11-16x EBITDA. AB InBev already owns ~62% of Ambev, so the relevant M&A case is a minority buy-out at a premium.",
+      "compsNote": "Comps: BUD (parent), Heineken (HEINY), FEMSA (FMX, a conglomerate: OXXO retail + Coca-Cola FEMSA stake), Carlsberg (CABGY) and Constellation Brands (STZ). Multiples are recomputed in USD from Yahoo data (EUR, MXN, DKK financials converted).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": -0.03, "midGrowth": 0.01, "ebitT": 0.22, "desc": "Brazil beer volumes stay weak (consumer squeeze, weather, competition from Heineken), USD-linked costs (aluminium, barley) rise and Argentina drags on reported results; margins slip."},
+        {"id": "base", "name": "Base", "p": 0.45, "growthAdj": 0, "midGrowth": 0.035, "ebitT": 0.25, "desc": "Consensus 2026-27; premiumization (Corona, Spaten, Michelob Ultra), the BEES B2B platform and Zé Delivery support pricing above inflation; EBIT margin ~25%."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0.02, "midGrowth": 0.055, "ebitT": 0.28, "desc": "Volume recovery in Brazil plus cost deflation and a stronger BRL; Argentina normalizes and contributes in USD."},
+        {"id": "brlTail", "name": "Tail: BRL crisis", "p": 0.08, "growthAdj": -0.12, "midGrowth": 0.0, "ebitT": 0.20, "crpAdd": 0.03, "desc": "A fiscal scare sends the BRL down 25-30% and Brazil's country risk up ~300 bp; USD revenue falls and imported costs squeeze margins for two years."},
+        {"id": "taxTail", "name": "Tail: Tax shock", "p": 0.05, "growthAdj": -0.02, "midGrowth": 0.025, "ebitT": 0.21, "oneOff": -3000000000.0, "desc": "Tax reform hits harder than expected: a high Imposto Seletivo ('sin tax') on beer from 2027 and the end of interest-on-capital (JCP) deductibility, plus adverse rulings on Ambev's large tax contingencies (~$3B assumed one-off)."},
+        {"id": "argTail", "name": "Tail: Argentina relapse", "p": 0.02, "growthAdj": -0.04, "midGrowth": 0.025, "ebitT": 0.23, "desc": "Argentina returns to devaluation and FX controls; IAS 29 restatement and translation losses cut the LatAm South contribution and dividends from Quilmes are trapped."}
+      ],
+      "catalysts": [
+        {"date": "~2026-10-29", "q": "Q3 2026", "event": "Q3 2026 results: Brazil beer volumes, margin and buyback/dividend", "impact": "High", "dir": "±"},
+        {"date": "2027-01", "q": "2027", "event": "Start of the CBS/IBS transition and the Imposto Seletivo rates on beverages", "impact": "High", "dir": "−"},
+        {"date": "Every ~45 days", "q": "Any", "event": "BCB Copom rate decisions and the BRL", "impact": "Medium", "dir": "±"},
+        {"date": "2027-10", "q": "Q4 2027", "event": "Argentina presidential election (Quilmes, FX regime)", "impact": "Low", "dir": "±"}
+      ],
+      "score": {"quality": 8, "growth": 4, "risk": 6, "valuation": null, "rationale": "Quality: dominant beer share in Brazil (~60%), net cash and strong cash conversion (FCF ~R$20B in 2025). Growth: low, with consensus net revenue +3% in 2026 and +5% in 2027 in BRL. Risk: BRL and Brazil country risk, tax reform, tax contingencies and Argentina. Valuation: scored from the model's implied upside."}
     }
   }
 }

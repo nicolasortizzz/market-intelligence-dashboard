@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-19T23:43:22Z",
+ "generatedAt": "2026-10-20T01:39:07Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -201,6 +201,71 @@
     "note": "translated at the ECB year-end rates (1.2271 USD/EUR on 2020-12-31, 1.175 on 2025-12-31), so it mixes FX moves"
    },
    "note": "Constant currency (EUR, reporting currency; US GAAP 20-F net sales)."
+  },
+  "VST": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 11443000000,
+    "FY2021": 12077000000,
+    "FY2022": 13728000000,
+    "FY2023": 14779000000,
+    "FY2024": 17224000000,
+    "FY2025": 17738000000
+   },
+   "cagr5": 0.09162368630867457,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001692819-23-000005",
+    "0001692819-26-000006"
+   ],
+   "note": "Total revenues including hedging/derivative results. Growth is partly inorganic: Energy Harbor (nuclear + retail, closed 2024-03-01) added ~4 GW of nuclear; FY2021 includes Winter Storm Uri."
+  },
+  "ABEV": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 58379000000,
+    "FY2021": 72854300000,
+    "FY2022": 79708800000,
+    "FY2023": 79736900000,
+    "FY2024": 89452700000,
+    "FY2025": 88242500000
+   },
+   "cagr5": 0.08613605449630923,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (ifrs-full:Revenue, BRL; 10-K/20-F)",
+   "accn": [
+    "0001292814-23-000992",
+    "0001292814-26-000640"
+   ],
+   "usd": {
+    "values": {
+     "FY2020": 11233859949.58339,
+     "FY2025": 16037092904.91422
+    },
+    "cagr5": 0.07378993279903168,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.1967 BRL/USD on 2020-12-31, 5.5024 on 2025-12-31), so it mixes FX moves"
+   },
+   "note": "Constant currency (BRL, reporting currency; IFRS 20-F net revenue). Includes Argentina (Quilmes) under IAS 29 hyperinflation accounting, which inflates nominal growth in some years."
   },
   "GGAL": {
    "start": "FY2020",

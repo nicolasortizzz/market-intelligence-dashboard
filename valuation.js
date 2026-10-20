@@ -2,7 +2,7 @@
 /* Valuation & M&A tab: DCF, comps, precedents, scenarios, Monte Carlo, scorecard.
    All projections are ESTIMATES driven by data/valuation_assumptions.json + real financials in data/valuation.json */
 const V={tk:"META",scen:"base",ov:{},A:null,D:null,mc:{}};
-const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV"];
+const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER"];
 const isBank=tk=>V.A.companies[tk].model==="bank";
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const median2=a=>{a=a.filter(x=>x!=null&&isFinite(x)).sort((x,y)=>x-y);if(!a.length)return null;const m=a.length/2;return a.length%2?a[m|0]:(a[m-1]+a[m])/2};
@@ -23,10 +23,10 @@ function inputs(tk){
   const re=c.revenueEstimate||{},e0=re["0y"]?.avg,e1=re["+1y"]?.avg;
   const g1=a.g1??(e0?e0/k/rev0-1:0.05),g2=a.g2??(e0&&e1?e1/e0-1:g1*0.7);
   const shares=c.marketCap/c.price;
-  const cash=(c.totalCash||0)/k,debt=(c.totalDebt||0)/k,minority=(last(B["Minority Interest"])||0)/k;
+  const cash=(c.totalCash||0)/k,debt=(c.totalDebt||0)/k,minority=(last(B["Minority Interest"])||0)/k,nonOp=a.nonOpAssets?((last(B[a.nonOpAssets.row]||[])??a.nonOpAssets.fallback??0)/k):0; // non-operating equity stakes added in the EV bridge (UBER)
   const rf=(S.x.treasury[0]?.["10 Yr"]||4.5)/100,rawBeta=c.beta??1;
   const beta=a.betaOverride??(a.betaAdj==="blume"?0.67*rawBeta+0.33:rawBeta);
-  return{c,a,k,rev0,ebit0,da0,capex0,fyEnd,g1,g2,shares,cash,debt,minority,rf,rawBeta,beta,netDebt:debt-cash,
+  return{c,a,k,rev0,ebit0,da0,capex0,fyEnd,g1,g2,shares,cash,debt,minority,nonOp,rf,rawBeta,beta,netDebt:debt-cash,
     hist:I.years.map((y,i)=>({y:y.slice(0,4),fy:y,rev:I["Total Revenue"][i]/k,ebit:(I["Operating Income"]||[])[i]/k,ni:(I["Net Income"]||[])[i]/k,fcf:(CF["Free Cash Flow"]||[])[i]/k,capex:-(CF["Capital Expenditure"]||[])[i]/k})).filter(h=>h.rev)}
 }
 /* Bank inputs (GGAL): per ADR in USD. Book value = IAS 29-restated equity / ADR-equivalent shares / BCRA rate on the balance-sheet date. */
@@ -59,7 +59,7 @@ function dcf(tk,sid,ov={}){
   const L=rows[N-1],ronic=a.ronic||0.15,fcfT=L.nopat*(1+g)*(1-g/ronic); // value-driver terminal FCF: reinvestment = g / RONIC
   const tvBase=Math.max(fcfT,0)/Math.max(wacc-g,0.01),pvTV=tvBase*L.df;
   const shares=b.shares*Math.pow(1+(s.shareChange??a.shareChange),3);
-  const ev=pv+pvTV,eq=ev-b.netDebt-b.minority+(s.oneOff||0)/1;
+  const ev=pv+pvTV,eq=ev-b.netDebt-b.minority+(b.nonOp||0)+(s.oneOff||0)/1;
   const ps=Math.max(eq,0)/shares;
   return{b,s,rows,wacc,ke,kd,g,erp,rf,beta,ebitT,mid,capexT,pv,pvTV,tv:tvBase,ev,eq,ps,shares,tvShare:pvTV/ev};
 }
@@ -86,9 +86,9 @@ function probWeighted(tk,ov){const sc=V.A.companies[tk].scenarios;let w=0,v=0;co
 /* ---------- comps & precedents ---------- */
 function comps(tk){if(isBank(tk))return compsBank(tk);const b=inputs(tk),c=b.c,ref=b.a.compsRef||[],peers=c.peers.filter(p=>p.marketCap).map(p=>ref.includes(p.ticker)?{...p,ref:1}:p),self=c.self;
   const clean=(arr,lo,hi)=>arr.filter(x=>x!=null&&x>lo&&x<hi),pS=peers.filter(p=>!p.ref); // reference-only peers are shown but excluded from the statistics
-  const evE=clean(pS.map(p=>p.evEbitda),0,60),evS=clean(pS.map(p=>p.evSales),0.02,30),pe=clean(pS.map(p=>p.pe),0,80);
-  const ebitda=(c.ebitdaTTM||0)/b.k,rev=(c.revenueTTM||0)/b.k,ni=self.netIncome;
-  const toPS=ev=>Math.max(ev-b.netDebt-b.minority,0)/b.shares,r={};
+  const evE=clean(pS.map(p=>p.evEbitda),0,60),evS=clean(pS.map(p=>p.evSales),0.02,30),pe=clean(pS.filter(p=>!(b.a.peExcludePeers||[]).includes(p.ticker)).map(p=>p.pe),0,80);
+  const ebitda=(c.ebitdaTTM||0)/b.k,rev=(c.revenueTTM||0)/b.k,ni=self.netIncome!=null?self.netIncome-(b.a.peNIExclude||0):null; // peNIExclude: one-off items (e.g. tax valuation-allowance release) removed before P/E
+  const toPS=ev=>Math.max(ev-b.netDebt-b.minority+(b.nonOp||0),0)/b.shares,r={};
   if(ebitda>0&&evE.length>=2)r.evEbitda=[quant(evE,.25),median2(evE),quant(evE,.75)].map(m=>toPS(m*ebitda));
   if(rev>0&&evS.length>=2)r.evSales=[quant(evS,.25),median2(evS),quant(evS,.75)].map(m=>toPS(m*rev));
   if(ni>0&&pe.length>=2)r.pe=[quant(pe,.25),median2(pe),quant(pe,.75)].map(m=>m*ni/b.shares);
@@ -102,8 +102,8 @@ function compsBank(tk){const b=inputs(tk),c=b.c,peers=c.peers.filter(p=>p.market
 const compMidOf=cm=>median2((cm.use||Object.keys(cm.r)).filter(k=>cm.r[k]).map(k=>cm.r[k][1]));
 function precedent(tk){const b=inputs(tk),a=b.a,c=b.c,cp=a.controlPremium;let lo,hi,basis;
   if(a.precedentPB){[lo,hi]=a.precedentPB.map(m=>m*b.bv0);return{lo,hi,basis:`${a.precedentPB[0]}-${a.precedentPB[1]}x P/BV (book ${money(b.bv0)}/ADR)`,premLo:c.price*(1+cp[0]),premHi:c.price*(1+cp[1]),cp}}
-  if(a.precedentEvEbitda&&(c.ebitdaTTM||0)>0){const e=c.ebitdaTTM/b.k;[lo,hi]=a.precedentEvEbitda.map(m=>Math.max(m*e-b.netDebt-b.minority,0)/b.shares);basis=`${a.precedentEvEbitda[0]}-${a.precedentEvEbitda[1]}x EV/EBITDA (TTM)`}
-  else{const r=c.revenueTTM/b.k;[lo,hi]=a.precedentEvSales.map(m=>Math.max(m*r-b.netDebt-b.minority,0)/b.shares);basis=`${a.precedentEvSales[0]}-${a.precedentEvSales[1]}x EV/Sales (TTM)`}
+  if(a.precedentEvEbitda&&(c.ebitdaTTM||0)>0){const e=c.ebitdaTTM/b.k;[lo,hi]=a.precedentEvEbitda.map(m=>Math.max(m*e-b.netDebt-b.minority+(b.nonOp||0),0)/b.shares);basis=`${a.precedentEvEbitda[0]}-${a.precedentEvEbitda[1]}x EV/EBITDA (TTM)`}
+  else{const r=c.revenueTTM/b.k;[lo,hi]=a.precedentEvSales.map(m=>Math.max(m*r-b.netDebt-b.minority+(b.nonOp||0),0)/b.shares);basis=`${a.precedentEvSales[0]}-${a.precedentEvSales[1]}x EV/Sales (TTM)`}
   return{lo,hi,basis,premLo:c.price*(1+cp[0]),premHi:c.price*(1+cp[1]),cp}}
 
 /* ---------- Monte Carlo ---------- */
@@ -144,9 +144,9 @@ var drawVal=function(full){const tk=V.tk,a=V.A.companies[tk],ov=V.ov[tk]||{},r=d
   }
   if(!BK)$("#vTable").innerHTML=`<thead><tr><th>Line item (USD, ESTIMATES)</th>${R.map(x=>`<th>${x.fy}</th>`).join("")}</tr></thead><tbody>${[["Revenue growth",x=>sp(x.gr)],["Revenue",x=>bn(x.rev)],["EBIT margin",x=>pct(x.m)],["EBIT",x=>bn(x.ebit)],["NOPAT",x=>bn(x.nopat)],["+ D&A",x=>bn(x.da)],["− Capex",x=>bn(x.capex)],["− ΔNWC",x=>bn(x.dnwc)],["= FCFF",x=>`<b>${bn(x.fcf)}</b>`],["Year fraction remaining",x=>x.frac.toFixed(2)],["Discount factor",x=>x.df.toFixed(3)],["PV of FCFF",x=>bn(x.pv)]].map(([l,fn])=>`<tr><td>${l}</td>${R.map(x=>`<td>${fn(x)}</td>`).join("")}</tr>`).join("")}</tbody>`;
   // bridge
-  if(BK)drawBankBridge(r);else plot("vBridge",[{type:"waterfall",orientation:"v",x:["PV FCFF (10y)","PV terminal value","Enterprise value","− Net debt","− Minority int.",...(r.s.oneOff?["One-off (fine/settlement)"]:[]),"Equity value"],
-    measure:["relative","relative","total","relative","relative",...(r.s.oneOff?["relative"]:[]),"total"],y:[r.pv*f,r.pvTV*f,0,-b.netDebt*f,-b.minority*f,...(r.s.oneOff?[r.s.oneOff*f]:[]),0],
-    connector:{line:{color:css("--bd")}},increasing:{marker:{color:css("--up")}},decreasing:{marker:{color:css("--dn")}},totals:{marker:{color:css("--ac")}},text:[bn(r.pv),bn(r.pvTV),bn(r.ev),bn(-b.netDebt),bn(-b.minority),...(r.s.oneOff?[bn(r.s.oneOff)]:[]),bn(Math.max(r.eq,0))],textposition:"outside",cliponaxis:false,hoverinfo:"x+text"}],{yaxis:{tickprefix:S.ccy==="ARS"?"ARS ":"$",ticksuffix:"B",tickformat:",.0f",gridcolor:css("--bd")},margin:{l:64,r:10,t:44,b:60}});
+  if(BK)drawBankBridge(r);else plot("vBridge",[{type:"waterfall",orientation:"v",x:["PV FCFF (10y)","PV terminal value","Enterprise value","− Net debt","− Minority int.",...(b.nonOp?["+ Equity stakes (non-op.)"]:[]),...(r.s.oneOff?["One-off (fine/settlement)"]:[]),"Equity value"],
+    measure:["relative","relative","total","relative","relative",...(b.nonOp?["relative"]:[]),...(r.s.oneOff?["relative"]:[]),"total"],y:[r.pv*f,r.pvTV*f,0,-b.netDebt*f,-b.minority*f,...(b.nonOp?[b.nonOp*f]:[]),...(r.s.oneOff?[r.s.oneOff*f]:[]),0],
+    connector:{line:{color:css("--bd")}},increasing:{marker:{color:css("--up")}},decreasing:{marker:{color:css("--dn")}},totals:{marker:{color:css("--ac")}},text:[bn(r.pv),bn(r.pvTV),bn(r.ev),bn(-b.netDebt),bn(-b.minority),...(b.nonOp?[bn(b.nonOp)]:[]),...(r.s.oneOff?[bn(r.s.oneOff)]:[]),bn(Math.max(r.eq,0))],textposition:"outside",cliponaxis:false,hoverinfo:"x+text"}],{yaxis:{tickprefix:S.ccy==="ARS"?"ARS ":"$",ticksuffix:"B",tickformat:",.0f",gridcolor:css("--bd")},margin:{l:64,r:10,t:44,b:60}});
   $("#vBridgeNote").innerHTML=BK?`Terminal residual income = ${pct(r.tvShare)} of value · Ke ${pct2(r.ke)} = rf ${pct2(r.rf)} + β ${r.beta.toFixed(2)} × ERP ${pct2(r.erp)} + CRP ${pct2((a.crp||0)+(r.s.crpAdd||0))} · ${(r.shares/1e6).toFixed(1)}M ADR-equivalents (${b.c.bank.adrRatio} Class B shares per ADS)`:`Terminal value = ${pct(r.tvShare)} of EV · Ke ${pct2(r.ke)} · Kd after-tax ${pct2(r.kd)} · diluted shares ${(r.shares/1e9).toFixed(3)}B${a.scenarios.find(s=>s.id===V.scen).shareChange||a.shareChange>0?" (after assumed dilution)":""}`;
   // sensitivity
   const ws=[-0.02,-0.015,-0.01,-0.005,0,0.005,0.01,0.015,0.02].map(d=>r.wacc+d),gs=[-0.01,-0.005,0,0.005,0.01].map(d=>r.g+d);
@@ -194,7 +194,7 @@ var drawVal=function(full){const tk=V.tk,a=V.A.companies[tk],ov=V.ov[tk]||{},r=d
   if(BK){drawBankAssump(r,a,b,c);return}
   $("#vTableNote").textContent="FCFF = EBIT×(1−t) + D&A − Capex − ΔNWC · mid-year discounting · stub-year adjusted";
   $("#vProjT").textContent="Revenue, EBIT margin & free cash flow: history + 10-year projection";$("#vSensT").textContent="Sensitivity: fair value per share (WACC × terminal growth)";
-  $("#vAssump").innerHTML=(a.growthNote?`<p class="muted small" style="margin:0 0 8px">${a.growthNote}</p>`:"")+`<div class="kv">${[["Base fiscal year",b.hist.at(-1).y+" (FY end "+b.fyEnd.toISOString().slice(0,10)+")"],["Reporting currency",c.financialCurrency+(b.k!==1?(c.financialCurrency==="EUR"?` → USD at ${V.D.fx.EURUSD_ecb.toFixed(4)} USD/EUR (ECB reference rate, ${V.D.fx.EUR_date}); 1 ADR = 1 share`:c.financialCurrency==="BRL"?` → USD at ${b.k.toFixed(4)} BRL/USD (BCB PTAX, ${V.D.fx.BRL_date}); 1 ADR = 1 share`:` → USD at ${b.k.toFixed(4)} ${c.financialCurrency}/USD (Yahoo FX)`):"")+(c.yahooFinancialCurrency&&c.yahooFinancialCurrency!==c.financialCurrency?` (functional currency; Yahoo labels it ${c.yahooFinancialCurrency}; balance sheet ${c.balanceDate}, TTM = ${c.ttmQuarters?.length||4} quarters)`:"")],["Base revenue / EBIT margin",bn(b.rev0)+" / "+pct(b.ebit0/b.rev0)],[a.g1!=null?"Yr-1 / Yr-2 growth (analyst override)":"Yr-1 / Yr-2 growth (consensus)",pct(b.g1)+" / "+pct(b.g2)],...(a.ebit1!=null?[["Yr-1 EBIT margin (override)",pct(r.s.ebit1??a.ebit1)]]:[]),["Country-risk premium",(a.crp?pct2(a.crp)+(r.s.crpAdd?` + ${pct2(r.s.crpAdd)} (scenario)`:"")+(a.crpLabel?" · "+a.crpLabel:a.crp===0.0648?" · Argentina EMBI 648 bp (2026-10-16)":c.financialCurrency==="CNY"?" · assumed China CRP":""):"none"+(r.s.crpAdd?` (scenario adds ${pct2(r.s.crpAdd)})`:""))],["Tax rate (assumed)",pct(a.tax)],["D&A % rev (now → yr 6)",pct(b.da0/b.rev0)+" → "+pct(a.daPctT)],["Capex % rev (yr 1 → yr 6)",pct(a.capexPct1)+" → "+pct(r.capexT)],["ΔNWC % of Δrevenue",pct(a.nwcPct)],["Net debt / Minority interest",bn(b.netDebt)+" / "+bn(b.minority)],["Share count change (3y, p.a.)",pct(r.s.shareChange??a.shareChange)],["Cost of debt (pre-tax)",pct2(r.rf+a.kdSpread)],["Analyst consensus",`${c.recKey||"—"} · ${c.nAnalysts||"?"} analysts · mean target ${usd(c.targetMean)}`]].map(x=>`<span>${x[0]}</span><span>${x[1]}</span>`).join("")}</div>`;
+  $("#vAssump").innerHTML=(a.growthNote?`<p class="muted small" style="margin:0 0 8px">${a.growthNote}</p>`:"")+`<div class="kv">${[["Base fiscal year",b.hist.at(-1).y+" (FY end "+b.fyEnd.toISOString().slice(0,10)+")"],["Reporting currency",c.financialCurrency+(b.k!==1?(c.financialCurrency==="EUR"?` → USD at ${V.D.fx.EURUSD_ecb.toFixed(4)} USD/EUR (ECB reference rate, ${V.D.fx.EUR_date}); 1 ADR = 1 share`:c.financialCurrency==="BRL"?` → USD at ${b.k.toFixed(4)} BRL/USD (BCB PTAX, ${V.D.fx.BRL_date}); 1 ADR = 1 share`:` → USD at ${b.k.toFixed(4)} ${c.financialCurrency}/USD (Yahoo FX)`):"")+(c.yahooFinancialCurrency&&c.yahooFinancialCurrency!==c.financialCurrency?` (functional currency; Yahoo labels it ${c.yahooFinancialCurrency}; balance sheet ${c.balanceDate}, TTM = ${c.ttmQuarters?.length||4} quarters)`:"")],["Base revenue / EBIT margin",bn(b.rev0)+" / "+pct(b.ebit0/b.rev0)],[a.g1!=null?"Yr-1 / Yr-2 growth (analyst override)":"Yr-1 / Yr-2 growth (consensus)",pct(b.g1)+" / "+pct(b.g2)],...(a.ebit1!=null?[["Yr-1 EBIT margin (override)",pct(r.s.ebit1??a.ebit1)]]:[]),["Country-risk premium",(a.crp?pct2(a.crp)+(r.s.crpAdd?` + ${pct2(r.s.crpAdd)} (scenario)`:"")+(a.crpLabel?" · "+a.crpLabel:a.crp===0.0648?" · Argentina EMBI 648 bp (2026-10-16)":c.financialCurrency==="CNY"?" · assumed China CRP":""):"none"+(r.s.crpAdd?` (scenario adds ${pct2(r.s.crpAdd)})`:""))],["Tax rate (assumed)",pct(a.tax)],["D&A % rev (now → yr 6)",pct(b.da0/b.rev0)+" → "+pct(a.daPctT)],["Capex % rev (yr 1 → yr 6)",pct(a.capexPct1)+" → "+pct(r.capexT)],["ΔNWC % of Δrevenue",pct(a.nwcPct)],["Net debt / Minority interest",bn(b.netDebt)+" / "+bn(b.minority)],...(b.nonOp?[["Non-operating equity stakes (added)",bn(b.nonOp)+" · "+(a.nonOpAssets.label||a.nonOpAssets.row)]]:[]),...(a.peNIExclude?[["TTM net income for P/E",bn(b.c.self?.netIncome-a.peNIExclude)+" (excl. "+bn(a.peNIExclude)+" one-off: "+(a.peNIExcludeLabel||"one-off")+")"]]:[]),["Share count change (3y, p.a.)",pct(r.s.shareChange??a.shareChange)],["Cost of debt (pre-tax)",pct2(r.rf+a.kdSpread)],["Analyst consensus",`${c.recKey||"—"} · ${c.nAnalysts||"?"} analysts · mean target ${usd(c.targetMean)}`]].map(x=>`<span>${x[0]}</span><span>${x[1]}</span>`).join("")}</div>`;
 }
 /* ---------- bank-specific panels (residual income) ---------- */
 function drawBankProj(r,fu){const R=r.rows,b=r.b,bk=b.c.bank;

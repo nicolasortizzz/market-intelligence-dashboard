@@ -20,7 +20,8 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "MU": ["000660.KS", "005930.KS", "WDC", "SNDK", "NVDA", "AMD"],   # NVDA/AMD: reference only (excluded from comps stats)
            "ASML": ["AMAT", "LRCX", "KLAC", "8035.T"],
            "VST": ["CEG", "NRG", "TLN", "PEG", "ETR"],
-           "ABEV": ["BUD", "HEINY", "FMX", "CABGY", "STZ"]}
+           "ABEV": ["BUD", "HEINY", "FMX", "CABGY", "STZ"],
+           "UBER": ["LYFT", "DASH", "GRAB", "CART", "ABNB", "BKNG"]}
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}          # ticker -> local shares per ADR (GGAL: 1 ADS = 10 Class B shares)
@@ -30,7 +31,8 @@ ROWS = {"income": ["Total Revenue", "Gross Profit", "Operating Income", "EBIT", 
         "cashflow": ["Operating Cash Flow", "Capital Expenditure", "Free Cash Flow", "Stock Based Compensation",
                      "Repurchase Of Capital Stock", "Cash Dividends Paid", "Change In Working Capital", "Issuance Of Capital Stock"],
         "balance": ["Total Debt", "Net Debt", "Cash And Cash Equivalents", "Cash Cash Equivalents And Short Term Investments",
-                    "Minority Interest", "Stockholders Equity", "Total Assets", "Ordinary Shares Number", "Capital Lease Obligations"]}
+                    "Minority Interest", "Stockholders Equity", "Total Assets", "Ordinary Shares Number", "Capital Lease Obligations",
+                    "Investments And Advances"]}
 SEC_TAGS = ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "OperatingIncomeLoss", "NetIncomeLoss",
             "PaymentsToAcquirePropertyPlantAndEquipment", "NetCashProvidedByUsedInOperatingActivities",
             "Revenue", "ProfitLossAttributableToOwnersOfParent", "EquityAttributableToOwnersOfParent"]  # last three: IFRS (20-F filers)

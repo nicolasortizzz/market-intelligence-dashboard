@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T01:39:07Z",
+ "generatedAt": "2026-10-20T01:55:42Z",
  "quotes": {
   "META": {
    "price": 705.44,
@@ -57,6 +57,12 @@
   },
   "ABEV": {
    "price": 3.25,
+   "priceDate": "2026-10-19",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "UBER": {
+   "price": 69.96,
    "priceDate": "2026-10-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"

@@ -112,3 +112,8 @@ jobs:
           git config user.email "150628077+nicolasortizzz@users.noreply.github.com"
           python scripts/update_all.py --deploy
 ```
+
+## Optional per-ticker assumption keys
+- `compsRef`: peers shown but excluded from the comps statistics. `peExcludePeers`: peers excluded from P/E only (e.g. one-off tax gains).
+- `peNIExclude` (USD) + `peNIExcludeLabel`: one-off items removed from the company's TTM net income before P/E (UBER: tax valuation-allowance release).
+- `nonOpAssets` {`row`, `label`, optional `fallback`}: balance-sheet row (fetched in `fetch_valuation.py` `ROWS["balance"]`) added to equity in the DCF, comps and precedent bridges (UBER equity stakes).

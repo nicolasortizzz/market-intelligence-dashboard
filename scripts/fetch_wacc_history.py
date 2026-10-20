@@ -22,6 +22,7 @@ import numpy as np, pandas as pd, requests, yfinance as yf
 warnings.filterwarnings("ignore")
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 UA = {"User-Agent": "Mozilla/5.0 (market-intelligence-dashboard; niconoa123@gmail.com)"}
+ARG = ("YPF", "GGAL", "VIST")   # Argentine names: CRP = EMBI Argentina
 YEARS = [2021, 2022, 2023, 2024, 2025]
 # Damodaran archives (verified 2026-10-19). Implied ERP (FCFE) for the start of year Y+1, China rating-based CRP.
 ERP = {2021: 0.0424, 2022: 0.0594, 2023: 0.0460, 2024: 0.0433, 2025: 0.0423}
@@ -123,12 +124,12 @@ def main():
             rf, rfd = close_at(tnx, day); rf = rf / 100 if rf else None
             bA, bRaw, n = beta(px, spx, day)
             erp = ERP.get(Y, A["erp"]) if Y != "current" else A["erp"]
-            if tk in ("YPF", "GGAL") and Y == "current" and a.get("crp"):
+            if tk in ARG and Y == "current" and a.get("crp"):
                 # 'today' uses the model CRP (valuation_assumptions.json, changed only by fetch_embi.py --apply), not the live EMBI,
                 # so a rerun matches the Valuation tab and does not move YPF/GGAL when another ticker is added
                 crp = a["crp"]; m = re.search(r"(\d{4}-\d{2}-\d{2})", A.get("crpNote", "")); crpd = m.group(1) if m else "model"
                 crpSrc = f"EMBI Argentina {round(crp * 1e4)} bp ({crpd})"
-            elif tk in ("YPF", "GGAL"): crp, crpd = emb(day); crpSrc = f"EMBI Argentina {round(crp * 1e4)} bp ({crpd})"
+            elif tk in ARG: crp, crpd = emb(day); crpSrc = f"EMBI Argentina {round(crp * 1e4)} bp ({crpd})"
             elif tk in COUNTRY_CRP:
                 cn, tbl = COUNTRY_CRP[tk]
                 crp = tbl.get(Y, a.get("crp", 0)) if Y != "current" else a.get("crp", 0); crpSrc = f"Damodaran {cn} CRP" if Y != "current" else "model CRP"
@@ -161,7 +162,7 @@ def main():
                 kd_pre = None
                 if ie and dl and prev: kd_pre = min(max(ie / ((dl + prev) / 2), rf), rf + 0.10); kdSrc = "interest / avg debt"
                 elif ie and dl: kd_pre = min(max(ie / dl, rf), rf + 0.10); kdSrc = "interest / year-end debt"
-                elif crp and tk in ("YPF",): kd_pre = min(rf + a.get("kdSpread", 0.01) + crp, rf + 0.10); kdSrc = "rf + model spread + EMBI (capped rf+10%)"
+                elif crp and tk in ("YPF", "VIST"): kd_pre = min(rf + a.get("kdSpread", 0.01) + crp, rf + 0.10); kdSrc = "rf + model spread + EMBI (capped rf+10%)"
                 else: kd_pre = rf + a.get("kdSpread", 0.01); kdSrc = "rf + model spread"
                 t = taxr.get(ys); t = min(max(t, 0), 0.35) if t is not None else a.get("tax", 0.21)
                 kd = kd_pre * (1 - t); w = E / (E + Dd) if E else 1

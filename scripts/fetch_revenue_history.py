@@ -25,7 +25,8 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "ABEV": ("ifrs-full", ["Revenue"], "BRL"),
        "UBER": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "BE": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
-       "AVGO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD")}
+       "AVGO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "VIST": ("ifrs-full", ["Revenue"], "USD")}
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",
                    "source": "Grupo Galicia Form 20-F FY2020 (selected financial data, IFRS, Dec-2020 pesos)",
@@ -33,6 +34,10 @@ GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6
         "FY2025": {"netOperatingIncome": 6361832e6, "loanLossProvisions": 2951274e6, "fyEnd": "2025-12-31",
                    "source": "Grupo Galicia 4Q2025 earnings release (12M income statement, Dec-2025 pesos)",
                    "url": "https://b.gfgsa.com/app/uploads/2026/03/PressRelease_GrupoGalicia_4Q2025_EN.pdf"}}
+
+# Filed annual figures not (yet) in XBRL companyfacts; each value checked against the filed document.
+SEC_FALLBACK = {"VIST": {2025: {"val": 2474197000, "end": "2025-12-31", "accn": "0001193125-26-187099",
+                                "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-28, 'Revenue from contracts with customers' US$2,474,197k; not in companyfacts)"}}}
 
 def sec_series(cik, ns, tags, unit):
     j = requests.get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json", headers=UA, timeout=60).json()
@@ -64,9 +69,14 @@ def cpi():
 def ecb(day):
     """ECB euro reference rate (USD per EUR) on the last fixing on or before `day`."""
     d = dt.date.fromisoformat(day)
-    r = requests.get(f"https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod={(d - dt.timedelta(days=10)).isoformat()}&endPeriod={day}&format=csvdata", timeout=30)
-    rows = r.text.strip().splitlines(); h = rows[0].split(","); v = rows[-1].split(",")
-    return v[h.index("TIME_PERIOD")], float(v[h.index("OBS_VALUE")])
+    for i in range(5):   # the ECB API intermittently returns an error page; retry
+        try:
+            r = requests.get(f"https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod={(d - dt.timedelta(days=10)).isoformat()}&endPeriod={day}&format=csvdata", timeout=30)
+            rows = r.text.strip().splitlines(); h = rows[0].split(","); v = rows[-1].split(",")
+            return v[h.index("TIME_PERIOD")], float(v[h.index("OBS_VALUE")])
+        except Exception as ex:
+            if i == 4: raise
+            print("ecb retry", ex); time.sleep(5)
 
 def ptax(day):
     """BCB PTAX selling rate (BRL per USD), last fixing on or before `day`."""
@@ -84,6 +94,7 @@ def main():
     res = {"generatedAt": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "periods": 5, "companies": {}}
     for t, (ns, tags, unit) in SEC.items():
         s = sec_series(cik[t], ns, tags, unit); y0 = END - 5
+        for y, v in SEC_FALLBACK.get(t, {}).items(): s.setdefault(y, v)
         a, b = s[y0], s[END]
         d = {"start": f"FY{y0}", "end": f"FY{END}", "startEnd": a["end"], "endEnd": b["end"], "currency": unit,
              "values": {f"FY{y}": s[y]["val"] for y in range(y0, END + 1) if y in s}, "cagr5": cagr(a["val"], b["val"], 5),
@@ -115,6 +126,10 @@ def main():
             d["note"] = ("FY2020 revenue was COVID-depressed (Mobility gross bookings fell ~46% in 2020 while Delivery surged), so the 5y CAGR overstates the "
                          "run-rate; it also reflects accounting changes (UK/business-model shifts to principal reporting from 2022 raised revenue vs gross bookings) "
                          "and the Postmates (2020) and Transplace (2021, Freight) acquisitions.")
+        if t == "VIST":
+            d["note"] = ("Reported in USD (IFRS, USD functional currency). FY2020 was COVID-depressed (Brent ~$42, Vaca Muerta activity halted in Q2-2020); "
+                         "growth is mostly organic shale ramp-up, but FY2025 is partly inorganic: Vista acquired Petronas' 50% of La Amarga Chica (LLL) in Apr-2025, "
+                         "adding ~40k boe/d gross. Revenue also moves with Brent.")
         if t == "AVGO":
             d["note"] = ("Broadcom fiscal years end on the Sunday closest to 31 October (FY2020 ended 2020-11-01, FY2025 on 2025-11-02). "
                          "Growth is partly inorganic: VMware (closed 2023-11-22, ~$69B) added ~$13-14B of annual infrastructure-software revenue from FY2024; "

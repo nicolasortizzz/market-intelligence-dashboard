@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T02:41:55Z",
+ "generatedAt": "2026-10-20T02:48:18Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -335,6 +335,29 @@
     "0001730168-25-000121"
    ],
    "note": "Broadcom fiscal years end on the Sunday closest to 31 October (FY2020 ended 2020-11-01, FY2025 on 2025-11-02). Growth is partly inorganic: VMware (closed 2023-11-22, ~$69B) added ~$13-14B of annual infrastructure-software revenue from FY2024; FY2025 also reflects the AI ASIC/networking ramp. Organic semiconductor growth is lower than the headline CAGR."
+  },
+  "VIST": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 273938000,
+    "FY2021": 665310000,
+    "FY2022": 1187660000,
+    "FY2023": 1168774000,
+    "FY2024": 1647768000,
+    "FY2025": 2474197000
+   },
+   "cagr5": 0.5529461595634881,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (ifrs-full:Revenue, USD; 10-K/20-F)",
+   "accn": [
+    "0001193125-23-112976",
+    "0001193125-26-187099"
+   ],
+   "note": "Reported in USD (IFRS, USD functional currency). FY2020 was COVID-depressed (Brent ~$42, Vaca Muerta activity halted in Q2-2020); growth is mostly organic shale ramp-up, but FY2025 is partly inorganic: Vista acquired Petronas' 50% of La Amarga Chica (LLL) in Apr-2025, adding ~40k boe/d gross. Revenue also moves with Brent."
   },
   "GGAL": {
    "start": "FY2020",

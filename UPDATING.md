@@ -120,3 +120,5 @@ jobs:
 - `converts` [{`name`, `principal`, `convPrice`}] + `convertsNote`: convertible notes, if-converted when the price is above the conversion price (shares added, principal removed from debt). Update from each 10-Q.
 - `compsExcludeNegEbitda`: drop peers with negative TTM EBITDA from all comps statistics (still shown).
 - YPF/GGAL "today" WACC rows use the model CRP from `valuation_assumptions.json` (changed only by `fetch_embi.py --apply`), so rerunning `fetch_wacc_history.py` no longer moves them; year-end rows use the EMBI at each year-end.
+- Argentine names (`ARG` in `fetch_wacc_history.py`: YPF, GGAL, VIST) use the EMBI Argentina spread as CRP; `fetch_embi.py --apply` updates all of them.
+- `SEC_FALLBACK` in `fetch_revenue_history.py`: annual revenue for a filed 10-K/20-F that is not yet in XBRL companyfacts (checked against the filed document; VIST FY2025).

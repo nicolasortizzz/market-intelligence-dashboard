@@ -2,7 +2,7 @@
 /* Valuation & M&A tab: DCF, comps, precedents, scenarios, Monte Carlo, scorecard.
    All projections are ESTIMATES driven by data/valuation_assumptions.json + real financials in data/valuation.json */
 const V={tk:"META",scen:"base",ov:{},A:null,D:null,mc:{}};
-const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER","BE","AVGO"];
+const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER","BE","AVGO","VIST"];
 const isBank=tk=>V.A.companies[tk].model==="bank";
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const median2=a=>{a=a.filter(x=>x!=null&&isFinite(x)).sort((x,y)=>x-y);if(!a.length)return null;const m=a.length/2;return a.length%2?a[m|0]:(a[m-1]+a[m])/2};

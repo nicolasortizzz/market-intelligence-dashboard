@@ -11,7 +11,7 @@ def main():
     d = requests.get("https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais", timeout=40).json()
     last = d[-1]; bp, day = int(last["valor"]), last["fecha"]
     A = json.load(open(os.path.join(D, "valuation_assumptions.json")))
-    used = {t: c.get("crp") for t, c in A["companies"].items() if t in ("YPF", "GGAL")}
+    used = {t: c.get("crp") for t, c in A["companies"].items() if t in ("YPF", "GGAL", "VIST")}
     out = {"generatedAt": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "bp": bp, "date": day,
            "source": "J.P. Morgan EMBI Argentina via api.argentinadatos.com", "modelCrp": used}
     json.dump(out, open(os.path.join(D, "embi.json"), "w"), indent=1)

@@ -36,6 +36,16 @@ GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6
                    "source": "Grupo Galicia 4Q2025 earnings release (12M income statement, Dec-2025 pesos)",
                    "url": "https://b.gfgsa.com/app/uploads/2026/03/PressRelease_GrupoGalicia_4Q2025_EN.pdf"}}
 
+# SPCX (IPO 2026-06-12, no 10-K yet; XBRL companyfacts only has the 2025-26 10-Q). Annual revenue from the IPO prospectus
+# (424B4, accession 0001628280-26-042639, consolidated statements recast for the xAI/X common-control mergers): only FY2023-FY2025
+# exist, i.e. 2 compounding periods. Segment split from the revenue-disaggregation note; latest TTM from the Q3 2026 8-K (Ex-99.1).
+SPCX = {"values": {"FY2023": 10387e6, "FY2024": 14015e6, "FY2025": 18674e6}, "ends": ("2023-12-31", "2025-12-31"),
+        "segments": {"Space": {"FY2023": 3557e6, "FY2024": 3796e6, "FY2025": 4086e6},
+                     "Connectivity": {"FY2023": 3869e6, "FY2024": 7599e6, "FY2025": 11387e6},
+                     "AI (now SI)": {"FY2023": 2961e6, "FY2024": 2620e6, "FY2025": 3201e6}},
+        "ttm": {"end": "2026-09-30", "val": 32043e6, "accn": "0001628280-26-066482"},  # 9M-2026 27,083 + Q4-2025 4,960
+        "accn": ["0001628280-26-042639"]}
+
 # Filed annual figures not (yet) in XBRL companyfacts; each value checked against the filed document.
 SEC_FALLBACK = {"TSM": {2025: {"val": 3809054000000, "end": "2025-12-31", "accn": "0001628280-26-025362", "usd": 121423000000,
                                "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-16, net revenue NT$3,809,054M / US$121,423M convenience translation; not in companyfacts frames)"}},
@@ -172,6 +182,20 @@ def main():
         "source": g0["source"] + "; " + g1["source"], "urls": [g0["url"], g1["url"]],
         "note": "IAS 29: each year is in pesos of its own year end, converted at that year-end official rate. The Dec-2020 official rate was set under strict capital controls (parallel rate ~2x), which flatters the USD CAGR; FY2025 includes the acquired HSBC Argentina (Galicia Más) from Dec-2024, so growth is partly inorganic."}
     print("GGAL usd", res["companies"]["GGAL"]["cagr5"], "real", res["companies"]["GGAL"]["ars"]["realCagr5"])
+    v = SPCX["values"]; n = 2
+    res["companies"]["SPCX"] = {
+        "start": "FY2023", "end": "FY2025", "startEnd": SPCX["ends"][0], "endEnd": SPCX["ends"][1], "currency": "USD", "periods": n,
+        "values": v, "cagr5": cagr(v["FY2023"], v["FY2025"], n),
+        "segments": {k: {**x, "cagr": cagr(x["FY2023"], x["FY2025"], n)} for k, x in SPCX["segments"].items()},
+        "definition": "Total revenue as reported (recast to include xAI and X Holdings under common control)",
+        "source": "SpaceX IPO prospectus (Form 424B4 filed 2026-06-12, accession 0001628280-26-042639), consolidated statements of operations",
+        "accn": SPCX["accn"],
+        "shortNote": "SpaceX IPO'd on 2026-06-12 and the prospectus only contains audited FY2023-FY2025; FY2021-FY2022 are not disclosed, so the longest available window (2 years) is used",
+        "note": ("Only FY2023-FY2025 are available (2 compounding periods, not 5). Figures are recast for the common-control mergers with xAI (Feb-2026) and X Holdings "
+                 "(Mar-2025), so X/Twitter advertising is included in every year; Cursor (Aug-2026) is not. Segment CAGRs FY2023-25: Space "
+                 f"{cagr(3557, 4086, 2) * 100:.1f}%, Connectivity (Starlink) {cagr(3869, 11387, 2) * 100:.1f}%, AI {cagr(2961, 3201, 2) * 100:.1f}% (X advertising fell). "
+                 f"Latest TTM (to 2026-09-30): $32.0B (Q3 2026 8-K); Q3 2026 revenue alone was $14.6B, +161% y/y.")}
+    print("SPCX", round(res["companies"]["SPCX"]["cagr5"] * 100, 2), "(2 periods)")
     json.dump(res, open(OUT, "w"), indent=1)
 
 if __name__ == "__main__":

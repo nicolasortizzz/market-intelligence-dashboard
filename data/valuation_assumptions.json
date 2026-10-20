@@ -361,6 +361,50 @@
         {"date": "Ongoing", "q": "Any", "event": "Cross-Strait tensions (PLA exercises, US-China summits)", "impact": "High", "dir": "−"}
       ],
       "score": {"quality": 10, "growth": 8, "risk": 5, "valuation": null, "rationale": "Quality: >90% share of leading-edge logic and the dominant advanced-packaging supplier, ~59% operating margin and net cash. Growth: consensus +46% revenue in 2026 on AI. Risk: geopolitical concentration in Taiwan, US tariffs/export controls, customer concentration (NVIDIA, Apple) and heavy capex. Valuation from the model."}
+    },
+    "SPCX": {
+      "sector": "Space launch, satellite connectivity (Starlink) and AI (xAI/X, Cursor): 'Super Intelligence' segment",
+      "betaAdj": "none",
+      "betaOverride": 1.6,
+      "betaNote": "SPCX listed on 2026-06-12, so there is no 5-year beta (Yahoo shows none; ~90 daily returns since the IPO give a raw beta of ~3.2, too noisy to use). An assumed 1.6 is used: above the segment-weighted peer proxy (~0.9-1.0: LMT/NOC/RKLB for Space, IRDM/VSAT/TMUS/ASTS for Connectivity, ORCL/META/NVDA/MSFT for AI) to reflect the AI-capex leverage, Starship execution risk and key-person risk.",
+      "crp": 0,
+      "kdSpread": 0.012,
+      "tax": 0.21,
+      "g2": 0.9,
+      "ebit1": 0.06,
+      "growthNote": "Reports in USD (US GAAP). Financials are recast for the common-control mergers with xAI (Feb-2026) and X Holdings (Mar-2025), so history includes X/Twitter advertising and xAI; Cursor (acquired 2026-08-14, implied equity value $60B) is consolidated from that date. Segments (Q3 2026 revenue): Space (launch, Dragon, Starship) $1.77B, Connectivity (Starlink consumer, enterprise and government, Starlink Mobile) $5.25B with a 45% operating margin, and Super Intelligence (SI: Grok, X advertising, cloud services/compute, Cursor) $7.56B. Base year FY2025 ($18.7B revenue, GAAP operating loss). Year 1 = consensus FY2026 (~$45B; 9M-2026 already $27.1B). Year 2 is an analyst override of +90% (~$86B) instead of the consensus +159% (~$117B, range $59-189B), because 2027 depends on cloud-services contracts that are not yet disclosed in detail. Years 3-5 grow 30% in the Base case. Capex is extreme: $48.1B in 9M-2026 (178% of revenue, 83% in SI compute), so capex is ~120% of revenue in year 1 falling to 18% by year 6; D&A converges to 15%. Deferred revenue (Starlink prepayments, cloud prepayments) makes working capital a source of cash. Shares, cash, debt and TTM figures come from the Q3 2026 release (8-K, 2026-10-20) because Yahoo's statements stop at Q2 2026; market cap = 13.58B Class A + B shares × price. Net cash ~$51B (cash and marketable securities $89.9B, debt and finance leases $38.8B). Unvested Cursor awards ($23.4B of post-combination service) are covered by 2%/yr dilution.",
+      "daPct0": 0.36,
+      "daPctT": 0.15,
+      "capexPct1": 1.2,
+      "capexPctT": 0.18,
+      "nwcPct": -0.05,
+      "terminalG": 0.03,
+      "ronic": 0.2,
+      "shareChange": 0.02,
+      "compsRef": ["LMT", "NOC", "TMUS"],
+      "compsExcludeNegEbitda": true,
+      "precedentEvSales": [10, 20],
+      "precedentEvEbitda": null,
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "No control precedent exists for a ~$2T company; private-market marks are the closest reference: SpaceX tender offers at ~$100B (2021), ~$180B (Dec-2023), ~$350B (Dec-2024) and ~$800B (Dec-2025), the xAI merger (Feb-2026) and the $135 IPO (2026-06-12, ~$1.77T implied). High-growth space/AI deals (e.g. Cursor at ~$60B, xAI rounds) priced at roughly 10-20x forward/TTM sales (estimate). Shown as a cross-check only.",
+      "compsNote": "Comps: Rocket Lab (launch + space systems), AST SpaceMobile (direct-to-cell satellites), Iridium (satellite connectivity), EchoStar (spectrum/satellite) and Viasat (satellite broadband). Lockheed Martin, Northrop Grumman (defense/space primes) and T-Mobile (telecom) are references only, shown but excluded from the statistics. Most pure-play peers are loss-making or trade on option value (RKLB ~39x and ASTS ~145x sales), so the EV/Sales range is wide and EV/EBITDA uses only positive-EBITDA peers; comparable AI/cloud names are not included. Treat comps as a sanity check.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": 0, "g2": 0.4, "midGrowth": 0.15, "ebitT": 0.18, "ebit1": 0.05, "shareChange": 0.03, "desc": "Cloud-services demand for SI compute disappoints after the first contracts, Grok/X monetisation stays small and Starship slips; Starlink keeps growing but ARPU falls as it expands into emerging markets. Heavy compute depreciation keeps EBIT margins ~18%."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": 0.3, "ebitT": 0.28, "desc": "Consensus 2026, then +90% in 2027 as COLOSSUS II cloud contracts ramp and Starlink adds ~6M subscribers a year plus Starlink Mobile; 30% growth in years 3-5 fading to 3%. Connectivity (~45% operating margin) and SI cloud mix towards a 28% EBIT margin."},
+        {"id": "bull", "name": "Bull", "p": 0.17, "growthAdj": 0, "g2": 1.4, "midGrowth": 0.4, "ebitT": 0.34, "desc": "Close to the consensus 2027 (~$110B): SI cloud and Grok scale like a hyperscaler, Starship V3 cuts launch cost ~10x and Starlink Mobile (800 MHz spectrum) becomes a carrier-scale business; margin ~34%."},
+        {"id": "aiBustTail", "name": "Tail: AI capex bust", "p": 0.07, "growthAdj": 0, "g2": 0.1, "midGrowth": 0.08, "ebitT": 0.12, "ebit1": 0.03, "shareChange": 0.04, "desc": "AI compute prices collapse and cloud-services customers walk away; the $40B+/yr SI build-out becomes stranded capacity, depreciation crushes margins and SpaceX falls back to Starlink + launch."},
+        {"id": "keyTail", "name": "Tail: Starship failure / key-person / regulatory", "p": 0.06, "growthAdj": 0, "g2": 0.5, "midGrowth": 0.12, "ebitT": 0.2, "crpAdd": 0.01, "desc": "A major Starship or crewed-mission accident, loss of focus from Elon Musk (Tesla tie-up, politics) or FCC/spectrum and governance problems (dual-class control) delay V3 Starlink and raise the cost of capital."},
+        {"id": "superTail", "name": "Tail: Multiplanetary super-cycle", "p": 0.05, "growthAdj": 0, "g2": 1.8, "midGrowth": 0.55, "ebitT": 0.4, "desc": "Starship reaches airline-like cadence, orbital AI compute works at scale, Starlink Mobile takes a large share of global mobile and SI becomes a top-3 AI platform; revenue passes $500B by 2030 with ~40% margins."}
+      ],
+      "catalysts": [
+        {"date": "2026-10-20", "q": "Q3 2026", "event": "Q3 2026 results: revenue $14.6B (+161%), operating income $2.8B, capex $19.6B", "impact": "High", "dir": "±"},
+        {"date": "2026-12-09", "q": "Q4 2026", "event": "IPO lock-up expiry (180 days, estimate) and possible index inclusion", "impact": "High", "dir": "−"},
+        {"date": "Ongoing", "q": "Any", "event": "Starship V3 flight cadence and Starlink V3 deployment", "impact": "High", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "New SI cloud-services contracts, Grok releases and Cursor integration", "impact": "High", "dir": "±"},
+        {"date": "H1 2027", "q": "H1 2027", "event": "Closing of the 800 MHz spectrum purchase (Starlink Mobile)", "impact": "Medium", "dir": "+"},
+        {"date": "Ad hoc", "q": "Any", "event": "Tesla tie-up speculation and related-party transactions with Musk companies", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 8, "growth": 10, "risk": 3, "valuation": null, "rationale": "Quality: dominant launch provider (~90% of mass to orbit) and the largest satellite constellation, Connectivity runs at a ~45% operating margin. Growth: revenue +161% y/y in Q3 2026. Risk: ~$65B a year of capex mostly for AI compute, short public history, dual-class control by Elon Musk, related-party dealings and heavy dependence on the AI cycle. Valuation from the model."}
     }
   }
 }

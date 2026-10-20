@@ -30,6 +30,17 @@ CHINA_CRP = {2021: 0.00695887, 2022: 0.01217149, 2023: 0.01031353, 2024: 0.00941
 BRAZIL_CRP = {2021: 0.02970905, 2022: 0.05193169, 2023: 0.04400441, 2024: 0.03341000, 2025: 0.03240970}
 TAIWAN_CRP = {2021: 0.00597750, 2022: 0.01034577, 2023: 0.00876650, 2024: 0.00799958, 2025: 0.00776007}   # Aa3; ctryprem21-24 archives and Jan-2026 file
 COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP), "TSM": ("Taiwan", TAIWAN_CRP)}   # Damodaran rating-based CRP; add new EM countries here
+# Recently listed names: years before the IPO (and today, while < 24 monthly returns exist) use an ESTIMATED proxy beta =
+# segment-revenue-weighted median of the Blume-adjusted 60-month peer betas at that date, and the equity weight uses
+# private-market marks (secondary/tender offers, widely reported; estimates) instead of a listed market cap.
+PROXY = {"SPCX": {"ipo": "2026-06-12",
+    "segments": {"Space": ["LMT", "NOC", "RKLB"], "Connectivity": ["IRDM", "VSAT", "TMUS", "ASTS"], "AI": ["ORCL", "META", "NVDA", "MSFT"]},
+    # segment revenue weights from the 424B4 / Q3 2026 8-K (FY2021-22 not disclosed: FY2023 mix used); current = 9M-2026
+    "weights": {2021: (3557, 3869, 2961), 2022: (3557, 3869, 2961), 2023: (3557, 3869, 2961), 2024: (3796, 7599, 2620),
+                2025: (4086, 11387, 3201), "current": (3348, 12796, 10939)},
+    "marks": {2021: (100e9, "Oct-2021 secondary sale, ~$100B"), 2022: (137e9, "Dec-2022 tender offer, ~$137B"),
+              2023: (180e9, "Dec-2023 tender offer, ~$180B"), 2024: (350e9, "Dec-2024 tender offer, ~$350B"),
+              2025: (800e9, "Dec-2025 tender offer, ~$800B")}}}
 ERP_SRC = "Damodaran, Historical Implied Equity Risk Premiums (histimpl.xls, implied premium FCFE, start of the following year)"
 CRP_SRC = "Damodaran, Country Default Spreads and Risk Premiums (ctryprem21-24.xlsx archives and the Jan-2026 ctryprem.xlsx; rating-based CRP: China A1, Brazil Ba2/Ba1, Taiwan Aa3)"
 
@@ -107,6 +118,7 @@ def main():
                       "weights": "Market cap (shares x close at year-end) vs book total debt at fiscal year-end, USD",
                       "currency": "USD terms for all tickers (ASML/ABEV: USD ADR beta and US rf; EUR debt at the ECB, BRL debt at the BCB PTAX and TWD debt at the Yahoo TWD=X year-end rate)"},
            "erp": ERP, "companies": {}}
+    PXC = {}
     for tk, a in A["companies"].items():
         c = V["companies"].get(tk)
         if not c: continue
@@ -135,10 +147,20 @@ def main():
                 cn, tbl = COUNTRY_CRP[tk]
                 crp = tbl.get(Y, a.get("crp", 0)) if Y != "current" else a.get("crp", 0); crpSrc = f"Damodaran {cn} CRP" if Y != "current" else "model CRP"
             else: crp, crpSrc = 0.0, "none"
+            px_note = None
+            if tk in PROXY and bA is None:
+                P = PROXY[tk]; wts = P["weights"][Y]; segb = []
+                for (seg, peers), wgt in zip(P["segments"].items(), wts):
+                    bs = [beta(PXC.setdefault(q, yf.Ticker(q).history(start="2015-12-01")), spx, day)[0] for q in peers]
+                    bs = [x for x in bs if x is not None]; segb.append((seg, float(np.median(bs)), wgt))
+                bA = sum(b_ * w_ for _, b_, w_ in segb) / sum(w_ for *_, w_ in segb); bRaw = (bA - 0.33) / 0.67
+                px_note = "ESTIMATED proxy beta " + ", ".join(f"{sg} {b_:.2f} x {w_ / sum(x[2] for x in segb):.0%}" for sg, b_, w_ in segb) + \
+                          (f" (pre-IPO; listed {P['ipo']})" if day < P["ipo"] else f" (only {n} monthly returns since the {P['ipo']} IPO)")
             betaUsed = bA if bA is not None else (a.get("betaOverride") or c.get("beta") or 1)
             ke = rf + betaUsed * erp + crp
             row = {"year": Y, "date": rfd, "rf": rf, "beta": bA, "betaRaw": bRaw, "months": n, "erp": erp, "crp": crp, "crpSrc": crpSrc, "ke": ke}
-            if bA is None: row["flag"] = f"beta: only {n} months of data; fallback {betaUsed:.2f}"
+            if px_note: row.update({"flag": px_note, "estimated": True, "months": None})
+            elif bA is None: row["flag"] = f"beta: only {n} months of data; fallback {betaUsed:.2f}"
             elif n < 60: row["flag"] = f"beta on {n} months (listing history shorter than 5 years)"
             if not bank:
                 ys = str(Y) if Y != "current" else (by[-1][:4] if by else None)
@@ -149,6 +171,8 @@ def main():
                 if Y == "current": s = c["marketCap"] / c["price"]; p = c["price"]
                 if not s: s = c["marketCap"] / c["price"]; row["flag"] = (row.get("flag", "") + "; current share count used").strip("; ")
                 E = p * s if p else None
+                if tk in PROXY and day < PROXY[tk]["ipo"]:
+                    E, mk = PROXY[tk]["marks"][Y]; row["flag"] = row.get("flag", "").replace("; current share count used", "") + f"; equity weight from private mark: {mk} (SpaceX standalone, estimate)"
                 fx = 1.0
                 if cur == "CNY": fx = close_at(cny, day)[0] if Y != "current" else V["fx"]["CNYUSD"]
                 if cur == "EUR": fx = 1 / ecb(day if Y != "current" else V["fx"]["EUR_date"])

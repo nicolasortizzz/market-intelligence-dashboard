@@ -90,6 +90,12 @@
    "priceDate": "2026-10-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
+  },
+  "SPCX": {
+   "price": 147.79,
+   "priceDate": "2026-10-20",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
   }
  }
 }

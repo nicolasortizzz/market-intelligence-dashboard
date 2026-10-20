@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T02:56:41Z",
+ "generatedAt": "2026-10-20T21:25:11Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -438,6 +438,47 @@
     "https://b.gfgsa.com/app/uploads/2026/03/PressRelease_GrupoGalicia_4Q2025_EN.pdf"
    ],
    "note": "IAS 29: each year is in pesos of its own year end, converted at that year-end official rate. The Dec-2020 official rate was set under strict capital controls (parallel rate ~2x), which flatters the USD CAGR; FY2025 includes the acquired HSBC Argentina (Galicia M\u00e1s) from Dec-2024, so growth is partly inorganic."
+  },
+  "SPCX": {
+   "start": "FY2023",
+   "end": "FY2025",
+   "startEnd": "2023-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "periods": 2,
+   "values": {
+    "FY2023": 10387000000.0,
+    "FY2024": 14015000000.0,
+    "FY2025": 18674000000.0
+   },
+   "cagr5": 0.34082966976834417,
+   "segments": {
+    "Space": {
+     "FY2023": 3557000000.0,
+     "FY2024": 3796000000.0,
+     "FY2025": 4086000000.0,
+     "cagr": 0.07178394845320124
+    },
+    "Connectivity": {
+     "FY2023": 3869000000.0,
+     "FY2024": 7599000000.0,
+     "FY2025": 11387000000.0,
+     "cagr": 0.71555756583553
+    },
+    "AI (now SI)": {
+     "FY2023": 2961000000.0,
+     "FY2024": 2620000000.0,
+     "FY2025": 3201000000.0,
+     "cagr": 0.03973732167070687
+    }
+   },
+   "definition": "Total revenue as reported (recast to include xAI and X Holdings under common control)",
+   "source": "SpaceX IPO prospectus (Form 424B4 filed 2026-06-12, accession 0001628280-26-042639), consolidated statements of operations",
+   "accn": [
+    "0001628280-26-042639"
+   ],
+   "shortNote": "SpaceX IPO'd on 2026-06-12 and the prospectus only contains audited FY2023-FY2025; FY2021-FY2022 are not disclosed, so the longest available window (2 years) is used",
+   "note": "Only FY2023-FY2025 are available (2 compounding periods, not 5). Figures are recast for the common-control mergers with xAI (Feb-2026) and X Holdings (Mar-2025), so X/Twitter advertising is included in every year; Cursor (Aug-2026) is not. Segment CAGRs FY2023-25: Space 7.2%, Connectivity (Starlink) 71.6%, AI 4.0% (X advertising fell). Latest TTM (to 2026-09-30): $32.0B (Q3 2026 8-K); Q3 2026 revenue alone was $14.6B, +161% y/y."
   }
  }
 }

@@ -25,10 +25,22 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "BE": ["PLUG", "FCEL", "BLDP", "GEV", "ETN", "VRT", "FLNC"],
            "AVGO": ["NVDA", "AMD", "MRVL", "QCOM", "TXN", "ADI", "ANET", "ORCL", "MSFT"],
            "VIST": ["YPF", "PAM", "PBR", "EC", "EOG", "DVN", "FANG"],
-           "TSM": ["005930.KS", "INTC", "UMC", "GFS", "0981.HK", "ASML", "AMAT"]}
+           "TSM": ["005930.KS", "INTC", "UMC", "GFS", "0981.HK", "ASML", "AMAT"],
+           "SPCX": ["RKLB", "ASTS", "IRDM", "SATS", "VSAT", "LMT", "NOC", "TMUS"]}
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
-BANKS = {"GGAL": 10}          # ticker -> local shares per ADR (GGAL: 1 ADS = 10 Class B shares)
+BANKS = {"GGAL": 10}
+# Latest filed quarter newer than Yahoo's snapshot (applied only while Yahoo's last quarter is older than "period").
+# SPCX: Q3 2026 earnings release (8-K Ex-99.1, accession 0001628280-26-066482, filed 2026-10-20), USD millions.
+FILING_OVERRIDE = {"SPCX": {"period": "2026-09-30", "accn": "0001628280-26-066482",
+    "source": "SpaceX Q3 2026 earnings release (8-K Ex-99.1, filed 2026-10-20)",
+    "shares": 13579e6,            # Class A 8,240M + Class B 5,339M outstanding at 2026-09-30
+    "totalCash": 89855e6,         # cash 51,294 + marketable securities 38,561
+    "totalDebt": 38844e6,         # debt and finance leases, current 2,698 + non-current 36,146
+    "revenueTTM": 32043e6,        # 9M-2026 27,083 + Q4-2025 4,960 (FY2025 18,674 - 9M-2025 13,714)
+    "ebitdaTTM": 10183e6,         # GAAP EBIT TTM -668 (705 + Q4-2025 -1,373) + D&A TTM 10,851 (8,934 + 6,701 - 4,784)
+    "netIncomeTTM": -2760e6,      # 9M-2026 -413 + Q4-2025 -2,347 (FY2025 -4,937 - 9M-2025 -2,590)
+    "equity": 176768e6}}          # ticker -> local shares per ADR (GGAL: 1 ADS = 10 Class B shares)
 ROWS = {"income": ["Total Revenue", "Gross Profit", "Operating Income", "EBIT", "EBITDA", "Normalized EBITDA",
                    "Reconciled Depreciation", "Net Income", "Diluted EPS", "Diluted Average Shares", "Tax Rate For Calcs",
                    "Research And Development", "Interest Expense"],
@@ -228,6 +240,21 @@ def bank_block(d, k, ratio):
                  "divTTMperADR": f(divs[divs.index > cut].sum()) if cut is not None else None, "hist": hist,
                  "fxSource": "BCRA Com. A3500 (api.bcra.gob.ar estadisticascambiarias)"}
 
+def filing_override(d, o):
+    """Use the latest filed quarter (balance sheet, TTM, share count) while Yahoo's statements still stop at an older quarter."""
+    yq = max(d.get("qIncome", {}).get("years") or ["0000"])
+    if yq >= o["period"]: return
+    p = d["price"]; mc = o["shares"] * p
+    d.update({"yahooMarketCap": d.get("marketCap"), "marketCap": mc, "sharesOutstanding": o["shares"], "totalCash": o["totalCash"],
+              "totalDebt": o["totalDebt"], "revenueTTM": o["revenueTTM"], "ebitdaTTM": o["ebitdaTTM"], "balanceDate": o["period"],
+              "filingOverride": {k: v for k, v in o.items()} | {"yahooLastQuarter": yq}})
+    s = d.get("self") or {}; ev = mc + o["totalDebt"] - o["totalCash"]
+    s.update({"marketCap": mc, "ev": ev, "revenue": o["revenueTTM"], "ebitda": o["ebitdaTTM"], "netIncome": o["netIncomeTTM"],
+              "evSales": ev / o["revenueTTM"], "evEbitda": ev / o["ebitdaTTM"] if o["ebitdaTTM"] > 0 else None,
+              "pe": mc / o["netIncomeTTM"] if o["netIncomeTTM"] > 0 else None, "ebitdaMargin": o["ebitdaTTM"] / o["revenueTTM"],
+              "book": o["equity"], "pb": mc / o["equity"]})
+    d["self"] = s
+
 def main():
     import sys, warnings; warnings.filterwarnings("ignore")
     only = [a.upper() for a in sys.argv[1:]]
@@ -284,6 +311,7 @@ def main():
         if t in USD_STMT: usd_stmt_fix(d, k)
         if t in BANKS: bank_block(d, k, BANKS[t])
         if t in SEC_APPEND: sec_append(d, cik[t])
+        if t in FILING_OVERRIDE: filing_override(d, FILING_OVERRIDE[t])
         d["fetchedAt"] = now
         res["companies"][t] = d
         print(t, d["price"], d["financialCurrency"])

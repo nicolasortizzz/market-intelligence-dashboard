@@ -116,6 +116,9 @@ def main():
     shutil.rmtree(prev, ignore_errors=True)
     if probs:
         print("\n!! validation problems:"); [print("   -", p) for p in probs]; sys.exit(1)
+    print("== dashboard checks (scripts/validate_dashboard.py, every ticker)")
+    if subprocess.run([PY, os.path.join(ROOT, "scripts", "validate_dashboard.py")], cwd=ROOT).returncode:
+        print("\n!! dashboard validation failed; nothing deployed"); sys.exit(1)
     print("\n== validation passed")
     if arg("--deploy"):
         msg = f"Data refresh {dt.date.today().isoformat()} (scripts/update_all.py)"

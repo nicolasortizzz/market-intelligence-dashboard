@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T22:20:39Z",
+ "generatedAt": "2026-10-21T12:28:16Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -477,6 +477,45 @@
    "source": "Samsung Electronics annual business reports and Q4 earnings releases (FY2020-FY2021); Yahoo Finance statements (FY2022-FY2025)",
    "accn": [],
    "note": "Constant currency (KRW, reporting currency). FY2020-FY2025 includes a full memory cycle: the 2021-22 boom, the 2023 bust (-14%) and the AI-driven recovery; FY2026 (consensus ~KRW 710T, +113%) is outside the window."
+  },
+  "000660.KS": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "KRW",
+   "values": {
+    "FY2020": 31900418000000.0,
+    "FY2021": 42997792000000.0,
+    "FY2022": 44621568000000.0,
+    "FY2023": 32765719000000.0,
+    "FY2024": 66192960000000.0,
+    "FY2025": 97146675000000.0
+   },
+   "cagr5": 0.24947138182860873,
+   "usd": {
+    "values": {
+     "FY2020": 29300151892.06587,
+     "FY2025": 67266575792.30851
+    },
+    "cagr5": 0.18082595283671354,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      1088.7458234862684
+     ],
+     "FY2025": [
+      "2025-12-31",
+      1444.2042553191488
+     ],
+     "source": "ECB reference-rate cross (KRW/EUR / USD/EUR)"
+    },
+    "note": "translated at the ECB year-end cross rates (1088.7 KRW/USD on 2020-12-31, 1444.2 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated revenue (K-IFRS)",
+   "source": "SK hynix annual business reports and Q4 earnings releases (FY2020-FY2021); Yahoo Finance statements (FY2022-FY2025)",
+   "accn": [],
+   "note": "Constant currency (KRW, reporting currency). FY2020-FY2025 includes a full memory cycle: the 2021-22 boom, the 2023 bust (-27%) and the HBM-led recovery (FY2024 +102%, FY2025 +47%); FY2026 (consensus ~KRW 344T, +254%) is outside the window."
   },
   "SPCX": {
    "start": "FY2023",

@@ -7,8 +7,8 @@ import json, os, datetime as dt
 import yfinance as yf
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "reverse_dcf.json")
-TICKERS = ["META", "UNH", "DIS", "NIO", "YPF", "GGAL", "MU", "ASML", "VST", "ABEV", "UBER", "BE", "AVGO", "VIST", "TSM", "SPCX", "005930.KS"]
-LOCAL = {"005930.KS": "KRW"}   # local-currency listings: close converted to USD at the valuation.json official rate (fx.<CCY>USD)
+TICKERS = ["META", "UNH", "DIS", "NIO", "YPF", "GGAL", "MU", "ASML", "VST", "ABEV", "UBER", "BE", "AVGO", "VIST", "TSM", "SPCX", "005930.KS", "000660.KS"]
+LOCAL = {"005930.KS": "KRW", "000660.KS": "KRW"}   # local-currency listings: close converted to USD at the valuation.json official rate (fx.<CCY>USD)
 
 
 def main():

@@ -1,39 +1,39 @@
 {
- "generatedAt": "2026-10-20T22:20:03Z",
+ "generatedAt": "2026-10-21T12:28:15Z",
  "quotes": {
   "META": {
-   "price": 705.44,
-   "priceDate": "2026-10-19",
+   "price": 694.25,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "UNH": {
-   "price": 406.88,
-   "priceDate": "2026-10-19",
+   "price": 419.26,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "DIS": {
-   "price": 109.59,
-   "priceDate": "2026-10-19",
+   "price": 111.67,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "NIO": {
-   "price": 3.39,
-   "priceDate": "2026-10-19",
+   "price": 3.43,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "YPF": {
-   "price": 50.69,
-   "priceDate": "2026-10-19",
+   "price": 50.78,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "GGAL": {
-   "price": 35.09,
-   "priceDate": "2026-10-19",
+   "price": 35.46,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
@@ -44,50 +44,50 @@
    "source": "Yahoo Finance via yfinance"
   },
   "ASML": {
-   "price": 1647.12,
-   "priceDate": "2026-10-19",
+   "price": 1630.84,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "VST": {
-   "price": 149.7,
-   "priceDate": "2026-10-19",
+   "price": 150.32,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ABEV": {
-   "price": 3.25,
-   "priceDate": "2026-10-19",
+   "price": 3.32,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "UBER": {
-   "price": 69.96,
-   "priceDate": "2026-10-19",
+   "price": 68.94,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "BE": {
-   "price": 226.22,
-   "priceDate": "2026-10-19",
+   "price": 222.65,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AVGO": {
-   "price": 334.59,
-   "priceDate": "2026-10-19",
+   "price": 334.37,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "VIST": {
-   "price": 70.86,
-   "priceDate": "2026-10-19",
+   "price": 70.66,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "TSM": {
-   "price": 420.22,
-   "priceDate": "2026-10-19",
+   "price": 425.08,
+   "priceDate": "2026-10-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
@@ -98,13 +98,24 @@
    "source": "Yahoo Finance via yfinance"
   },
   "005930.KS": {
-   "price": 159.2815,
-   "priceLocal": 211500.0,
+   "price": 168.3188,
+   "priceLocal": 223500.0,
    "currencyLocal": "KRW",
    "fx": 1327.8377173428446,
    "fxDate": "2026-10-20",
    "fxSource": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)",
-   "priceDate": "2026-10-20",
+   "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "000660.KS": {
+   "price": 974.5167,
+   "priceLocal": 1294000.0,
+   "currencyLocal": "KRW",
+   "fx": 1327.8377173428446,
+   "fxDate": "2026-10-20",
+   "fxSource": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)",
+   "priceDate": "2026-10-21",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   }

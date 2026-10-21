@@ -446,6 +446,50 @@
         {"date": "Ad hoc", "q": "Any", "event": "North Korea provocations / Korean politics; Value-up programme and buybacks", "impact": "Medium", "dir": "±"}
       ],
       "score": {"quality": 8, "growth": 7, "risk": 5, "valuation": null, "rationale": "Quality: #1 DRAM and NAND maker, vertically integrated (memory, foundry, devices, displays) with net cash. Growth: consensus +113% revenue in 2026 on the AI memory super-cycle, but it is cyclical. Risk: memory price cycles, HBM catch-up vs SK hynix, loss-making foundry, chaebol governance, Korea geopolitical risk. Valuation from the model."}
+    },
+    "000660.KS": {
+      "sector": "Memory semiconductors: DRAM (incl. HBM, ~75% of revenue) and NAND/eSSD (Solidigm)",
+      "betaAdj": "blume",
+      "betaOverride": null,
+      "crp": 0.0064,
+      "crpLabel": "Korea CRP, Damodaran Jan-2026 (Aa2)",
+      "kdSpread": 0.008,
+      "tax": 0.22,
+      "ebit1": 0.72,
+      "growthNote": "Modelled in KRW (K-IFRS consolidated statements) and converted to USD at a single official rate: the ECB reference-rate cross (KRW/EUR ÷ USD/EUR, same fixing date), so mid-term growth is in constant-currency terms. Values are per KRX common share. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (KRW ~344T / ~531T, +254% / +54%) on the AI memory super-cycle: SK hynix is the lead HBM3E/HBM4 supplier to NVIDIA and conventional DRAM/NAND contract prices are up several-fold. H1-2026 operating margin was 75% (Q2: KRW 60.5T on 79.3T revenue). Memory is cyclical, so in the Base case revenue falls ~10% a year in years 3-5 and the EBIT margin normalises to 35% (FY2015-2025 average ~25%, previous peak 2018 52%; HBM and long-term supply agreements lift the through-cycle level). Capex ~15% of revenue in year 1 rising to 22% (M15X, Yongin cluster, Indiana packaging), D&A falls from ~19% to 12%. Tax 22%. Net cash (~KRW 67T) is in the EV bridge.",
+      "daPct0": 0.19,
+      "daPctT": 0.12,
+      "capexPct1": 0.15,
+      "capexPctT": 0.22,
+      "nwcPct": 0.06,
+      "terminalG": 0.025,
+      "ronic": 0.15,
+      "shareChange": 0.0,
+      "peNIExclude": 36500000000.0,
+      "peNIExcludeLabel": "Q2-2026 non-operating gain (pre-tax income exceeded operating income by ~KRW 62T; ~KRW 48T after 22% tax, ~$36.5B; treated as one-off, source of the gain not verified)",
+      "compsRef": ["NVDA"],
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Memory earnings in the TTM window are at a cycle peak (TTM EBITDA ~4.6x the FY2022-25 average, operating margin ~76%), so TTM-based comps would capitalise peak profits; the through-cycle window includes the 2023 loss year and the 2026 boom."},
+      "precedentEvEbitda": [5, 9],
+      "controlPremium": [0.2, 0.4],
+      "precedentNote": "Memory/semiconductor control deals (estimates): SK hynix-Intel NAND (2020-25, $9B, ~6x EBITDA), Bain consortium-Toshiba Memory/Kioxia (2018, $18B), WDC-SanDisk (2016, $19B, ~10x), Micron-Elpida (2013), SK Telecom-Hynix (2012, ~KRW 3.4T for 21%). A takeover of SK hynix (SK Square ~20%, national champion) is not realistic; 5-9x EBITDA on peak-cycle TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: Samsung Electronics (KRW, converted), Micron, SanDisk, Western Digital and TSMC. NVIDIA (main HBM customer) is a reference, shown but excluded from the statistics. All memory names are on peak-cycle TTM earnings, so TTM multiples look low.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.2, "growthAdj": 0, "g2": -0.1, "midGrowth": -0.15, "ebitT": 0.2, "ebit1": 0.68, "desc": "The memory up-cycle peaks in 2026: HBM and DRAM prices roll over in 2027 as Samsung, Micron and CXMT add capacity and AI capex growth slows; margins fall back towards the long-run ~20%."},
+        {"id": "base", "name": "Base", "p": 0.35, "growthAdj": 0, "midGrowth": -0.1, "ebitT": 0.35, "desc": "Consensus 2026-27 (HBM leadership plus a conventional DRAM/eSSD shortage), then a normal down-cycle: revenue falls ~10% a year in years 3-5 and the EBIT margin normalises to ~35%."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0, "g2": 0.7, "midGrowth": 0.03, "ebitT": 0.45, "desc": "AI demand keeps memory tight through 2028, HBM4/HBM4E share at NVIDIA stays above 50%, long-term agreements flatten the cycle; margin ~45%."},
+        {"id": "crashTail", "name": "Tail: memory downcycle / price crash", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.05, "ebitT": 0.08, "ebit1": 0.62, "desc": "A 2023-style bust: AI capex pause plus Chinese capacity (CXMT, YMTC) collapse DRAM/NAND prices in 2027; inventory write-downs and operating losses, as in FY2023 (-24% margin)."},
+        {"id": "hbmLossTail", "name": "Tail: HBM share loss to Samsung / Micron", "p": 0.08, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.1, "ebitT": 0.18, "ebit1": 0.7, "desc": "Samsung qualifies HBM4 at NVIDIA at scale and Micron gains share; SK hynix loses its HBM premium and share falls from ~55% to ~30%, so pricing and margins converge to commodity DRAM."},
+        {"id": "koreaTail", "name": "Tail: Korea / North Korea shock", "p": 0.05, "growthAdj": 0, "g2": -0.2, "midGrowth": -0.12, "ebitT": 0.15, "ebit1": 0.6, "crpAdd": 0.04, "oneOff": -50000000000.0, "desc": "Military escalation on the peninsula, or a severe domestic political crisis, disrupts the Icheon/Cheongju fabs and exports; ~US$50B of assumed damage and lost profit and ~400 bp more country risk."},
+        {"id": "superTail", "name": "Tail: AI super-cycle", "p": 0.07, "growthAdj": 0, "g2": 0.9, "midGrowth": 0.08, "ebitT": 0.5, "desc": "Inference demand and custom HBM make memory a structural growth market: no down-cycle through 2030 and margins stay ~50%."}
+      ],
+      "catalysts": [
+        {"date": "~2026-10-23", "q": "Q3 2026", "event": "Q3 2026 results and HBM4 / 2027 supply-agreement outlook", "impact": "High", "dir": "±"},
+        {"date": "Monthly", "q": "Any", "event": "DRAM/NAND contract prices (TrendForce) and Korea chip exports (1st of month)", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "HBM4 share at NVIDIA (Rubin) vs Samsung and Micron qualification", "impact": "High", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "US export controls (Wuxi DRAM fab) and Section 232 chip tariffs", "impact": "Medium", "dir": "−"},
+        {"date": "Ad hoc", "q": "Any", "event": "North Korea provocations / Korean politics; ADR listing plans and shareholder returns", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 8, "growth": 8, "risk": 4, "valuation": null, "rationale": "Quality: #1 HBM supplier and #2 DRAM maker, now net cash. Growth: consensus +254% revenue in 2026 on the AI memory super-cycle, but it is cyclical. Risk: pure-play memory (no device or foundry cushion), HBM share risk vs Samsung/Micron, customer concentration (NVIDIA), China fab exposure, Korea geopolitical risk. Valuation from the model."}
     }
   }
 }

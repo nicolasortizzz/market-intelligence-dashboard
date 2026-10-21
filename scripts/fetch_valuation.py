@@ -27,10 +27,12 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "VIST": ["YPF", "PAM", "PBR", "EC", "EOG", "DVN", "FANG"],
            "TSM": ["005930.KS", "INTC", "UMC", "GFS", "0981.HK", "ASML", "AMAT"],
            "005930.KS": ["000660.KS", "MU", "TSM", "AAPL", "1810.HK", "SNDK", "WDC"],
+           "000660.KS": ["005930.KS", "MU", "SNDK", "WDC", "TSM", "NVDA"],   # NVDA: HBM customer, reference only
            "SPCX": ["RKLB", "ASTS", "IRDM", "SATS", "VSAT", "LMT", "NOC", "TMUS"]}
 # Local-currency listings (Samsung: KRX common in KRW). Price, market cap, 52w range and targets are converted to USD at the
 # official rate (fx.KRWUSD: ECB reference rates, KRW/EUR divided by USD/EUR, same fixing date); KRW originals are kept as *Local.
-LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred shares (KRX)", "SMSN.IL": "GDR, London (1 GDR = 25 common shares)"}}}
+LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred shares (KRX)", "SMSN.IL": "GDR, London (1 GDR = 25 common shares)"}},
+                 "000660.KS": {"ccy": "KRW", "related": {}}}
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}
@@ -308,7 +310,7 @@ def main():
         td, tv = cbc_twd()
         if tv: res.setdefault("fx", {}).update({"TWDUSD": tv, "TWD_date": td, "TWD_source": "Central Bank of the R.O.C. (Taiwan), NT$/US$ interbank closing rate (cbc.gov.tw)"}); FXC["TWD"] = tv
     elif res.get("fx", {}).get("TWDUSD"): FXC["TWD"] = res["fx"]["TWDUSD"]
-    if not only or "005930.KS" in only:   # KRW only refreshed with Samsung
+    if not only or {"005930.KS", "000660.KS"} & set(only):   # KRW only refreshed with the KRX names
         kd_, kv = ecb_cross("KRW")
         if kv: res.setdefault("fx", {}).update({"KRWUSD": kv, "KRW_date": kd_, "KRW_source": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)"}); FXC["KRW"] = kv
     elif res.get("fx", {}).get("KRWUSD"): FXC["KRW"] = res["fx"]["KRWUSD"]

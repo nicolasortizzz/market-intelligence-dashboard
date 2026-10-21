@@ -1,0 +1,2294 @@
+{
+ "generatedAt": "2026-10-21T17:42:14Z",
+ "source": "market-intelligence-dashboard valuation engine (valuation.js valSummary, model defaults)",
+ "dashboard": "https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation",
+ "fx": {
+  "CNYUSD": 6.690899848937988,
+  "EURUSD": 0.8908685968819599,
+  "EURUSD_ecb": 1.1225,
+  "EUR_date": "2026-10-19",
+  "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)",
+  "ARSUSD_BCRA": 1524.5,
+  "ARS_date": "2026-10-19",
+  "BRLUSD": 5.0564,
+  "BRL_date": "2026-10-19",
+  "BRL_source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
+  "TWDUSD": 32.445,
+  "TWD_date": "2026-10-19",
+  "TWD_source": "Central Bank of the R.O.C. (Taiwan), NT$/US$ interbank closing rate (cbc.gov.tw)",
+  "KRWUSD": 1327.8377173428446,
+  "KRW_date": "2026-10-20",
+  "KRW_source": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)"
+ },
+ "tickers": [
+  "META",
+  "UNH",
+  "DIS",
+  "NIO",
+  "YPF",
+  "GGAL",
+  "MU",
+  "ASML",
+  "VST",
+  "ABEV",
+  "UBER",
+  "BE",
+  "AVGO",
+  "VIST",
+  "TSM",
+  "SPCX",
+  "005930.KS",
+  "000660.KS"
+ ],
+ "companies": {
+  "META": {
+   "ticker": "META",
+   "name": "Meta Platforms, Inc.",
+   "sector": "Internet platforms / digital advertising",
+   "model": "DCF (FCFF)",
+   "price": 705.44,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 561.35,
+   "probWeighted": 527.12,
+   "comps": 675.58,
+   "compsCycleAdjusted": false,
+   "triangulated": 586.5,
+   "upside": -0.16859930842008053,
+   "wacc": 0.09902703957987738,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 247.63,
+    "p50": 514.36,
+    "p90": 876.25,
+    "pAbovePrice": 0.22
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 294.78
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 561.35
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 800.65
+    },
+    {
+     "id": "aiTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.05,
+     "value": 1091.51
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: Regulatory shock",
+     "p": 0.1,
+     "value": 261.43
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.18145793974399566,
+    "impliedMargin": 0.45636366009712215,
+    "baseMargin": 0.38
+   },
+   "revenueCagr": {
+    "value": 0.18511415178759827,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.06429368186854839
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.09912671449227907
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.08912215375569263
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.09279681482715346
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08904529621820677
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.10084557828441272
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 6,
+    "valuation": 3,
+    "total": 6.5
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 58,
+    "targetMean": 818.9952
+   }
+  },
+  "UNH": {
+   "ticker": "UNH",
+   "name": "UnitedHealth Group Incorporated",
+   "sector": "Managed care / health services",
+   "model": "DCF (FCFF)",
+   "price": 406.88,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 456.23,
+   "probWeighted": 393.5,
+   "comps": 276.45,
+   "compsCycleAdjusted": false,
+   "triangulated": 346.68,
+   "upside": -0.14796155657498522,
+   "wacc": 0.0829484281566115,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 178.97,
+    "p50": 396.26,
+    "p90": 645.97,
+    "pAbovePrice": 0.47675
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 266.52
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 456.23
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 619.83
+    },
+    {
+     "id": "dojTail",
+     "name": "Tail: DOJ / False Claims outcome",
+     "p": 0.1,
+     "value": 193.13
+    },
+    {
+     "id": "maTail",
+     "name": "Tail: MA risk-adjustment overhaul",
+     "p": 0.05,
+     "value": 185.58
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.03413831889629364,
+    "impliedMargin": 0.06004709601402282,
+    "baseMargin": 0.065
+   },
+   "revenueCagr": {
+    "value": 0.11721651214881779,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.0501534095983138
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.08165625051219053
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06801274175147991
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.07311011398623728
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.06291982315986426
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.07573762169221117
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 7,
+    "growth": 4,
+    "risk": 4,
+    "valuation": 4,
+    "total": 4.75
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 25,
+    "targetMean": 477.04
+   }
+  },
+  "DIS": {
+   "ticker": "DIS",
+   "name": "The Walt Disney Company",
+   "sector": "Media & entertainment / experiences",
+   "model": "DCF (FCFF)",
+   "price": 109.59,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 75.17,
+   "probWeighted": 69.61,
+   "comps": 102.53,
+   "compsCycleAdjusted": false,
+   "triangulated": 82.78,
+   "upside": -0.24467887277157596,
+   "wacc": 0.09714538984025087,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 36.74,
+    "p50": 70.51,
+    "p90": 105.57,
+    "pAbovePrice": 0.07575
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 45.73
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 75.17
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 97.19
+    },
+    {
+     "id": "marvelTail",
+     "name": "Tail: Avengers: Doomsday mega-hit",
+     "p": 0.1,
+     "value": 83.25
+    },
+    {
+     "id": "linearTail",
+     "name": "Tail: Linear collapse + consumer recession",
+     "p": 0.05,
+     "value": 28.96
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.10258291661739351,
+    "impliedMargin": 0.2167321741580963,
+    "baseMargin": 0.16
+   },
+   "revenueCagr": {
+    "value": 0.07626145769160764,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.05635576907458727
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.0870291874694063
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.07977581311336288
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08854121941009446
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08499725333949254
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.09662258931355552
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 7,
+    "growth": 5,
+    "risk": 6,
+    "valuation": 3,
+    "total": 5.25
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 32,
+    "targetMean": 126.64531
+   }
+  },
+  "NIO": {
+   "ticker": "NIO",
+   "name": "NIO Inc.",
+   "sector": "China EV maker",
+   "model": "DCF (FCFF)",
+   "price": 3.39,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "CNY",
+   "fx": {
+    "rate": 6.690899848937988,
+    "quote": "CNY per USD",
+    "date": null,
+    "source": "Yahoo Finance FX (CNY=X)"
+   },
+   "base": 3.33,
+   "probWeighted": 3.51,
+   "comps": 5.55,
+   "compsCycleAdjusted": false,
+   "triangulated": 4.33,
+   "upside": 0.27614745759587955,
+   "wacc": 0.11798524568160867,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 0,
+    "p50": 2.67,
+    "p90": 9.59,
+    "pAbovePrice": 0.381
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 0.44
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 3.33
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.12,
+     "value": 8.99
+    },
+    {
+     "id": "cashTail",
+     "name": "Tail: Price war + cash crunch",
+     "p": 0.13,
+     "value": 0
+    },
+    {
+     "id": "swapTail",
+     "name": "Tail: Swap standard + subsidy upside",
+     "p": 0.05,
+     "value": 16.46
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.17527593672275543,
+    "impliedMargin": 0.04108746647834778,
+    "baseMargin": 0.04
+   },
+   "revenueCagr": {
+    "value": 0.4001550958146094,
+    "currency": "CNY",
+    "usd": 0.38088752274490734,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.09746963649049498
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.11709877741992993
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.10429871830031692
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.09449251570664638
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.07835079591721933
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.08316270701583159
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 3,
+    "growth": 9,
+    "risk": 2,
+    "valuation": 8,
+    "total": 5.5
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 23,
+    "targetMean": 6.278854
+   }
+  },
+  "YPF": {
+   "ticker": "YPF",
+   "name": "YPF Sociedad Anonima",
+   "sector": "Argentine integrated oil & gas (Vaca Muerta shale)",
+   "model": "DCF (FCFF)",
+   "price": 50.69,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 42.8,
+   "probWeighted": 34.67,
+   "comps": 71.37,
+   "compsCycleAdjusted": false,
+   "triangulated": 49.35,
+   "upside": -0.026363751253117518,
+   "wacc": 0.12712305296582924,
+   "costOfEquity": null,
+   "terminalG": 0.015,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 2.69,
+    "p50": 37.3,
+    "p90": 71.28,
+    "pAbovePrice": 0.2695
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 10.34
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 42.8
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.17,
+     "value": 74.31
+    },
+    {
+     "id": "macroTail",
+     "name": "Tail: Macro crisis / devaluation",
+     "p": 0.1,
+     "value": 0
+    },
+    {
+     "id": "courtTail",
+     "name": "Tail: Petersen/Burford case revived",
+     "p": 0.03,
+     "value": 6.63
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.11251537501811981,
+    "impliedMargin": 0.2119700491428375,
+    "baseMargin": 0.19
+   },
+   "revenueCagr": {
+    "value": 0.1374311101742436,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.10407923840809588
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.20230012221991434
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.19113064207439173
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.1427783427535095
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.11398117760813115
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.13035460004926497
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 6,
+    "growth": 8,
+    "risk": 3,
+    "valuation": 5,
+    "total": 5.5
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 12,
+    "targetMean": 61.96667
+   }
+  },
+  "GGAL": {
+   "ticker": "GGAL",
+   "name": "Grupo Financiero Galicia S.A.",
+   "sector": "Argentine financial group (bank, cards, insurance, asset management)",
+   "model": "residual income (bank)",
+   "price": 35.09,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "ARS",
+   "fx": {
+    "rate": 1524.5,
+    "quote": "ARS per USD",
+    "date": "2026-10-19",
+    "source": "BCRA official wholesale rate (Com. A 3500)"
+   },
+   "base": 42.02,
+   "probWeighted": 37.04,
+   "comps": 37.67,
+   "compsCycleAdjusted": false,
+   "triangulated": 37.29,
+   "upside": 0.06263654129088936,
+   "wacc": null,
+   "costOfEquity": 0.16805,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 20.24,
+    "p50": 36.55,
+    "p90": 59.18,
+    "pAbovePrice": 0.5305
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 24.12
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 42.02
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 62.06
+    },
+    {
+     "id": "macroTail",
+     "name": "Tail: Macro crisis / devaluation",
+     "p": 0.1,
+     "value": 18.14
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: Regulatory shock",
+     "p": 0.05,
+     "value": 19.42
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": null,
+    "impliedMargin": 0.15962914824485774,
+    "baseMargin": 0.18
+   },
+   "revenueCagr": {
+    "value": 0.1989713969286777,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.2503029665326183
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.34137347907218407
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.310141143348019
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.17687423389365245
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.15460175267319903
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.17080549589597946
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 7,
+    "growth": 7,
+    "risk": 3,
+    "valuation": 6,
+    "total": 5.75
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 10,
+    "targetMean": 62.2
+   }
+  },
+  "MU": {
+   "ticker": "MU",
+   "name": "Micron Technology, Inc.",
+   "sector": "Memory semiconductors (DRAM, HBM, NAND)",
+   "model": "DCF (FCFF)",
+   "price": 904.9,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 653.39,
+   "probWeighted": 603.66,
+   "comps": 927.2,
+   "compsCycleAdjusted": false,
+   "triangulated": 733.08,
+   "upside": -0.18988200000457667,
+   "wacc": 0.12315007910467139,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 202.11,
+    "p50": 627.86,
+    "p90": 998.5,
+    "pAbovePrice": 0.1535
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 360.77
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 653.39
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 943.38
+    },
+    {
+     "id": "crashTail",
+     "name": "Tail: AI capex bust / memory crash",
+     "p": 0.12,
+     "value": 193.4
+    },
+    {
+     "id": "superTail",
+     "name": "Tail: Memory-bound AI super-cycle",
+     "p": 0.05,
+     "value": 1404.18
+    },
+    {
+     "id": "taiwanTail",
+     "name": "Tail: Taiwan / East Asia geopolitical shock",
+     "p": 0.03,
+     "value": 280.25
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.1869798332452774,
+    "impliedMargin": 0.6216649234294891,
+    "baseMargin": 0.38
+   },
+   "revenueCagr": {
+    "value": 0.11763119291842661,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.059238693126825545
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.10099806654014096
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.08535460790118335
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08576897318573166
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.0953980253298571
+    },
+    {
+     "year": "current",
+     "date": "2026-10-19",
+     "value": 0.1355968884518841
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 7,
+    "growth": 8,
+    "risk": 4,
+    "valuation": 3,
+    "total": 5.5
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 46,
+    "targetMean": 1560.5652
+   }
+  },
+  "ASML": {
+   "ticker": "ASML",
+   "name": "ASML Holding",
+   "sector": "Semiconductor equipment (EUV/DUV lithography)",
+   "model": "DCF (FCFF)",
+   "price": 1647.12,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "EUR",
+   "fx": {
+    "rate": 1.1225,
+    "quote": "USD per EUR",
+    "date": "2026-10-19",
+    "source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"
+   },
+   "base": 872.48,
+   "probWeighted": 805.65,
+   "comps": 1731.26,
+   "compsCycleAdjusted": false,
+   "triangulated": 1175.9,
+   "upside": -0.2860898238333194,
+   "wacc": 0.10540796558123938,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 433.39,
+    "p50": 811.96,
+    "p90": 1235.9,
+    "pAbovePrice": 0.01475
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 490.34
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 872.48
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 1156.13
+    },
+    {
+     "id": "chinaTail",
+     "name": "Tail: China export restrictions tighten",
+     "p": 0.08,
+     "value": 577.04
+    },
+    {
+     "id": "highNATail",
+     "name": "Tail: High-NA everywhere + AI super-cycle",
+     "p": 0.05,
+     "value": 1485.52
+    },
+    {
+     "id": "taiwanTail",
+     "name": "Tail: Taiwan geopolitical shock",
+     "p": 0.05,
+     "value": 226.07
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.2608032613992692,
+    "impliedMargin": 0.8201125562191007,
+    "baseMargin": 0.42
+   },
+   "revenueCagr": {
+    "value": 0.18503324439054114,
+    "currency": "EUR",
+    "usd": 0.17479507208665757,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.059231381920370245
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.113849527900998
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.09812896348613936
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.10151897074916005
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.1074238727164535
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.11923791359135001
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 10,
+    "growth": 8,
+    "risk": 6,
+    "valuation": 2,
+    "total": 6.5
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 17,
+    "targetMean": 2145.584
+   }
+  },
+  "VST": {
+   "ticker": "VST",
+   "name": "Vistra Corp.",
+   "sector": "US independent power producer (nuclear, gas, retail electricity)",
+   "model": "DCF (FCFF)",
+   "price": 149.7,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 173.13,
+   "probWeighted": 141.77,
+   "comps": 211.85,
+   "compsCycleAdjusted": false,
+   "triangulated": 169.8,
+   "upside": 0.13426722353569587,
+   "wacc": 0.0937449596636621,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 39.87,
+    "p50": 148.22,
+    "p90": 252.13,
+    "pAbovePrice": 0.494
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 66.53
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 173.13
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 260.9
+    },
+    {
+     "id": "dcTail",
+     "name": "Tail: Data-center demand bust",
+     "p": 0.1,
+     "value": 30.67
+    },
+    {
+     "id": "nuclearTail",
+     "name": "Tail: Nuclear outage / regulatory shock",
+     "p": 0.05,
+     "value": 64.03
+    },
+    {
+     "id": "ercotTail",
+     "name": "Tail: ERCOT price-spike event",
+     "p": 0.05,
+     "value": 145.65
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.07539241015911102,
+    "impliedMargin": 0.21420432925224303,
+    "baseMargin": 0.24
+   },
+   "revenueCagr": {
+    "value": 0.09162368630867457,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.04147102628670805
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.05882208827864127
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.057618744349338585
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08180247147687483
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08199393514103873
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.08945254655803131
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 7,
+    "growth": 7,
+    "risk": 5,
+    "valuation": 6,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 21,
+    "targetMean": 210.09525
+   }
+  },
+  "ABEV": {
+   "ticker": "ABEV",
+   "name": "Ambev S.A.",
+   "sector": "Beverages (beer, soft drinks) - Brazil, LatAm North/South, Canada",
+   "model": "DCF (FCFF)",
+   "price": 3.25,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "BRL",
+   "fx": {
+    "rate": 5.0564,
+    "quote": "BRL per USD",
+    "date": "2026-10-19",
+    "source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"
+   },
+   "base": 2.93,
+   "probWeighted": 2.71,
+   "comps": 3.47,
+   "compsCycleAdjusted": false,
+   "triangulated": 3.01,
+   "upside": -0.0729797695260016,
+   "wacc": 0.11692154130340664,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 1.97,
+    "p50": 2.74,
+    "p90": 3.54,
+    "pAbovePrice": 0.20275
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 2.32
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 2.93
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 3.56
+    },
+    {
+     "id": "brlTail",
+     "name": "Tail: BRL crisis",
+     "p": 0.08,
+     "value": 1.45
+    },
+    {
+     "id": "taxTail",
+     "name": "Tail: Tax shock",
+     "p": 0.05,
+     "value": 2.19
+    },
+    {
+     "id": "argTail",
+     "name": "Tail: Argentina relapse",
+     "p": 0.02,
+     "value": 2.48
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.05975998342037202,
+    "impliedMargin": 0.29108634591102595,
+    "baseMargin": 0.25
+   },
+   "revenueCagr": {
+    "value": 0.08613605449630923,
+    "currency": "BRL",
+    "usd": 0.07378993279903168,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.09164977378646626
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.1515488425280272
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.1336574131539804
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.12395446806648236
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.1077524340317951
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.11610471898492085
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 4,
+    "risk": 6,
+    "valuation": 4,
+    "total": 5.5
+   },
+   "analyst": {
+    "rec": "hold",
+    "n": 10,
+    "targetMean": 3.345
+   }
+  },
+  "UBER": {
+   "ticker": "UBER",
+   "name": "Uber Technologies, Inc.",
+   "sector": "Global mobility, delivery and freight marketplace",
+   "model": "DCF (FCFF)",
+   "price": 69.96,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 85.95,
+   "probWeighted": 82.27,
+   "comps": 63.08,
+   "compsCycleAdjusted": false,
+   "triangulated": 74.59,
+   "upside": 0.06624887004716906,
+   "wacc": 0.09975866948761852,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 38.85,
+    "p50": 81.37,
+    "p90": 135.41,
+    "pAbovePrice": 0.6125
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 47.53
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 85.95
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 122.94
+    },
+    {
+     "id": "robotaxiTail",
+     "name": "Tail: Robotaxi disintermediation",
+     "p": 0.07,
+     "value": 27.43
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: Driver-classification shock",
+     "p": 0.05,
+     "value": 45.4
+    },
+    {
+     "id": "avUpsideTail",
+     "name": "Tail: Robotaxi upside via partnerships",
+     "p": 0.08,
+     "value": 152.81
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.0721639186143875,
+    "impliedMargin": 0.1329165875911713,
+    "baseMargin": 0.17
+   },
+   "revenueCagr": {
+    "value": 0.3610053095492587,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.06134251746117943
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.09502953878024617
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.09132092388786917
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.09432430059213166
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08579833897329052
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.10055290662931912
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 5,
+    "valuation": 6,
+    "total": 6.5
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 46,
+    "targetMean": 100.85522
+   }
+  },
+  "BE": {
+   "ticker": "BE",
+   "name": "Bloom Energy Corporation",
+   "sector": "Solid-oxide fuel cells / on-site power for data centers and industry",
+   "model": "DCF (FCFF)",
+   "price": 226.22,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 62.66,
+   "probWeighted": 59.5,
+   "comps": 48.06,
+   "compsCycleAdjusted": false,
+   "triangulated": 54.92,
+   "upside": -0.7572070543338811,
+   "wacc": 0.14118994028644213,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 17.18,
+    "p50": 57,
+    "p90": 129.23,
+    "pAbovePrice": 0.00375
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 21.9
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 62.66
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.13,
+     "value": 110.54
+    },
+    {
+     "id": "dcTail",
+     "name": "Tail: Data-center capex bust",
+     "p": 0.1,
+     "value": 10.48
+    },
+    {
+     "id": "itcTail",
+     "name": "Tail: Loss of ITC / tax credits",
+     "p": 0.05,
+     "value": 21.97
+    },
+    {
+     "id": "winTail",
+     "name": "Tail: Large hyperscaler contract win",
+     "p": 0.07,
+     "value": 177.79
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.7249087721109393,
+    "impliedMargin": 0.7391849696636199,
+    "baseMargin": 0.2
+   },
+   "revenueCagr": {
+    "value": 0.20573183434282116,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.11150201157186956
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.1434571671743502
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.11831907037199889
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.12280024337431628
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.12744113437631385
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.1687300668355446
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 6,
+    "growth": 9,
+    "risk": 3,
+    "valuation": 1,
+    "total": 4.75
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 26,
+    "targetMean": 285.43076
+   }
+  },
+  "AVGO": {
+   "ticker": "AVGO",
+   "name": "Broadcom Inc.",
+   "sector": "Semiconductors (custom AI accelerators, networking) and infrastructure software (VMware)",
+   "model": "DCF (FCFF)",
+   "price": 334.59,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 318.28,
+   "probWeighted": 297.05,
+   "comps": 314.08,
+   "compsCycleAdjusted": false,
+   "triangulated": 303.86,
+   "upside": -0.09183969996503616,
+   "wacc": 0.10875041438227995,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 86.8,
+    "p50": 294.68,
+    "p90": 533.58,
+    "pAbovePrice": 0.3505
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 145.89
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 318.28
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 480.55
+    },
+    {
+     "id": "aiBustTail",
+     "name": "Tail: AI capex bust / ASIC in-sourcing",
+     "p": 0.1,
+     "value": 73.1
+    },
+    {
+     "id": "taiwanTail",
+     "name": "Tail: China / Taiwan (TSMC) shock",
+     "p": 0.04,
+     "value": 96.76
+    },
+    {
+     "id": "asicUpsideTail",
+     "name": "Tail: Multi-GW ASIC ramps (OpenAI and others)",
+     "p": 0.06,
+     "value": 747.17
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.298644295334816,
+    "impliedMargin": 0.5486116826534271,
+    "baseMargin": 0.52
+   },
+   "revenueCagr": {
+    "value": 0.21743712435641926,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.036104889794408096
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.06352214916479858
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06907904977207256
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08809203263591579
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08804642359350642
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.10814937016855027
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 5,
+    "valuation": 4,
+    "total": 6.5
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 47,
+    "targetMean": 527.5915
+   }
+  },
+  "VIST": {
+   "ticker": "VIST",
+   "name": "Vista Energy S.A.B. de C.V.",
+   "sector": "Argentine shale oil producer (Vaca Muerta)",
+   "model": "DCF (FCFF)",
+   "price": 70.86,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 52.28,
+   "probWeighted": 41.46,
+   "comps": 56.27,
+   "compsCycleAdjusted": false,
+   "triangulated": 47.38,
+   "upside": -0.33131270459161566,
+   "wacc": 0.1353448487931027,
+   "costOfEquity": null,
+   "terminalG": 0.015,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 8.79,
+    "p50": 42.01,
+    "p90": 83.89,
+    "pAbovePrice": 0.16225
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 19.48
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "value": 52.28
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.13,
+     "value": 82.83
+    },
+    {
+     "id": "macroTail",
+     "name": "Tail: Macro crisis / devaluation",
+     "p": 0.08,
+     "value": 0
+    },
+    {
+     "id": "exportTail",
+     "name": "Tail: Export restrictions / price controls",
+     "p": 0.05,
+     "value": 7.8
+    },
+    {
+     "id": "brentTail",
+     "name": "Tail: Brent crash",
+     "p": 0.04,
+     "value": 0
+    },
+    {
+     "id": "vmosTail",
+     "name": "Tail: VMOS ramp upside",
+     "p": 0.03,
+     "value": 115.81
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.19812386929988862,
+    "impliedMargin": 0.4389109909534453,
+    "baseMargin": 0.36
+   },
+   "revenueCagr": {
+    "value": 0.5529461595634881,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.17169077207145259
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.2702513190898629
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.25122421658134214
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.1446564070535959
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.10955587055594414
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.12473739535717855
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 7,
+    "growth": 8,
+    "risk": 4,
+    "valuation": 2,
+    "total": 5.25
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 12,
+    "targetMean": 92.043785
+   }
+  },
+  "TSM": {
+   "ticker": "TSM",
+   "name": "Taiwan Semiconductor Manufacturing (TSMC)",
+   "sector": "Semiconductor foundry (leading-edge logic and advanced packaging)",
+   "model": "DCF (FCFF)",
+   "price": 420.22,
+   "priceDate": "2026-10-19",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "TWD",
+   "fx": {
+    "rate": 32.445,
+    "quote": "TWD per USD",
+    "date": "2026-10-19",
+    "source": "Central Bank of the R.O.C. (Taiwan), NT$/US$ interbank closing rate (cbc.gov.tw)"
+   },
+   "base": 351.51,
+   "probWeighted": 302.73,
+   "comps": 289.86,
+   "compsCycleAdjusted": false,
+   "triangulated": 297.58,
+   "upside": -0.29183922685587615,
+   "wacc": 0.11079513033585969,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 124.98,
+    "p50": 308.22,
+    "p90": 510.84,
+    "pAbovePrice": 0.20775
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 176.56
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "value": 351.51
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.14,
+     "value": 496.3
+    },
+    {
+     "id": "taiwanTail",
+     "name": "Tail: China-Taiwan blockade / conflict",
+     "p": 0.05,
+     "value": 16.4
+    },
+    {
+     "id": "tariffTail",
+     "name": "Tail: US tariffs / export controls",
+     "p": 0.07,
+     "value": 209.33
+    },
+    {
+     "id": "aiBustTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "value": 119.43
+    },
+    {
+     "id": "superTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.03,
+     "value": 764.73
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.2654330760240556,
+    "impliedMargin": 0.6324035704135895,
+    "baseMargin": 0.52
+   },
+   "revenueCagr": {
+    "value": 0.23251094213517876,
+    "currency": "TWD",
+    "usd": 0.20549911514630437,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.058720014759515916
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.1056831556353475
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.09297358170438762
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.09738813031248256
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.09858894897274394
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.11572455759435192
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 10,
+    "growth": 8,
+    "risk": 5,
+    "valuation": 2,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 20,
+    "targetMean": 584.39294
+   }
+  },
+  "SPCX": {
+   "ticker": "SPCX",
+   "name": "SpaceX (Space Exploration Technologies)",
+   "sector": "Space launch, satellite connectivity (Starlink) and AI (xAI/X, Cursor): 'Super Intelligence' segment",
+   "model": "DCF (FCFF)",
+   "price": 147.79,
+   "priceDate": "2026-10-20",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 25,
+   "probWeighted": 29,
+   "comps": 14.24,
+   "compsCycleAdjusted": false,
+   "triangulated": 23.1,
+   "upside": -0.8437234369341268,
+   "wacc": 0.12210749544112168,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 2.87,
+    "p50": 22.24,
+    "p90": 65.25,
+    "pAbovePrice": 0.02525
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 4.44
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 25
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.17,
+     "value": 60.24
+    },
+    {
+     "id": "aiBustTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "value": 0.91
+    },
+    {
+     "id": "keyTail",
+     "name": "Tail: Starship failure / key-person / regulatory",
+     "p": 0.06,
+     "value": 4
+    },
+    {
+     "id": "superTail",
+     "name": "Tail: Multiplanetary super-cycle",
+     "p": 0.05,
+     "value": 146.88
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.8804441735148429,
+    "impliedMargin": null,
+    "baseMargin": 0.28
+   },
+   "revenueCagr": {
+    "value": 0.34082966976834417,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2023",
+    "end": "FY2025",
+    "periods": 2
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.050894486955858985
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.08768194022351745
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.08182139710650163
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08549597459794178
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08100758843202388
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.10358333736480403
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 10,
+    "risk": 3,
+    "valuation": 1,
+    "total": 5.5
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 31,
+    "targetMean": 222.70969
+   }
+  },
+  "005930.KS": {
+   "ticker": "005930.KS",
+   "name": "Samsung Electronics",
+   "sector": "Memory semiconductors (DRAM, HBM, NAND), foundry/System LSI, smartphones and consumer electronics, displays (SDC) and Harman",
+   "model": "DCF (FCFF)",
+   "price": 159.28,
+   "priceDate": "2026-10-20",
+   "priceLocal": 211500,
+   "currencyLocal": "KRW",
+   "reportingCurrency": "KRW",
+   "fx": {
+    "rate": 1327.8377173428446,
+    "quote": "KRW per USD",
+    "date": "2026-10-20",
+    "source": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)"
+   },
+   "base": 201.66,
+   "probWeighted": 199.35,
+   "comps": 152.74,
+   "compsCycleAdjusted": true,
+   "triangulated": 180.71,
+   "upside": 0.13453049995303856,
+   "wacc": 0.11813930572229853,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 69.96,
+    "p50": 195.22,
+    "p90": 377.81,
+    "pAbovePrice": 0.63775
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 102.88
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 201.66
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 329
+    },
+    {
+     "id": "crashTail",
+     "name": "Tail: memory downcycle / price crash",
+     "p": 0.1,
+     "value": 70.04
+    },
+    {
+     "id": "koreaTail",
+     "name": "Tail: Korea / North Korea shock",
+     "p": 0.05,
+     "value": 54.1
+    },
+    {
+     "id": "hbmTail",
+     "name": "Tail: HBM win in AI / super-cycle",
+     "p": 0.08,
+     "value": 462.44
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.13966175615787507,
+    "impliedMargin": 0.16166207194328308,
+    "baseMargin": 0.22
+   },
+   "revenueCagr": {
+    "value": 0.07094668695741269,
+    "currency": "KRW",
+    "usd": 0.012109329157308446,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.05847937476862924
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.10765066072040397
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.09526642418972993
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.09347109903769726
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.0910962102483324
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.1191151218877497
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 5,
+    "valuation": 6,
+    "total": 6.5
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 36,
+    "targetMean": 360.6657754520974
+   }
+  },
+  "000660.KS": {
+   "ticker": "000660.KS",
+   "name": "SK hynix",
+   "sector": "Memory semiconductors: DRAM (incl. HBM, ~75% of revenue) and NAND/eSSD (Solidigm)",
+   "model": "DCF (FCFF)",
+   "price": 974.52,
+   "priceDate": "2026-10-21",
+   "priceLocal": 1294000,
+   "currencyLocal": "KRW",
+   "reportingCurrency": "KRW",
+   "fx": {
+    "rate": 1327.8377173428446,
+    "quote": "KRW per USD",
+    "date": "2026-10-20",
+    "source": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)"
+   },
+   "base": 956.61,
+   "probWeighted": 930,
+   "comps": 715.92,
+   "compsCycleAdjusted": true,
+   "triangulated": 844.37,
+   "upside": -0.13355119414571182,
+   "wacc": 0.14268350137488012,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 253.84,
+    "p50": 872.02,
+    "p90": 1983.89,
+    "pAbovePrice": 0.35875
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.2,
+     "value": 406.51
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.35,
+     "value": 956.61
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 1788.48
+    },
+    {
+     "id": "crashTail",
+     "name": "Tail: memory downcycle / price crash",
+     "p": 0.1,
+     "value": 246
+    },
+    {
+     "id": "hbmLossTail",
+     "name": "Tail: HBM share loss to Samsung / Micron",
+     "p": 0.08,
+     "value": 405.78
+    },
+    {
+     "id": "koreaTail",
+     "name": "Tail: Korea / North Korea shock",
+     "p": 0.05,
+     "value": 225.16
+    },
+    {
+     "id": "superTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.07,
+     "value": 2532.81
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.3080516427755356,
+    "impliedMargin": 0.35984826683998106,
+    "baseMargin": 0.35
+   },
+   "revenueCagr": {
+    "value": 0.24947138182860873,
+    "currency": "KRW",
+    "usd": 0.18082595283671354,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.04753463074195384
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.08009035595044683
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.08177916720665761
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08531214182774668
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.10138673851223097
+    },
+    {
+     "year": "current",
+     "date": "2026-10-20",
+     "value": 0.14266228364206132
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 8,
+    "risk": 4,
+    "valuation": 4,
+    "total": 6
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 38,
+    "targetMean": 2331.8271198049915
+   }
+  }
+ }
+}

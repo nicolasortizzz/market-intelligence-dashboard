@@ -34,6 +34,9 @@ function initUI(){
   tabs.forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));window.addEventListener("resize",ink);setTimeout(ink,50);S.ink=ink;
   $("#theme").onclick=()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==="dark"?"light":"dark";localStorage.theme=r.dataset.theme;S.drawn={};renderTab()};
   if(localStorage.theme)document.documentElement.dataset.theme=localStorage.theme;
+  /* embed mode (?embed=valuation[&theme=light|dark]): valuation workbench only, no header/tape/tabs/footer; used by external pages (ModelosArgentina) */
+  const EQ=new URLSearchParams(location.search);if(EQ.get("embed")){document.documentElement.classList.add("embed");S.tab="valuation"}
+  if(EQ.get("theme")==="light"||EQ.get("theme")==="dark")document.documentElement.dataset.theme=EQ.get("theme");
   $("#ccy").onclick=()=>{S.ccy=S.ccy==="USD"?"ARS":"USD";$("#ccy").textContent=S.ccy;toast(S.ccy==="ARS"?`Showing ARS at BCRA rate ${S.x.fx.ARS_BCRA}`:"Showing USD");S.drawn={};renderAll()};
   const q=$("#search"),sg=$("#sugg");let hi=0;
   const show=()=>{const v=q.value.trim().toLowerCase();if(!v){sg.style.display="none";return}
@@ -53,10 +56,10 @@ function initUI(){
   $("#pMin").onclick=()=>applyOpt("min");$("#pMax").onclick=()=>applyOpt("max");
   const forms=[...new Set(S.a.filings.map(f=>f.form))];$("#fForm").innerHTML+=forms.map(f=>`<option>${f}</option>`).join("");
   $("#fTk").innerHTML+=S.m.corr.tickers.map(t=>`<option>${t}</option>`).join("");$("#fForm").onchange=$("#fTk").onchange=feed;
-  if(location.hash){const [t,tk]=location.hash.slice(1).split("/");if(tk&&co(tk))S.sel=tk;if($(`[data-tab="${t}"]`))S.tab=t}
+  if(location.hash){const [t,tk]=location.hash.slice(1).split("/");if(tk&&co(tk))S.sel=tk;if(t==="valuation"&&tk&&VT.includes(decodeURIComponent(tk)))V.tk=decodeURIComponent(tk);if($(`[data-tab="${t}"]`))S.tab=t}
 }
 function seg(sel,cb){$$(sel+" button").forEach(b=>b.onclick=()=>{$$(sel+" button").forEach(x=>x.classList.remove("on"));b.classList.add("on");cb(b.dataset.k)})}
-function switchTab(t){S.tab=t;$$("#tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===t));$$(".tab").forEach(s=>s.classList.toggle("active",s.id===t));S.ink();history.replaceState(null,"",`#${t}${t==="company"?"/"+S.sel:""}`);setTimeout(renderTab,30)}
+function switchTab(t){S.tab=t;$$("#tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===t));$$(".tab").forEach(s=>s.classList.toggle("active",s.id===t));S.ink();history.replaceState(null,"",location.search+`#${t}${t==="company"?"/"+S.sel:t==="valuation"&&V.tk?"/"+V.tk:""}`);setTimeout(renderTab,30)}
 function openCo(t){S.sel=t;S.drawn.company=0;switchTab("company")}
 function renderAll(){tape();switchTab(S.tab)}
 function renderTab(){const t=S.tab;if(S.drawn[t])return void $$(`#${t} .js-plotly-plot`).forEach(e=>Plotly.Plots.resize(e));S.drawn[t]=1;

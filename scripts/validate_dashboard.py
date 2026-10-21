@@ -5,7 +5,9 @@ Checks per ticker (reverse DCF + model consistency):
   * heatmap grid contains the Base-case star and the implied (price) point; the price lies inside the grid's value range
   * all grid values / base value finite; implied values finite or explicitly warned about; label counts sane (<= 8 x, <= 11 y)
   * 5-year revenue CAGR and WACC history (5 years + today) present; no JS errors on any tab switch
-Usage: python scripts/validate_dashboard.py [--url http://...] [TICKER ...]   (default: serves this checkout on a free port)
+Usage: python scripts/validate_dashboard.py [--url http://...] [--export data/valuation_summary.json] [TICKER ...]
+  (default: serves this checkout on a free port). --export writes the per-ticker summary from the same engine
+  (valSummary() in valuation.js) after all checks pass; external pages (ModelosArgentina) read that file.
 """
 import sys, os, json, socket, threading, functools, http.server
 from playwright.sync_api import sync_playwright
@@ -42,7 +44,9 @@ def check(d):
 def main():
     args = sys.argv[1:]; url = None
     if "--url" in args: i = args.index("--url"); url = args[i + 1]; del args[i:i + 2]
-    srv = None
+    exp = None
+    if "--export" in args: i = args.index("--export"); exp = args[i + 1]; del args[i:i + 2]
+    srv = None; summ = {}
     if not url: srv, url = serve()
     fails, errs = {}, []
     with sync_playwright() as pw:
@@ -67,6 +71,8 @@ def main():
                   + (f" warn: {len(d['warn'])}" if d["warn"] else ""))
             for x in p: print("      -", x)
             if p: fails[tk] = p
+            if exp:
+                pg.evaluate("tk=>{V.mc={}}", tk); summ[tk] = pg.evaluate("tk=>valSummary(tk)", tk)
         for t in ["overview", "company", "risk", "portfolio", "activity", "macro", "valuation"]:
             pg.click(f'button[data-tab="{t}"]'); pg.wait_for_timeout(500)
         b.close()
@@ -74,6 +80,12 @@ def main():
     if errs: print("JS errors:", *errs, sep="\n  ")
     if fails or errs: print(f"\n!! dashboard validation FAILED ({len(fails)} tickers, {len(errs)} JS errors)"); sys.exit(1)
     print(f"\n== dashboard validation passed ({len(tks)} tickers)")
+    if exp:
+        import datetime as dt
+        V = json.load(open(os.path.join(ROOT, "data", "valuation.json")))
+        out = {"generatedAt": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "source": "market-intelligence-dashboard valuation engine (valuation.js valSummary, model defaults)",
+               "dashboard": "https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation", "fx": V.get("fx", {}), "tickers": list(summ), "companies": summ}
+        json.dump(out, open(exp, "w"), indent=1); print("== wrote", exp)
 
 if __name__ == "__main__":
     main()

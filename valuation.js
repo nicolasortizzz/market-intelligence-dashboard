@@ -126,7 +126,7 @@ function monteCarlo(tk,n=4000){const key=tk+JSON.stringify(V.ov[tk]||{});if(V.mc
 
 /* ---------- rendering ---------- */
 const usd=v=>money(v),bn=v=>big(v);
-function valTab(){loadVal().then(()=>{if(!$("#vSeg").dataset.init){$("#vSeg").dataset.init=1;$("#vSeg").innerHTML=VT.map(t=>`<button data-k="${t}" class="${t===V.tk?"on":""}">${t}</button>`).join("");seg("#vSeg",k=>{V.tk=k;V.scen="base";renderVal()})}renderVal()}).catch(e=>{console.error(e);toast("Valuation data failed to load")})}
+function valTab(){loadVal().then(()=>{if(!$("#vSeg").dataset.init){$("#vSeg").dataset.init=1;$("#vSeg").innerHTML=VT.map(t=>`<button data-k="${t}" class="${t===V.tk?"on":""}">${t}</button>`).join("");seg("#vSeg",k=>{V.tk=k;V.scen="base";history.replaceState(null,"",location.search+"#valuation/"+k);renderVal()})}renderVal()}).catch(e=>{console.error(e);toast("Valuation data failed to load")})}
 function renderVal(){const tk=V.tk,a=V.A.companies[tk],b=inputs(tk);
   $("#vScen").innerHTML=a.scenarios.map(s=>`<option value="${s.id}" ${s.id===V.scen?"selected":""}>${s.name} (${Math.round(s.p*100)}%)</option>`).join("");
   const r0=dcf(tk,V.scen,V.ov[tk]);
@@ -140,7 +140,7 @@ var drawVal=function(full){const tk=V.tk,a=V.A.companies[tk],ov=V.ov[tk]||{},r=d
   const BK=!!r.bank,compMid=compMidOf(cm),tri=compMid!=null?0.6*pw.pw+0.4*compMid:pw.pw,up=tri/c.price-1;
   a.score.valuation=Math.round(clamp(5+up*10,1,10));
   const total=((a.score.quality+a.score.growth+a.score.risk+a.score.valuation)/4);
-  renderKpis($("#vK"),[kpi("Price ("+c.priceDate+")",c.price,c.name,usd),kpi(`${BK?"Residual income":"DCF"} · ${r.s.name}`,r.ps,`${BK?"Ke":"WACC"} ${pct2(r.wacc)} · g ${pct2(r.g)}`,usd),kpi(BK?"Prob-weighted RI":"Prob-weighted DCF",pw.pw,`${a.scenarios.length} scenarios`,usd),kpi("Triangulated fair value",tri,BK?"60% RI(pw) + 40% P/BV comps":"60% DCF(pw) + 40% comps",usd),kpi("Implied upside",up*100,"vs current price",v=>`<span class="${v>=0?"up":"dn"}">${v>=0?"+":""}${v.toFixed(1)}%</span>`),kpi("Composite score",total,"quality · growth · risk · valuation",v=>v.toFixed(1)+"/10")]);
+  renderKpis($("#vK"),[kpi("Price ("+c.priceDate+")",c.price,a.displayName||c.name,usd),kpi(`${BK?"Residual income":"DCF"} · ${r.s.name}`,r.ps,`${BK?"Ke":"WACC"} ${pct2(r.wacc)} · g ${pct2(r.g)}`,usd),kpi(BK?"Prob-weighted RI":"Prob-weighted DCF",pw.pw,`${a.scenarios.length} scenarios`,usd),kpi("Triangulated fair value",tri,BK?"60% RI(pw) + 40% P/BV comps":"60% DCF(pw) + 40% comps",usd),kpi("Implied upside",up*100,"vs current price",v=>`<span class="${v>=0?"up":"dn"}">${v>=0?"+":""}${v.toFixed(1)}%</span>`),kpi("Composite score",total,"quality · growth · risk · valuation",v=>v.toFixed(1)+"/10")]);
   // projections chart
   const H=b.hist,R=r.rows,f=fx()/1e9,fu=fx();
   if(BK){drawBankProj(r,fu)}else{
@@ -245,3 +245,25 @@ function secTable(){const s=V.D.companies[V.tk].sec||{},tags=Object.keys(s).filt
   const nm={Revenues:"Revenues",RevenueFromContractWithCustomerExcludingAssessedTax:"Revenue (ASC 606)",OperatingIncomeLoss:"Operating income",NetIncomeLoss:"Net income",PaymentsToAcquirePropertyPlantAndEquipment:"Capex (PP&E)",NetCashProvidedByUsedInOperatingActivities:"Operating cash flow"};
   $("#vSec").innerHTML=tags.length?`<thead><tr><th>XBRL tag (${s.entity||""}, CIK ${s.cik||""})</th><th>Unit</th>${yrs.map(y=>`<th>CY${y}</th>`).join("")}</tr></thead><tbody>${tags.map(t=>`<tr><td>${nm[t]||t}</td><td>${s[t].unit}</td>${yrs.map(y=>`<td>${s[t].fy[y]!=null?(s[t].fy[y]/1e6).toLocaleString("en-US",{maximumFractionDigits:0}):"—"}</td>`).join("")}</tr>`).join("")}</tbody>`:'<tbody><tr><td class="muted">No XBRL facts available</td></tr></tbody>'}
 const _dv=drawVal;drawVal=function(full){_dv(full);secTable()};
+/* ---------- machine-readable summary (model defaults, no slider overrides) ----------
+   Used by scripts/validate_dashboard.py --export to write data/valuation_summary.json, which external
+   pages (e.g. the ModelosArgentina site) read; the numbers come from this same engine, so there is one source of truth. */
+function valSummary(tk){const a=V.A.companies[tk],ov={},r=dcf(tk,"base",ov),pw=probWeighted(tk,ov),cm=comps(tk),b=r.b,c=b.c,BK=!!r.bank;
+  const compMid=compMidOf(cm),tri=compMid!=null?0.6*pw.pw+0.4*compMid:pw.pw,fxd=V.D.fx||{},cc=c.financialCurrency,
+    FXS={EUR:["EURUSD_ecb","EUR_date","EUR_source","USD per EUR"],BRL:["BRLUSD","BRL_date","BRL_source","BRL per USD"],TWD:["TWDUSD","TWD_date","TWD_source","TWD per USD"],KRW:["KRWUSD","KRW_date","KRW_source","KRW per USD"],CNY:["CNYUSD",null,null,"CNY per USD"],ARS:["ARSUSD_BCRA","ARS_date","BCRA_SRC","ARS per USD"]}[cc];
+  const sc=a.scenarios.map(s=>{const x=dcf(tk,s.id,ov);return{id:s.id,name:s.name,p:s.p,value:x.ps}}),q=x=>Math.round(x*100)/100;
+  const mcO=V.mc[tk+"{}"]||monteCarlo(tk),mq=p=>mcO[Math.min(mcO.length-1,Math.floor(p*mcO.length))];
+  const h=RV.H?.companies?.[tk],R=(typeof reverse==="function")?reverse(tk):null,wh=WH.D?.companies?.[tk];
+  const s=a.score,valS=Math.round(clamp(5+(tri/c.price-1)*10,1,10));
+  return{ticker:tk,name:a.displayName||c.name,sector:a.sector||"",model:BK?"residual income (bank)":"DCF (FCFF)",price:q(c.price),priceDate:c.priceDate,
+    priceLocal:c.priceLocal??null,currencyLocal:c.currencyLocal??null,reportingCurrency:cc,
+    fx:FXS&&b.k!==1?{rate:fxd[FXS[0]]??b.k,quote:FXS[3],date:FXS[1]?fxd[FXS[1]]:null,source:FXS[2]==="BCRA_SRC"?"BCRA official wholesale rate (Com. A 3500)":FXS[2]?fxd[FXS[2]]:"Yahoo Finance FX (CNY=X)"}:null,
+    base:q(r.ps),probWeighted:q(pw.pw),comps:compMid!=null?q(compMid):null,compsCycleAdjusted:!!cm.cyc,triangulated:q(tri),upside:tri/c.price-1,
+    wacc:BK?null:r.wacc,costOfEquity:BK?r.ke??r.wacc:null,terminalG:r.g,
+    monteCarlo:{n:mcO.length,p10:q(mq(.1)),p50:q(mq(.5)),p90:q(mq(.9)),pAbovePrice:mcO.filter(v=>v>c.price).length/mcO.length},
+    scenarios:sc.map(x=>({...x,value:q(x.value)})),
+    reverse:R?{impliedGrowth5y:R.gImp??null,impliedMargin:R.mImp??null,baseMargin:R.base?.ebitT??null}:null,
+    revenueCagr:h?{value:h.cagr5,currency:h.currency,usd:h.usd?.cagr5??null,start:h.start,end:h.end,periods:h.periods||5}:null,
+    waccHistory:wh?wh.rows.map(x=>({year:x.year,date:x.date,value:BK?x.ke:x.wacc})):[],waccHistoryMetric:wh?.bank?"cost of equity":"WACC",
+    score:{quality:s.quality,growth:s.growth,risk:s.risk,valuation:valS,total:(s.quality+s.growth+s.risk+valS)/4},
+    analyst:{rec:c.recKey||null,n:c.nAnalysts||null,targetMean:c.targetMean??null}}}

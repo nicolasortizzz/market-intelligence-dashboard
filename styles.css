@@ -60,3 +60,6 @@ tr.selfrow{background:#5b8cff1f}tr.medrow td{font-weight:700;border-top:2px soli
 .scores{display:flex;flex-direction:column;gap:10px;margin-bottom:10px}.scores>div{display:grid;grid-template-columns:110px 1fr 44px;gap:8px;align-items:center}.sbar{height:8px;background:var(--bg2);border-radius:8px;overflow:hidden}.sbar i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));border-radius:8px;transition:width .8s cubic-bezier(.2,.8,.2,1)}
 #vScore p{font-size:13px;line-height:1.55}
 @media(max-width:1000px){.vsliders{grid-template-columns:1fr}.cat{grid-template-columns:1fr 1fr}}
+
+/* embed mode (?embed=valuation): workbench only */
+.embed header.top,.embed .tape,.embed nav.tabs,.embed footer{display:none!important}.embed main{padding-top:12px}

@@ -52,6 +52,7 @@
         "rationale": "Quality: unmatched scale (FY2025 revenue $448B) and the Optum vertical integration; however, operating margin fell from 8.7% (2023) to 4.2% (2025). Growth: consensus has 2026 revenue roughly flat and 2027 at +3%, the weakest growth in decades. Risk: elevated, with DOJ criminal and civil probes, political scrutiny of MA coding, and a cost trend running above rate increases. Valuation: scored from the model's implied upside."}
     },
     "DIS": {
+      "displayName": "The Walt Disney Company",
       "sector": "Media & entertainment / experiences",
       "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.011, "tax": 0.23,
       "daPct0": 0.056, "daPctT": 0.06, "capexPct1": 0.085, "capexPctT": 0.075, "nwcPct": 0.01,
@@ -164,6 +165,7 @@
       "score": {"quality": 7, "growth": 8, "risk": 4, "valuation": null, "rationale": "Quality: one of three DRAM/HBM makers, net cash, FY2026 operating margin 74.6% at the top of the cycle. Growth: consensus doubles revenue in FY2027 on HBM and AI server demand. Risk: memory is the most cyclical part of semis (FY2023 operating loss of $5.4B), and Taiwan concentration plus China export policy add tail risk. Valuation: scored from the model's implied upside on mid-cycle margins."}
     },
     "ASML": {
+      "displayName": "ASML Holding",
       "sector": "Semiconductor equipment (EUV/DUV lithography)", "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.007, "tax": 0.17,
       "growthNote": "ASML reports in EUR (US GAAP 20-F). The model is computed in EUR and converted to USD per ADR (1 ADR = 1 ordinary share) at the ECB euro reference rate stored in valuation.json. Year 1 / year 2 = consensus FY2026 / FY2027 net sales (€44.5B / €57.2B, +36% / +29%).",
       "daPct0": 0.045, "daPctT": 0.04, "capexPct1": 0.05, "capexPctT": 0.045, "nwcPct": 0.10, "terminalG": 0.03, "ronic": 0.25, "shareChange": -0.01,
@@ -338,6 +340,7 @@
       "score": {"quality": 7, "growth": 8, "risk": 4, "valuation": null, "rationale": "Quality: low-cost Vaca Muerta acreage (~$4.5/boe lifting cost) and a strong execution record. Growth: production roughly doubled with LLL and keeps ramping as export pipelines open. Risk: Argentine macro and policy (export duties, capital controls), Brent exposure and heavy capex funded partly with debt. Valuation from the model."}
     },
     "TSM": {
+      "displayName": "Taiwan Semiconductor Manufacturing (TSMC)",
       "sector": "Semiconductor foundry (leading-edge logic and advanced packaging)", "betaAdj": "blume", "betaOverride": null, "crp": 0.0078, "crpLabel": "Taiwan CRP, Damodaran Jan-2026 (Aa3)", "kdSpread": 0.008, "tax": 0.17, "ebit1": 0.56, "adrRatio": 5,
       "growthNote": "Computed in TWD (IFRS) and converted to USD per ADR at the Central Bank of the R.O.C. (Taiwan) NT$/US$ closing rate; 1 ADR = 5 common shares (20-F FY2025: 'each ADS represents five (5) common shares'; 25.93B common = 5.19B ADR-equivalents). The NYSE ADR trades at a premium of ~13% to the Taipei line (NT$2,410 × 5 / 32.445 = US$371). Year 1 / year 2 = consensus FY2026 / FY2027 revenue (NT$5.56T / NT$7.65T, +46% / +38%), driven by AI accelerators (NVIDIA, Broadcom/Google, AMD, AWS) on N3/N2 and CoWoS advanced packaging, plus wafer price increases. GAAP operating margin 51% in FY2025 (TTM 59%); year-1 EBIT margin 56%, steady state 52% in the Base case as overseas fabs (Arizona, Kumamoto, Dresden) dilute gross margin by ~2-3 points and N2 ramps. Heavy capex (~US$52-56B in 2026, ~33% of revenue, falling to 25%) and depreciation (~17% of revenue). Tax 17% (Taiwan 20% statutory less R&D credits). Net cash (~NT$3.2T) is added in the EV bridge. Mid-term growth is in USD-equivalent terms because the exchange rate is held flat.",
       "daPct0": 0.17, "daPctT": 0.17, "capexPct1": 0.33, "capexPctT": 0.25, "nwcPct": 0.03, "terminalG": 0.03, "ronic": 0.25, "shareChange": 0.0,
@@ -363,6 +366,7 @@
       "score": {"quality": 10, "growth": 8, "risk": 5, "valuation": null, "rationale": "Quality: >90% share of leading-edge logic and the dominant advanced-packaging supplier, ~59% operating margin and net cash. Growth: consensus +46% revenue in 2026 on AI. Risk: geopolitical concentration in Taiwan, US tariffs/export controls, customer concentration (NVIDIA, Apple) and heavy capex. Valuation from the model."}
     },
     "SPCX": {
+      "displayName": "SpaceX (Space Exploration Technologies)",
       "sector": "Space launch, satellite connectivity (Starlink) and AI (xAI/X, Cursor): 'Super Intelligence' segment",
       "betaAdj": "none",
       "betaOverride": 1.6,
@@ -407,6 +411,7 @@
       "score": {"quality": 8, "growth": 10, "risk": 3, "valuation": null, "rationale": "Quality: dominant launch provider (~90% of mass to orbit) and the largest satellite constellation, Connectivity runs at a ~45% operating margin. Growth: revenue +161% y/y in Q3 2026. Risk: ~$65B a year of capex mostly for AI compute, short public history, dual-class control by Elon Musk, related-party dealings and heavy dependence on the AI cycle. Valuation from the model."}
     },
     "005930.KS": {
+      "displayName": "Samsung Electronics",
       "sector": "Memory semiconductors (DRAM, HBM, NAND), foundry/System LSI, smartphones and consumer electronics, displays (SDC) and Harman",
       "betaAdj": "blume",
       "betaOverride": null,

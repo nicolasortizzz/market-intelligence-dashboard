@@ -1,5 +1,5 @@
 PY ?= python3
-.PHONY: setup update deploy serve validate push
+.PHONY: setup update deploy serve validate summary push
 setup:            ## create .venv and install pinned dependencies + Chromium for validation
 	$(PY) -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/playwright install chromium
 update:           ## refresh every data snapshot, validate, print the diff
@@ -10,5 +10,7 @@ serve:            ## preview at http://localhost:8000
 	$(PY) -m http.server 8000
 validate:         ## headless checks of every ticker (sliders = model, markers inside grid, labels, CAGR/WACC present, no JS errors)
 	.venv/bin/python scripts/validate_dashboard.py
+summary:          ## validate and rewrite data/valuation_summary.json (read by the ModelosArgentina site)
+	.venv/bin/python scripts/validate_dashboard.py --export data/valuation_summary.json
 push: validate    ## validate, then push main + gh-pages
 	git push origin main && git push origin main:gh-pages

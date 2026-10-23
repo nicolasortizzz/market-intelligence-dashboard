@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T03:36:32Z",
+ "generatedAt": "2026-10-23T04:30:20Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -610,6 +610,204 @@
     "0001013871-26-000004"
    ]
   },
+  "NEE": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 17000000000,
+    "FY2021": 18800000000,
+    "FY2022": 23000000000,
+    "FY2023": 24800000000,
+    "FY2024": 23500000000,
+    "FY2025": 25800000000
+   },
+   "cagr5": 0.08701154556137602,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0000753308-23-000019",
+    "0000753308-26-000015"
+   ]
+  },
+  "DUK": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 23253000000,
+    "FY2021": 24486000000,
+    "FY2022": 28675000000,
+    "FY2023": 28674000000,
+    "FY2024": 30050000000,
+    "FY2025": 31741000000
+   },
+   "cagr5": 0.06421241901401809,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0001326160-23-000073",
+    "0001326160-26-000014"
+   ]
+  },
+  "SO": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 20375000000,
+    "FY2021": 23113000000,
+    "FY2022": 29279000000,
+    "FY2023": 25253000000,
+    "FY2024": 26724000000,
+    "FY2025": 29553000000
+   },
+   "cagr5": 0.07721102899843224,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000092122-23-000012",
+    "0000092122-26-000006"
+   ]
+  },
+  "AEP": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 14918500000.0,
+    "FY2021": 16792000000,
+    "FY2022": 19639500000,
+    "FY2023": 18982000000,
+    "FY2024": 19721000000,
+    "FY2025": 21876000000
+   },
+   "cagr5": 0.07956439130862147,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (10-K FY2020 total revenues (CY2020 frame missing in companyfacts), USD; 10-K/20-F)",
+   "accn": [
+    "",
+    "0000004904-26-000013"
+   ]
+  },
+  "GEV": {
+   "start": "FY2022",
+   "end": "FY2025",
+   "startEnd": "2022-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2022": 29654000000,
+    "FY2023": 33239000000,
+    "FY2024": 34935000000,
+    "FY2025": 38068000000
+   },
+   "cagr5": 0.08682326316822997,
+   "periods": 3,
+   "shortNote": "GE Vernova was spun off from GE on 2024-04-02; its SEC filings carry audited revenue from FY2022 only, so a 3-year window is used",
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0001996810-25-000011",
+    "0001996810-26-000015"
+   ]
+  },
+  "FSLR": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 2711332000,
+    "FY2021": 2923377000,
+    "FY2022": 2619319000,
+    "FY2023": 3318602000,
+    "FY2024": 4206289000,
+    "FY2025": 5219376000
+   },
+   "cagr5": 0.13995360646283728,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001274494-23-000002",
+    "0001274494-26-000021"
+   ]
+  },
+  "MRK": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 41518000000,
+    "FY2021": 48704000000,
+    "FY2022": 59283000000,
+    "FY2023": 60115000000,
+    "FY2024": 64168000000,
+    "FY2025": 65011000000
+   },
+   "cagr5": 0.09383063963833482,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001628280-23-005061",
+    "0000310158-26-000063"
+   ]
+  },
+  "BMY": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 42518000000,
+    "FY2021": 46385000000,
+    "FY2022": 46159000000,
+    "FY2023": 45006000000,
+    "FY2024": 48300000000,
+    "FY2025": 48194000000
+   },
+   "cagr5": 0.025378080148594995,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000014272-23-000046",
+    "0000014272-26-000004"
+   ]
+  },
+  "BEP": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 3810000000,
+    "FY2021": 4096000000,
+    "FY2022": 4711000000,
+    "FY2023": 5038000000,
+    "FY2024": 5876000000,
+    "FY2025": 6407000000
+   },
+   "cagr5": 0.10954762887621516,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (ifrs-full:Revenue, USD; 10-K/20-F)",
+   "accn": [
+    "0001533232-23-000009",
+    "0001533232-26-000011"
+   ]
+  },
   "PBR": {
    "start": "FY2020",
    "end": "FY2025",
@@ -793,6 +991,286 @@
    "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), PRIO S.A. CNPJ 10.629.105/0001-68",
    "accn": [],
    "note": "Constant currency (BRL). Growth is largely inorganic: Frade (2021-22), Albacora Leste (2023), Peregrino (2025) acquisitions; also tracks Brent."
+  },
+  "CCJ": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "CAD",
+   "values": {
+    "FY2020": 1800071000.0,
+    "FY2025": 3481933000.0
+   },
+   "cagr5": 0.14105388759381254,
+   "usd": {
+    "values": {
+     "FY2020": 1413816368.2060947,
+     "FY2025": 2540444330.949949
+    },
+    "cagr5": 0.12435468911816772,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      1.2732
+     ],
+     "FY2025": [
+      "2025-12-31",
+      1.3706
+     ],
+     "source": "Bank of Canada daily rate (FXUSDCAD)"
+    },
+    "note": "translated at the Bank of Canada year-end rates (1.273 CAD/USD on 2020-12-31, 1.371 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "Cameco annual reports (FY2020 MD&A revenue C$1,800M; FY2025 C$3,482M, Yahoo statements)",
+   "accn": [],
+   "note": "Constant currency (CAD, reporting currency). Uranium contract repricing; Westinghouse (49%, from Nov-2023) is equity-accounted, not in revenue."
+  },
+  "AXIA3.SA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 29080513000.0,
+    "FY2025": 41281596000.0
+   },
+   "cagr5": 0.07258293547370598,
+   "usd": {
+    "values": {
+     "FY2020": 5595957626.955568,
+     "FY2025": 7502470921.779588
+    },
+    "cagr5": 0.06039087224464512,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX selling rate"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.197 BRL/USD on 2020-12-31, 5.502 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Axia Energia S.A. (ex-Centrais El\u00e9tricas Brasileiras - Eletrobras) CNPJ 00.001.180/0001-26",
+   "accn": [],
+   "note": "Constant currency (BRL). Privatised in 2022 (capitalisation); generation + transmission; renamed Axia Energia in 2025."
+  },
+  "EQTL3.SA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 17890069000.0,
+    "FY2025": 52073804000.0
+   },
+   "cagr5": 0.2382303870581639,
+   "usd": {
+    "values": {
+     "FY2020": 3442582600.496469,
+     "FY2025": 9463834690.316954
+    },
+    "cagr5": 0.2241554072390135,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX selling rate"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.197 BRL/USD on 2020-12-31, 5.502 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Equatorial S.A. CNPJ 03.220.438/0001-73",
+   "accn": [],
+   "note": "Constant currency (BRL). Largely inorganic: CEEE-D, CEA, Celg-D (2021-23), Echoenergia and Sabesp stake; includes IFRS construction revenue."
+  },
+  "CMIG4.SA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 25227625000.0,
+    "FY2025": 42751283000.0
+   },
+   "cagr5": 0.11125712161154278,
+   "usd": {
+    "values": {
+     "FY2020": 4854547116.439279,
+     "FY2025": 7769570187.554522
+    },
+    "cagr5": 0.0986254484398561,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX selling rate"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.197 BRL/USD on 2020-12-31, 5.502 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Cia Energ\u00e9tica de Minas Gerais - CEMIG CNPJ 17.155.730/0001-64",
+   "accn": [],
+   "note": "Constant currency (BRL). Includes IFRS (ICPC 01) construction revenue and pass-through energy costs."
+  },
+  "TAEE11.SA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 3561286000.0,
+    "FY2025": 4624113000.0
+   },
+   "cagr5": 0.05362075527398047,
+   "usd": {
+    "values": {
+     "FY2020": 685297592.7030616,
+     "FY2025": 840381106.4262867
+    },
+    "cagr5": 0.04164423537710382,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX selling rate"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.197 BRL/USD on 2020-12-31, 5.502 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Transmissora Alian\u00e7a de Energia El\u00e9trica S.A. (Taesa) CNPJ 07.859.971/0001-30",
+   "accn": [],
+   "note": "Constant currency (BRL). IFRS 15 contract-asset revenue (includes construction and IGP-M/IPCA inflation remeasurement), not the regulated RAP."
+  },
+  "CPFE3.SA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 30898458000.0,
+    "FY2025": 44367780000.0
+   },
+   "cagr5": 0.07504384857226865,
+   "usd": {
+    "values": {
+     "FY2020": 5945784440.125464,
+     "FY2025": 8063350537.947078
+    },
+    "cagr5": 0.06282381211418597,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX selling rate"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.197 BRL/USD on 2020-12-31, 5.502 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), CPFL Energia S.A. CNPJ 02.429.144/0001-93",
+   "accn": [],
+   "note": "Constant currency (BRL). Includes construction revenue and sector pass-through charges."
+  },
+  "EGIE3.SA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 12259159000.0,
+    "FY2025": 12860075000.0
+   },
+   "cagr5": 0.009616790941432418,
+   "usd": {
+    "values": {
+     "FY2020": 2359027652.163873,
+     "FY2025": 2337175596.1035185
+    },
+    "cagr5": -0.0018595353594732522,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX selling rate"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.197 BRL/USD on 2020-12-31, 5.502 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Engie Brasil Energia S.A. CNPJ 02.474.103/0001-19",
+   "accn": [],
+   "note": "Constant currency (BRL). Generation + transmission build-out (TAG gas pipeline stake is equity-accounted)."
+  },
+  "CPLE3.SA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 18633249000.0,
+    "FY2025": 26116856000.0
+   },
+   "cagr5": 0.06985879536530648,
+   "usd": {
+    "values": {
+     "FY2020": 3585592587.6036716,
+     "FY2025": 4746448095.376563
+    },
+    "cagr5": 0.05769769746987907,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX selling rate"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.197 BRL/USD on 2020-12-31, 5.502 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Cia Paranaense de Energia - Copel CNPJ 76.483.817/0001-20",
+   "accn": [],
+   "note": "Constant currency (BRL). Privatised (corporation) in 2023; sold Copel Telecom (2021); includes construction revenue."
   },
   "SPCX": {
    "start": "FY2023",

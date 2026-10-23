@@ -37,7 +37,7 @@ def check(d):
     if not d["xTicks"] or d["xTicks"] > 8: p.append(f"x labels {d['xTicks']}")
     if not d["yTicks"] or d["yTicks"] > 11: p.append(f"y labels {d['yTicks']}")
     if not (5 <= d["nG"] <= 14 and 5 <= d["nM"] <= 14): p.append(f"grid size {d['nG']}x{d['nM']}")
-    if not d["h5"] and not d["bank"]: p.append("historical revenue CAGR missing")
+    if not d["h5"] and not d["bank"] and not d.get("preRevenue"): p.append("historical revenue CAGR missing")
     if not d["wh"] or d["whRows"] < 6: p.append(f"WACC history rows {d['whRows']} (need 5 years + today)")
     return p
 

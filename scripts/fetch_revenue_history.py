@@ -38,6 +38,15 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "SLB": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
        "CEG": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
        "NRG": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "NEE": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "DUK": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "SO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "AEP": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "GEV": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "FSLR": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "MRK": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "BMY": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "BEP": ("ifrs-full", ["Revenue"], "USD"),
        "PBR": ("ifrs-full", ["Revenue"], "USD")}
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",
@@ -80,6 +89,14 @@ def ptax_ye(day):
         v = requests.get(u, timeout=40).json()["value"][-1]; return v["dataHoraCotacao"][:10], float(v["cotacaoVenda"])
     return cached(f"PTAX|{day}", go)
 
+def boc_ye(day):
+    """Bank of Canada daily rate (CAD per USD), last observation on or before `day`."""
+    def go():
+        d = dt.date.fromisoformat(day)
+        o = requests.get(f"https://www.bankofcanada.ca/valet/observations/FXUSDCAD/json?start_date={(d - dt.timedelta(days=10)).isoformat()}&end_date={day}", timeout=40).json()["observations"][-1]
+        return o["d"], float(o["FXUSDCAD"]["v"])
+    return cached(f"BOC|{day}", go)
+
 def ecb_ccy(ccy, day): return cached(f"{ccy}|{day}", lambda: _ecb_ccy(ccy, day))
 def _ecb_ccy(ccy, day):
     """ECB reference rate for `ccy` per EUR on the last fixing on or before `day`."""
@@ -99,6 +116,14 @@ LOCAL_REV = {
     "PRIO3.SA": {"ccy": "BRL", "values": {"FY2020": 1904185e3, "FY2021": 4396003e3, "FY2022": 6363475e3, "FY2023": 11905041e3, "FY2024": 14360653e3, "FY2025": 15583960e3},
                  "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), PRIO S.A. CNPJ 10.629.105/0001-68",
                  "note": "Constant currency (BRL). Growth is largely inorganic: Frade (2021-22), Albacora Leste (2023), Peregrino (2025) acquisitions; also tracks Brent."},
+    "CCJ": {"ccy": "CAD", "values": {"FY2020": 1800071e3, "FY2025": 3481933e3}, "source": "Cameco annual reports (FY2020 MD&A revenue C$1,800M; FY2025 C$3,482M, Yahoo statements)", "note": "Constant currency (CAD, reporting currency). Uranium contract repricing; Westinghouse (49%, from Nov-2023) is equity-accounted, not in revenue."},
+    "AXIA3.SA": {"ccy": "BRL", "values": {"FY2020": 29080513e3, "FY2025": 41281596e3}, "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Axia Energia S.A. (ex-Centrais Elétricas Brasileiras - Eletrobras) CNPJ 00.001.180/0001-26", "note": "Constant currency (BRL). Privatised in 2022 (capitalisation); generation + transmission; renamed Axia Energia in 2025."},
+    "EQTL3.SA": {"ccy": "BRL", "values": {"FY2020": 17890069e3, "FY2025": 52073804e3}, "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Equatorial S.A. CNPJ 03.220.438/0001-73", "note": "Constant currency (BRL). Largely inorganic: CEEE-D, CEA, Celg-D (2021-23), Echoenergia and Sabesp stake; includes IFRS construction revenue."},
+    "CMIG4.SA": {"ccy": "BRL", "values": {"FY2020": 25227625e3, "FY2025": 42751283e3}, "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Cia Energética de Minas Gerais - CEMIG CNPJ 17.155.730/0001-64", "note": "Constant currency (BRL). Includes IFRS (ICPC 01) construction revenue and pass-through energy costs."},
+    "TAEE11.SA": {"ccy": "BRL", "values": {"FY2020": 3561286e3, "FY2025": 4624113e3}, "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Transmissora Aliança de Energia Elétrica S.A. (Taesa) CNPJ 07.859.971/0001-30", "note": "Constant currency (BRL). IFRS 15 contract-asset revenue (includes construction and IGP-M/IPCA inflation remeasurement), not the regulated RAP."},
+    "CPFE3.SA": {"ccy": "BRL", "values": {"FY2020": 30898458e3, "FY2025": 44367780e3}, "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), CPFL Energia S.A. CNPJ 02.429.144/0001-93", "note": "Constant currency (BRL). Includes construction revenue and sector pass-through charges."},
+    "EGIE3.SA": {"ccy": "BRL", "values": {"FY2020": 12259159e3, "FY2025": 12860075e3}, "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Engie Brasil Energia S.A. CNPJ 02.474.103/0001-19", "note": "Constant currency (BRL). Generation + transmission build-out (TAG gas pipeline stake is equity-accounted)."},
+    "CPLE3.SA": {"ccy": "BRL", "values": {"FY2020": 18633249e3, "FY2025": 26116856e3}, "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), Cia Paranaense de Energia - Copel CNPJ 76.483.817/0001-20", "note": "Constant currency (BRL). Privatised (corporation) in 2023; sold Copel Telecom (2021); includes construction revenue."},
 }
 # Filed annual figures not (yet) in XBRL companyfacts; each value checked against the filed document.
 SEC_FALLBACK = {"XOM": {2020: {"val": 178574e6, "end": "2020-12-31", "accn": "", "tag": "10-K FY2020 'Sales and other operating revenue' (XOM tags revenue with a company extension, not in us-gaap frames)"},
@@ -109,6 +134,10 @@ SEC_FALLBACK = {"XOM": {2020: {"val": 178574e6, "end": "2020-12-31", "accn": "",
                                "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-16, net revenue NT$3,809,054M / US$121,423M convenience translation; not in companyfacts frames)"}},
                 "VIST": {2025: {"val": 2474197000, "end": "2025-12-31", "accn": "0001193125-26-187099",
                                 "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-28, 'Revenue from contracts with customers' US$2,474,197k; not in companyfacts)"}}}
+
+# Shorter histories (spin-offs): the longest available window is used and flagged (periods < 5)
+SHORT = {"GEV": "GE Vernova was spun off from GE on 2024-04-02; its SEC filings carry audited revenue from FY2022 only, so a 3-year window is used"}
+SEC_FALLBACK["AEP"] = {2020: {"val": 14918.5e6, "end": "2020-12-31", "accn": "", "tag": "10-K FY2020 total revenues (CY2020 frame missing in companyfacts)"}}
 
 def sec_series(cik, ns, tags, unit):
     j = requests.get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json", headers=UA, timeout=60).json()
@@ -167,9 +196,12 @@ def main():
     for t, (ns, tags, unit) in SEC.items():
         s = sec_series(cik[t], ns, tags, unit); y0 = END - 5
         for y, v in SEC_FALLBACK.get(t, {}).items(): s.setdefault(y, v)
-        a, b = s[y0], s[END]
+        if y0 not in s and SHORT.get(t):   # spin-offs: longest available window (fewer than 5 compounding periods, flagged)
+            y0 = min(y for y in s if y > END - 5)
+        n = END - y0; a, b = s[y0], s[END]
         d = {"start": f"FY{y0}", "end": f"FY{END}", "startEnd": a["end"], "endEnd": b["end"], "currency": unit,
-             "values": {f"FY{y}": s[y]["val"] for y in range(y0, END + 1) if y in s}, "cagr5": cagr(a["val"], b["val"], 5),
+             "values": {f"FY{y}": s[y]["val"] for y in range(y0, END + 1) if y in s}, "cagr5": cagr(a["val"], b["val"], n),
+             **({"periods": n, "shortNote": SHORT[t]} if n < 5 else {}),
              "definition": "Total revenue as reported", "source": f"SEC EDGAR XBRL companyfacts ({a['tag']}, {unit}; 10-K/20-F)",
              "accn": [a["accn"], b["accn"]]}
         if t == "NIO":
@@ -273,12 +305,13 @@ def main():
         v = L["values"]; fxs = {}
         for y, day in (("FY2020", "2020-12-31"), ("FY2025", "2025-12-31")):
             if L["ccy"] == "BRL": fxs[y] = list(ptax_ye(day))
+            elif L["ccy"] == "CAD": fxs[y] = list(boc_ye(day))
             else: (kd_, lc), (_, usd) = ecb_ccy(L["ccy"], day), ecb_ccy("USD", day); fxs[y] = [kd_, lc / usd]
         res["companies"][t] = {"start": "FY2020", "end": "FY2025", "startEnd": "2020-12-31", "endEnd": "2025-12-31", "currency": L["ccy"], "values": v,
             "cagr5": cagr(v["FY2020"], v["FY2025"], 5),
             "usd": {"values": {y: v[y] / fxs[y][1] for y in fxs}, "cagr5": cagr(v["FY2020"] / fxs["FY2020"][1], v["FY2025"] / fxs["FY2025"][1], 5),
-                    "fx": {**fxs, "source": "BCB PTAX selling rate" if L["ccy"] == "BRL" else f"ECB reference-rate cross ({L['ccy']}/EUR / USD/EUR)"},
-                    "note": f"translated at the {'BCB PTAX' if L['ccy'] == 'BRL' else 'ECB'} year-end rates ({fxs['FY2020'][1]:.3f} {L['ccy']}/USD on {fxs['FY2020'][0]}, {fxs['FY2025'][1]:.3f} on {fxs['FY2025'][0]}), so it mixes FX moves"},
+                    "fx": {**fxs, "source": "BCB PTAX selling rate" if L["ccy"] == "BRL" else "Bank of Canada daily rate (FXUSDCAD)" if L["ccy"] == "CAD" else f"ECB reference-rate cross ({L['ccy']}/EUR / USD/EUR)"},
+                    "note": f"translated at the {'BCB PTAX' if L['ccy'] == 'BRL' else 'Bank of Canada' if L['ccy'] == 'CAD' else 'ECB'} year-end rates ({fxs['FY2020'][1]:.3f} {L['ccy']}/USD on {fxs['FY2020'][0]}, {fxs['FY2025'][1]:.3f} on {fxs['FY2025'][0]}), so it mixes FX moves"},
             "definition": L.get("definition", "Consolidated net revenue"), "source": L["source"], "accn": [], "note": L["note"]}
         print(t, round(res["companies"][t]["cagr5"] * 100, 2))
     v = SPCX["values"]; n = 2

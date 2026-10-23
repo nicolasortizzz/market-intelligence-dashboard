@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T03:32:33Z",
+ "generatedAt": "2026-10-23T04:29:27Z",
  "quotes": {
   "META": {
    "price": 648.85,
@@ -192,6 +192,155 @@
   },
   "NRG": {
    "price": 94.38,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AXIA3.SA": {
+   "price": 11.6269,
+   "priceLocal": 58.58000183105469,
+   "currencyLocal": "BRL",
+   "fx": 5.0383,
+   "fxDate": "2026-10-22",
+   "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
+   "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "EQTL3.SA": {
+   "price": 9.6521,
+   "priceLocal": 48.630001068115234,
+   "currencyLocal": "BRL",
+   "fx": 5.0383,
+   "fxDate": "2026-10-22",
+   "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
+   "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "CMIG4.SA": {
+   "price": 2.3222,
+   "priceLocal": 11.699999809265137,
+   "currencyLocal": "BRL",
+   "fx": 5.0383,
+   "fxDate": "2026-10-22",
+   "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
+   "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "TAEE11.SA": {
+   "price": 8.9792,
+   "priceLocal": 45.2400016784668,
+   "currencyLocal": "BRL",
+   "fx": 5.0383,
+   "fxDate": "2026-10-22",
+   "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
+   "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "CPFE3.SA": {
+   "price": 9.8267,
+   "priceLocal": 49.5099983215332,
+   "currencyLocal": "BRL",
+   "fx": 5.0383,
+   "fxDate": "2026-10-22",
+   "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
+   "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "EGIE3.SA": {
+   "price": 6.1727,
+   "priceLocal": 31.100000381469727,
+   "currencyLocal": "BRL",
+   "fx": 5.0383,
+   "fxDate": "2026-10-22",
+   "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
+   "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "CPLE3.SA": {
+   "price": 3.4456,
+   "priceLocal": 17.360000610351562,
+   "currencyLocal": "BRL",
+   "fx": 5.0383,
+   "fxDate": "2026-10-22",
+   "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
+   "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "NEE": {
+   "price": 81.9,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "DUK": {
+   "price": 125.4,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SO": {
+   "price": 93.82,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AEP": {
+   "price": 130.64,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "BEP": {
+   "price": 28.91,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "GEV": {
+   "price": 827.42,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "FSLR": {
+   "price": 171.25,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "CCJ": {
+   "price": 78.93,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "OKLO": {
+   "price": 27.01,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SMR": {
+   "price": 5.38,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "MRK": {
+   "price": 147.24,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "BMY": {
+   "price": 63.0,
    "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"

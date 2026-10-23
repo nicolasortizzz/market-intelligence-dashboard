@@ -16,6 +16,7 @@ Method (same for every ticker; new tickers are picked up automatically from data
   * Banks (GGAL): cost of equity only (Ke = rf + beta x ERP + CRP); WACC is not meaningful for a bank.
 Usage: python scripts/fetch_wacc_history.py
 """
+import sys
 import re
 import json, os, io, math, datetime as dt, warnings
 import numpy as np, pandas as pd, requests, yfinance as yf
@@ -31,8 +32,8 @@ BRAZIL_CRP = {2021: 0.02970905, 2022: 0.05193169, 2023: 0.04400441, 2024: 0.0334
 TAIWAN_CRP = {2021: 0.00597750, 2022: 0.01034577, 2023: 0.00876650, 2024: 0.00799958, 2025: 0.00776007}   # Aa3; ctryprem21-24 archives and Jan-2026 file
 KOREA_CRP = {2021: 0.00490700, 2022: 0.00852000, 2023: 0.00721900, 2024: 0.00658800, 2025: 0.00639100}   # Aa2; ctryprem21-24 archives and Jan-2026 file
 COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP), "TSM": ("Taiwan", TAIWAN_CRP), "005930.KS": ("Korea", KOREA_CRP), "000660.KS": ("Korea", KOREA_CRP),
-               "PBR": ("Brazil", BRAZIL_CRP), "PRIO3.SA": ("Brazil", BRAZIL_CRP)}
-LOCAL_PX = {"005930.KS": "KRW=X", "000660.KS": "KRW=X", "PRIO3.SA": "BRL=X"}   # local-currency listings: prices converted to USD (Yahoo FX) for beta and market cap; today uses the model's ECB rate   # Damodaran rating-based CRP; add new EM countries here
+               "PBR": ("Brazil", BRAZIL_CRP), "PRIO3.SA": ("Brazil", BRAZIL_CRP), "AXIA3.SA": ("Brazil", BRAZIL_CRP), "EQTL3.SA": ("Brazil", BRAZIL_CRP), "CMIG4.SA": ("Brazil", BRAZIL_CRP), "TAEE11.SA": ("Brazil", BRAZIL_CRP), "CPFE3.SA": ("Brazil", BRAZIL_CRP), "EGIE3.SA": ("Brazil", BRAZIL_CRP), "CPLE3.SA": ("Brazil", BRAZIL_CRP)}
+LOCAL_PX = {"005930.KS": "KRW=X", "000660.KS": "KRW=X", "PRIO3.SA": "BRL=X", "AXIA3.SA": "BRL=X", "EQTL3.SA": "BRL=X", "CMIG4.SA": "BRL=X", "TAEE11.SA": "BRL=X", "CPFE3.SA": "BRL=X", "EGIE3.SA": "BRL=X", "CPLE3.SA": "BRL=X"}   # local-currency listings: prices converted to USD (Yahoo FX) for beta and market cap; today uses the model's ECB rate   # Damodaran rating-based CRP; add new EM countries here
 # Recently listed names: years before the IPO (and today, while < 24 monthly returns exist) use an ESTIMATED proxy beta =
 # segment-revenue-weighted median of the Blume-adjusted 60-month peer betas at that date, and the equity weight uses
 # private-market marks (secondary/tender offers, widely reported; estimates) instead of a listed market cap.
@@ -123,10 +124,14 @@ def main():
                       "currency": "USD terms for all tickers (ASML/ABEV: USD ADR beta and US rf; EUR debt at the ECB, BRL debt at the BCB PTAX and TWD debt at the Yahoo TWD=X year-end rate; Samsung: KRX price converted to USD at Yahoo KRW=X daily, KRW debt at year-end KRW=X)"},
            "erp": ERP, "companies": {}}
     PXC = {}
+    ONLY = [x.upper() for x in sys.argv[1:]]
+    WP = os.path.join(D, "wacc_history.json")
+    if ONLY and os.path.exists(WP): out["companies"] = json.load(open(WP)).get("companies", {})   # ticker-scoped run: keep the others
     for tk, a in A["companies"].items():
+        if ONLY and tk not in ONLY: continue
         c = V["companies"].get(tk)
         if not c: continue
-        bank = a.get("model") == "bank"; k = yf.Ticker(tk)
+        bank = a.get("model") in ("bank", "utility"); k = yf.Ticker(tk)
         px = k.history(start="2015-12-01", auto_adjust=False)
         if tk in LOCAL_PX:   # convert the local close to USD at the daily Yahoo FX rate (beta and market cap in USD terms)
             fxh = yf.Ticker(LOCAL_PX[tk]).history(start="2015-12-01")["Close"]; fxh.index = fxh.index.tz_localize(None).normalize()

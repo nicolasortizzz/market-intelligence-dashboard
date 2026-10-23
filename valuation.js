@@ -2,8 +2,9 @@
 /* Valuation & M&A tab: DCF, comps, precedents, scenarios, Monte Carlo, scorecard.
    All projections are ESTIMATES driven by data/valuation_assumptions.json + real financials in data/valuation.json */
 const V={tk:"META",scen:"base",ov:{},A:null,D:null,mc:{}};
-const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER","BE","AVGO","VIST","TSM","SPCX","005930.KS","000660.KS","GOOGL","XOM","CVX","COP","EOG","OXY","DVN","SLB","PBR","PRIO3.SA","CEG","NRG"];
-const isBank=tk=>V.A.companies[tk].model==="bank";
+const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER","BE","AVGO","VIST","TSM","SPCX","005930.KS","000660.KS","GOOGL","XOM","CVX","COP","EOG","OXY","DVN","SLB","PBR","PRIO3.SA","CEG","NRG","NEE","DUK","SO","AEP","EQTL3.SA","CMIG4.SA","CPFE3.SA","CPLE3.SA","TAEE11.SA","AXIA3.SA","EGIE3.SA","BEP","GEV","FSLR","CCJ","OKLO","SMR","MRK","BMY"];
+const isBank=tk=>["bank","utility"].includes(V.A.companies[tk].model); // equity (residual-income) engine: banks and regulated utilities
+const isUtil=tk=>V.A.companies[tk].model==="utility",UN=()=>isUtil(V.tk)?"share":"ADR";
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const median2=a=>{a=a.filter(x=>x!=null&&isFinite(x)).sort((x,y)=>x-y);if(!a.length)return null;const m=a.length/2;return a.length%2?a[m|0]:(a[m-1]+a[m])/2};
 const quant=(a,q)=>{a=a.filter(x=>x!=null&&isFinite(x)).sort((x,y)=>x-y);if(!a.length)return null;const i=(a.length-1)*q,l=Math.floor(i);return a[l]+(a[Math.min(l+1,a.length-1)]-a[l])*(i-l)};
@@ -17,7 +18,7 @@ function inputs(tk){
   if(isBank(tk))return inputsBank(tk);
   const c=V.D.companies[tk],a=V.A.companies[tk],k=(c.financialCurrency&&c.financialCurrency!=="USD"&&V.D.fx[c.financialCurrency+"USD"])||1; // units of reporting currency per USD (CNY: Yahoo FX, EUR: ECB)
   const I=c.income,CF=c.cashflow,B=c.balance,iy=lastIdx(I["Total Revenue"]);
-  const rev0=I["Total Revenue"][iy]/k,ebit0=(I["Operating Income"]||I.EBIT)[iy]/k;
+  const rev0=a.revBase0??I["Total Revenue"][iy]/k,ebit0=(I["Operating Income"]||I.EBIT)[iy]/k;
   const da0=(I["Reconciled Depreciation"]||[])[iy]/k||rev0*a.daPct0,capex0=-(CF["Capital Expenditure"]||[])[iy]/k;
   const fyEnd=new Date(I.years[iy]);
   const re=c.revenueEstimate||{},e0=re["0y"]?.avg,e1=re["+1y"]?.avg;
@@ -29,14 +30,31 @@ function inputs(tk){
   let shares2=shares,debt2=debt,cvAdd=0,cvDebt=0;for(const n of a.converts||[]){if(c.price>n.convPrice){cvAdd+=n.principal/n.convPrice;cvDebt+=n.principal/k}}shares2+=cvAdd;debt2-=cvDebt;
   const rf=(S.x.treasury[0]?.["10 Yr"]||4.5)/100,rawBeta=c.beta??1;
   const beta=a.betaOverride??(a.betaAdj==="blume"?0.67*rawBeta+0.33:rawBeta);
-  return{c,a,k,rev0,ebit0,da0,capex0,fyEnd,g1,g2,shares,cash,debt:debt2,shares:shares2,cvAdd,cvDebt,minority,nonOp,rf,rawBeta,beta,netDebt:debt2-cash,
+  if(a.ddm){const u=c.marketCap/c.price,D=a.ddm.d0*u; // DDM through the FCFF engine (BEP): "revenue" = total distributions, 100% "margin", no tax/capex/debt, discounted at Ke
+    return{c,a,k:1,rev0:D,ebit0:D,da0:0,capex0:0,fyEnd,g1:a.g1??0.05,g2:a.g2??0.05,cash:0,debt:0,shares:u,cvAdd:0,cvDebt:0,minority:0,nonOp:0,rf,rawBeta,beta,netDebt:0,lt:1,ddm:true,
+      hist:I.years.map((y,i)=>({y:y.slice(0,4),fy:y,rev:I["Total Revenue"][i],ebit:(I["Operating Income"]||[])[i],ni:(I["Net Income"]||[])[i],fcf:(CF["Free Cash Flow"]||[])[i],capex:-(CF["Capital Expenditure"]||[])[i]})).filter(h=>h.rev)}}
+  const LT=a.lookThrough; // look-through ownership (BEP): consolidated cash flows, partner-owned share of equity excluded via LT.share, economic units LT.units
+  if(LT){shares2=LT.units}
+  return{c,a,k,rev0,ebit0,da0,capex0,fyEnd,g1,g2,shares,cash,debt:debt2,shares:shares2,lt:LT?LT.share:1,cvAdd,cvDebt,minority,nonOp,rf,rawBeta,beta,netDebt:debt2-cash,
     hist:I.years.map((y,i)=>({y:y.slice(0,4),fy:y,rev:I["Total Revenue"][i]/k,ebit:(I["Operating Income"]||[])[i]/k,ni:(I["Net Income"]||[])[i]/k,fcf:(CF["Free Cash Flow"]||[])[i]/k,capex:-(CF["Capital Expenditure"]||[])[i]/k})).filter(h=>h.rev)}
 }
 /* Bank inputs (GGAL): per ADR in USD. Book value = IAS 29-restated equity / ADR-equivalent shares / BCRA rate on the balance-sheet date. */
-function inputsBank(tk){const c=V.D.companies[tk],a=V.A.companies[tk],bk=c.bank,bv0=bk.bvPerADR,shares=bk.adrShares;
+function inputsBank(tk){if(isUtil(tk))return inputsUtil(tk);const c=V.D.companies[tk],a=V.A.companies[tk],bk=c.bank,bv0=bk.bvPerADR,shares=bk.adrShares;
   const rf=(S.x.treasury[0]?.["10 Yr"]||4.5)/100,rawBeta=c.beta??1,beta=a.betaOverride??rawBeta;
   const roe1=bk.eps0y?bk.eps0y/bv0:0.1,roe2=bk.eps1y?bk.eps1y/(bv0*1.1):roe1;
   return{c,a,k:V.D.fx.ARSUSD_BCRA,bank:true,bv0,shares,roe1,roe2,rev0:bv0,ebit0:bk.niTTMperADR,fyEnd:new Date(c.income.years[lastIdx(c.income["Total Revenue"])]),
+    g1:0,g2:0,cash:0,debt:0,minority:0,netDebt:0,rf,rawBeta,beta,hist:[]}}
+/* Regulated utilities: residual income on book equity, per listed share in USD (Brazil: B3 share/unit at PTAX). Regulated returns are earned on the
+   regulated asset base, which book equity finances, so value = book + PV[(ROE - Ke) x book]; the dividend path (DDM view) is the implied payout
+   NI - change in book. Book/share = price / P/B (both in the same currency), NI TTM and consensus EPS converted at the model's official rate. */
+function inputsUtil(tk){const c=V.D.companies[tk],a=V.A.companies[tk],k=(c.financialCurrency&&c.financialCurrency!=="USD"&&V.D.fx[c.financialCurrency+"USD"])||1;
+  if(!c.bank){const shares=c.marketCap/c.price,bv0=c.price/c.self.pb,E=c.earningsEstimate||{},cv=e=>{if(e?.avg==null)return null;const ec=e.currency||c.financialCurrency;return ec==="USD"?e.avg:ec===c.financialCurrency?e.avg/k:null};
+    const L=r=>{const v=(c.cashflow?.[r]||[]).filter(x=>x!=null);return v.length?v.at(-1):null},dv=L("Cash Dividends Paid");
+    c.bank={util:true,adrRatio:1,adrShares:shares,bvPerADR:bv0,bvDate:c.balanceDate||"latest quarter",niTTMperADR:(c.self.netIncome||0)/shares,
+      eps0y:cv(E["0y"]),eps1y:cv(E["+1y"]),divTTMperADR:dv!=null?Math.abs(dv/k)/shares:null,fx:k,ccy:c.financialCurrency}}
+  const bk=c.bank,bv0=bk.bvPerADR,rf=(S.x.treasury[0]?.["10 Yr"]||4.5)/100,rawBeta=c.beta??1,beta=a.betaOverride??(a.betaAdj==="blume"?0.67*rawBeta+0.33:rawBeta);
+  const roe1=bk.eps0y?bk.eps0y/bv0:bk.niTTMperADR/bv0,roe2=bk.eps1y?bk.eps1y/(bv0*(1+(a.bookG1??0.04))):roe1;
+  return{c,a,k,bank:true,util:true,bv0,shares:bk.adrShares,roe1,roe2,rev0:bv0,ebit0:bk.niTTMperADR,fyEnd:new Date(c.income.years[lastIdx(c.income["Total Revenue"])]),
     g1:0,g2:0,cash:0,debt:0,minority:0,netDebt:0,rf,rawBeta,beta,hist:[]}}
 function scenario(tk,id){return V.A.companies[tk].scenarios.find(s=>s.id===id)}
 
@@ -62,7 +80,7 @@ function dcf(tk,sid,ov={}){
   const L=rows[N-1],ronic=a.ronic||0.15,fcfT=L.nopat*(1+g)*(1-g/ronic); // value-driver terminal FCF: reinvestment = g / RONIC
   const tvBase=Math.max(fcfT,0)/Math.max(wacc-g,0.01),pvTV=tvBase*L.df;
   const shares=b.shares*Math.pow(1+(s.shareChange??a.shareChange),3);
-  const ev=pv+pvTV,eq=ev-b.netDebt-b.minority+(b.nonOp||0)+(s.oneOff||0)/1;
+  const ev=pv+pvTV,eq=(ev-b.netDebt-(b.lt<1?0:b.minority)+(b.nonOp||0)+(s.oneOff||0)/1)*(b.lt||1);
   const ps=Math.max(eq,0)/shares;
   return{b,s,rows,wacc,ke,kd,g,erp,rf,beta,ebitT,mid,capexT,pv,pvTV,tv:tvBase,ev,eq,ps,shares,tvShare:pvTV/ev};
 }
@@ -87,11 +105,11 @@ function bankRI(tk,sid,ov={}){
 function probWeighted(tk,ov){const sc=V.A.companies[tk].scenarios;let w=0,v=0;const out=sc.map(s=>{const r=dcf(tk,s.id,ov);v+=s.p*r.ps;w+=s.p;return{...s,ps:r.ps,r}});return{list:out,pw:v/w}}
 
 /* ---------- comps & precedents ---------- */
-function comps(tk){if(isBank(tk))return compsBank(tk);const b=inputs(tk),c=b.c,ref=b.a.compsRef||[],peers=c.peers.filter(p=>p.marketCap).map(p=>ref.includes(p.ticker)?{...p,ref:1}:p),self=c.self;
+function comps(tk){if(isBank(tk))return compsBank(tk);if(V.A.companies[tk].ddm){const c=V.D.companies[tk];return{peers:c.peers.filter(p=>p.marketCap),self:c.self,r:{},use:[],med:{},ddm:true}}const b=inputs(tk),c=b.c,ref=b.a.compsRef||[],peers=c.peers.filter(p=>p.marketCap).map(p=>ref.includes(p.ticker)?{...p,ref:1}:p),self=c.self;
   const clean=(arr,lo,hi)=>arr.filter(x=>x!=null&&x>lo&&x<hi),pS=peers.filter(p=>!p.ref&&!(b.a.compsExcludeNegEbitda&&!(p.ebitda>0))); // reference-only peers are shown but excluded from the statistics
   const evE=clean(pS.map(p=>p.evEbitda),0,60),evS=clean(pS.map(p=>p.evSales),0.02,30),pe=clean(pS.filter(p=>!(b.a.peExcludePeers||[]).includes(p.ticker)).map(p=>p.pe),0,80);
   let ebitda=(c.ebitdaTTM||0)/b.k,rev=(c.revenueTTM||0)/b.k,ni=self.netIncome!=null?self.netIncome-(b.a.peNIExclude||0):null; // peNIExclude: one-off items (e.g. tax valuation-allowance release) removed before P/E
-  const toPS=ev=>Math.max(ev-b.netDebt-b.minority+(b.nonOp||0),0)/b.shares,r={};
+  const toPS=ev=>Math.max(ev-b.netDebt-(b.lt<1?0:b.minority)+(b.nonOp||0),0)*(b.lt||1)/b.shares,r={};
   // compsCycle (per-ticker option for cyclicals, e.g. memory): peer TTM multiples are applied to THROUGH-CYCLE earnings = average of the
   // last N fiscal years plus TTM (each once), not peak TTM; only the listed metrics feed the comps value (EV/Sales off: mix differs).
   let cyc=null;const cc=b.a.compsCycle;
@@ -107,11 +125,13 @@ function compsBank(tk){const b=inputs(tk),c=b.c,peers=c.peers.filter(p=>p.market
   const clean=(arr,lo,hi)=>arr.filter(x=>x!=null&&x>lo&&x<hi),pb=clean(peers.map(p=>p.pb),0.1,6),pe=clean(peers.map(p=>p.pe),0,80),r={};
   if(pb.length>=2)r.pb=[quant(pb,.25),median2(pb),quant(pb,.75)].map(m=>m*b.bv0);
   if(pe.length>=2&&bk.eps0y>0)r.pe=[quant(pe,.25),median2(pe),quant(pe,.75)].map(m=>m*bk.eps0y);
-  return{peers,self,r,use:["pb"],med:{pb:median2(pb),pe:median2(pe)},bank:true}}
+  return{peers,self,r,use:isUtil(tk)?["pb","pe"]:["pb"],med:{pb:median2(pb),pe:median2(pe)},bank:true}}
 const compMidOf=cm=>median2((cm.use||Object.keys(cm.r)).filter(k=>cm.r[k]).map(k=>cm.r[k][1]));
 function precedent(tk){const b=inputs(tk),a=b.a,c=b.c,cp=a.controlPremium;let lo,hi,basis;
-  if(a.precedentPB){[lo,hi]=a.precedentPB.map(m=>m*b.bv0);return{lo,hi,basis:`${a.precedentPB[0]}-${a.precedentPB[1]}x P/BV (book ${money(b.bv0)}/ADR)`,premLo:c.price*(1+cp[0]),premHi:c.price*(1+cp[1]),cp}}
+  if(a.ddm){[lo,hi]=[a.ddm.d0/0.065,a.ddm.d0/0.045];return{lo,hi,basis:"4.5-6.5% distribution yield (yieldco / renewables take-privates, e.g. TerraForm Power 2020, Atlantica 2024)",premLo:c.price*(1+cp[0]),premHi:c.price*(1+cp[1]),cp}}
+  if(a.precedentPB){[lo,hi]=a.precedentPB.map(m=>m*b.bv0);return{lo,hi,basis:`${a.precedentPB[0]}-${a.precedentPB[1]}x P/BV (book ${money(b.bv0)}/${UN()})`,premLo:c.price*(1+cp[0]),premHi:c.price*(1+cp[1]),cp}}
   if(a.precedentEvEbitda&&(c.ebitdaTTM||0)>0){const e=c.ebitdaTTM/b.k;[lo,hi]=a.precedentEvEbitda.map(m=>Math.max(m*e-b.netDebt-b.minority+(b.nonOp||0),0)/b.shares);basis=`${a.precedentEvEbitda[0]}-${a.precedentEvEbitda[1]}x EV/EBITDA (TTM)`}
+  else if(a.preRevenue||!a.precedentEvSales){const nc=Math.max(-b.netDebt,0)/b.shares;[lo,hi]=[nc,nc*3];basis="Pre-revenue: no meaningful transaction multiple; range = net cash per share (cash-shell floor) to 3x (strategic option value)"}
   else{const r=c.revenueTTM/b.k;[lo,hi]=a.precedentEvSales.map(m=>Math.max(m*r-b.netDebt-b.minority+(b.nonOp||0),0)/b.shares);basis=`${a.precedentEvSales[0]}-${a.precedentEvSales[1]}x EV/Sales (TTM)`}
   return{lo,hi,basis,premLo:c.price*(1+cp[0]),premHi:c.price*(1+cp[1]),cp}}
 
@@ -140,7 +160,7 @@ var drawVal=function(full){const tk=V.tk,a=V.A.companies[tk],ov=V.ov[tk]||{},r=d
   const BK=!!r.bank,compMid=compMidOf(cm),tri=compMid!=null?0.6*pw.pw+0.4*compMid:pw.pw,up=tri/c.price-1;
   a.score.valuation=Math.round(clamp(5+up*10,1,10));
   const total=((a.score.quality+a.score.growth+a.score.risk+a.score.valuation)/4);
-  renderKpis($("#vK"),[kpi("Price ("+c.priceDate+")",c.price,a.displayName||c.name,usd),kpi(`${BK?"Residual income":"DCF"} · ${r.s.name}`,r.ps,`${BK?"Ke":"WACC"} ${pct2(r.wacc)} · g ${pct2(r.g)}`,usd),kpi(BK?"Prob-weighted RI":"Prob-weighted DCF",pw.pw,`${a.scenarios.length} scenarios`,usd),kpi("Triangulated fair value",tri,BK?"60% RI(pw) + 40% P/BV comps":"60% DCF(pw) + 40% comps",usd),kpi("Implied upside",up*100,"vs current price",v=>`<span class="${v>=0?"up":"dn"}">${v>=0?"+":""}${v.toFixed(1)}%</span>`),kpi("Composite score",total,"quality · growth · risk · valuation",v=>v.toFixed(1)+"/10")]);
+  renderKpis($("#vK"),[kpi("Price ("+c.priceDate+")",c.price,a.displayName||c.name,usd),kpi(`${BK?"Residual income":"DCF"} · ${r.s.name}`,r.ps,`${BK?"Ke":"WACC"} ${pct2(r.wacc)} · g ${pct2(r.g)}`,usd),kpi(BK?"Prob-weighted RI":"Prob-weighted DCF",pw.pw,`${a.scenarios.length} scenarios`,usd),kpi("Triangulated fair value",tri,BK?(b.util?"60% RI(pw) + 40% P/BV & P/E comps":"60% RI(pw) + 40% P/BV comps"):"60% DCF(pw) + 40% comps",usd),kpi("Implied upside",up*100,"vs current price",v=>`<span class="${v>=0?"up":"dn"}">${v>=0?"+":""}${v.toFixed(1)}%</span>`),kpi("Composite score",total,"quality · growth · risk · valuation",v=>v.toFixed(1)+"/10")]);
   // projections chart
   const H=b.hist,R=r.rows,f=fx()/1e9,fu=fx();
   if(BK){drawBankProj(r,fu)}else{
@@ -156,7 +176,7 @@ var drawVal=function(full){const tk=V.tk,a=V.A.companies[tk],ov=V.ov[tk]||{},r=d
   if(BK)drawBankBridge(r);else plot("vBridge",[{type:"waterfall",orientation:"v",x:["PV FCFF (10y)","PV terminal value","Enterprise value","− Net debt","− Minority int.",...(b.nonOp?["+ Equity stakes (non-op.)"]:[]),...(r.s.oneOff?["One-off (fine/settlement)"]:[]),"Equity value"],
     measure:["relative","relative","total","relative","relative",...(b.nonOp?["relative"]:[]),...(r.s.oneOff?["relative"]:[]),"total"],y:[r.pv*f,r.pvTV*f,0,-b.netDebt*f,-b.minority*f,...(b.nonOp?[b.nonOp*f]:[]),...(r.s.oneOff?[r.s.oneOff*f]:[]),0],
     connector:{line:{color:css("--bd")}},increasing:{marker:{color:css("--up")}},decreasing:{marker:{color:css("--dn")}},totals:{marker:{color:css("--ac")}},text:[bn(r.pv),bn(r.pvTV),bn(r.ev),bn(-b.netDebt),bn(-b.minority),...(b.nonOp?[bn(b.nonOp)]:[]),...(r.s.oneOff?[bn(r.s.oneOff)]:[]),bn(Math.max(r.eq,0))],textposition:"outside",cliponaxis:false,hoverinfo:"x+text"}],{yaxis:{tickprefix:S.ccy==="ARS"?"ARS ":"$",ticksuffix:"B",tickformat:",.0f",gridcolor:css("--bd")},margin:{l:64,r:10,t:44,b:60}});
-  $("#vBridgeNote").innerHTML=BK?`Terminal residual income = ${pct(r.tvShare)} of value · Ke ${pct2(r.ke)} = rf ${pct2(r.rf)} + β ${r.beta.toFixed(2)} × ERP ${pct2(r.erp)} + CRP ${pct2((a.crp||0)+(r.s.crpAdd||0))} · ${(r.shares/1e6).toFixed(1)}M ADR-equivalents (${b.c.bank.adrRatio} Class B shares per ADS)`:`Terminal value = ${pct(r.tvShare)} of EV · Ke ${pct2(r.ke)} · Kd after-tax ${pct2(r.kd)} · diluted shares ${(r.shares/1e9).toFixed(3)}B${a.scenarios.find(s=>s.id===V.scen).shareChange||a.shareChange>0?" (after assumed dilution)":""}`;
+  $("#vBridgeNote").innerHTML=BK?`Terminal residual income = ${pct(r.tvShare)} of value · Ke ${pct2(r.ke)} = rf ${pct2(r.rf)} + β ${r.beta.toFixed(2)} × ERP ${pct2(r.erp)} + CRP ${pct2((a.crp||0)+(r.s.crpAdd||0))} · ${b.util?`${(r.shares/1e6).toFixed(1)}M shares${b.c.sharesPerUnit?` (units of ${b.c.sharesPerUnit} shares)`:""}`:`${(r.shares/1e6).toFixed(1)}M ADR-equivalents (${b.c.bank.adrRatio} Class B shares per ADS)`}`:`Terminal value = ${pct(r.tvShare)} of EV · Ke ${pct2(r.ke)} · Kd after-tax ${pct2(r.kd)} · diluted shares ${(r.shares/1e9).toFixed(3)}B${a.scenarios.find(s=>s.id===V.scen).shareChange||a.shareChange>0?" (after assumed dilution)":""}`;
   // sensitivity
   const ws=[-0.02,-0.015,-0.01,-0.005,0,0.005,0.01,0.015,0.02].map(d=>r.wacc+d),gs=[-0.01,-0.005,0,0.005,0.01].map(d=>r.g+d);
   const z=gs.map(g=>ws.map(w=>g<w-0.01?dcf(tk,V.scen,{...ov,wacc:w,g}).ps*fu:null));
@@ -205,28 +225,37 @@ var drawVal=function(full){const tk=V.tk,a=V.A.companies[tk],ov=V.ov[tk]||{},r=d
   if(BK){drawBankAssump(r,a,b,c);return}
   $("#vTableNote").textContent="FCFF = EBIT×(1−t) + D&A − Capex − ΔNWC · mid-year discounting · stub-year adjusted";
   $("#vProjT").textContent="Revenue, EBIT margin & free cash flow: history + 10-year projection";$("#vSensT").textContent="Sensitivity: fair value per share (WACC × terminal growth)";
-  $("#vAssump").innerHTML=(a.growthNote?`<p class="muted small" style="margin:0 0 8px">${a.growthNote}</p>`:"")+`<div class="kv">${[["Base fiscal year",b.hist.at(-1).y+" (FY end "+b.fyEnd.toISOString().slice(0,10)+")"],["Reporting currency",c.financialCurrency+(b.k!==1?(c.financialCurrency==="EUR"?` → USD at ${V.D.fx.EURUSD_ecb.toFixed(4)} USD/EUR (ECB reference rate, ${V.D.fx.EUR_date}); 1 ADR = 1 share`:c.financialCurrency==="BRL"?` → USD at ${b.k.toFixed(4)} BRL/USD (BCB PTAX, ${V.D.fx.BRL_date}); 1 ADR = 1 share`:c.financialCurrency==="TWD"?` → USD at ${b.k.toFixed(3)} NT$/US$ (Central Bank of the R.O.C. (Taiwan) closing rate, ${V.D.fx.TWD_date}); 1 ADR = ${a.adrRatio||5} common shares, values per ADR`:c.currencyLocal==="BRL"?` → USD at ${b.k.toFixed(4)} BRL/USD (BCB PTAX selling rate, ${V.D.fx.BRL_date}); B3 close R$${c.priceLocal.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})} = ${usd(c.price)}; values per share`:c.financialCurrency==="KRW"?` → USD at ${b.k.toFixed(2)} KRW/USD (ECB reference-rate cross, ${V.D.fx.KRW_date}); KRX close ₩${Math.round(c.priceLocal).toLocaleString("en-US")} = ${usd(c.price)}${c.related?Object.entries(c.related).map(([t,r])=>` · ${t} ${r.label}: ${r.currency==="KRW"?"₩"+Math.round(r.price).toLocaleString("en-US")+" = "+usd(r.price/b.k):usd(r.price)}`).join(""):""}; values per ${c.related&&Object.keys(c.related).length?"common/preferred share":"common share"}`:` → USD at ${b.k.toFixed(4)} ${c.financialCurrency}/USD (Yahoo FX)`):"")+(c.yahooFinancialCurrency&&c.yahooFinancialCurrency!==c.financialCurrency?` (functional currency; Yahoo labels it ${c.yahooFinancialCurrency}; balance sheet ${c.balanceDate}, TTM = ${c.ttmQuarters?.length||4} quarters)`:"")],...(a.priceDeck?[["Commodity price deck (assumed)",a.priceDeck]]:[]),["Base revenue / EBIT margin",bn(b.rev0)+" / "+pct(b.ebit0/b.rev0)],[a.g1!=null?"Yr-1 / Yr-2 growth (analyst override)":a.g2!=null?"Yr-1 / Yr-2 growth (consensus / analyst override)":"Yr-1 / Yr-2 growth (consensus)",pct(b.g1)+" / "+pct(b.g2)],...(a.ebit1!=null?[["Yr-1 EBIT margin (override)",pct(r.s.ebit1??a.ebit1)]]:[]),["Country-risk premium",(a.crp?pct2(a.crp)+(r.s.crpAdd?` + ${pct2(r.s.crpAdd)} (scenario)`:"")+(a.crpLabel?" · "+a.crpLabel:a.crp===0.0648?" · Argentina EMBI 648 bp (2026-10-16)":c.financialCurrency==="CNY"?" · assumed China CRP":""):"none"+(r.s.crpAdd?` (scenario adds ${pct2(r.s.crpAdd)})`:""))],["Tax rate (assumed)",pct(a.tax)],["D&A % rev (now → yr 6)",pct(b.da0/b.rev0)+" → "+pct(a.daPctT)],["Capex % rev (yr 1 → yr 6)",pct(a.capexPct1)+" → "+pct(r.capexT)],["ΔNWC % of Δrevenue",pct(a.nwcPct)],["Net debt / Minority interest",bn(b.netDebt)+" / "+bn(b.minority)],...(b.cvAdd?[["Convertible notes (if-converted)",`${bn(b.cvDebt)} in-the-money principal treated as equity: +${(b.cvAdd/1e6).toFixed(2)}M shares, removed from debt`+(a.convertsNote?" · "+a.convertsNote:"")]]:[]),...(b.nonOp?[["Non-operating equity stakes (added)",bn(b.nonOp)+" · "+(a.nonOpAssets.label||a.nonOpAssets.row)]]:[]),...(a.peNIExclude?[["TTM net income for P/E",bn(b.c.self?.netIncome-a.peNIExclude)+" (excl. "+bn(a.peNIExclude)+" one-off: "+(a.peNIExcludeLabel||"one-off")+")"]]:[]),["Share count change (3y, p.a.)",pct(r.s.shareChange??a.shareChange)],["Cost of debt (pre-tax)",pct2(r.rf+a.kdSpread)],["Analyst consensus",`${c.recKey||"—"} · ${c.nAnalysts||"?"} analysts · mean target ${usd(c.targetMean)}`]].map(x=>`<span>${x[0]}</span><span>${x[1]}</span>`).join("")}</div>`;
+  $("#vAssump").innerHTML=(a.growthNote?`<p class="muted small" style="margin:0 0 8px">${a.growthNote}</p>`:"")+`<div class="kv">${[["Base fiscal year",(b.hist.at(-1)?.y??b.fyEnd.getFullYear())+" (FY end "+b.fyEnd.toISOString().slice(0,10)+")"],["Reporting currency",c.financialCurrency+(b.k!==1?(c.financialCurrency==="EUR"?` → USD at ${V.D.fx.EURUSD_ecb.toFixed(4)} USD/EUR (ECB reference rate, ${V.D.fx.EUR_date}); 1 ADR = 1 share`:c.financialCurrency==="BRL"?` → USD at ${b.k.toFixed(4)} BRL/USD (BCB PTAX, ${V.D.fx.BRL_date}); 1 ADR = 1 share`:c.financialCurrency==="TWD"?` → USD at ${b.k.toFixed(3)} NT$/US$ (Central Bank of the R.O.C. (Taiwan) closing rate, ${V.D.fx.TWD_date}); 1 ADR = ${a.adrRatio||5} common shares, values per ADR`:c.currencyLocal==="BRL"?` → USD at ${b.k.toFixed(4)} BRL/USD (BCB PTAX selling rate, ${V.D.fx.BRL_date}); B3 close R$${c.priceLocal.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})} = ${usd(c.price)}; values per share`:c.financialCurrency==="KRW"?` → USD at ${b.k.toFixed(2)} KRW/USD (ECB reference-rate cross, ${V.D.fx.KRW_date}); KRX close ₩${Math.round(c.priceLocal).toLocaleString("en-US")} = ${usd(c.price)}${c.related?Object.entries(c.related).map(([t,r])=>` · ${t} ${r.label}: ${r.currency==="KRW"?"₩"+Math.round(r.price).toLocaleString("en-US")+" = "+usd(r.price/b.k):usd(r.price)}`).join(""):""}; values per ${c.related&&Object.keys(c.related).length?"common/preferred share":"common share"}`:` → USD at ${b.k.toFixed(4)} ${c.financialCurrency}/USD (Yahoo FX)`):"")+(c.yahooFinancialCurrency&&c.yahooFinancialCurrency!==c.financialCurrency?` (functional currency; Yahoo labels it ${c.yahooFinancialCurrency}; balance sheet ${c.balanceDate}, TTM = ${c.ttmQuarters?.length||4} quarters)`:"")],...(a.priceDeck?[["Commodity price deck (assumed)",a.priceDeck]]:[]),["Base revenue / EBIT margin",bn(b.rev0)+" / "+pct(b.ebit0/b.rev0)],[a.g1!=null?"Yr-1 / Yr-2 growth (analyst override)":a.g2!=null?"Yr-1 / Yr-2 growth (consensus / analyst override)":"Yr-1 / Yr-2 growth (consensus)",pct(b.g1)+" / "+pct(b.g2)],...(a.ebit1!=null?[["Yr-1 EBIT margin (override)",pct(r.s.ebit1??a.ebit1)]]:[]),["Country-risk premium",(a.crp?pct2(a.crp)+(r.s.crpAdd?` + ${pct2(r.s.crpAdd)} (scenario)`:"")+(a.crpLabel?" · "+a.crpLabel:a.crp===0.0648?" · Argentina EMBI 648 bp (2026-10-16)":c.financialCurrency==="CNY"?" · assumed China CRP":""):"none"+(r.s.crpAdd?` (scenario adds ${pct2(r.s.crpAdd)})`:""))],["Tax rate (assumed)",pct(a.tax)],["D&A % rev (now → yr 6)",pct(b.da0/b.rev0)+" → "+pct(a.daPctT)],["Capex % rev (yr 1 → yr 6)",pct(a.capexPct1)+" → "+pct(r.capexT)],["ΔNWC % of Δrevenue",pct(a.nwcPct)],["Net debt / Minority interest",bn(b.netDebt)+" / "+bn(b.minority)],...(b.cvAdd?[["Convertible notes (if-converted)",`${bn(b.cvDebt)} in-the-money principal treated as equity: +${(b.cvAdd/1e6).toFixed(2)}M shares, removed from debt`+(a.convertsNote?" · "+a.convertsNote:"")]]:[]),...(b.nonOp?[["Non-operating equity stakes (added)",bn(b.nonOp)+" · "+(a.nonOpAssets.label||a.nonOpAssets.row)]]:[]),...(a.peNIExclude?[["TTM net income for P/E",bn(b.c.self?.netIncome-a.peNIExclude)+" (excl. "+bn(a.peNIExclude)+" one-off: "+(a.peNIExcludeLabel||"one-off")+")"]]:[]),["Share count change (3y, p.a.)",pct(r.s.shareChange??a.shareChange)],["Cost of debt (pre-tax)",pct2(r.rf+a.kdSpread)],["Analyst consensus",`${c.recKey||"—"} · ${c.nAnalysts||"?"} analysts · mean target ${usd(c.targetMean)}`]].map(x=>`<span>${x[0]}</span><span>${x[1]}</span>`).join("")}</div>`;
 }
 /* ---------- bank-specific panels (residual income) ---------- */
 function drawBankProj(r,fu){const R=r.rows,b=r.b,bk=b.c.bank;
-  plot("vProj",[{type:"bar",name:"Book value / ADR (actual, "+bk.bvDate+")",x:["Now"],y:[b.bv0*fu],marker:{color:css("--mu")}},
-    {type:"bar",name:"Book value / ADR (projected, year-end)",x:R.map(x=>x.fy),y:R.map(x=>x.rev*fu),marker:{color:"rgba(91,140,255,.75)"}},
-    {type:"scatter",mode:"lines+markers",name:"Net income / ADR",x:R.map(x=>x.fy),y:R.map(x=>x.ni*fu),line:{color:css("--up"),width:2.5}},
-    {type:"scatter",mode:"lines+markers",name:"Residual income / ADR",x:R.map(x=>x.fy),y:R.map(x=>x.ri*fu),line:{color:"#a855f7",width:2,dash:"dot"}},
+  plot("vProj",[{type:"bar",name:"Book value / "+UN()+" (actual, "+bk.bvDate+")",x:["Now"],y:[b.bv0*fu],marker:{color:css("--mu")}},
+    {type:"bar",name:"Book value / "+UN()+" (projected, year-end)",x:R.map(x=>x.fy),y:R.map(x=>x.rev*fu),marker:{color:"rgba(91,140,255,.75)"}},
+    {type:"scatter",mode:"lines+markers",name:"Net income / "+UN(),x:R.map(x=>x.fy),y:R.map(x=>x.ni*fu),line:{color:css("--up"),width:2.5}},
+    {type:"scatter",mode:"lines+markers",name:"Residual income / "+UN(),x:R.map(x=>x.fy),y:R.map(x=>x.ri*fu),line:{color:"#a855f7",width:2,dash:"dot"}},
     {type:"scatter",mode:"lines",name:"ROE",x:R.map(x=>x.fy),y:R.map(x=>x.m),yaxis:"y2",line:{color:"#f59e0b",width:2,shape:"spline"}},
     {type:"scatter",mode:"lines",name:"Cost of equity",x:R.map(x=>x.fy),y:R.map(()=>r.ke),yaxis:"y2",line:{color:css("--dn"),width:1.5,dash:"dash"}}],
     {barmode:"overlay",hovermode:"x unified",yaxis:{tickprefix:S.ccy==="ARS"?"ARS ":"$",tickformat:",.0f",hoverformat:",.2f",gridcolor:css("--bd")},yaxis2:{overlaying:"y",side:"right",tickformat:".0%",showgrid:false},legend:{orientation:"h",y:-0.15,font:{size:10}},margin:{l:56,r:46,t:10,b:70}});
-  $("#vProjT").textContent="Book value, ROE vs cost of equity & residual income per ADR: 10-year projection";
-  $("#vTableNote").textContent="Residual income = (ROE − Ke) × opening book · implied dividends = net income − Δbook · per ADR, USD";
-  $("#vSensT").textContent="Sensitivity: fair value per ADR (cost of equity × terminal growth)";
-  $("#vTable").innerHTML=`<thead><tr><th>Line item (USD per ADR, ESTIMATES)</th>${R.map(x=>`<th>${x.fy}</th>`).join("")}</tr></thead><tbody>${[["Book growth",x=>sp(x.gr)],["Opening book value",x=>usd(x.b0)],["ROE",x=>pct(x.m)],["Net income",x=>usd(x.ni)],["− Equity charge (Ke × book)",x=>usd(x.charge)],["= Residual income",x=>`<b>${usd(x.ri)}</b>`],["Implied dividends",x=>usd(x.div)],["Payout ratio",x=>x.payout==null?"—":pct(x.payout)],["Year fraction remaining",x=>x.frac.toFixed(2)],["Discount factor",x=>x.df.toFixed(3)],["PV of residual income",x=>usd(x.pv)]].map(([l,fn])=>`<tr><td>${l}</td>${R.map(x=>`<td>${fn(x)}</td>`).join("")}</tr>`).join("")}</tbody>`}
+  $("#vProjT").textContent="Book value, ROE vs cost of equity & residual income per "+UN()+": 10-year projection";
+  $("#vTableNote").textContent="Residual income = (ROE − Ke) × opening book · implied dividends = net income − Δbook · per "+UN()+", USD";
+  $("#vSensT").textContent="Sensitivity: fair value per "+UN()+" (cost of equity × terminal growth)";
+  $("#vTable").innerHTML=`<thead><tr><th>Line item (USD per ${UN()}, ESTIMATES)</th>${R.map(x=>`<th>${x.fy}</th>`).join("")}</tr></thead><tbody>${[["Book growth",x=>sp(x.gr)],["Opening book value",x=>usd(x.b0)],["ROE",x=>pct(x.m)],["Net income",x=>usd(x.ni)],["− Equity charge (Ke × book)",x=>usd(x.charge)],["= Residual income",x=>`<b>${usd(x.ri)}</b>`],["Implied dividends",x=>usd(x.div)],["Payout ratio",x=>x.payout==null?"—":pct(x.payout)],["Year fraction remaining",x=>x.frac.toFixed(2)],["Discount factor",x=>x.df.toFixed(3)],["PV of residual income",x=>usd(x.pv)]].map(([l,fn])=>`<tr><td>${l}</td>${R.map(x=>`<td>${fn(x)}</td>`).join("")}</tr>`).join("")}</tbody>`}
 function drawBankBridge(r){const f=fx()/1e9,sh=r.shares,b=r.b,one=r.one||0;
   plot("vBridge",[{type:"waterfall",orientation:"v",x:["Book value ("+b.c.bank.bvDate+")","PV residual income (10y)","PV terminal RI",...(one?["One-off (regulatory)"]:[]),"Equity value"],
     measure:["relative","relative","relative",...(one?["relative"]:[]),"total"],y:[b.bv0*sh*f,r.pv*sh*f,r.pvTV*sh*f,...(one?[one*sh*f]:[]),0],
     connector:{line:{color:css("--bd")}},increasing:{marker:{color:css("--up")}},decreasing:{marker:{color:css("--dn")}},totals:{marker:{color:css("--ac")}},
-    text:[bn(b.bv0*sh),bn(r.pv*sh),bn(r.pvTV*sh),...(one?[bn(one*sh)]:[]),bn(Math.max(r.eq,0)*sh)+" · "+usd(r.ps)+"/ADR"],textposition:"outside",cliponaxis:false,hoverinfo:"x+text"}],
+    text:[bn(b.bv0*sh),bn(r.pv*sh),bn(r.pvTV*sh),...(one?[bn(one*sh)]:[]),bn(Math.max(r.eq,0)*sh)+" · "+usd(r.ps)+"/"+UN()],textposition:"outside",cliponaxis:false,hoverinfo:"x+text"}],
     {yaxis:{tickprefix:S.ccy==="ARS"?"ARS ":"$",ticksuffix:"B",tickformat:",.1f",gridcolor:css("--bd")},margin:{l:64,r:10,t:44,b:60}})}
-function drawBankAssump(r,a,b,c){const bk=c.bank;
+function drawUtilAssump(r,a,b,c){const bk=c.bank,cur=bk.ccy&&bk.ccy!=="USD";
+  $("#vAssump").innerHTML=`<p class="muted small" style="margin:0 0 8px">Regulated utility: valued with a residual-income model on book equity (equivalent to a DDM with the dividend = net income − Δbook). Allowed returns are earned on the regulated asset base, so value = book + PV of (ROE − Ke) × book; EV-based multiples are shown for reference in the multiples card.</p><div class="kv">${[
+    ["Book value / share",`${usd(b.bv0)} (price ÷ P/B ${num(c.self.pb,2)}x${cur?`; ${bk.ccy} statements at ${num(bk.fx,4)} ${bk.ccy}/USD`:""})`],
+    ["TTM net income / share (ROE)",usd(bk.niTTMperADR)+" ("+pct(bk.niTTMperADR/b.bv0)+")"],
+    ["Consensus EPS FY1 / FY2 (USD)",`${bk.eps0y!=null?usd(bk.eps0y):"—"} / ${bk.eps1y!=null?usd(bk.eps1y):"—"} → ROE ${pct(b.roe1)} / ${pct(b.roe2)}`],
+    ["Dividends paid, last FY",bk.divTTMperADR!=null?usd(bk.divTTMperADR)+"/share ("+pct(bk.divTTMperADR/c.price)+" yield)":"—"],
+    ["Allowed / regulatory return",a.regNote||"—"],
+    ["Cost of equity",`${pct2(r.ke)} = ${pct2(r.rf)} + ${r.beta.toFixed(2)} × ${pct2(r.erp)}${a.crp?" + "+pct2(a.crp)+" CRP":""}${r.s.crpAdd?" + "+pct2(r.s.crpAdd)+" (scenario)":""}`],
+    ["Analyst consensus",`${c.recKey||"—"} · ${c.nAnalysts||"?"} analysts · mean target ${usd(c.targetMean)}`]].map(x=>`<span>${x[0]}</span><span>${x[1]}</span>`).join("")}</div>`}
+function drawBankAssump(r,a,b,c){if(c.bank.util)return drawUtilAssump(r,a,b,c);const bk=c.bank;
   $("#vAssump").innerHTML=`<p class="muted small" style="margin:0 0 8px">Banks are valued on equity, not FCFF: debt and deposits are raw material, so a residual-income (excess-return) model on book value replaces the DCF; EV-based multiples are replaced by P/BV and P/E.</p><div class="kv">${[
     ["Book value / ADR",`${usd(b.bv0)} (${bk.bvDate}; ARS ${(bk.equityARS/1e12).toFixed(2)}T equity / ${(bk.adrShares/1e6).toFixed(1)}M ADR-eq. / ${bk.fxBv} ARS/USD)`],
     ["ADR ratio","1 ADS = "+bk.adrRatio+" Class B shares ("+(bk.localShares/1e9).toFixed(3)+"B Class A+B shares)"],
@@ -255,7 +284,7 @@ function valSummary(tk){const MX=multiplesOf(tk);const a=V.A.companies[tk],ov={}
   const mcO=V.mc[tk+"{}"]||monteCarlo(tk),mq=p=>mcO[Math.min(mcO.length-1,Math.floor(p*mcO.length))];
   const h=RV.H?.companies?.[tk],R=(typeof reverse==="function")?reverse(tk):null,wh=WH.D?.companies?.[tk];
   const s=a.score,valS=Math.round(clamp(5+(tri/c.price-1)*10,1,10));
-  return{ticker:tk,name:a.displayName||c.name,sector:a.sector||"",model:BK?"residual income (bank)":"DCF (FCFF)",price:q(c.price),priceDate:c.priceDate,
+  return{ticker:tk,name:a.displayName||c.name,sector:a.sector||"",model:BK?(isUtil(tk)?"residual income (regulated utility)":"residual income (bank)"):"DCF (FCFF)",preRevenue:!!a.preRevenue,price:q(c.price),priceDate:c.priceDate,
     priceLocal:c.priceLocal??null,currencyLocal:c.currencyLocal??null,reportingCurrency:cc,
     fx:FXS&&b.k!==1?{rate:fxd[FXS[0]]??b.k,quote:FXS[3],date:FXS[1]?fxd[FXS[1]]:null,source:FXS[2]==="BCRA_SRC"?"BCRA official wholesale rate (Com. A 3500)":FXS[2]?fxd[FXS[2]]:"Yahoo Finance FX (CNY=X)"}:null,
     base:q(r.ps),probWeighted:q(pw.pw),comps:compMid!=null?q(compMid):null,compsCycleAdjusted:!!cm.cyc,triangulated:q(tri),upside:tri/c.price-1,
@@ -274,7 +303,7 @@ function valSummary(tk){const MX=multiplesOf(tk);const a=V.A.companies[tk],ov={}
    Group statistics = median and mean of the covered tickers sharing a.group; peer median = this ticker's comps set. */
 const MX_DEF=[["evEbitda","EV / EBITDA","TTM","x",1],["pe","P/E","TTM","x",1],["fpe","Forward P/E","next FY consensus","x",1],["pfcf","P / FCF","last FY","x",1],
   ["fcfY","FCF yield","last FY","%",-1],["divY","Dividend yield","last FY cash dividends","%",-1],["ndE","Net debt / EBITDA","TTM","x",0],["pb","P / B","latest book","x",1]];
-function multiplesOf(tk){const c=V.D.companies[tk],a=V.A.companies[tk];if(!c)return null;const BK=isBank(tk),k=(c.financialCurrency&&c.financialCurrency!=="USD"&&V.D.fx[c.financialCurrency+"USD"])||1;
+function multiplesOf(tk){const c=V.D.companies[tk],a=V.A.companies[tk];if(!c)return null;const BK=a.model==="bank",k=(c.financialCurrency&&c.financialCurrency!=="USD"&&V.D.fx[c.financialCurrency+"USD"])||1;
   const L=(o,r)=>{const v=(o?.[r]||[]).filter(x=>x!=null);return v.length?v.at(-1):null},mc=c.marketCap,cash=(c.totalCash||0)/k,debt=(c.totalDebt||0)/k,mino=(L(c.balance,"Minority Interest")||0)/k;
   const ebitda=c.ebitdaTTM!=null?c.ebitdaTTM/k:null,fcf=L(c.cashflow,"Free Cash Flow"),div=L(c.cashflow,"Cash Dividends Paid"),ni=c.self?.netIncome;
   const e1=c.earningsEstimate?.["+1y"],ec=e1?.currency||c.financialCurrency,ek=!ec||ec==="USD"?1:ec===c.financialCurrency?k:(V.D.fx[ec+"USD"]??null),eps=e1?.avg!=null&&ek?e1.avg/ek*(ec===c.financialCurrency&&c.currency==="USD"&&c.financialCurrency!=="USD"&&!c.currencyLocal?(a.adrRatio||1):1):null;
@@ -285,6 +314,10 @@ function multiplesOf(tk){const c=V.D.companies[tk],a=V.A.companies[tk];if(!c)ret
     ndE:!BK&&pos(ebitda)?nd/ebitda:null,pb:pos(c.self?.pb)?c.self.pb:null}}
 const mstat=v=>{v=v.filter(x=>x!=null&&isFinite(x));if(!v.length)return{med:null,mean:null,n:0};return{med:median2(v),mean:v.reduce((p,q)=>p+q,0)/v.length,n:v.length}};
 function mxGroup(g){const T=VT.filter(t=>(V.A.companies[t].group||V.A.companies[t].sector)===g),M=T.map(multiplesOf).filter(Boolean),o={members:T};
+  // groupPeersFromComps (Pharma): the comps-set peers of the covered names also enter the sector median/mean (comps-only: EV/EBITDA, P/E, forward P/E, P/B)
+  const ex=[...new Set(T.filter(t=>V.A.companies[t].groupPeersFromComps).flatMap(t=>(V.D.companies[t].peers||[]).map(p=>p.ticker)))].filter(x=>!T.includes(x));
+  if(ex.length){const P=ex.map(x=>T.map(t=>V.D.companies[t].peers.find(p=>p.ticker===x)).find(Boolean));o.extraPeers=ex;
+    P.forEach(p=>M.push({evEbitda:p.evEbitda,pe:p.pe,fpe:p.forwardPE,pb:p.pb,pfcf:null,fcfY:null,divY:null,ndE:null}))}
   for(const [k] of MX_DEF){const cl=k==="evEbitda"||k==="pfcf"||k==="pe"||k==="fpe"?M.map(m=>m[k]).filter(x=>x!=null&&x<80):M.map(m=>m[k]);o[k]=mstat(cl)}return o}
 function mxPeers(tk){const cm=comps(tk),P=(cm.peers||[]).filter(p=>!p.ref),o={};o.evEbitda=mstat(P.map(p=>p.evEbitda).filter(x=>x>0&&x<60));o.pe=mstat(P.map(p=>p.pe).filter(x=>x>0&&x<80));
   o.fpe=mstat(P.map(p=>p.forwardPE).filter(x=>x>0&&x<80));o.pb=mstat(P.map(p=>p.pb).filter(x=>x>0&&x<20));o.n=P.length;return o}
@@ -293,5 +326,10 @@ function drawMx(){const tk=V.tk,m=multiplesOf(tk),box=$("#mxBox");if(!m||!box)re
   const cls=(v,ref,dir)=>v==null||ref==null||!dir?"":(dir>0?(v<ref*0.85?"cheap":v>ref*1.15?"rich":""):(v>ref*1.15?"cheap":v<ref*0.85?"rich":""));
   $("#mxTitle").textContent=`Valuation multiples: ${tk} vs ${m.group}`;$("#mxSub").textContent=`${g.members.length} covered names in the group · green = cheaper than the group median by >15%`;
   $("#vMx").innerHTML=`<thead><tr><th>Multiple</th><th>${tk}</th><th>Group median</th><th>Group mean</th><th>Comps-set median</th></tr></thead><tbody>${MX_DEF.map(([k,l,d,u,dir])=>`<tr><td>${l}<span class="def">${d}</span></td><td class="self ${cls(m[k],g[k].med,dir)}">${fm(m[k],u)}</td><td>${fm(g[k].med,u)}</td><td>${fm(g[k].mean,u)}</td><td>${p[k]?fm(p[k].med,u):"—"}</td></tr>`).join("")}</tbody>`;
-  $("#mxNote").innerHTML=`Group: ${g.members.join(", ")}. EV = market cap + net debt + minority interest; EBITDA TTM; FCF and dividends from the last fiscal-year cash-flow statement; forward P/E on next-fiscal-year consensus EPS; all in USD at the official rates used by the model. Group stats exclude P/E-type multiples above 80x. Comps-set median uses this ticker's peer list (TTM, Yahoo). Data in <code>data/multiples.json</code>.`}
+  $("#mxNote").innerHTML=`Group: ${g.members.join(", ")}${g.extraPeers?` + comps-only peers ${g.extraPeers.join(", ")} (EV/EBITDA, P/E, forward P/E, P/B only)`:""}. EV = market cap + net debt + minority interest; EBITDA TTM; FCF and dividends from the last fiscal-year cash-flow statement; forward P/E on next-fiscal-year consensus EPS; all in USD at the official rates used by the model. Group stats exclude P/E-type multiples above 80x. Comps-set median uses this ticker's peer list (TTM, Yahoo). Data in <code>data/multiples.json</code>.`}
 const _dvMx=drawVal;drawVal=function(full){_dvMx(full);try{drawMx()}catch(e){console.error(e)}};
+
+/* pre-revenue flag (OKLO, SMR): value rests on scenarios, not on current financials */
+const _dvPre=drawVal;drawVal=function(full){_dvPre(full);const a=V.A.companies[V.tk],k=$("#vK");if(!k)return;let f=$("#preRevFlag");
+  if(!a.preRevenue){if(f)f.remove();return}if(!f){k.insertAdjacentHTML("beforebegin",'<div id="preRevFlag" class="prerev"></div>');f=$("#preRevFlag")}
+  f.innerHTML=`<b>⚠ Pre-revenue company.</b> ${a.preRevenue}`};

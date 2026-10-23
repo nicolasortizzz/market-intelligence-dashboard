@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T03:39:47Z",
+ "generatedAt": "2026-10-23T04:32:14Z",
  "source": "market-intelligence-dashboard valuation engine (valuation.js valSummary, model defaults)",
  "dashboard": "https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation",
  "fx": {
@@ -18,7 +18,10 @@
   "TWD_source": "Central Bank of the R.O.C. (Taiwan), NT$/US$ interbank closing rate (cbc.gov.tw)",
   "KRWUSD": 1327.8377173428446,
   "KRW_date": "2026-10-20",
-  "KRW_source": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)"
+  "KRW_source": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)",
+  "CADUSD": 1.4021,
+  "CAD_date": "2026-10-22",
+  "CAD_source": "Bank of Canada daily exchange rate (FXUSDCAD, Valet API)"
  },
  "tickers": [
   "META",
@@ -50,7 +53,26 @@
   "PBR",
   "PRIO3.SA",
   "CEG",
-  "NRG"
+  "NRG",
+  "NEE",
+  "DUK",
+  "SO",
+  "AEP",
+  "EQTL3.SA",
+  "CMIG4.SA",
+  "CPFE3.SA",
+  "CPLE3.SA",
+  "TAEE11.SA",
+  "AXIA3.SA",
+  "EGIE3.SA",
+  "BEP",
+  "GEV",
+  "FSLR",
+  "CCJ",
+  "OKLO",
+  "SMR",
+  "MRK",
+  "BMY"
  ],
  "companies": {
   "META": {
@@ -58,6 +80,7 @@
    "name": "Meta Platforms, Inc.",
    "sector": "Internet platforms / digital advertising",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 705.44,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -75,10 +98,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 247.62,
-    "p50": 518.23,
-    "p90": 880.4,
-    "pAbovePrice": 0.231
+    "p10": 250.57,
+    "p50": 520.64,
+    "p90": 877.02,
+    "pAbovePrice": 0.23275
    },
    "scenarios": [
     {
@@ -240,6 +263,7 @@
    "name": "UnitedHealth Group Incorporated",
    "sector": "Managed care / health services",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 406.88,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -257,10 +281,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 178.3,
-    "p50": 394.77,
-    "p90": 633.63,
-    "pAbovePrice": 0.47725
+    "p10": 178.78,
+    "p50": 397,
+    "p90": 641.23,
+    "pAbovePrice": 0.4755
    },
    "scenarios": [
     {
@@ -420,6 +444,7 @@
    "name": "The Walt Disney Company",
    "sector": "Media & entertainment / experiences",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 109.59,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -437,10 +462,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 37.34,
-    "p50": 70.18,
-    "p90": 103.98,
-    "pAbovePrice": 0.07225
+    "p10": 36.85,
+    "p50": 70.3,
+    "p90": 104.46,
+    "pAbovePrice": 0.072
    },
    "scenarios": [
     {
@@ -600,6 +625,7 @@
    "name": "NIO Inc.",
    "sector": "China EV maker",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 3.39,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -623,9 +649,9 @@
    "monteCarlo": {
     "n": 4000,
     "p10": 0,
-    "p50": 2.62,
-    "p90": 9.58,
-    "pAbovePrice": 0.37675
+    "p50": 2.71,
+    "p90": 9.14,
+    "pAbovePrice": 0.37925
    },
    "scenarios": [
     {
@@ -785,6 +811,7 @@
    "name": "YPF Sociedad Anonima",
    "sector": "Argentine integrated oil & gas (Vaca Muerta shale)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 50.69,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -802,10 +829,10 @@
    "terminalG": 0.015,
    "monteCarlo": {
     "n": 4000,
-    "p10": 2.73,
-    "p50": 36.37,
-    "p90": 71.38,
-    "pAbovePrice": 0.25725
+    "p10": 2.37,
+    "p50": 36.46,
+    "p90": 70.66,
+    "pAbovePrice": 0.2685
    },
    "scenarios": [
     {
@@ -975,6 +1002,7 @@
    "name": "Grupo Financiero Galicia S.A.",
    "sector": "Argentine financial group (bank, cards, insurance, asset management)",
    "model": "residual income (bank)",
+   "preRevenue": false,
    "price": 35.09,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -997,10 +1025,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 20.19,
-    "p50": 35.58,
-    "p90": 59.64,
-    "pAbovePrice": 0.5095
+    "p10": 20.18,
+    "p50": 36.45,
+    "p90": 58.83,
+    "pAbovePrice": 0.525
    },
    "scenarios": [
     {
@@ -1160,6 +1188,7 @@
    "name": "Micron Technology, Inc.",
    "sector": "Memory semiconductors (DRAM, HBM, NAND)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 904.9,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -1177,10 +1206,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 207.02,
-    "p50": 628.71,
-    "p90": 999.38,
-    "pAbovePrice": 0.148
+    "p10": 201.01,
+    "p50": 623.23,
+    "p90": 1000.36,
+    "pAbovePrice": 0.14975
    },
    "scenarios": [
     {
@@ -1351,6 +1380,7 @@
    "name": "ASML Holding",
    "sector": "Semiconductor equipment (EUV/DUV lithography)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 1647.12,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -1373,10 +1403,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 438.25,
-    "p50": 818.49,
-    "p90": 1232.41,
-    "pAbovePrice": 0.01925
+    "p10": 431.85,
+    "p50": 806.48,
+    "p90": 1248.74,
+    "pAbovePrice": 0.015
    },
    "scenarios": [
     {
@@ -1547,6 +1577,7 @@
    "name": "Vistra Corp.",
    "sector": "US independent power producer (nuclear, gas, retail electricity)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 149.7,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -1564,10 +1595,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 43.72,
-    "p50": 151.22,
-    "p90": 256.26,
-    "pAbovePrice": 0.506
+    "p10": 40.49,
+    "p50": 146.47,
+    "p90": 251.56,
+    "pAbovePrice": 0.484
    },
    "scenarios": [
     {
@@ -1687,47 +1718,50 @@
      "VST",
      "BE",
      "CEG",
-     "NRG"
+     "NRG",
+     "AXIA3.SA",
+     "EGIE3.SA",
+     "BEP"
     ],
     "evEbitda": {
-     "med": 13.263038667333069,
-     "mean": 12.759082160207,
-     "n": 3
+     "med": 11.936680881578503,
+     "mean": 14.165354012123673,
+     "n": 6
     },
     "pe": {
-     "med": 25.370414485933505,
-     "mean": 25.41803909039505,
-     "n": 3
+     "med": 24.787659562698465,
+     "mean": 19.756292836736016,
+     "n": 5
     },
     "fpe": {
-     "med": 16.81563505137473,
-     "mean": 22.04166897312675,
-     "n": 4
+     "med": 13.283080903907091,
+     "mean": 18.351144570232485,
+     "n": 6
     },
     "pfcf": {
-     "med": 38.12184182094082,
-     "mean": 44.75335710676512,
-     "n": 3
+     "med": 27.638438459940385,
+     "mean": 34.67117717225845,
+     "n": 5
     },
     "fcfY": {
-     "med": 0.020237939043275997,
-     "mean": 0.019973336669895606,
-     "n": 4
+     "med": 0.026231681163177353,
+     "mean": -0.02620745085609489,
+     "n": 7
     },
     "divY": {
-     "med": 0.007643133332219098,
-     "mean": 0.009004139105421301,
-     "n": 4
+     "med": 0.020716076509579105,
+     "mean": 0.038279226692825755,
+     "n": 7
     },
     "ndE": {
-     "med": 3.019399449121417,
-     "mean": 3.359382104604718,
-     "n": 4
+     "med": 3.020312950556717,
+     "mean": 4.517954996807901,
+     "n": 7
     },
     "pb": {
-     "med": 6.625907448049173,
-     "mean": 14.353026339250938,
-     "n": 4
+     "med": 3.50981069717412,
+     "mean": 10.245015643095764,
+     "n": 6
     }
    }
   },
@@ -1736,6 +1770,7 @@
    "name": "Ambev S.A.",
    "sector": "Beverages (beer, soft drinks) - Brazil, LatAm North/South, Canada",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 3.25,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -1758,10 +1793,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.98,
+    "p10": 1.97,
     "p50": 2.73,
-    "p90": 3.6,
-    "pAbovePrice": 0.2065
+    "p90": 3.59,
+    "pAbovePrice": 0.211
    },
    "scenarios": [
     {
@@ -1927,6 +1962,7 @@
    "name": "Uber Technologies, Inc.",
    "sector": "Global mobility, delivery and freight marketplace",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 69.96,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -1944,10 +1980,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 38.73,
-    "p50": 81.66,
-    "p90": 139.16,
-    "pAbovePrice": 0.6225
+    "p10": 39.48,
+    "p50": 81.36,
+    "p90": 136.17,
+    "pAbovePrice": 0.6175
    },
    "scenarios": [
     {
@@ -2115,6 +2151,7 @@
    "name": "Bloom Energy Corporation",
    "sector": "Solid-oxide fuel cells / on-site power for data centers and industry",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 226.22,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -2132,10 +2169,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 11.64,
-    "p50": 55.94,
-    "p90": 121.51,
-    "pAbovePrice": 0.004
+    "p10": 17.56,
+    "p50": 56.47,
+    "p90": 122.69,
+    "pAbovePrice": 0.00425
    },
    "scenarios": [
     {
@@ -2255,47 +2292,50 @@
      "VST",
      "BE",
      "CEG",
-     "NRG"
+     "NRG",
+     "AXIA3.SA",
+     "EGIE3.SA",
+     "BEP"
     ],
     "evEbitda": {
-     "med": 13.263038667333069,
-     "mean": 12.759082160207,
-     "n": 3
+     "med": 11.936680881578503,
+     "mean": 14.165354012123673,
+     "n": 6
     },
     "pe": {
-     "med": 25.370414485933505,
-     "mean": 25.41803909039505,
-     "n": 3
+     "med": 24.787659562698465,
+     "mean": 19.756292836736016,
+     "n": 5
     },
     "fpe": {
-     "med": 16.81563505137473,
-     "mean": 22.04166897312675,
-     "n": 4
+     "med": 13.283080903907091,
+     "mean": 18.351144570232485,
+     "n": 6
     },
     "pfcf": {
-     "med": 38.12184182094082,
-     "mean": 44.75335710676512,
-     "n": 3
+     "med": 27.638438459940385,
+     "mean": 34.67117717225845,
+     "n": 5
     },
     "fcfY": {
-     "med": 0.020237939043275997,
-     "mean": 0.019973336669895606,
-     "n": 4
+     "med": 0.026231681163177353,
+     "mean": -0.02620745085609489,
+     "n": 7
     },
     "divY": {
-     "med": 0.007643133332219098,
-     "mean": 0.009004139105421301,
-     "n": 4
+     "med": 0.020716076509579105,
+     "mean": 0.038279226692825755,
+     "n": 7
     },
     "ndE": {
-     "med": 3.019399449121417,
-     "mean": 3.359382104604718,
-     "n": 4
+     "med": 3.020312950556717,
+     "mean": 4.517954996807901,
+     "n": 7
     },
     "pb": {
-     "med": 6.625907448049173,
-     "mean": 14.353026339250938,
-     "n": 4
+     "med": 3.50981069717412,
+     "mean": 10.245015643095764,
+     "n": 6
     }
    }
   },
@@ -2304,6 +2344,7 @@
    "name": "Broadcom Inc.",
    "sector": "Semiconductors (custom AI accelerators, networking) and infrastructure software (VMware)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 334.59,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -2321,10 +2362,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 89.94,
-    "p50": 298.29,
-    "p90": 545.49,
-    "pAbovePrice": 0.373
+    "p10": 90.16,
+    "p50": 296.94,
+    "p90": 521.41,
+    "pAbovePrice": 0.37075
    },
    "scenarios": [
     {
@@ -2495,6 +2536,7 @@
    "name": "Vista Energy S.A.B. de C.V.",
    "sector": "Argentine shale oil producer (Vaca Muerta)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 70.86,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -2512,10 +2554,10 @@
    "terminalG": 0.015,
    "monteCarlo": {
     "n": 4000,
-    "p10": 8.16,
-    "p50": 41.41,
-    "p90": 82.59,
-    "pAbovePrice": 0.15875
+    "p10": 8.15,
+    "p50": 41.59,
+    "p90": 81.35,
+    "pAbovePrice": 0.1635
    },
    "scenarios": [
     {
@@ -2697,6 +2739,7 @@
    "name": "Taiwan Semiconductor Manufacturing (TSMC)",
    "sector": "Semiconductor foundry (leading-edge logic and advanced packaging)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 420.22,
    "priceDate": "2026-10-19",
    "priceLocal": null,
@@ -2719,10 +2762,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 124.85,
-    "p50": 304.82,
-    "p90": 498.69,
-    "pAbovePrice": 0.19875
+    "p10": 129.58,
+    "p50": 309.37,
+    "p90": 506.48,
+    "pAbovePrice": 0.215
    },
    "scenarios": [
     {
@@ -2899,6 +2942,7 @@
    "name": "SpaceX (Space Exploration Technologies)",
    "sector": "Space launch, satellite connectivity (Starlink) and AI (xAI/X, Cursor): 'Super Intelligence' segment",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 147.79,
    "priceDate": "2026-10-20",
    "priceLocal": null,
@@ -2916,10 +2960,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 2.82,
-    "p50": 22.34,
-    "p90": 68.28,
-    "pAbovePrice": 0.025
+    "p10": 2.78,
+    "p50": 21.68,
+    "p90": 66.26,
+    "pAbovePrice": 0.02025
    },
    "scenarios": [
     {
@@ -3085,6 +3129,7 @@
    "name": "Samsung Electronics",
    "sector": "Memory semiconductors (DRAM, HBM, NAND), foundry/System LSI, smartphones and consumer electronics, displays (SDC) and Harman",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 159.28,
    "priceDate": "2026-10-20",
    "priceLocal": 211500,
@@ -3107,10 +3152,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 70.3,
-    "p50": 193.02,
-    "p90": 363.74,
-    "pAbovePrice": 0.6235
+    "p10": 69.67,
+    "p50": 194.22,
+    "p90": 368.52,
+    "pAbovePrice": 0.63325
    },
    "scenarios": [
     {
@@ -3281,6 +3326,7 @@
    "name": "SK hynix",
    "sector": "Memory semiconductors: DRAM (incl. HBM, ~75% of revenue) and NAND/eSSD (Solidigm)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 974.52,
    "priceDate": "2026-10-21",
    "priceLocal": 1294000,
@@ -3303,10 +3349,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 253.82,
-    "p50": 883.34,
-    "p90": 1966.34,
-    "pAbovePrice": 0.36525
+    "p10": 253.41,
+    "p50": 879.14,
+    "p90": 1979.06,
+    "pAbovePrice": 0.36625
    },
    "scenarios": [
     {
@@ -3483,6 +3529,7 @@
    "name": "Alphabet Inc.",
    "sector": "Internet search and advertising (Google Services), cloud (Google Cloud) and AI (Gemini, TPUs), Waymo / Other Bets",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 324.22,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -3500,10 +3547,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 101.09,
-    "p50": 208.43,
-    "p90": 330.31,
-    "pAbovePrice": 0.1075
+    "p10": 99.3,
+    "p50": 205.41,
+    "p90": 339.86,
+    "pAbovePrice": 0.126
    },
    "scenarios": [
     {
@@ -3671,6 +3718,7 @@
    "name": "ExxonMobil Holdings Corporation",
    "sector": "Integrated oil & gas major (upstream, refining, chemicals, low-carbon)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 178.23,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -3688,10 +3736,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 40.67,
-    "p50": 98.85,
-    "p90": 177.7,
-    "pAbovePrice": 0.09825
+    "p10": 41.95,
+    "p50": 96.68,
+    "p90": 176.15,
+    "pAbovePrice": 0.09575
    },
    "scenarios": [
     {
@@ -3867,6 +3915,7 @@
    "name": "Chevron Corporation",
    "sector": "Integrated oil & gas major (upstream incl. Hess/Guyana, refining, chemicals)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 226.68,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -3884,10 +3933,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 58.42,
-    "p50": 124.34,
-    "p90": 236.7,
-    "pAbovePrice": 0.12425
+    "p10": 49.69,
+    "p50": 124.05,
+    "p90": 237.21,
+    "pAbovePrice": 0.12275
    },
    "scenarios": [
     {
@@ -4063,6 +4112,7 @@
    "name": "ConocoPhillips",
    "sector": "Independent E&P (Permian, Alaska, LNG; largest US independent)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 145.63,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -4080,10 +4130,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 47.33,
-    "p50": 105.97,
-    "p90": 204.75,
-    "pAbovePrice": 0.2405
+    "p10": 40.57,
+    "p50": 106.75,
+    "p90": 210.36,
+    "pAbovePrice": 0.25375
    },
    "scenarios": [
     {
@@ -4259,6 +4309,7 @@
    "name": "EOG Resources, Inc.",
    "sector": "Independent E&P (Delaware, Eagle Ford, Dorado gas, Utica)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 157.96,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -4276,10 +4327,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 60.09,
-    "p50": 127.47,
-    "p90": 251.94,
-    "pAbovePrice": 0.289
+    "p10": 53.93,
+    "p50": 127.52,
+    "p90": 250.31,
+    "pAbovePrice": 0.2865
    },
    "scenarios": [
     {
@@ -4455,6 +4506,7 @@
    "name": "Occidental Petroleum Corporatio",
    "sector": "Independent E&P (Permian, Middle East) plus OxyChem and carbon capture",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 62.5,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -4472,10 +4524,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 20.47,
-    "p50": 41.3,
-    "p90": 79.14,
-    "pAbovePrice": 0.22125
+    "p10": 20.15,
+    "p50": 41.22,
+    "p90": 77.78,
+    "pAbovePrice": 0.20475
    },
    "scenarios": [
     {
@@ -4651,6 +4703,7 @@
    "name": "Devon Energy Corporation",
    "sector": "Independent E&P (Delaware, Anadarko, Williston, Eagle Ford)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 49.18,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -4668,10 +4721,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 7.52,
-    "p50": 37.44,
-    "p90": 69.99,
-    "pAbovePrice": 0.2745
+    "p10": 8.8,
+    "p50": 37.13,
+    "p90": 67.67,
+    "pAbovePrice": 0.26125
    },
    "scenarios": [
     {
@@ -4847,6 +4900,7 @@
    "name": "SLB Limited",
    "sector": "Oilfield services and technology (reservoir, well construction, production systems, digital)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 49.55,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -4864,10 +4918,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 9.23,
-    "p50": 39.48,
-    "p90": 64.38,
-    "pAbovePrice": 0.28925
+    "p10": 8.9,
+    "p50": 38.68,
+    "p90": 63.7,
+    "pAbovePrice": 0.2835
    },
    "scenarios": [
     {
@@ -5043,6 +5097,7 @@
    "name": "Petroleo Brasileiro S.A. Petrob",
    "sector": "Brazilian state-controlled integrated oil (pre-salt deepwater, refining)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 25.62,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -5060,10 +5115,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 0.76,
-    "p50": 15.34,
-    "p90": 34.13,
-    "pAbovePrice": 0.2045
+    "p10": 3.84,
+    "p50": 15.65,
+    "p90": 34.59,
+    "pAbovePrice": 0.20775
    },
    "scenarios": [
     {
@@ -5239,6 +5294,7 @@
    "name": "PRIO        ON      NM",
    "sector": "Brazilian independent E&P (offshore brownfields: Frade, Albacora Leste, Peregrino, Polvo/TBMT)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 14.15,
    "priceDate": "2026-10-21",
    "priceLocal": 71.30999755859375,
@@ -5261,10 +5317,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 3.1,
-    "p50": 10.65,
-    "p90": 20.67,
-    "pAbovePrice": 0.26975
+    "p10": 2.48,
+    "p50": 10.78,
+    "p90": 20.79,
+    "pAbovePrice": 0.28325
    },
    "scenarios": [
     {
@@ -5440,6 +5496,7 @@
    "name": "Constellation Energy Corporatio",
    "sector": "US nuclear-led power producer (largest US nuclear fleet; Calpine gas from 2026)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 255.21,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -5457,10 +5514,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 40.04,
-    "p50": 188.61,
-    "p90": 417.95,
-    "pAbovePrice": 0.2835
+    "p10": 36.77,
+    "p50": 187.46,
+    "p90": 413.95,
+    "pAbovePrice": 0.296
    },
    "scenarios": [
     {
@@ -5580,47 +5637,50 @@
      "VST",
      "BE",
      "CEG",
-     "NRG"
+     "NRG",
+     "AXIA3.SA",
+     "EGIE3.SA",
+     "BEP"
     ],
     "evEbitda": {
-     "med": 13.263038667333069,
-     "mean": 12.759082160207,
-     "n": 3
+     "med": 11.936680881578503,
+     "mean": 14.165354012123673,
+     "n": 6
     },
     "pe": {
-     "med": 25.370414485933505,
-     "mean": 25.41803909039505,
-     "n": 3
+     "med": 24.787659562698465,
+     "mean": 19.756292836736016,
+     "n": 5
     },
     "fpe": {
-     "med": 16.81563505137473,
-     "mean": 22.04166897312675,
-     "n": 4
+     "med": 13.283080903907091,
+     "mean": 18.351144570232485,
+     "n": 6
     },
     "pfcf": {
-     "med": 38.12184182094082,
-     "mean": 44.75335710676512,
-     "n": 3
+     "med": 27.638438459940385,
+     "mean": 34.67117717225845,
+     "n": 5
     },
     "fcfY": {
-     "med": 0.020237939043275997,
-     "mean": 0.019973336669895606,
-     "n": 4
+     "med": 0.026231681163177353,
+     "mean": -0.02620745085609489,
+     "n": 7
     },
     "divY": {
-     "med": 0.007643133332219098,
-     "mean": 0.009004139105421301,
-     "n": 4
+     "med": 0.020716076509579105,
+     "mean": 0.038279226692825755,
+     "n": 7
     },
     "ndE": {
-     "med": 3.019399449121417,
-     "mean": 3.359382104604718,
-     "n": 4
+     "med": 3.020312950556717,
+     "mean": 4.517954996807901,
+     "n": 7
     },
     "pb": {
-     "med": 6.625907448049173,
-     "mean": 14.353026339250938,
-     "n": 4
+     "med": 3.50981069717412,
+     "mean": 10.245015643095764,
+     "n": 6
     }
    }
   },
@@ -5629,6 +5689,7 @@
    "name": "NRG Energy, Inc.",
    "sector": "US integrated power: retail electricity (Reliant, Direct, Vivint smart home) and gas generation (ERCOT, PJM)",
    "model": "DCF (FCFF)",
+   "preRevenue": false,
    "price": 94.38,
    "priceDate": "2026-10-22",
    "priceLocal": null,
@@ -5646,10 +5707,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.98,
-    "p50": 101.11,
-    "p90": 282.11,
-    "pAbovePrice": 0.53
+    "p10": 2.49,
+    "p50": 103.06,
+    "p90": 290.21,
+    "pAbovePrice": 0.53775
    },
    "scenarios": [
     {
@@ -5769,47 +5830,3754 @@
      "VST",
      "BE",
      "CEG",
-     "NRG"
+     "NRG",
+     "AXIA3.SA",
+     "EGIE3.SA",
+     "BEP"
     ],
     "evEbitda": {
-     "med": 13.263038667333069,
-     "mean": 12.759082160207,
+     "med": 11.936680881578503,
+     "mean": 14.165354012123673,
+     "n": 6
+    },
+    "pe": {
+     "med": 24.787659562698465,
+     "mean": 19.756292836736016,
+     "n": 5
+    },
+    "fpe": {
+     "med": 13.283080903907091,
+     "mean": 18.351144570232485,
+     "n": 6
+    },
+    "pfcf": {
+     "med": 27.638438459940385,
+     "mean": 34.67117717225845,
+     "n": 5
+    },
+    "fcfY": {
+     "med": 0.026231681163177353,
+     "mean": -0.02620745085609489,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.020716076509579105,
+     "mean": 0.038279226692825755,
+     "n": 7
+    },
+    "ndE": {
+     "med": 3.020312950556717,
+     "mean": 4.517954996807901,
+     "n": 7
+    },
+    "pb": {
+     "med": 3.50981069717412,
+     "mean": 10.245015643095764,
+     "n": 6
+    }
+   }
+  },
+  "NEE": {
+   "ticker": "NEE",
+   "name": "NextEra Energy, Inc.",
+   "sector": "US utility holding: Florida Power & Light (regulated) + NextEra Energy Resources (largest wind/solar/storage developer)",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 81.9,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 48.56,
+   "probWeighted": 45.71,
+   "comps": 75.13,
+   "compsCycleAdjusted": false,
+   "triangulated": 57.47,
+   "upside": -0.29823036789535395,
+   "wacc": null,
+   "costOfEquity": 0.08975,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 28.5,
+    "p50": 45.83,
+    "p90": 67.65,
+    "pAbovePrice": 0.0285
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 36.96
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 48.56
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 59.8
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 23.36
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 33.61
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 70.02
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.25323409736156455,
+    "impliedMargin": 0.19203392863273627,
+    "baseMargin": 0.125
+   },
+   "revenueCagr": {
+    "value": 0.08701154556137602,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.03756126123255365
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07755889331334914
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06978817126860466
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.07653451980299132
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.07636978288444693
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.08274621010323566
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 9,
+    "growth": 7,
+    "risk": 7,
+    "valuation": 2,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 19,
+    "targetMean": 94.57895
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "NEE",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 170841620480,
+    "ev": 290043618752,
+    "evEbitda": 19.87553003822124,
+    "pe": 18.372041574464642,
+    "fpe": 18.705848038599118,
+    "pfcf": 53.205113821239486,
+    "fcfY": 0.01879518580412847,
+    "divY": 0.027393793074843117,
+    "ndE": 7.354964364899333,
+    "pb": 2.9906105885236145
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "DUK": {
+   "ticker": "DUK",
+   "name": "Duke Energy Corporation (Holdin",
+   "sector": "US regulated electric & gas utility (Carolinas, Florida, Midwest)",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 125.4,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 91.3,
+   "probWeighted": 87.64,
+   "comps": 149.94,
+   "compsCycleAdjusted": false,
+   "triangulated": 112.56,
+   "upside": -0.10241340073248684,
+   "wacc": null,
+   "costOfEquity": 0.08525,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 55.38,
+    "p50": 87.29,
+    "p90": 131.55,
+    "pAbovePrice": 0.12675
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 73.44
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 91.3
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 117.14
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 43.47
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 59.58
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 140.02
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.2348631471395493,
+    "impliedMargin": 0.1261687695980072,
+    "baseMargin": 0.1
+   },
+   "revenueCagr": {
+    "value": 0.06421241901401809,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.03862151850842664
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07398193126988642
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06831828806262161
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.07389052097753623
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.06947688771038295
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.07425956610681261
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 8,
+    "growth": 5,
+    "risk": 8,
+    "valuation": 4,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 19,
+    "targetMean": 132.3158
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "DUK",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 97774657536,
+    "ev": 190484655616,
+    "evEbitda": 11.463239835689194,
+    "pe": 18.919244879256965,
+    "fpe": 17.49083286852151,
+    "pfcf": null,
+    "fcfY": -0.01732555288548344,
+    "divY": 0.033751077049643065,
+    "ndE": 5.508394922822247,
+    "pb": 1.7858058763492903
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "SO": {
+   "ticker": "SO",
+   "name": "Southern Company (The)",
+   "sector": "US regulated electric & gas utility (Georgia Power, Alabama Power, Mississippi; gas LDCs)",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 93.82,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 60.31,
+   "probWeighted": 57.54,
+   "comps": 82.33,
+   "compsCycleAdjusted": false,
+   "triangulated": 67.46,
+   "upside": -0.28099503247392044,
+   "wacc": null,
+   "costOfEquity": 0.08525,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 37.76,
+    "p50": 57.44,
+    "p90": 83.85,
+    "pAbovePrice": 0.04475
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 48.31
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 60.31
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 74.7
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 31.23
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 41.21
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 87.82
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.2155392736196518,
+    "impliedMargin": 0.17249467968940735,
+    "baseMargin": 0.12
+   },
+   "revenueCagr": {
+    "value": 0.07721102899843224,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.04348207068816798
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.077459175125558
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.07011876143217706
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.0748675411580145
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.06825761330219264
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.07348940019754283
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 8,
+    "growth": 6,
+    "risk": 8,
+    "valuation": 2,
+    "total": 6
+   },
+   "analyst": {
+    "rec": "hold",
+    "n": 20,
+    "targetMean": 96.05
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "SO",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 107927060480,
+    "ev": 184881059008,
+    "evEbitda": 12.966829896742476,
+    "pe": 23.17025836105476,
+    "fpe": 19.060853674085045,
+    "pfcf": null,
+    "fcfY": -0.027194292024138707,
+    "divY": 0.027935533374030052,
+    "ndE": 5.197292691348959,
+    "pb": 2.727497105888299
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "AEP": {
+   "ticker": "AEP",
+   "name": "American Electric Power Company",
+   "sector": "US regulated electric utility (11 states; largest US transmission owner)",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 130.64,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 91.01,
+   "probWeighted": 86.38,
+   "comps": 142.43,
+   "compsCycleAdjusted": false,
+   "triangulated": 108.8,
+   "upside": -0.16718600270613326,
+   "wacc": null,
+   "costOfEquity": 0.08525,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 52.98,
+    "p50": 85.43,
+    "p90": 130.63,
+    "pAbovePrice": 0.0995
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 70.69
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 91.01
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 115.5
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 41.53
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 59.61
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 137.53
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.21765846908092495,
+    "impliedMargin": 0.14410509467124943,
+    "baseMargin": 0.11
+   },
+   "revenueCagr": {
+    "value": 0.07956439130862147,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.03945774399893279
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07517997595975584
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06939188475222063
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.07601337871695203
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.07301708317915884
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.07819492810288485
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 7,
+    "valuation": 3,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 23,
+    "targetMean": 141.1913
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "AEP",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 71120076800,
+    "ev": 125122076992,
+    "evEbitda": 13.857799793033829,
+    "pe": 22.642495462948013,
+    "fpe": 19.008375003586394,
+    "pfcf": null,
+    "fcfY": -0.02304553191933561,
+    "divY": 0.02823394026481141,
+    "ndE": 5.8613355927149815,
+    "pb": 2.217029109386203
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "EQTL3.SA": {
+   "ticker": "EQTL3.SA",
+   "name": "Equatorial",
+   "sector": "Brazilian utility platform: power distribution (7 concessions), transmission, renewables, sanitation (Sabesp stake)",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 9.65,
+   "priceDate": "2026-10-21",
+   "priceLocal": 48.630001068115234,
+   "currencyLocal": "BRL",
+   "reportingCurrency": "BRL",
+   "fx": {
+    "rate": 5.0383,
+    "quote": "BRL per USD",
+    "date": "2026-10-22",
+    "source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"
+   },
+   "base": 3.21,
+   "probWeighted": 3.16,
+   "comps": 4.47,
+   "compsCycleAdjusted": false,
+   "triangulated": 3.68,
+   "upside": -0.6186882659464125,
+   "wacc": null,
+   "costOfEquity": 0.12215,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 1.86,
+    "p50": 3.08,
+    "p90": 4.98,
+    "pAbovePrice": 0
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 2.37
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 3.21
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 4.75
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 1.33
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 2.29
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 5.47
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": null,
+    "impliedMargin": 0.25024721026420593,
+    "baseMargin": 0.11
+   },
+   "revenueCagr": {
+    "value": 0.2382303870581639,
+    "currency": "BRL",
+    "usd": 0.2241554072390135,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.08232601851346885
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.13781990772834635
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.12917625683214598
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.12087549820414281
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.10310641436449947
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.11215680674013612
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 5,
+    "valuation": 1,
+    "total": 5.25
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 14,
+    "targetMean": 10.49191790881845
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "EQTL3.SA",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 12011176315.820814,
+    "ev": 23671949322.588974,
+    "evEbitda": 10.211130637746592,
+    "pe": 84.96705037002984,
+    "fpe": 29.472727920069836,
+    "pfcf": 15.37357092135882,
+    "fcfY": 0.06504669638012854,
+    "divY": 0.08878402444369622,
+    "ndE": 4.8094081631830035,
+    "pb": 2.3162509240368383
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "CMIG4.SA": {
+   "ticker": "CMIG4.SA",
+   "name": "Cemig (PN)",
+   "sector": "Brazilian state-controlled utility (Minas Gerais): distribution, generation (hydro), transmission, gas (Gasmig)",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 2.32,
+   "priceDate": "2026-10-21",
+   "priceLocal": 11.699999809265137,
+   "currencyLocal": "BRL",
+   "reportingCurrency": "BRL",
+   "fx": {
+    "rate": 5.0383,
+    "quote": "BRL per USD",
+    "date": "2026-10-22",
+    "source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"
+   },
+   "base": 2.28,
+   "probWeighted": 2.18,
+   "comps": 3.41,
+   "compsCycleAdjusted": false,
+   "triangulated": 2.67,
+   "upside": 0.15108055464326187,
+   "wacc": null,
+   "costOfEquity": 0.1244,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 1.45,
+    "p50": 2.18,
+    "p90": 3.2,
+    "pAbovePrice": 0.419
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 1.69
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 2.28
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 3
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 1.13
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 1.76
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 3.38
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.06389527320861817,
+    "impliedMargin": 0.14225091338157653,
+    "baseMargin": 0.14
+   },
+   "revenueCagr": {
+    "value": 0.11125712161154278,
+    "currency": "BRL",
+    "usd": 0.0986254484398561,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.07657258744380002
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.13924172218689382
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.1350312558430757
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.129446938479569
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.10967689990883406
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.11701127599031065
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 7,
+    "growth": 4,
+    "risk": 5,
+    "valuation": 7,
+    "total": 5.75
+   },
+   "analyst": {
+    "rec": "hold",
+    "n": 14,
+    "targetMean": 2.404721830776254
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "CMIG4.SA",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 6620397896.115754,
+    "ev": 10525055603.675842,
+    "evEbitda": 6.720840543815961,
+    "pe": 7.258931494290578,
+    "fpe": 10.03619877615428,
+    "pfcf": 11.122224314771591,
+    "fcfY": 0.08991007299429173,
+    "divY": 0,
+    "ndE": 2.4927100690350446,
+    "pb": 1.1430318076289525
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "CPFE3.SA": {
+   "ticker": "CPFE3.SA",
+   "name": "CPFL Energia",
+   "sector": "Brazilian utility (State Grid-controlled): power distribution (largest by volume), generation, transmission",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 9.83,
+   "priceDate": "2026-10-21",
+   "priceLocal": 49.5099983215332,
+   "currencyLocal": "BRL",
+   "reportingCurrency": "BRL",
+   "fx": {
+    "rate": 5.0383,
+    "quote": "BRL per USD",
+    "date": "2026-10-22",
+    "source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"
+   },
+   "base": 6.87,
+   "probWeighted": 6.61,
+   "comps": 6.33,
+   "compsCycleAdjusted": false,
+   "triangulated": 6.5,
+   "upside": -0.33879003429794885,
+   "wacc": null,
+   "costOfEquity": 0.11989999999999999,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 4.76,
+    "p50": 6.56,
+    "p90": 9.04,
+    "pAbovePrice": 0.05575
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 5.45
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 6.87
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 8.58
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 3.84
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 5.43
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 9.63
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.17755340635776518,
+    "impliedMargin": 0.25485520958900454,
+    "baseMargin": 0.18
+   },
+   "revenueCagr": {
+    "value": 0.07504384857226865,
+    "currency": "BRL",
+    "usd": 0.06282381211418597,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.08113735384430953
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.13576815118669408
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.12771704830330188
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.12115921833003723
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.10371988040944635
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.11162417298533188
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 8,
+    "growth": 4,
+    "risk": 6,
+    "valuation": 2,
+    "total": 5
+   },
+   "analyst": {
+    "rec": "hold",
+    "n": 12,
+    "targetMean": 10.236752476033585
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "CPFE3.SA",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 11318317140.305264,
+    "ev": 17997675296.826313,
+    "evEbitda": 6.525871082129796,
+    "pe": 9.496454340332683,
+    "fpe": 12.364516837703711,
+    "pfcf": 8.420325116101397,
+    "fcfY": 0.1187602599913623,
+    "divY": 0.06172317811500108,
+    "ndE": 2.3488751416602094,
+    "pb": 2.5102178050861323
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "CPLE3.SA": {
+   "ticker": "CPLE3.SA",
+   "name": "Copel (ON)",
+   "sector": "Brazilian utility (Paran\u00e1, privatised 2023): hydro generation, distribution, transmission, wind",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 3.45,
+   "priceDate": "2026-10-21",
+   "priceLocal": 17.360000610351562,
+   "currencyLocal": "BRL",
+   "reportingCurrency": "BRL",
+   "fx": {
+    "rate": 5.0383,
+    "quote": "BRL per USD",
+    "date": "2026-10-22",
+    "source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"
+   },
+   "base": 1.57,
+   "probWeighted": 1.52,
+   "comps": 2.03,
+   "compsCycleAdjusted": false,
+   "triangulated": 1.73,
+   "upside": -0.4989812333347309,
+   "wacc": null,
+   "costOfEquity": 0.12215,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 0.96,
+    "p50": 1.49,
+    "p90": 2.25,
+    "pAbovePrice": 0.00175
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 1.17
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 1.57
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 2.16
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 0.76
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 1.19
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 2.44
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": null,
+    "impliedMargin": 0.23261116743087765,
+    "baseMargin": 0.12
+   },
+   "revenueCagr": {
+    "value": 0.06985879536530648,
+    "currency": "BRL",
+    "usd": 0.05769769746987907,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.07051865401308094
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.13267027772075798
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.1268061432180635
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.12163390119382936
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.1086935853031857
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.12198565875499552
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 8,
+    "growth": 5,
+    "risk": 6,
+    "valuation": 1,
+    "total": 5
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 14,
+    "targetMean": 3.69696723101046
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "CPLE3.SA",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 10302837906.436695,
+    "ev": 14323809696.127663,
+    "evEbitda": 10.563972357413203,
+    "pe": 16.359592218603048,
+    "fpe": 16.475903621995293,
+    "pfcf": 18.39068965952161,
+    "fcfY": 0.05437533983301487,
+    "divY": 0.024062303180918888,
+    "ndE": 2.971080849150288,
+    "pb": 2.15138209835896
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "TAEE11.SA": {
+   "ticker": "TAEE11.SA",
+   "name": "Taesa (unit)",
+   "sector": "Brazilian power transmission (Taesa; ~15,000 km of lines; Cemig/ISA CTEEP-controlled)",
+   "model": "residual income (regulated utility)",
+   "preRevenue": false,
+   "price": 8.98,
+   "priceDate": "2026-10-21",
+   "priceLocal": 45.2400016784668,
+   "currencyLocal": "BRL",
+   "reportingCurrency": "BRL",
+   "fx": {
+    "rate": 5.0383,
+    "quote": "BRL per USD",
+    "date": "2026-10-22",
+    "source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"
+   },
+   "base": 5.81,
+   "probWeighted": 5.59,
+   "comps": 4.8,
+   "compsCycleAdjusted": false,
+   "triangulated": 5.27,
+   "upside": -0.4126748231917279,
+   "wacc": null,
+   "costOfEquity": 0.1154,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 4.14,
+    "p50": 5.57,
+    "p90": 7.59,
+    "pAbovePrice": 0.022
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 4.78
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 5.81
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 7.06
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / political shock",
+     "p": 0.08,
+     "value": 3.33
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.07,
+     "value": 4.56
+    },
+    {
+     "id": "loadTail",
+     "name": "Tail: AI load super-cycle",
+     "p": 0.05,
+     "value": 7.94
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.33041386902332304,
+    "impliedMargin": 0.19698948264122013,
+    "baseMargin": 0.13
+   },
+   "revenueCagr": {
+    "value": 0.05362075527398047,
+    "currency": "BRL",
+    "usd": 0.04164423537710382,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.08161630490610255
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.13683105205507395
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.12743568786694354
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.11907005437907386
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.10384462485646175
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.1081876506417916
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 8,
+    "growth": 3,
+    "risk": 7,
+    "valuation": 1,
+    "total": 4.75
+   },
+   "analyst": {
+    "rec": "underperform",
+    "n": 13,
+    "targetMean": 7.610930274100392
+   },
+   "group": "Power: regulated utilities",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "TAEE11.SA",
+    "group": "Power: regulated utilities",
+    "bank": false,
+    "marketCap": 3070093308.1925783,
+    "ev": 5215080009.262383,
+    "evEbitda": 10.590637425207985,
+    "pe": 9.456434817464235,
+    "fpe": 10.926771235460993,
+    "pfcf": 10.397760142902628,
+    "fcfY": 0.0961745593528224,
+    "divY": 0.06597424539361509,
+    "ndE": 4.355978507055798,
+    "pb": 1.9165176581176566
+   },
+   "groupMultiples": {
+    "members": [
+     "NEE",
+     "DUK",
+     "SO",
+     "AEP",
+     "EQTL3.SA",
+     "CMIG4.SA",
+     "CPFE3.SA",
+     "CPLE3.SA",
+     "TAEE11.SA"
+    ],
+    "evEbitda": {
+     "med": 10.590637425207985,
+     "mean": 11.41953906777781,
+     "n": 9
+    },
+    "pe": {
+     "med": 17.365816896533843,
+     "mean": 15.709431643551866,
+     "n": 8
+    },
+    "fpe": {
+     "med": 17.49083286852151,
+     "mean": 17.06022533068624,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 13.247897618065206,
+     "mean": 19.484947329315922,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.05437533983301487,
+     "mean": 0.041721859725198956,
+     "n": 9
+    },
+    "divY": {
+     "med": 0.02823394026481141,
+     "mean": 0.0397620105440621,
+     "n": 9
+    },
+    "ndE": {
+     "med": 4.8094081631830035,
+     "mean": 4.544448922429985,
+     "n": 9
+    },
+    "pb": {
+     "med": 2.217029109386203,
+     "mean": 2.195371441486216,
+     "n": 9
+    }
+   }
+  },
+  "AXIA3.SA": {
+   "ticker": "AXIA3.SA",
+   "name": "Axia Energia (ex-Eletrobras)",
+   "sector": "Brazilian generation & transmission (Axia Energia, ex-Eletrobras; ~44 GW, mostly hydro; ~74,000 km of lines)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 11.63,
+   "priceDate": "2026-10-21",
+   "priceLocal": 58.58000183105469,
+   "currencyLocal": "BRL",
+   "reportingCurrency": "BRL",
+   "fx": {
+    "rate": 5.0383,
+    "quote": "BRL per USD",
+    "date": "2026-10-22",
+    "source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"
+   },
+   "base": 9.59,
+   "probWeighted": 8.61,
+   "comps": 11.57,
+   "compsCycleAdjusted": false,
+   "triangulated": 9.79,
+   "upside": -0.15770425801738175,
+   "wacc": 0.10158410510678795,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 3.31,
+    "p50": 8.62,
+    "p90": 14.29,
+    "pAbovePrice": 0.23825
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 4.6
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 9.59
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 13.61
+    },
+    {
+     "id": "hydroTail",
+     "name": "Tail: drought / hydrological crisis",
+     "p": 0.08,
+     "value": 2.53
+    },
+    {
+     "id": "politicsTail",
+     "name": "Tail: government interference",
+     "p": 0.07,
+     "value": 5.08
+    },
+    {
+     "id": "upTail",
+     "name": "Tail: Brazil re-rating",
+     "p": 0.05,
+     "value": 17.56
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.09096077978610993,
+    "impliedMargin": 0.4165717363357544,
+    "baseMargin": 0.36
+   },
+   "revenueCagr": {
+    "value": 0.07258293547370598,
+    "currency": "BRL",
+    "usd": 0.06039087224464512,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.061907210708650386
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.11257165813733262
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.1094195177949209
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.0937095927899672
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.09267635909284343
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.0998128437374412
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 5,
+    "risk": 5,
+    "valuation": 3,
+    "total": 5.25
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 14,
+    "targetMean": 13.785544727388206
+   },
+   "group": "Power generation",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "AXIA3.SA",
+    "group": "Power generation",
+    "bank": false,
+    "marketCap": 27291188751.76151,
+    "ev": 37798479468.074554,
+    "evEbitda": 10.610323095823937,
+    "pe": 11.40548141891605,
+    "fpe": 9.829222191264558,
+    "pfcf": 11.457376081056523,
+    "fcfY": 0.08728001882153341,
+    "divY": 0.08862576711315136,
+    "ndE": 2.9454923739848753,
+    "pb": 1.1248066804460695
+   },
+   "groupMultiples": {
+    "members": [
+     "VST",
+     "BE",
+     "CEG",
+     "NRG",
+     "AXIA3.SA",
+     "EGIE3.SA",
+     "BEP"
+    ],
+    "evEbitda": {
+     "med": 11.936680881578503,
+     "mean": 14.165354012123673,
+     "n": 6
+    },
+    "pe": {
+     "med": 24.787659562698465,
+     "mean": 19.756292836736016,
+     "n": 5
+    },
+    "fpe": {
+     "med": 13.283080903907091,
+     "mean": 18.351144570232485,
+     "n": 6
+    },
+    "pfcf": {
+     "med": 27.638438459940385,
+     "mean": 34.67117717225845,
+     "n": 5
+    },
+    "fcfY": {
+     "med": 0.026231681163177353,
+     "mean": -0.02620745085609489,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.020716076509579105,
+     "mean": 0.038279226692825755,
+     "n": 7
+    },
+    "ndE": {
+     "med": 3.020312950556717,
+     "mean": 4.517954996807901,
+     "n": 7
+    },
+    "pb": {
+     "med": 3.50981069717412,
+     "mean": 10.245015643095764,
+     "n": 6
+    }
+   }
+  },
+  "EGIE3.SA": {
+   "ticker": "EGIE3.SA",
+   "name": "Engie Brasil Energia",
+   "sector": "Brazilian independent power producer (Engie Brasil Energia; hydro, wind, solar; transmission build-out)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 6.17,
+   "priceDate": "2026-10-21",
+   "priceLocal": 31.100000381469727,
+   "currencyLocal": "BRL",
+   "reportingCurrency": "BRL",
+   "fx": {
+    "rate": 5.0383,
+    "quote": "BRL per USD",
+    "date": "2026-10-22",
+    "source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"
+   },
+   "base": 3.6,
+   "probWeighted": 3.35,
+   "comps": 5.8,
+   "compsCycleAdjusted": false,
+   "triangulated": 4.33,
+   "upside": -0.2983582735770801,
+   "wacc": 0.09290785420971528,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 1.07,
+    "p50": 3.28,
+    "p90": 6.36,
+    "pAbovePrice": 0.11225
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 1.83
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 3.6
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 5.75
+    },
+    {
+     "id": "hydroTail",
+     "name": "Tail: drought / curtailment crisis",
+     "p": 0.08,
+     "value": 0.65
+    },
+    {
+     "id": "politicsTail",
+     "name": "Tail: Brazil macro / political shock",
+     "p": 0.07,
+     "value": 1.61
+    },
+    {
+     "id": "upTail",
+     "name": "Tail: Brazil re-rating",
+     "p": 0.05,
+     "value": 7.48
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.07000754773616792,
+    "impliedMargin": 0.6053795039653778,
+    "baseMargin": 0.44
+   },
+   "revenueCagr": {
+    "value": 0.009616790941432418,
+    "currency": "BRL",
+    "usd": -0.0018595353594732522,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.059374606260103914
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.11704912530178371
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.10045518307035603
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08771109020701051
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.09015598512881054
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.09890953565474148
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 4,
+    "risk": 7,
+    "valuation": 2,
+    "total": 5.25
+   },
+   "analyst": {
+    "rec": "underperform",
+    "n": 14,
+    "targetMean": 6.731861937558305
+   },
+   "group": "Power generation",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "EGIE3.SA",
+    "group": "Power generation",
+    "bank": false,
+    "marketCap": 8740111024.750412,
+    "ev": 14252652078.677332,
+    "evEbitda": 9.61426734963044,
+    "pe": 11.121865493578863,
+    "fpe": 12.110969337623342,
+    "pfcf": 27.638438459940385,
+    "fcfY": 0.03618149416977434,
+    "divY": 0.062253440179566535,
+    "ndE": 3.5636639505848886,
+    "pb": 2.933181821124759
+   },
+   "groupMultiples": {
+    "members": [
+     "VST",
+     "BE",
+     "CEG",
+     "NRG",
+     "AXIA3.SA",
+     "EGIE3.SA",
+     "BEP"
+    ],
+    "evEbitda": {
+     "med": 11.936680881578503,
+     "mean": 14.165354012123673,
+     "n": 6
+    },
+    "pe": {
+     "med": 24.787659562698465,
+     "mean": 19.756292836736016,
+     "n": 5
+    },
+    "fpe": {
+     "med": 13.283080903907091,
+     "mean": 18.351144570232485,
+     "n": 6
+    },
+    "pfcf": {
+     "med": 27.638438459940385,
+     "mean": 34.67117717225845,
+     "n": 5
+    },
+    "fcfY": {
+     "med": 0.026231681163177353,
+     "mean": -0.02620745085609489,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.020716076509579105,
+     "mean": 0.038279226692825755,
+     "n": 7
+    },
+    "ndE": {
+     "med": 3.020312950556717,
+     "mean": 4.517954996807901,
+     "n": 7
+    },
+    "pb": {
+     "med": 3.50981069717412,
+     "mean": 10.245015643095764,
+     "n": 6
+    }
+   }
+  },
+  "BEP": {
+   "ticker": "BEP",
+   "name": "Brookfield Renewable Partners L",
+   "sector": "Global renewable power owner-operator (hydro, wind, solar, storage, nuclear services via Westinghouse stake)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 28.91,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 27.59,
+   "probWeighted": 25.51,
+   "comps": null,
+   "compsCycleAdjusted": false,
+   "triangulated": 25.51,
+   "upside": -0.11766868716785017,
+   "wacc": 0.09649999999999999,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 18.3,
+    "p50": 26.03,
+    "p90": 34.55,
+    "pAbovePrice": 0.31775
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 21.2
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 27.59
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 30.23
+    },
+    {
+     "id": "rateTail",
+     "name": "Tail: rates shock",
+     "p": 0.1,
+     "value": 21.19
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: policy / tariff shock",
+     "p": 0.05,
+     "value": 14.55
+    },
+    {
+     "id": "aiTail",
+     "name": "Tail: AI power super-cycle",
+     "p": 0.05,
+     "value": 32
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.06567061245441437,
+    "impliedMargin": null,
+    "baseMargin": 1
+   },
+   "revenueCagr": {
+    "value": 0.10954762887621516,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.03538186601925323
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.0568398598938571
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.05743744186470237
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.06518128222603832
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.06311943357340657
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.06379627997795274
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 6,
+    "valuation": 4,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 13,
+    "targetMean": 33.92308
+   },
+   "group": "Power generation",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "BEP",
+    "group": "Power generation",
+    "bank": false,
+    "marketCap": 14063860736,
+    "ev": 79470861440,
+    "evEbitda": 26.490287146666667,
+    "pe": null,
+    "fpe": null,
+    "pfcf": null,
+    "fcfY": -0.3868070156635544,
+    "divY": 0.08105882313537721,
+    "ndE": 11.679000234666667,
+    "pb": null
+   },
+   "groupMultiples": {
+    "members": [
+     "VST",
+     "BE",
+     "CEG",
+     "NRG",
+     "AXIA3.SA",
+     "EGIE3.SA",
+     "BEP"
+    ],
+    "evEbitda": {
+     "med": 11.936680881578503,
+     "mean": 14.165354012123673,
+     "n": 6
+    },
+    "pe": {
+     "med": 24.787659562698465,
+     "mean": 19.756292836736016,
+     "n": 5
+    },
+    "fpe": {
+     "med": 13.283080903907091,
+     "mean": 18.351144570232485,
+     "n": 6
+    },
+    "pfcf": {
+     "med": 27.638438459940385,
+     "mean": 34.67117717225845,
+     "n": 5
+    },
+    "fcfY": {
+     "med": 0.026231681163177353,
+     "mean": -0.02620745085609489,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.020716076509579105,
+     "mean": 0.038279226692825755,
+     "n": 7
+    },
+    "ndE": {
+     "med": 3.020312950556717,
+     "mean": 4.517954996807901,
+     "n": 7
+    },
+    "pb": {
+     "med": 3.50981069717412,
+     "mean": 10.245015643095764,
+     "n": 6
+    }
+   }
+  },
+  "GEV": {
+   "ticker": "GEV",
+   "name": "GE Vernova Inc.",
+   "sector": "Power equipment: gas turbines, grid (electrification), wind, nuclear (SMR BWRX-300) and services",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 827.42,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 445.93,
+   "probWeighted": 420.26,
+   "comps": 746.22,
+   "compsCycleAdjusted": false,
+   "triangulated": 550.65,
+   "upside": -0.3345031370721996,
+   "wacc": 0.10014009446734615,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 164.88,
+    "p50": 411.64,
+    "p90": 732.47,
+    "pAbovePrice": 0.06
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 224.59
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 445.93
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 662.24
+    },
+    {
+     "id": "cycleTail",
+     "name": "Tail: order cancellations",
+     "p": 0.1,
+     "value": 128.95
+    },
+    {
+     "id": "windTail",
+     "name": "Tail: offshore wind / execution losses",
+     "p": 0.05,
+     "value": 274.75
+    },
+    {
+     "id": "aiTail",
+     "name": "Tail: AI power super-cycle",
+     "p": 0.05,
+     "value": 932.96
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.2416745752096176,
+    "impliedMargin": 0.29365875124931334,
+    "baseMargin": 0.15
+   },
+   "revenueCagr": {
+    "value": 0.08682326316822997,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2022",
+    "end": "FY2025",
+    "periods": 3
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.061759999647140504
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.10412999948501588
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.08925999937057497
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.0927102336677934
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.087834545409815
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.09509043652314544
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 9,
+    "risk": 6,
+    "valuation": 2,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 33,
+    "targetMean": 1223.9773
+   },
+   "group": "Power equipment & nuclear",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "GEV",
+    "group": "Power equipment & nuclear",
+    "bank": false,
+    "marketCap": 220369731584,
+    "ev": 212487731584,
+    "evEbitda": 54.10942911153464,
+    "pe": 23.12621818281855,
+    "fpe": 33.79283714157878,
+    "pfcf": 59.39884948355795,
+    "fcfY": 0.016835342918162202,
+    "divY": 0.001247902776952724,
+    "ndE": -2.29182578388672,
+    "pb": 18.430185797775362
+   },
+   "groupMultiples": {
+    "members": [
+     "GEV",
+     "FSLR",
+     "CCJ",
+     "OKLO",
+     "SMR"
+    ],
+    "evEbitda": {
+     "med": 54.10942911153464,
+     "mean": 40.56125308679503,
      "n": 3
     },
     "pe": {
-     "med": 25.370414485933505,
-     "mean": 25.41803909039505,
-     "n": 3
+     "med": 16.833457153324417,
+     "mean": 16.833457153324417,
+     "n": 2
     },
     "fpe": {
-     "med": 16.81563505137473,
-     "mean": 22.04166897312675,
-     "n": 4
+     "med": 33.79283714157878,
+     "mean": 27.5836738135073,
+     "n": 3
     },
     "pfcf": {
-     "med": 38.12184182094082,
-     "mean": 44.75335710676512,
+     "med": 44.819734366027376,
+     "mean": 39.906794751857454,
      "n": 3
     },
     "fcfY": {
-     "med": 0.020237939043275997,
-     "mean": 0.019973336669895606,
-     "n": 4
+     "med": 0.016835342918162202,
+     "mean": -0.025541011076580782,
+     "n": 5
     },
     "divY": {
-     "med": 0.007643133332219098,
-     "mean": 0.009004139105421301,
-     "n": 4
+     "med": 0,
+     "mean": 0.0006831124186407496,
+     "n": 5
     },
     "ndE": {
-     "med": 3.019399449121417,
-     "mean": 3.359382104604718,
-     "n": 4
+     "med": -0.6425055314304132,
+     "mean": -0.9324345923148435,
+     "n": 3
     },
     "pb": {
-     "med": 6.625907448049173,
-     "mean": 14.353026339250938,
-     "n": 4
+     "med": 1.783294548686293,
+     "mean": 5.91518745626888,
+     "n": 5
+    }
+   }
+  },
+  "FSLR": {
+   "ticker": "FSLR",
+   "name": "First Solar, Inc.",
+   "sector": "US solar module manufacturer (thin-film CdTe; US factories, 45X manufacturing credits)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 171.25,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 171.9,
+   "probWeighted": 151.73,
+   "comps": 243.43,
+   "compsCycleAdjusted": false,
+   "triangulated": 188.41,
+   "upside": 0.10020592061257161,
+   "wacc": 0.11387013711384794,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 50.07,
+    "p50": 160.15,
+    "p90": 258.27,
+    "pAbovePrice": 0.4155
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 86.58
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 171.9
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 240.54
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: 45X repeal / tariff reversal",
+     "p": 0.1,
+     "value": 44.8
+    },
+    {
+     "id": "techTail",
+     "name": "Tail: technology disruption",
+     "p": 0.05,
+     "value": 52.85
+    },
+    {
+     "id": "aiTail",
+     "name": "Tail: US power shortage",
+     "p": 0.05,
+     "value": 311.2
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.061239460110664376,
+    "impliedMargin": 0.278759628534317,
+    "baseMargin": 0.28
+   },
+   "revenueCagr": {
+    "value": 0.13995360646283728,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.06699324130709433
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.10935726880222671
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.09628813153053709
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.10127602495544764
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.09995404574610267
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.1147089159741461
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 6,
+    "risk": 5,
+    "valuation": 6,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 30,
+    "targetMean": 273.67133
+   },
+   "group": "Power equipment & nuclear",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "FSLR",
+    "group": "Power equipment & nuclear",
+    "bank": false,
+    "marketCap": 18404202496,
+    "ev": 16871248528,
+    "evEbitda": 7.071230270221146,
+    "pe": 10.540696123830287,
+    "fpe": 7.300362268487928,
+    "pfcf": 15.501800405987046,
+    "fcfY": 0.06450863601712895,
+    "divY": 0,
+    "ndE": -0.6425055314304132,
+    "pb": 1.783294548686293
+   },
+   "groupMultiples": {
+    "members": [
+     "GEV",
+     "FSLR",
+     "CCJ",
+     "OKLO",
+     "SMR"
+    ],
+    "evEbitda": {
+     "med": 54.10942911153464,
+     "mean": 40.56125308679503,
+     "n": 3
+    },
+    "pe": {
+     "med": 16.833457153324417,
+     "mean": 16.833457153324417,
+     "n": 2
+    },
+    "fpe": {
+     "med": 33.79283714157878,
+     "mean": 27.5836738135073,
+     "n": 3
+    },
+    "pfcf": {
+     "med": 44.819734366027376,
+     "mean": 39.906794751857454,
+     "n": 3
+    },
+    "fcfY": {
+     "med": 0.016835342918162202,
+     "mean": -0.025541011076580782,
+     "n": 5
+    },
+    "divY": {
+     "med": 0,
+     "mean": 0.0006831124186407496,
+     "n": 5
+    },
+    "ndE": {
+     "med": -0.6425055314304132,
+     "mean": -0.9324345923148435,
+     "n": 3
+    },
+    "pb": {
+     "med": 1.783294548686293,
+     "mean": 5.91518745626888,
+     "n": 5
+    }
+   }
+  },
+  "CCJ": {
+   "ticker": "CCJ",
+   "name": "Cameco Corporation",
+   "sector": "Uranium miner and fuel services (McArthur River/Cigar Lake) plus 49% of Westinghouse (reactor services, AP1000)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 78.93,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "CAD",
+   "fx": null,
+   "base": 29.43,
+   "probWeighted": 28.13,
+   "comps": 23.12,
+   "compsCycleAdjusted": false,
+   "triangulated": 26.13,
+   "upside": -0.6689928536964497,
+   "wacc": 0.09964301650271411,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 14.36,
+    "p50": 27.58,
+    "p90": 45.68,
+    "pAbovePrice": 0.0015
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 18.62
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.43,
+     "value": 29.43
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 43.22
+    },
+    {
+     "id": "opTail",
+     "name": "Tail: operational / supply shock",
+     "p": 0.08,
+     "value": 14.3
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: nuclear policy reversal / incident",
+     "p": 0.07,
+     "value": 12.91
+    },
+    {
+     "id": "aiTail",
+     "name": "Tail: nuclear renaissance",
+     "p": 0.05,
+     "value": 56.95
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.28076062500476834,
+    "impliedMargin": null,
+    "baseMargin": 0.32
+   },
+   "revenueCagr": {
+    "value": 0.14105388759381254,
+    "currency": "CAD",
+    "usd": 0.12435468911816772,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.049517823597935766
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.08931053861469691
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.07992640975611413
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08584110234304249
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08361925233906964
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.09870472764423657
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 7,
+    "risk": 6,
+    "valuation": 1,
+    "total": 5.75
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 11,
+    "targetMean": 128.79503
+   },
+   "group": "Power equipment & nuclear",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "CCJ",
+    "group": "Power equipment & nuclear",
+    "bank": false,
+    "marketCap": 34376617984,
+    "ev": 34454661667.04686,
+    "evEbitda": 60.5030998786293,
+    "pe": 135.81366239594865,
+    "fpe": 41.65782203045519,
+    "pfcf": 44.819734366027376,
+    "fcfY": 0.022311600328403187,
+    "divY": 0.0021676593162510242,
+    "ndE": 0.1370275383726033,
+    "pb": 6.756518547534873
+   },
+   "groupMultiples": {
+    "members": [
+     "GEV",
+     "FSLR",
+     "CCJ",
+     "OKLO",
+     "SMR"
+    ],
+    "evEbitda": {
+     "med": 54.10942911153464,
+     "mean": 40.56125308679503,
+     "n": 3
+    },
+    "pe": {
+     "med": 16.833457153324417,
+     "mean": 16.833457153324417,
+     "n": 2
+    },
+    "fpe": {
+     "med": 33.79283714157878,
+     "mean": 27.5836738135073,
+     "n": 3
+    },
+    "pfcf": {
+     "med": 44.819734366027376,
+     "mean": 39.906794751857454,
+     "n": 3
+    },
+    "fcfY": {
+     "med": 0.016835342918162202,
+     "mean": -0.025541011076580782,
+     "n": 5
+    },
+    "divY": {
+     "med": 0,
+     "mean": 0.0006831124186407496,
+     "n": 5
+    },
+    "ndE": {
+     "med": -0.6425055314304132,
+     "mean": -0.9324345923148435,
+     "n": 3
+    },
+    "pb": {
+     "med": 1.783294548686293,
+     "mean": 5.91518745626888,
+     "n": 5
+    }
+   }
+  },
+  "OKLO": {
+   "ticker": "OKLO",
+   "name": "Oklo Inc.",
+   "sector": "Advanced fission (Aurora fast-reactor powerhouses, 15-75 MW; fuel recycling) - PRE-REVENUE",
+   "model": "DCF (FCFF)",
+   "preRevenue": true,
+   "price": 27.01,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 13.66,
+   "probWeighted": 18.89,
+   "comps": 13.25,
+   "compsCycleAdjusted": false,
+   "triangulated": 16.64,
+   "upside": -0.38407859132221234,
+   "wacc": 0.12346229959335234,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 10.42,
+    "p50": 11.61,
+    "p90": 34.62,
+    "pAbovePrice": 0.1875
+   },
+   "scenarios": [
+    {
+     "id": "fail",
+     "name": "Bear: licensing failure / delays",
+     "p": 0.3,
+     "value": 10.53
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.3,
+     "value": 13.66
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 31.88
+    },
+    {
+     "id": "fuelTail",
+     "name": "Tail: HALEU fuel shortage",
+     "p": 0.1,
+     "value": 10.48
+    },
+    {
+     "id": "dilTail",
+     "name": "Tail: funding squeeze",
+     "p": 0.1,
+     "value": 7.94
+    },
+    {
+     "id": "blueSky",
+     "name": "Tail: blue sky (nuclear super-cycle)",
+     "p": 0.05,
+     "value": 100.19
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 1.4248036429286004,
+    "impliedMargin": 0.7432048380374909,
+    "baseMargin": 0.25
+   },
+   "revenueCagr": null,
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.08295400625060927
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.13382092811076385
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.05512006745755616
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.045399613936017845
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.07750207124474275
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.10318263712927027
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 5,
+    "growth": 10,
+    "risk": 2,
+    "valuation": 1,
+    "total": 4.5
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 20,
+    "targetMean": 72
+   },
+   "group": "Power equipment & nuclear",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "OKLO",
+    "group": "Power equipment & nuclear",
+    "bank": false,
+    "marketCap": 5024336896,
+    "ev": 2563325008,
+    "evEbitda": null,
+    "pe": null,
+    "fpe": null,
+    "pfcf": null,
+    "fcfY": -0.022964025380514612,
+    "divY": 0,
+    "ndE": null,
+    "pb": 1.5348249308015716
+   },
+   "groupMultiples": {
+    "members": [
+     "GEV",
+     "FSLR",
+     "CCJ",
+     "OKLO",
+     "SMR"
+    ],
+    "evEbitda": {
+     "med": 54.10942911153464,
+     "mean": 40.56125308679503,
+     "n": 3
+    },
+    "pe": {
+     "med": 16.833457153324417,
+     "mean": 16.833457153324417,
+     "n": 2
+    },
+    "fpe": {
+     "med": 33.79283714157878,
+     "mean": 27.5836738135073,
+     "n": 3
+    },
+    "pfcf": {
+     "med": 44.819734366027376,
+     "mean": 39.906794751857454,
+     "n": 3
+    },
+    "fcfY": {
+     "med": 0.016835342918162202,
+     "mean": -0.025541011076580782,
+     "n": 5
+    },
+    "divY": {
+     "med": 0,
+     "mean": 0.0006831124186407496,
+     "n": 5
+    },
+    "ndE": {
+     "med": -0.6425055314304132,
+     "mean": -0.9324345923148435,
+     "n": 3
+    },
+    "pb": {
+     "med": 1.783294548686293,
+     "mean": 5.91518745626888,
+     "n": 5
+    }
+   }
+  },
+  "SMR": {
+   "ticker": "SMR",
+   "name": "NuScale Power Corporation",
+   "sector": "Small modular reactors (NuScale Power Module, 77 MWe, NRC-approved design) - PRE-REVENUE",
+   "model": "DCF (FCFF)",
+   "preRevenue": true,
+   "price": 5.38,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 1.53,
+   "probWeighted": 6.84,
+   "comps": 2.83,
+   "compsCycleAdjusted": false,
+   "triangulated": 5.23,
+   "upside": -0.027438943617071,
+   "wacc": 0.12784823103478407,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 0,
+    "p50": 1.08,
+    "p90": 18.72,
+    "pAbovePrice": 0.198
+   },
+   "scenarios": [
+    {
+     "id": "fail",
+     "name": "Bear: no plant reaches FID",
+     "p": 0.3,
+     "value": 0.5
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.3,
+     "value": 1.53
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 16.95
+    },
+    {
+     "id": "costTail",
+     "name": "Tail: cost overrun / cancellation (UAMPS 2023 repeat)",
+     "p": 0.1,
+     "value": 1.11
+    },
+    {
+     "id": "dilTail",
+     "name": "Tail: funding squeeze",
+     "p": 0.1,
+     "value": 0
+    },
+    {
+     "id": "blueSky",
+     "name": "Tail: blue sky (nuclear super-cycle)",
+     "p": 0.05,
+     "value": 71.48
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 1.103530542552471,
+    "impliedMargin": 0.3142809689044953,
+    "baseMargin": 0.2
+   },
+   "revenueCagr": null,
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.08719999964714051
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.13959086378481061
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.11663523724704447
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.11179081120816331
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.1271846917283721
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.14126511517022622
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 5,
+    "growth": 9,
+    "risk": 2,
+    "valuation": 5,
+    "total": 5.25
+   },
+   "analyst": {
+    "rec": "hold",
+    "n": 15,
+    "targetMean": 11.2
+   },
+   "group": "Power equipment & nuclear",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "SMR",
+    "group": "Power equipment & nuclear",
+    "bank": false,
+    "marketCap": 2207895808,
+    "ev": 1087149840,
+    "evEbitda": null,
+    "pe": null,
+    "fpe": null,
+    "pfcf": null,
+    "fcfY": -0.20839660926608364,
+    "divY": 0,
+    "ndE": null,
+    "pb": 1.0711134565463014
+   },
+   "groupMultiples": {
+    "members": [
+     "GEV",
+     "FSLR",
+     "CCJ",
+     "OKLO",
+     "SMR"
+    ],
+    "evEbitda": {
+     "med": 54.10942911153464,
+     "mean": 40.56125308679503,
+     "n": 3
+    },
+    "pe": {
+     "med": 16.833457153324417,
+     "mean": 16.833457153324417,
+     "n": 2
+    },
+    "fpe": {
+     "med": 33.79283714157878,
+     "mean": 27.5836738135073,
+     "n": 3
+    },
+    "pfcf": {
+     "med": 44.819734366027376,
+     "mean": 39.906794751857454,
+     "n": 3
+    },
+    "fcfY": {
+     "med": 0.016835342918162202,
+     "mean": -0.025541011076580782,
+     "n": 5
+    },
+    "divY": {
+     "med": 0,
+     "mean": 0.0006831124186407496,
+     "n": 5
+    },
+    "ndE": {
+     "med": -0.6425055314304132,
+     "mean": -0.9324345923148435,
+     "n": 3
+    },
+    "pb": {
+     "med": 1.783294548686293,
+     "mean": 5.91518745626888,
+     "n": 5
+    }
+   }
+  },
+  "MRK": {
+   "ticker": "MRK",
+   "name": "Merck & Company, Inc.",
+   "sector": "Global pharma (oncology: Keytruda; vaccines: Gardasil, Capvaxive; cardiometabolic: Winrevair) and animal health",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 147.24,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 99.71,
+   "probWeighted": 95.05,
+   "comps": 142.09,
+   "compsCycleAdjusted": false,
+   "triangulated": 113.86,
+   "upside": -0.22668242043712372,
+   "wacc": 0.0787328910051265,
+   "costOfEquity": null,
+   "terminalG": 0.02,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 51.14,
+    "p50": 90.87,
+    "p90": 155,
+    "pAbovePrice": 0.12725
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 67.6
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "value": 99.71
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 139.54
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: Keytruda patent cliff (severe, LOE 2028)",
+     "p": 0.12,
+     "value": 47.49
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US drug-pricing shock (MFN)",
+     "p": 0.06,
+     "value": 62.56
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.07,
+     "value": 170.06
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.05646310746669771,
+    "impliedMargin": 0.4842038333415985,
+    "baseMargin": 0.33
+   },
+   "revenueCagr": {
+    "value": 0.09383063963833482,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.04006728320892516
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07049340232990309
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06111602088964622
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.06762066416227022
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.05974074567303846
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.06573037837976467
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 4,
+    "risk": 6,
+    "valuation": 3,
+    "total": 5.5
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 25,
+    "targetMean": 158.56
+   },
+   "group": "Pharma",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "MRK",
+    "group": "Pharma",
+    "bank": false,
+    "marketCap": 363266342912,
+    "ev": 410092341760,
+    "evEbitda": 14.204299845898127,
+    "pe": 114.48671611697127,
+    "fpe": 15.897781446884206,
+    "pfcf": 29.390480818122978,
+    "fcfY": 0.034024621992008126,
+    "divY": 0.02250690205555489,
+    "ndE": 1.619964626937836,
+    "pb": 8.66301821744211
+   },
+   "groupMultiples": {
+    "members": [
+     "MRK",
+     "BMY"
+    ],
+    "extraPeers": [
+     "PFE",
+     "ABBV",
+     "LLY",
+     "JNJ",
+     "AZN",
+     "NVS",
+     "GILD"
+    ],
+    "evEbitda": {
+     "med": 14.651516493591243,
+     "mean": 15.881060739182788,
+     "n": 9
+    },
+    "pe": {
+     "med": 32.7903644183579,
+     "mean": 31.070218107634606,
+     "n": 6
+    },
+    "fpe": {
+     "med": 15.897781446884206,
+     "mean": 16.800026374843593,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 19.70462226098831,
+     "mean": 19.70462226098831,
+     "n": 2
+    },
+    "fcfY": {
+     "med": 0.06691866818533261,
+     "mean": 0.06691866818533261,
+     "n": 2
+    },
+    "divY": {
+     "med": 0.030854663329853156,
+     "mean": 0.030854663329853156,
+     "n": 2
+    },
+    "ndE": {
+     "med": 1.707658017372906,
+     "mean": 1.707658017372906,
+     "n": 2
+    },
+    "pb": {
+     "med": 7.369893042030673,
+     "mean": 10.924735029517018,
+     "n": 8
+    }
+   }
+  },
+  "BMY": {
+   "ticker": "BMY",
+   "name": "Bristol-Myers Squibb Company",
+   "sector": "Global biopharma (Eliquis, Opdivo, Revlimid tail; growth portfolio: Camzyos, Cobenfy, Breyanzi, Reblozyl, Opdualag)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 63,
+   "priceDate": "2026-10-22",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 72.63,
+   "probWeighted": 70.61,
+   "comps": 131.66,
+   "compsCycleAdjusted": false,
+   "triangulated": 95.03,
+   "upside": 0.5084016978237993,
+   "wacc": 0.07412911525948883,
+   "costOfEquity": null,
+   "terminalG": 0.02,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 34.37,
+    "p50": 65.23,
+    "p90": 120.82,
+    "pAbovePrice": 0.52725
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 46.91
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "value": 72.63
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 108.27
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: Eliquis / Opdivo patent cliff (severe)",
+     "p": 0.12,
+     "value": 31.77
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US drug-pricing shock (MFN)",
+     "p": 0.06,
+     "value": 44.7
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.07,
+     "value": 142.22
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": -0.04424411356449126,
+    "impliedMargin": 0.2615059792995453,
+    "baseMargin": 0.3
+   },
+   "revenueCagr": {
+    "value": 0.025378080148594995,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.04044658929322252
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.06617128314003277
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.056562729711606835
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.06165871145296284
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.054191474489167266
+    },
+    {
+     "year": "current",
+     "date": "2026-10-22",
+     "value": 0.06153699527221336
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 7,
+    "growth": 3,
+    "risk": 5,
+    "valuation": 10,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 24,
+    "targetMean": 65.41667
+   },
+   "group": "Pharma",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "BMY",
+    "group": "Pharma",
+    "bank": false,
+    "marketCap": 128691019776,
+    "ev": 162710021696,
+    "evEbitda": 8.595352498478876,
+    "pe": 13.86457892164039,
+    "fpe": 9.535528926708109,
+    "pfcf": 10.01876370385364,
+    "fcfY": 0.0998127143786571,
+    "divY": 0.03920242460415142,
+    "ndE": 1.7953514078079758,
+    "pb": 5.765985025135535
+   },
+   "groupMultiples": {
+    "members": [
+     "MRK",
+     "BMY"
+    ],
+    "extraPeers": [
+     "PFE",
+     "ABBV",
+     "LLY",
+     "JNJ",
+     "AZN",
+     "NVS",
+     "GILD"
+    ],
+    "evEbitda": {
+     "med": 14.651516493591243,
+     "mean": 15.881060739182788,
+     "n": 9
+    },
+    "pe": {
+     "med": 32.7903644183579,
+     "mean": 31.070218107634606,
+     "n": 6
+    },
+    "fpe": {
+     "med": 15.897781446884206,
+     "mean": 16.800026374843593,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 19.70462226098831,
+     "mean": 19.70462226098831,
+     "n": 2
+    },
+    "fcfY": {
+     "med": 0.06691866818533261,
+     "mean": 0.06691866818533261,
+     "n": 2
+    },
+    "divY": {
+     "med": 0.030854663329853156,
+     "mean": 0.030854663329853156,
+     "n": 2
+    },
+    "ndE": {
+     "med": 1.707658017372906,
+     "mean": 1.707658017372906,
+     "n": 2
+    },
+    "pb": {
+     "med": 7.369893042030673,
+     "mean": 10.924735029517018,
+     "n": 8
     }
    }
   }

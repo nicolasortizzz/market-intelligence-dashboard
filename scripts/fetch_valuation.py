@@ -40,12 +40,29 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "PRIO3.SA": ["PBR", "BRAV3.SA", "RECV3.SA", "VIST", "APA", "OXY"],
            "CEG": ["VST", "NRG", "TLN", "PEG", "ETR"],
            "NRG": ["VST", "CEG", "TLN", "PEG", "ETR"],
-           "SPCX": ["RKLB", "ASTS", "IRDM", "SATS", "VSAT", "LMT", "NOC", "TMUS"]}
+           "SPCX": ["RKLB", "ASTS", "IRDM", "SATS", "VSAT", "LMT", "NOC", "TMUS"],
+           # batch 2: power generation, transmission & distribution
+           "NEE": ["DUK", "SO", "AEP", "D", "XEL", "CEG"], "DUK": ["SO", "AEP", "D", "XEL", "ED", "NEE"],
+           "SO": ["DUK", "AEP", "D", "XEL", "ED", "NEE"], "AEP": ["DUK", "SO", "XEL", "ETR", "D", "NEE"],
+           "EQTL3.SA": ["CPFE3.SA", "CMIG4.SA", "ENGI11.SA", "CPLE3.SA"], "CMIG4.SA": ["CPLE3.SA", "CPFE3.SA", "EQTL3.SA", "ENGI11.SA"],
+           "CPFE3.SA": ["EQTL3.SA", "ENGI11.SA", "CMIG4.SA", "CPLE3.SA"], "CPLE3.SA": ["CMIG4.SA", "CPFE3.SA", "EQTL3.SA", "ENGI11.SA"],
+           "TAEE11.SA": ["ISAE4.SA", "ALUP11.SA", "CMIG4.SA", "EGIE3.SA", "AXIA3.SA"],
+           "AXIA3.SA": ["EGIE3.SA", "CMIG4.SA", "CPLE3.SA", "AURE3.SA", "ENEV3.SA"], "EGIE3.SA": ["AXIA3.SA", "AURE3.SA", "ENEV3.SA", "CPFE3.SA", "TAEE11.SA"],
+           "BEP": ["NEE", "AES", "CWEN", "ORA", "BEPC"],
+           "GEV": ["ETN", "VRT", "HUBB", "PWR", "SIE.DE"], "FSLR": ["ENPH", "NXT", "ARRY", "CSIQ", "JKS"],
+           "MRK": ["PFE", "ABBV", "LLY", "JNJ", "AZN", "NVS", "BMY"], "BMY": ["PFE", "ABBV", "MRK", "JNJ", "AZN", "NVS", "GILD"],
+           "CCJ": ["UEC", "NXE", "DNN", "BWXT", "LEU"], "OKLO": ["SMR", "NNE", "BWXT", "LEU", "CCJ"], "SMR": ["OKLO", "NNE", "BWXT", "LEU", "GEV"]}
 # Local-currency listings (Samsung: KRX common in KRW). Price, market cap, 52w range and targets are converted to USD at the
 # official rate (fx.KRWUSD: ECB reference rates, KRW/EUR divided by USD/EUR, same fixing date); KRW originals are kept as *Local.
 LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred shares (KRX)", "SMSN.IL": "GDR, London (1 GDR = 25 common shares)"}},
                  "000660.KS": {"ccy": "KRW", "related": {}},
-                 "PRIO3.SA": {"ccy": "BRL", "related": {}}}   # B3 listing in BRL, converted at the BCB PTAX rate (fx.BRLUSD)
+                 "PRIO3.SA": {"ccy": "BRL", "related": {}},
+                 "AXIA3.SA": {"ccy": "BRL", "related": {}},
+                 "EQTL3.SA": {"ccy": "BRL", "related": {}}, "CMIG4.SA": {"ccy": "BRL", "related": {"CIG": "ADR, NYSE (1 ADR = 1 preferred share)"}},
+                 "TAEE11.SA": {"ccy": "BRL", "related": {}}, "CPFE3.SA": {"ccy": "BRL", "related": {}}, "EGIE3.SA": {"ccy": "BRL", "related": {}},
+                 "CPLE3.SA": {"ccy": "BRL", "related": {}}}
+# B3 units: Yahoo's market cap = total shares x unit price; divide by shares per unit (TAEE11 = 1 ON + 2 PN)
+UNIT_DIV = {"TAEE11.SA": 3, "ALUP11.SA": 3, "ENGI11.SA": 5}   # B3 listing in BRL, converted at the BCB PTAX rate (fx.BRLUSD)
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF", "PBR"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}
@@ -102,6 +119,7 @@ def multiples(t):
     i = yf.Ticker(t).info or {}
     fin = i.get("financialCurrency") or "USD"; k = fx_to_usd(fin)
     mc = i.get("marketCap"); qc = i.get("currency") or "USD"
+    if mc and t in UNIT_DIV: mc = mc / UNIT_DIV[t]
     if mc and qc != "USD": mc = mc / fx_to_usd(qc)   # local listings (KRW, JPY): market cap to USD
     debt = (i.get("totalDebt") or 0) / k; cash = (i.get("totalCash") or 0) / k
     rev = (i.get("totalRevenue") or 0) / k or None; ebitda = (i.get("ebitda") or 0) / k or None
@@ -316,7 +334,7 @@ def main():
         ed, ev = ecb_eurusd()
         res.setdefault("fx", {}).update({"EURUSD": 1 / ev, "EURUSD_ecb": ev, "EUR_date": ed, "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"})
         FXC["EUR"] = 1 / ev
-    if not only or {"ABEV", "PRIO3.SA"} & set(only):   # BRL (PTAX) refreshed with the BRL names
+    if not only or ({"ABEV", "PRIO3.SA"} | {t for t, v in LOCAL_LISTING.items() if v["ccy"] == "BRL"}) & set(only):   # BRL (PTAX) refreshed with the BRL names
         bd, bv = ptax()
         if bv: res.setdefault("fx", {}).update({"BRLUSD": bv, "BRL_date": bd, "BRL_source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"}); FXC["BRL"] = bv
     elif res.get("fx", {}).get("BRLUSD"): FXC["BRL"] = res["fx"]["BRLUSD"]
@@ -331,6 +349,12 @@ def main():
     if not only or {"YPF", "GGAL"} & set(only):   # ARS rate only refreshed with the Argentine names
         fd, ars = bcra((dt.date.today() - dt.timedelta(days=10)).isoformat(), dt.date.today().isoformat())
         if ars: res["fx"].update({"ARSUSD_BCRA": ars, "ARS_date": fd}); FXC["ARS"] = ars
+    if not only or "CCJ" in only:   # CAD (Cameco reports in CAD): Bank of Canada daily rate
+        try:
+            o = requests.get("https://www.bankofcanada.ca/valet/observations/FXUSDCAD/json?recent=1", timeout=30).json()["observations"][-1]
+            res.setdefault("fx", {}).update({"CADUSD": float(o["FXUSDCAD"]["v"]), "CAD_date": o["d"], "CAD_source": "Bank of Canada daily exchange rate (FXUSDCAD, Valet API)"})
+        except Exception as ex: print("boc fail", ex)
+    if res.get("fx", {}).get("CADUSD"): FXC["CAD"] = res["fx"]["CADUSD"]
     FXC["CNY"] = cny
     for t, peers in TARGETS.items():
         if only and t not in only: continue
@@ -359,6 +383,7 @@ def main():
             try: d["peers"].append(multiples(p))
             except Exception as ex: print("peer fail", p, ex)
             time.sleep(0.2)
+        if t in UNIT_DIV and d.get("marketCap"): d["marketCap"] /= UNIT_DIV[t]; d["sharesPerUnit"] = UNIT_DIV[t]
         if t in USD_STMT: usd_stmt_fix(d, k)
         if t in BANKS: bank_block(d, k, BANKS[t])
         if t in SEC_APPEND: sec_append(d, cik[t])

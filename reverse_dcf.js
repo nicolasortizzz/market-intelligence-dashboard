@@ -29,9 +29,9 @@ function reverse(tk){
   const imp=gImp!=null?dcf(tk,"base",{...ov,gPath:gImp,ebitT:mT}):null;
   const H=b.hist||[],h0=H[0],hN=H.at(-1),nH=H.length>1?+hN.y-+h0.y:0,hist3=nH>0?Math.pow(hN.rev/h0.rev,1/nH)-1:null,h5=H5(tk);
   return{ov,base,mT,px,gImp,mImp,imp,baseCagr5:cagr(base),baseCagr10:cagr10(base),impCagr10:imp?cagr10(imp):null,
-    histCagr:h5?h5.cagr5:hist3,histYrs:h5?`${h5N(h5)}y ${h5.start}–${h5.end}`:nH>0?`FY${h0.y}–FY${hN.y}`:"",hist3,hist3Yrs:nH>0?`FY${h0.y}–FY${hN.y}`:"",h5,G,M,fG,bank:!!base.bank}}
+    histCagr:h5?h5.cagr5:hist3,histYrs:h5?`${h5N(h5)}y ${h5.start}–${h5.end}`:nH>0?`FY${h0.y}–FY${hN.y}`:"",hist3,hist3Yrs:nH>0?`FY${h0.y}–FY${hN.y}`:"",h5,G,M,fG,bank:!!base.bank,util:!!base.b.util}}
 /* labels: operating companies (revenue CAGR × EBIT margin) vs banks (book-value growth × sustainable ROE, residual-income engine) */
-const RVL=bk=>bk?{g:"Book-value CAGR, years 1-5",gS:"book-value CAGR",m:"Sustainable ROE (yr 5+)",mS:"sustainable ROE",unit:"ADR",model:"residual-income",rate:"Ke",ttl:"Reverse residual income"}
+const RVL=bk=>bk?{g:"Book-value CAGR, years 1-5",gS:"book-value CAGR",m:"Sustainable ROE (yr 5+)",mS:"sustainable ROE",unit:UN(),model:"residual-income",rate:"Ke",ttl:"Reverse residual income"}
   :{g:"Revenue CAGR, years 1-5",gS:"revenue CAGR",m:"Steady-state EBIT margin (yr 5+)",mS:"EBIT margin",unit:"share",model:"DCF",rate:"WACC",ttl:"Reverse DCF"};
 /* Adaptive heatmap axes, rebuilt around today's price on every redraw (sliders included):
    centre = implied point (implied CAGR at the target margin, target margin). Half-width per axis = 0.6 × the mean distance
@@ -39,7 +39,7 @@ const RVL=bk=>bk?{g:"Book-value CAGR, years 1-5",gS:"book-value CAGR",m:"Sustain
    most cells sit roughly within 0.3×-3× price. A "nice" step keeps ~11 points per axis. Per-ticker extra bounds
    (RV_EXTRA, e.g. NIO margin up to 18%) widen the range and the step is enlarged to keep ≤12 rows. */
 const NICE2=[0.15,0.2,0.25,0.5];
-const RV_EXTRA={NIO:{mMax:0.18},SPCX:{gMax:2.0}},NICE=[0.0025,0.005,0.01,0.015,0.02,0.025,0.03,0.04,0.05,0.075,0.1];
+const RV_EXTRA={NIO:{mMax:0.18},SPCX:{gMax:2.0},OKLO:{gMax:3.5,mMin:-0.1},SMR:{gMax:3.5},BEP:{mMin:0.7,mMax:1.2}},NICE=[0.0025,0.005,0.01,0.015,0.02,0.025,0.03,0.04,0.05,0.075,0.1];
 const axFmt=v=>(v*100).toFixed(1)+"%";
 /* at most `max` labelled ticks (every k-th grid point, always including the centre point) so labels never overlap */
 function rvTicks(v,max){const k=Math.ceil(v.length/max),c=Math.floor(v.length/2),vals=v.filter((x,i)=>(i-c)%k===0);return{tickvals:vals,ticktext:vals.map(axFmt)}}
@@ -54,7 +54,8 @@ function rvAxes(tk,R){const P=R.px.p,ex=RV_EXTRA[tk]||{};
   if(ex.mMax!=null)mHi=Math.max(mHi,ex.mMax);if(ex.mMin!=null)mLo=Math.min(mLo,ex.mMin);
   // the grid must contain the price point (centre) and the Base-case star: extend asymmetrically with a half-step margin
   const bx=R.baseCagr5,by=R.base.ebitT,padG=Math.max(0.01,(gHi-gLo)*0.06),padM=Math.max(0.005,(mHi-mLo)*0.06);
-  if(isFinite(bx)){gLo=Math.min(gLo,bx-padG);gHi=Math.max(gHi,bx+padG)}if(isFinite(by)){mLo=Math.min(mLo,by-padM);mHi=Math.max(mHi,by+padM)}
+  if(isFinite(bx)){gLo=Math.min(gLo,bx-padG);gHi=Math.max(gHi,bx+padG)}
+  if(R.bank&&R.gImp!=null&&isFinite(R.gImp)){gLo=Math.min(gLo,R.gImp-padG);gHi=Math.max(gHi,R.gImp+padG)} // residual-income grids are centred on Base growth: keep the implied point inside tooif(isFinite(by)){mLo=Math.min(mLo,by-padM);mHi=Math.max(mHi,by+padM)}
   return{gc,mc,gs:niceAxis(gc,gLo,gHi,12),ms:niceAxis(mc,mLo,mHi,12)}}
 function drawReverse(){const tk=V.tk,el=$("#rvBox");if(!el)return;if(RV.lastTk!==tk){RV.st={};RV.lastTk=tk}const R=reverse(tk),b=R.base.b,c=b.c,fu=fx(),st=RV.st[tk]||{},gr=pct2,L=RVL(R.bank);
   $("#rvTitle").textContent=`${L.ttl}: what does ${tk} at ${usd(R.px.p)} imply?`;
@@ -86,7 +87,7 @@ function drawReverse(){const tk=V.tk,el=$("#rvBox");if(!el)return;if(RV.lastTk!=
   const gTxt=R.gImp==null?`No revenue CAGR between ${pct(R.G[0],0)} and ${pct(R.G[1],0)} reconciles to the price at a ${pct(R.mT)} margin`:`At a ${pct(R.mT)} steady-state EBIT margin, ${usd(R.px.p)} implies revenue compounding at <b>${pct(R.gImp)}</b> a year for five years (then fading to ${pct(R.base.g)}), i.e. a 10-year CAGR of ${pct(R.impCagr10)}`;
   const d10=R.impCagr10==null?null:R.impCagr10-R.baseCagr10,rel=d10==null?"":Math.abs(d10)<0.005?"essentially <b>in line with</b>":d10<0?"<b>below</b>":"<b>above</b>";
   const vs=R.gImp==null?"":`On a like-for-like 10-year basis that is ${rel} the Base case (${pct(R.baseCagr10)} 10y; ${pct(R.baseCagr5)} over years 1-5, front-loaded by ${cLbl} ${c0!=null?sp(c0):"—"} / ${c1!=null?sp(c1):"—"} for the next two fiscal years)${R.histCagr!=null?`, and ${R.gImp<R.histCagr?"below":"above"} the ${R.histYrs} historical revenue CAGR of ${pct(R.histCagr)}`:""}.`;
-  const mTxt=R.mImp==null?"Holding Base-case growth, no EBIT margin in the tested range matches the price.":`Holding Base-case growth instead, the price implies a steady-state EBIT margin of <b>${pct(R.mImp,2)}</b> vs ${pct(R.base.ebitT)} in the Base case (FY${b.hist.at(-1).y} actual: ${pct(b.ebit0/b.rev0)}).`;
+  const mTxt=R.mImp==null?"Holding Base-case growth, no EBIT margin in the tested range matches the price.":`Holding Base-case growth instead, the price implies a steady-state EBIT margin of <b>${pct(R.mImp,2)}</b> vs ${pct(R.base.ebitT)} in the Base case (${b.hist.length?`FY${b.hist.at(-1).y} actual: ${pct(b.ebit0/b.rev0)}`:"no reported revenue yet"}).`;
   const pw=probWeighted(tk,R.ov).pw,cm=comps(tk),cMid=compMidOf(cm),tri=cMid!=null?0.6*pw+0.4*cMid:pw;
   const verdict=(R.base.ps>R.px.p?`The Base-case DCF of <b>${usd(R.base.ps)}</b> sits ${pct(R.base.ps/R.px.p-1)} above the price: the market is pricing a <b>less optimistic</b> path than the Base case.`:`The Base-case DCF of <b>${usd(R.base.ps)}</b> sits ${pct(1-R.base.ps/R.px.p)} below the price: the market is pricing a ${R.base.ps/R.px.p>0.9?"slightly ":""}<b>more optimistic</b> path than the Base case.`)+` The tab's triangulated fair value (<b>${usd(tri)}</b> = 60% probability-weighted DCF ${usd(pw)} + 40% comps ${cMid!=null?usd(cMid):"—"}) is ${tri>R.px.p?"above":"below"} the price; the comps leg is ${cMid==null?"n/a":cMid>pw?"above":"below"} the DCF leg${cMid!=null&&Math.abs(cMid/pw-1)>0.3?", so multiples and cash flows disagree materially":""}.`;
   const lev=(()=>{const lo=dcf(tk,"base",{...R.ov,ebitT:R.base.ebitT-0.01}).ps,hi=dcf(tk,"base",{...R.ov,ebitT:R.base.ebitT+0.01}).ps;return`Sensitivity: ±1pp of steady-state EBIT margin moves the Base-case value by about ${usd((hi-lo)/2)}/share (${pct((hi-lo)/2/R.base.ps)})${R.base.ebitT<0.1?", so for a thin-margin business the margin, not the growth rate, is the main swing factor.":"."}`})();
@@ -99,7 +100,7 @@ function drawReverseBank(tk,R,b,c,fu,st,gr,L){
     kpi("Implied sustainable ROE",R.mImp==null?"n/a":R.mImp*100,`holding Base book growth ${pct(R.base.mid)} · base ROE ${pct(R.base.ebitT)}`,v=>typeof v==="number"?v.toFixed(2)+"%":v),
     kpi("Cost of equity (Ke)",R.base.ke*100,`rf + β×ERP + CRP ${pct2(b.a.crp)}`,v=>v.toFixed(2)+"%"),
     kpi("Implied book CAGR (yrs 1-5)",R.gImp==null?"n/a":R.gImp*100,`at ${pct(R.mT)} sustainable ROE`,v=>typeof v==="number"?v.toFixed(1)+"%":v),
-    ...(R.h5?[kpi("Hist. net op. revenue CAGR (5y)",R.h5.cagr5*100,`${R.h5.start}–${R.h5.end} · USD at year-end BCRA · real ARS ${pct(R.h5.ars.realCagr5)}`,v=>v.toFixed(1)+"%")]:[]),
+    ...(R.h5?[R.h5.ars?kpi("Hist. net op. revenue CAGR (5y)",R.h5.cagr5*100,`${R.h5.start}–${R.h5.end} · USD at year-end BCRA · real ARS ${pct(R.h5.ars.realCagr5)}`,v=>v.toFixed(1)+"%"):kpi(`Hist. revenue CAGR (${h5N(R.h5)}y)`,R.h5.cagr5*100,`${R.h5.start}–${R.h5.end} · ${R.h5.currency}${R.h5.usd?" · USD "+pct(R.h5.usd.cagr5):""}`,v=>v.toFixed(1)+"%")]:[]),
     kpi("Base-case RI value",R.base.ps,`Ke ${gr(R.base.ke)} · g ${gr(R.base.g)}`,usd)]);
   const W0=dcf(tk,"base",{...(V.ov[tk]||{})});
   const sl=rvSliderDefs(tk,R,[["wacc","Cost of equity (Ke)",0.08,0.25,0.0025,R.base.wacc,W0.wacc],["g","Terminal growth",0,0.045,0.0025,R.base.g,W0.g],["m","Sustainable ROE (for growth solve)",0,0.4,0.0025,R.mT,W0.ebitT]]);
@@ -107,8 +108,8 @@ function drawReverseBank(tk,R,b,c,fu,st,gr,L){
   $$("#rvSliders input").forEach(i=>i.oninput=()=>{$("#rv_"+i.dataset.k).textContent=gr(+i.value);RV.st[tk]=Object.assign(RV.st[tk]||{},{[i.dataset.k]:+i.value});clearTimeout(RV._t);RV._t=setTimeout(drawReverse,80)});
   // value vs sustainable ROE curve (holding base book growth)
   const xs=[];for(let x=0;x<=0.4001;x+=0.005)xs.push(x);const fM=x=>dcf(tk,"base",{...R.ov,ebitT:x}).ps;
-  plot("rvCurve",[{type:"scatter",mode:"lines",x:xs,y:xs.map(x=>fM(x)*fu),line:{color:css("--ac"),width:2.5},hovertemplate:"ROE %{x:.1%}<br>%{y:$.2f}/ADR<extra></extra>"}],
-    {xaxis:{title:"Sustainable ROE (yr 5+), Base book growth",tickformat:".0%",gridcolor:css("--bd")},yaxis:{title:"Value per ADR",tickformat:"$,.2f",gridcolor:css("--bd"),rangemode:"tozero"},showlegend:false,margin:{l:60,r:14,t:16,b:46},
+  plot("rvCurve",[{type:"scatter",mode:"lines",x:xs,y:xs.map(x=>fM(x)*fu),line:{color:css("--ac"),width:2.5},hovertemplate:"ROE %{x:.1%}<br>%{y:$.2f}/"+UN()+"<extra></extra>"}],
+    {xaxis:{title:"Sustainable ROE (yr 5+), Base book growth",tickformat:".0%",gridcolor:css("--bd")},yaxis:{title:"Value per "+UN(),tickformat:"$,.2f",gridcolor:css("--bd"),rangemode:"tozero"},showlegend:false,margin:{l:60,r:14,t:16,b:46},
      shapes:[{type:"line",xref:"paper",x0:0,x1:1,y0:R.px.p*fu,y1:R.px.p*fu,line:{color:css("--dn"),dash:"dot",width:2}},...[[R.mImp,css("--dn")],[R.base.ebitT,css("--up")],[R.base.ke,css("--mu")]].filter(x=>x[0]!=null).map(([x,col])=>({type:"line",x0:x,x1:x,yref:"paper",y0:0,y1:1,line:{color:col,width:1.5,dash:"dash"}}))],
      annotations:[{xref:"paper",x:0.01,y:R.px.p*fu,yanchor:"bottom",xanchor:"left",text:"Market price "+usd(R.px.p),showarrow:false,font:{color:css("--dn"),size:11}},
        ...(R.mImp!=null?[{x:R.mImp,yref:"paper",y:1,yanchor:"bottom",text:"Implied "+pct(R.mImp),showarrow:false,font:{color:css("--dn"),size:11}}]:[]),
@@ -116,11 +117,11 @@ function drawReverseBank(tk,R,b,c,fu,st,gr,L){
        {x:R.base.ke,yref:"paper",y:0.8,text:"Ke "+pct(R.base.ke),showarrow:false,font:{color:css("--mu"),size:11}}]});
   drawRvGrid(tk,R,fu,L);
   const pw=probWeighted(tk,R.ov).pw,cm=comps(tk),cMid=compMidOf(cm),tri=cMid!=null?0.6*pw+0.4*cMid:pw,roeTTM=b.ebit0/b.rev0;
-  const t1=R.mImp==null?"No sustainable ROE between 0% and 40% reconciles to the price.":`At ${usd(R.px.p)} (${pb.toFixed(2)}x book of ${usd(b.bv0)}/ADR), the market is pricing a sustainable USD ROE of <b>${pct(R.mImp,1)}</b>, ${R.mImp<R.base.ke?"<b>below</b>":"<b>above</b>"} the ${pct(R.base.ke,1)} cost of equity (Base case ${pct(R.base.ebitT)}; consensus implies ${pct(b.roe1)} in FY2026 and ${pct(b.roe2)} in FY2027; TTM ${pct(roeTTM)}).`;
+  const t1=R.mImp==null?"No sustainable ROE between 0% and 40% reconciles to the price.":`At ${usd(R.px.p)} (${pb.toFixed(2)}x book of ${usd(b.bv0)}/${UN()}), the market is pricing a sustainable USD ROE of <b>${pct(R.mImp,1)}</b>, ${R.mImp<R.base.ke?"<b>below</b>":"<b>above</b>"} the ${pct(R.base.ke,1)} cost of equity (Base case ${pct(R.base.ebitT)}; consensus implies ${pct(b.roe1)} in FY2026 and ${pct(b.roe2)} in FY2027; TTM ${pct(roeTTM)}).`;
   const t2=R.gImp==null?`Holding a ${pct(R.mT)} ROE, no book-growth rate between ${pct(R.G[0],0)} and ${pct(R.G[1],0)} matches the price${R.mT>R.base.ke?" — with ROE above Ke, faster growth only adds value, so the price sits below every growth path":""}.`:`Holding a ${pct(R.mT)} sustainable ROE, the price implies book value compounding at <b>${pct(R.gImp)}</b> a year for five years.`;
-  const verdict=`The Base-case residual-income value is <b>${usd(R.base.ps)}</b> (${R.base.ps>R.px.p?"+":""}${pct(R.base.ps/R.px.p-1)} vs price); the triangulated fair value is <b>${usd(tri)}</b> (60% probability-weighted RI ${usd(pw)} + 40% P/BV comps ${cMid!=null?usd(cMid):"—"}).`;
+  const verdict=`The Base-case residual-income value is <b>${usd(R.base.ps)}</b> (${R.base.ps>R.px.p?"+":""}${pct(R.base.ps/R.px.p-1)} vs price); the triangulated fair value is <b>${usd(tri)}</b> (60% probability-weighted RI ${usd(pw)} + 40% ${b.util?"P/BV & P/E":"P/BV"} comps ${cMid!=null?usd(cMid):"—"}).`;
   const lo=fM(R.base.ebitT-0.01),hi=fM(R.base.ebitT+0.01);
-  $("#rvNote").innerHTML=`<p>${t1} ${t2}</p><p>${verdict} A price below book means the market expects GGAL to earn less than its cost of equity on average: justified P/BV = (ROE − g)/(Ke − g)${justified!=null?` = ${justified.toFixed(2)}x at the implied ROE`:""}.</p><p class="muted small">Sensitivity: ±1pp of sustainable ROE moves the Base-case value by about ${usd((hi-lo)/2)}/ADR (${pct((hi-lo)/2/R.base.ps)}). Same residual-income engine and inputs as above (book ${usd(b.bv0)}/ADR at ${c.bank.bvDate}, BCRA ${c.bank.fxBv} ARS/USD; Ke includes the 6.48% Argentina EMBI). Solved by bisection. Price: ${R.px.src}, ${R.px.d}. Model estimates, not investment advice.</p>${R.h5?`<p class="muted small" id="rvH5">${h5Foot(tk,R.h5)}</p>`:""}`;rvH5Tip(tk,R)}
+  $("#rvNote").innerHTML=`<p>${t1} ${t2}</p><p>${verdict} ${R.px.p<b.bv0?`A price below book means the market expects ${tk} to earn less than its cost of equity on average`:`A price above book means the market expects ${tk} to earn more than its cost of equity`}: justified P/BV = (ROE − g)/(Ke − g)${justified!=null?` = ${justified.toFixed(2)}x at the implied ROE`:""}.</p><p class="muted small">Sensitivity: ±1pp of sustainable ROE moves the Base-case value by about ${usd((hi-lo)/2)}/${UN()} (${pct((hi-lo)/2/R.base.ps)}). Same residual-income engine and inputs as above (${b.util?`book ${usd(b.bv0)}/share = price ÷ P/B${b.a.crp?`; Ke includes the ${pct2(b.a.crp)} country-risk premium`:""}`:`book ${usd(b.bv0)}/ADR at ${c.bank.bvDate}, BCRA ${c.bank.fxBv} ARS/USD; Ke includes the 6.48% Argentina EMBI`}). Solved by bisection. Price: ${R.px.src}, ${R.px.d}. Model estimates, not investment advice.</p>${R.h5?`<p class="muted small" id="rvH5">${h5Foot(tk,R.h5)}</p>`:""}`;rvH5Tip(tk,R)}
 /* plausibility guards: never present an odd implied value silently */
 function rvWarn(R){const w=[],L=R.bank?{g:"book-value CAGR",m:"ROE"}:{g:"revenue CAGR",m:"EBIT margin"};
   if(Math.abs(R.mT-R.base.ebitT)>1e-9)w.push(`The ${L.m} used for the growth solve (${pct(R.mT)}) is a custom slider value, not the model Base ${pct(R.base.ebitT)}; press Reset to return to the model.`);
@@ -144,11 +145,11 @@ function drawRvGrid(tk,R,fu,L){
 const _dv2=drawVal;drawVal=function(full){_dv2(full);loadRev().then(drawReverse).catch(e=>console.error(e))};
 document.addEventListener("click",e=>{if(e.target&&e.target.id==="rvReset"){delete RV.st[V.tk];drawReverse();toast("Reverse DCF reset")}});
 /* diagnostics for scripts/validate_dashboard.py: model defaults vs rendered sliders, grid ranges, markers, labels */
-function rvDiag(tk){const R=reverse(tk),A=rvAxes(tk,R),inR=(v,a)=>v>=a[0]-1e-9&&v<=a.at(-1)+1e-9,W0=dcf(tk,"base",{...(V.ov[tk]||{})});
+function rvDiag(tk){const PR=!!V.A.companies[tk].preRevenue,R=reverse(tk),A=rvAxes(tk,R),inR=(v,a)=>v>=a[0]-1e-9&&v<=a.at(-1)+1e-9,W0=dcf(tk,"base",{...(V.ov[tk]||{})});
   const sl={};$$("#rvSliders input").forEach(i=>sl[i.dataset.k]={v:+i.value,d:+i.dataset.default,min:+i.min,max:+i.max});
   const z=A.ms.map(m=>A.gs.map(g=>dcf(tk,"base",{...R.ov,gPath:g,ebitT:m}).ps)),fl=z.flat();
   const gd=document.getElementById("rvGrid"),xt=gd?.layout?.xaxis?.tickvals?.length,yt=gd?.layout?.yaxis?.tickvals?.length;
-  return{tk,bank:!!R.bank,price:R.px.p,mT:R.mT,baseM:R.base.ebitT,modelM:W0.ebitT,sliders:sl,gImp:R.gImp,mImp:R.mImp,baseCagr5:R.baseCagr5,gs:A.gs,ms:A.ms,
+  return{tk,bank:!!R.bank,preRevenue:PR,price:R.px.p,mT:R.mT,baseM:R.base.ebitT,modelM:W0.ebitT,sliders:sl,gImp:R.gImp,mImp:R.mImp,baseCagr5:R.baseCagr5,gs:A.gs,ms:A.ms,
     starIn:inR(R.baseCagr5,A.gs)&&inR(R.base.ebitT,A.ms),implIn:R.gImp==null?null:inR(R.gImp,A.gs)&&inR(R.mT,A.ms),zMin:Math.min(...fl),zMax:Math.max(...fl),
     finite:fl.every(isFinite)&&isFinite(R.base.ps),xTicks:xt,yTicks:yt,nG:A.gs.length,nM:A.ms.length,warn:rvWarn(R),h5:!!R.h5,
     wh:!!(WH.D?.companies?.[tk]),whRows:WH.D?.companies?.[tk]?.rows?.length||0}}

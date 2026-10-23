@@ -6,6 +6,7 @@
   "probDefault": "Scenario probabilities are subjective analyst judgments informed by the catalysts listed; they sum to 100%.",
   "companies": {
     "META": {
+      "group": "Internet platforms",
       "sector": "Internet platforms / digital advertising",
       "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.009, "tax": 0.17,
       "daPct0": 0.093, "daPctT": 0.16, "capexPct1": 0.54, "capexPctT": 0.20, "nwcPct": 0.02,
@@ -28,6 +29,7 @@
         "rationale": "Quality: best-in-class ad platform with ~41% operating margin (FY2025) and >3B daily users; a net-cash-light balance sheet after the AI build-out is still investment-grade. Growth: consensus has revenue +26% in 2026 and +21% in 2027, exceptional for a $1.9T company. Risk: the main risk is capital intensity (2026 capex is ~55% of revenue, which drove Q2 FCF down to $0.8B) and regulation (EU DMA, youth-safety suits). Valuation: scored from the model's implied upside."}
     },
     "UNH": {
+      "group": "Healthcare",
       "sector": "Managed care / health services",
       "betaAdj": "blume", "betaOverride": 0.85, "crp": 0, "kdSpread": 0.012, "tax": 0.22,
       "daPct0": 0.0098, "daPctT": 0.010, "capexPct1": 0.008, "capexPctT": 0.008, "nwcPct": -0.01,
@@ -52,6 +54,7 @@
         "rationale": "Quality: unmatched scale (FY2025 revenue $448B) and the Optum vertical integration; however, operating margin fell from 8.7% (2023) to 4.2% (2025). Growth: consensus has 2026 revenue roughly flat and 2027 at +3%, the weakest growth in decades. Risk: elevated, with DOJ criminal and civil probes, political scrutiny of MA coding, and a cost trend running above rate increases. Valuation: scored from the model's implied upside."}
     },
     "DIS": {
+      "group": "Media",
       "displayName": "The Walt Disney Company",
       "sector": "Media & entertainment / experiences",
       "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.011, "tax": 0.23,
@@ -84,6 +87,7 @@
         "rationale": "Quality: unrivaled IP library plus a parks moat; operating margin improved from 8% (FY22) to 15% (FY25) as streaming turned profitable. Growth: consensus has mid-single-digit growth (FY26 +7.5%, FY27 +4.5%). Risk: moderate, with ~$41B of net debt, structural linear-TV decline and a heavy Experiences capex cycle (~8.5% of revenue). Valuation: scored from the model's implied upside. A single blockbuster is worth well under $1/share as a one-off (see the timing chart); sustained franchise strength matters far more than one release."}
     },
     "NIO": {
+      "group": "Autos (EV)",
       "sector": "China EV maker",
       "betaAdj": "none", "betaOverride": 1.6, "crp": 0.015, "kdSpread": 0.04, "tax": 0.15,
       "daPct0": 0.107, "daPctT": 0.05, "capexPct1": 0.06, "capexPctT": 0.05, "nwcPct": -0.03,
@@ -107,6 +111,7 @@
         "rationale": "Quality: still loss-making at the operating level (FY2025 EBIT margin −16%), though the Q2 2026 gross margin reached 18.4% with four straight quarters of positive operating cash flow. Growth: very high, with consensus revenue +47% in 2026 and +19% in 2027. Risk: very high, given a brutal China price war, repeated dilution, policy dependence and geopolitical/ADR risk. Valuation: scored from the model's implied upside, with very wide dispersion."}
     },
     "YPF": {
+      "group": "Oil & gas",
       "sector": "Argentine integrated oil & gas (Vaca Muerta shale)", "betaAdj": "none", "betaOverride": 1.1, "betaNote": "Yahoo's 5Y beta (-0.11) is meaningless for a state-controlled ADR; an assumed 1.1 (integrated oil, moderately levered) is used, plus the 6.48% Argentina EMBI as country risk.", "crp": 0.0648, "kdSpread": 0.035, "tax": 0.35, "g1": 0.26, "g2": -0.02, "ebit1": 0.2, "growthNote": "Year 1 (FY2026) = H1 2026 reported revenue $11.52B + ~$11.5B H2 at the guided ~$75 Brent ≈ $23B (+26% in USD). Year 2 assumes Brent normalizing toward ~$70 offsets shale volume growth (≈ -2%). Yahoo consensus for YPF is in ARS and is not used for USD growth.", "daPct0": 0.175, "daPctT": 0.14, "capexPct1": 0.25, "capexPctT": 0.16, "nwcPct": 0.05, "terminalG": 0.015, "ronic": 0.12, "shareChange": 0.0, "precedentEvEbitda": [3.5, 6.0], "controlPremium": [0.2, 0.35], "precedentNote": "Argentine upstream deals have priced at roughly 3.5-6x EV/EBITDA (estimate): Pluspetrol's purchase of ExxonMobil's Vaca Muerta assets (2024, ~$1B), Vista's acquisition of Petronas' 50% of La Amarga Chica (2025, ~$1.2B incl. shares) and YPF's farm-outs. A takeover of YPF is not realistic (51% held by the State under the 2012 expropriation law); the M&A view is a theoretical private-market cross-check.",
       "scenarios": [
         {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": -0.05, "midGrowth": 0.03, "ebitT": 0.13, "ebit1": 0.18, "desc": "Brent falls to ~$60, the shale ramp slips (pipeline/rig constraints) and domestic fuel prices lag import parity again; EBIT margin ~13%."},
@@ -125,6 +130,7 @@
       "score": {"quality": 6, "growth": 8, "risk": 3, "valuation": null, "rationale": "Quality: Argentina's largest integrated producer; record Q2 2026 adjusted EBITDA of $2.8B (43% margin), lifting cost down to ~$8/boe and net leverage of 1.1x. Growth: high, from Vaca Muerta shale (+47% y/y in Q2 2026) and export projects. Risk: high, given Argentine macro and policy risk, State control (51%), Brent exposure and the long tail of the expropriation litigation. Valuation: scored from the model's implied upside."}
     },
     "GGAL": {
+      "group": "Banks",
       "sector": "Argentine financial group (bank, cards, insurance, asset management)", "model": "bank", "betaAdj": "none", "betaOverride": 1.15, "betaNote": "Yahoo's 5Y beta (0.29) reflects local trading frictions; an assumed 1.15 (EM bank) is used, plus the 6.48% Argentina EMBI as country risk.", "crp": 0.0648, "kdSpread": 0.0, "tax": 0.35, "terminalG": 0.03, "shareChange": 0.0, "precedentPB": [0.5, 1.3], "controlPremium": [0.2, 0.35], "precedentNote": "Argentine bank control deals have priced well below LatAm norms (estimates): Grupo Galicia's purchase of HSBC Argentina (2024, ~$550M, below book), Banco Macro's purchase of Itaú Argentina (2023, ~$50M) and BBVA/others' minority deals; LatAm control deals in normal times ~1.0-1.5x book. Range used: 0.5-1.3x P/BV.", "compsNote": "P/BV is the primary bank multiple. Peer P/E is TTM while GGAL's TTM earnings are depressed (ROE ~2% after the 2025 disinflation and credit-loss cycle), so P/E is applied to the FY2026e consensus EPS and shown for reference only; the triangulated fair value uses P/BV comps.",
       "scenarios": [
         {"id": "bear", "name": "Bear", "p": 0.25, "roeAdj": -0.04, "midGrowth": 0.05, "ebitT": 0.12, "desc": "Non-performing loans stay ~10% (Q2 2026: 10.6%), loan growth stalls and margins compress as rates fall; sustainable ROE ~12%, below the cost of equity."},
@@ -142,6 +148,7 @@
       "score": {"quality": 7, "growth": 7, "risk": 3, "valuation": null, "rationale": "Quality: Argentina's largest private financial group (~16% share of private loans and deposits), capital ratio 23.7% and efficiency 35% in Q2 2026. Growth: credit penetration is among the lowest in LatAm, so loan growth can be strong if disinflation holds. Risk: high, given NPLs at 10.6%, IAS 29 inflation accounting, FX and sovereign exposure, and regulatory history. Valuation: scored from the model's implied upside."}
     },
     "MU": {
+      "group": "Semiconductors",
       "sector": "Memory semiconductors (DRAM, HBM, NAND)", "betaAdj": "none", "betaOverride": 1.6, "betaNote": "Yahoo's 5Y beta (2.23) is inflated by the 2026 memory squeeze; an assumed 1.6 (cyclical semiconductor) is used.", "crp": 0, "kdSpread": 0.012, "tax": 0.15, "ebit1": 0.78,
       "growthNote": "Fiscal years end on the Thursday closest to 31 August (FY2026 = 53 weeks ended 2026-09-03). FY2026 is taken from the 10-K via SEC XBRL because Yahoo's annual statements stop at FY2025. Year 1 / year 2 = consensus FY2027 / FY2028 revenue ($275.5B / $318.9B). Memory is highly cyclical, so years 3-5 assume DRAM/NAND pricing normalizes (Base −12%/yr) and the steady-state EBIT margin is a mid-cycle 38%, versus 74.6% in FY2026 and roughly 25% on average over FY2016-25 (HBM mix and long-term supply agreements justify a higher mid-cycle than history).",
       "daPct0": 0.071, "daPctT": 0.17, "capexPct1": 0.18, "capexPctT": 0.25, "nwcPct": 0.15, "terminalG": 0.03, "ronic": 0.15, "shareChange": 0.0,
@@ -165,6 +172,7 @@
       "score": {"quality": 7, "growth": 8, "risk": 4, "valuation": null, "rationale": "Quality: one of three DRAM/HBM makers, net cash, FY2026 operating margin 74.6% at the top of the cycle. Growth: consensus doubles revenue in FY2027 on HBM and AI server demand. Risk: memory is the most cyclical part of semis (FY2023 operating loss of $5.4B), and Taiwan concentration plus China export policy add tail risk. Valuation: scored from the model's implied upside on mid-cycle margins."}
     },
     "ASML": {
+      "group": "Semiconductors",
       "displayName": "ASML Holding",
       "sector": "Semiconductor equipment (EUV/DUV lithography)", "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.007, "tax": 0.17,
       "growthNote": "ASML reports in EUR (US GAAP 20-F). The model is computed in EUR and converted to USD per ADR (1 ADR = 1 ordinary share) at the ECB euro reference rate stored in valuation.json. Year 1 / year 2 = consensus FY2026 / FY2027 net sales (€44.5B / €57.2B, +36% / +29%).",
@@ -189,6 +197,7 @@
       "score": {"quality": 10, "growth": 8, "risk": 6, "valuation": null, "rationale": "Quality: sole supplier of EUV lithography, FY2025 operating margin 34.6% and a growing installed-base service business. Growth: consensus net sales +36% in 2026 and +29% in 2027 on AI-driven logic and memory demand. Risk: lumpy orders tied to a few customers (TSMC, Samsung, Intel, SK Hynix), China export controls and Taiwan concentration. Valuation: scored from the model's implied upside."}
     },
     "VST": {
+      "group": "Power generation",
       "sector": "US independent power producer (nuclear, gas, retail electricity)", "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.02, "tax": 0.18, "ebit1": 0.20,
       "growthNote": "Year 1 / year 2 = consensus FY2026 / FY2027 revenue ($22.3B / $24.0B, +26% / +8%), boosted by acquired gas plants and data-center contracts. Reported revenue and operating income include hedge and derivative marks, so the year-1 EBIT margin is set at 20% (2026 adjusted EBITDA guide ≈ 33% of revenue less ~13% D&A incl. nuclear fuel). Steady-state EBIT margin 24% in the Base case, as nuclear PPAs with hyperscalers (Comanche Peak) lock in higher prices. Buybacks of ~$1B/yr retire ~3%/yr of shares for 3 years. The 45U nuclear production tax credit (through 2032) supports a floor on nuclear revenue and lowers the cash tax rate (18% assumed).",
       "daPct0": 0.12, "daPctT": 0.11, "capexPct1": 0.14, "capexPctT": 0.10, "nwcPct": 0.02, "terminalG": 0.025, "ronic": 0.12, "shareChange": -0.03,
@@ -212,6 +221,7 @@
       "score": {"quality": 7, "growth": 7, "risk": 5, "valuation": null, "rationale": "Quality: one of the largest US competitive generators (~41 GW incl. ~6.4 GW nuclear) with an integrated retail book that hedges output. Growth: consensus +26% revenue in 2026 on acquisitions and data-center demand; contracted nuclear PPAs add visibility. Risk: commodity and weather exposure (Uri), policy and FERC co-location rules, and leverage (~$20B debt). Valuation: scored from the model's implied upside."}
     },
     "ABEV": {
+      "group": "Consumer staples",
       "sector": "Beverages (beer, soft drinks) - Brazil, LatAm North/South, Canada", "betaAdj": "none", "betaOverride": 0.75, "betaNote": "Yahoo's 5Y beta (0.22) is distorted by BRL moves and local trading; an assumed 0.75 (EM consumer staples ADR) is used, plus Brazil CRP.", "crp": 0.0324, "crpLabel": "Brazil CRP, Damodaran Jan-2026 (Ba1)", "kdSpread": 0.02, "tax": 0.24,
       "growthNote": "Ambev reports in BRL (IFRS 20-F). The model is computed in BRL and converted to USD per ADR (1 ADR = 1 common share; Yahoo market cap / ADR price = 15.4B shares, matching the share count) at the Banco Central do Brasil PTAX rate stored in valuation.json. Year 1 / year 2 = consensus FY2026 / FY2027 net revenue in BRL (+2.6% / +4.9%). Because the model holds the FX rate flat, mid-term growth (3.5%) is set in USD-equivalent terms, i.e. below nominal BRL growth by the expected inflation gap. Argentina (Quilmes) is reported under IAS 29 hyperinflation accounting.",
       "daPct0": 0.07, "daPctT": 0.065, "capexPct1": 0.06, "capexPctT": 0.06, "nwcPct": -0.05, "terminalG": 0.025, "ronic": 0.25, "shareChange": -0.005,
@@ -235,6 +245,7 @@
       "score": {"quality": 8, "growth": 4, "risk": 6, "valuation": null, "rationale": "Quality: dominant beer share in Brazil (~60%), net cash and strong cash conversion (FCF ~R$20B in 2025). Growth: low, with consensus net revenue +3% in 2026 and +5% in 2027 in BRL. Risk: BRL and Brazil country risk, tax reform, tax contingencies and Argentina. Valuation: scored from the model's implied upside."}
     },
     "UBER": {
+      "group": "Internet platforms",
       "sector": "Global mobility, delivery and freight marketplace", "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.015, "tax": 0.19, "ebit1": 0.135,
       "growthNote": "Revenue is driven by gross bookings (FY2025 ≈ $193B: Mobility ~47%, Delivery ~49%, Freight ~4%) times the take rate (~27% overall; Mobility ~30%, Delivery ~19% incl. advertising). Year 1 / year 2 = consensus FY2026 / FY2027 revenue ($57.9B / $66.8B), i.e. ~17-19% bookings growth with a broadly stable take rate. EBIT is GAAP operating income, so stock-based compensation (~$1.9B/yr, ~3.5% of revenue) is treated as a real cost; company 'adjusted EBITDA' (~$8.7B FY2025, ~4.5% of gross bookings) adds back SBC and is not used. Steady-state EBIT margin of 17% in the Base case (~5% of gross bookings). Buybacks under the $20B authorisation more than offset SBC: share count assumed to fall 2%/yr for 3 years. Equity stakes (Didi, Aurora, Grab residual, Lime, Moove, WeRide/Pony.ai and others) are non-operating and added in the EV bridge at balance-sheet carrying value (Yahoo 'Investments And Advances'). Cash tax rate 19% assumed (US NOLs/credits partly shelter income after the valuation-allowance release).",
       "daPct0": 0.013, "daPctT": 0.012, "capexPct1": 0.006, "capexPctT": 0.007, "nwcPct": -0.04, "terminalG": 0.03, "ronic": 0.20, "shareChange": -0.02,
@@ -261,6 +272,7 @@
       "score": {"quality": 8, "growth": 7, "risk": 5, "valuation": null, "rationale": "Quality: the largest global mobility + delivery network (~190M monthly active platform consumers), positive and growing free cash flow and an investment-grade balance sheet. Growth: high-teens bookings growth with advertising and membership. Risk: autonomous-vehicle disintermediation, labour classification, insurance costs and regulation in many cities. Valuation from the model."}
     },
     "BE": {
+      "group": "Power generation",
       "sector": "Solid-oxide fuel cells / on-site power for data centers and industry", "betaAdj": "blume", "betaOverride": 2.0, "crp": 0, "kdSpread": 0.03, "tax": 0.15, "ebit1": 0.15,
       "growthNote": "Bloom sells solid-oxide fuel-cell 'Energy Servers' (product + installation) and earns recurring service and electricity revenue. Year 1 / year 2 = consensus FY2026 / FY2027 revenue ($4.1B / $6.8B, +104% / +65%), driven by AI data-center on-site power (AEP up to 1 GW, Oracle, Brookfield's up to $5B Bloom deployment programme, Equinix) where grid interconnection queues are years long. Product gross margins ~35-40%, service now slightly profitable after years of losses; GAAP operating margin turned positive only in FY2024-25 (history of losses). Year-1 EBIT margin 15% (Q2-2026: 17%). Steady-state EBIT margin 20% in the Base case. SK ecoplant (Korea) remains a large distributor/customer but stopped being a related party in Jul-2025. The IRA investment tax credit (48E, fuel cells qualify through 2032 after OBBBA) lowers customers' cost per kW. Cash tax 15% (NOLs). Working capital is heavy (inventory, receivables): ΔNWC 15% of Δrevenue. SBC dilution ~2%/yr. Beta set to 2.0 (Yahoo 5y monthly beta 3.78, Blume 2.86, inflated by the 2020-21 and 2025-26 squeezes). Convertible notes are valued if-converted (see key inputs).",
       "daPct0": 0.03, "daPctT": 0.025, "capexPct1": 0.05, "capexPctT": 0.035, "nwcPct": 0.15, "terminalG": 0.03, "ronic": 0.15, "shareChange": 0.02,
@@ -291,6 +303,7 @@
       "score": {"quality": 6, "growth": 9, "risk": 3, "valuation": null, "rationale": "Quality: proprietary solid-oxide technology, ~1.5 GW+ installed and a growing service annuity, but GAAP profits only since 2024 after two decades of losses. Growth: revenue roughly doubling in 2026 on AI data-center demand. Risk: concentration in data centers and Korea, dependence on tax credits, gas-price exposure for customers, a very high beta and convertible dilution. Valuation from the model."}
     },
     "AVGO": {
+      "group": "Semiconductors",
       "sector": "Semiconductors (custom AI accelerators, networking) and infrastructure software (VMware)", "betaAdj": "blume", "betaOverride": null, "crp": 0, "kdSpread": 0.01, "tax": 0.15, "ebit1": 0.50,
       "growthNote": "Two segments: semiconductor solutions (~58% of FY2025 revenue; custom AI accelerators/XPUs for Google TPU, Meta, ByteDance, OpenAI and others, plus Tomahawk/Jericho Ethernet switching) and infrastructure software (~42%; VMware Cloud Foundation, CA, Symantec). Year 1 / year 2 = consensus FY2026 / FY2027 revenue ($106B / $174B, +66% / +64%), driven by AI semiconductor revenue (OpenAI's 10 GW custom-accelerator programme from H2-2026, Anthropic/Google TPU orders). EBIT is GAAP operating income: it is after ~$7B/yr of amortisation of acquired intangibles (mostly VMware; falls as it rolls off) and ~$7.6B of SBC (FY2025, ~12% of revenue), both treated as costs. Non-GAAP 'adjusted EBITDA' (~67% of revenue) adds both back and is not used. Year-1 GAAP EBIT margin 50% (TTM 54%; AI ASIC mix lowers gross margin), steady state 52% in the Base case. D&A falls from ~14% of revenue (amortisation-heavy) to 3% as intangibles roll off. Tax 15% (Pillar Two minimum; Singapore incentives). Share count is split-adjusted (10-for-1, Jul-2024); buybacks roughly offset SBC (0%/yr). Dividends ($2.60/share/yr) are a use of FCFF, not deducted separately. Debt (~$59B, mostly from VMware) is deducted in the EV bridge.",
       "daPct0": 0.137, "daPctT": 0.03, "capexPct1": 0.012, "capexPctT": 0.012, "nwcPct": 0.05, "terminalG": 0.03, "ronic": 0.25, "shareChange": 0.0,
@@ -315,6 +328,7 @@
       "score": {"quality": 9, "growth": 8, "risk": 5, "valuation": null, "rationale": "Quality: leader in custom AI accelerators and Ethernet switching, with very high margins and a large recurring software base. Growth: consensus revenue +66% in FY2026 and +64% in FY2027 on AI. Risk: customer concentration (a handful of hyperscalers), TSMC/Taiwan dependence, ~$59B of debt and VMware churn. Valuation from the model."}
     },
     "VIST": {
+      "group": "Oil & gas",
       "sector": "Argentine shale oil producer (Vaca Muerta)", "betaAdj": "blume", "betaOverride": 1.3, "crp": 0.0648, "crpLabel": "Argentina EMBI 648 bp (2026-10-16), same as YPF/GGAL", "kdSpread": 0.03, "tax": 0.35, "ebit1": 0.40,
       "growthNote": "Vista reports in USD (IFRS, USD functional currency). Revenue = production (boe/d, ~90% oil) × realised price (Brent-linked exports and local prices that track export parity) — Brent is held flat near today's ~$65 in the Base case. Year 1 / year 2 = consensus FY2026 / FY2027 revenue ($4.3B / $4.4B): FY2026 jumps ~74% on a full year of the 50% of La Amarga Chica (LLL) bought from Petronas in Apr-2025 (partly inorganic) and the shale ramp toward ~150k boe/d; FY2027 is flat at consensus Brent. Q4-2025 production was 135.4k boe/d (20-F); the 20-F also describes the later purchase of interests in Bandurria Sur and Bajo del Toro (~21k boe/d at Vista's working interest), so near-term growth is partly inorganic too. Further growth (~8%/yr Base) needs export capacity: the VMOS oil pipeline to Punta Colorada (from late 2026, ~550k bbl/d at full capacity, Vista ~10% shipper) and the Oldelval Duplicar expansion. Lifting cost ~$4.5/boe keeps margins high; EBIT margin 40% in year 1 and 36% steady state (D&A ~25% of revenue on a heavy capex programme, ~45% of revenue falling to 28%). Tax 35% (Argentina). Beta set to 1.3 (Yahoo shows -0.46, which is not meaningful). Country risk = full Argentina EMBI spread, the same 648 bp the YPF and GGAL models use (refresh with fetch_embi.py --apply).",
       "daPct0": 0.30, "daPctT": 0.25, "capexPct1": 0.45, "capexPctT": 0.28, "nwcPct": 0.05, "terminalG": 0.015, "ronic": 0.12, "shareChange": 0.0,
@@ -340,6 +354,7 @@
       "score": {"quality": 7, "growth": 8, "risk": 4, "valuation": null, "rationale": "Quality: low-cost Vaca Muerta acreage (~$4.5/boe lifting cost) and a strong execution record. Growth: production roughly doubled with LLL and keeps ramping as export pipelines open. Risk: Argentine macro and policy (export duties, capital controls), Brent exposure and heavy capex funded partly with debt. Valuation from the model."}
     },
     "TSM": {
+      "group": "Semiconductors",
       "displayName": "Taiwan Semiconductor Manufacturing (TSMC)",
       "sector": "Semiconductor foundry (leading-edge logic and advanced packaging)", "betaAdj": "blume", "betaOverride": null, "crp": 0.0078, "crpLabel": "Taiwan CRP, Damodaran Jan-2026 (Aa3)", "kdSpread": 0.008, "tax": 0.17, "ebit1": 0.56, "adrRatio": 5,
       "growthNote": "Computed in TWD (IFRS) and converted to USD per ADR at the Central Bank of the R.O.C. (Taiwan) NT$/US$ closing rate; 1 ADR = 5 common shares (20-F FY2025: 'each ADS represents five (5) common shares'; 25.93B common = 5.19B ADR-equivalents). The NYSE ADR trades at a premium of ~13% to the Taipei line (NT$2,410 × 5 / 32.445 = US$371). Year 1 / year 2 = consensus FY2026 / FY2027 revenue (NT$5.56T / NT$7.65T, +46% / +38%), driven by AI accelerators (NVIDIA, Broadcom/Google, AMD, AWS) on N3/N2 and CoWoS advanced packaging, plus wafer price increases. GAAP operating margin 51% in FY2025 (TTM 59%); year-1 EBIT margin 56%, steady state 52% in the Base case as overseas fabs (Arizona, Kumamoto, Dresden) dilute gross margin by ~2-3 points and N2 ramps. Heavy capex (~US$52-56B in 2026, ~33% of revenue, falling to 25%) and depreciation (~17% of revenue). Tax 17% (Taiwan 20% statutory less R&D credits). Net cash (~NT$3.2T) is added in the EV bridge. Mid-term growth is in USD-equivalent terms because the exchange rate is held flat.",
@@ -366,6 +381,7 @@
       "score": {"quality": 10, "growth": 8, "risk": 5, "valuation": null, "rationale": "Quality: >90% share of leading-edge logic and the dominant advanced-packaging supplier, ~59% operating margin and net cash. Growth: consensus +46% revenue in 2026 on AI. Risk: geopolitical concentration in Taiwan, US tariffs/export controls, customer concentration (NVIDIA, Apple) and heavy capex. Valuation from the model."}
     },
     "SPCX": {
+      "group": "Space & connectivity",
       "displayName": "SpaceX (Space Exploration Technologies)",
       "sector": "Space launch, satellite connectivity (Starlink) and AI (xAI/X, Cursor): 'Super Intelligence' segment",
       "betaAdj": "none",
@@ -411,6 +427,7 @@
       "score": {"quality": 8, "growth": 10, "risk": 3, "valuation": null, "rationale": "Quality: dominant launch provider (~90% of mass to orbit) and the largest satellite constellation, Connectivity runs at a ~45% operating margin. Growth: revenue +161% y/y in Q3 2026. Risk: ~$65B a year of capex mostly for AI compute, short public history, dual-class control by Elon Musk, related-party dealings and heavy dependence on the AI cycle. Valuation from the model."}
     },
     "005930.KS": {
+      "group": "Semiconductors",
       "displayName": "Samsung Electronics",
       "sector": "Memory semiconductors (DRAM, HBM, NAND), foundry/System LSI, smartphones and consumer electronics, displays (SDC) and Harman",
       "betaAdj": "blume",
@@ -453,6 +470,7 @@
       "score": {"quality": 8, "growth": 7, "risk": 5, "valuation": null, "rationale": "Quality: #1 DRAM and NAND maker, vertically integrated (memory, foundry, devices, displays) with net cash. Growth: consensus +113% revenue in 2026 on the AI memory super-cycle, but it is cyclical. Risk: memory price cycles, HBM catch-up vs SK hynix, loss-making foundry, chaebol governance, Korea geopolitical risk. Valuation from the model."}
     },
     "000660.KS": {
+      "group": "Semiconductors",
       "sector": "Memory semiconductors: DRAM (incl. HBM, ~75% of revenue) and NAND/eSSD (Solidigm)",
       "betaAdj": "blume",
       "betaOverride": null,
@@ -495,6 +513,474 @@
         {"date": "Ad hoc", "q": "Any", "event": "North Korea provocations / Korean politics; ADR listing plans and shareholder returns", "impact": "Medium", "dir": "±"}
       ],
       "score": {"quality": 8, "growth": 8, "risk": 4, "valuation": null, "rationale": "Quality: #1 HBM supplier and #2 DRAM maker, now net cash. Growth: consensus +254% revenue in 2026 on the AI memory super-cycle, but it is cyclical. Risk: pure-play memory (no device or foundry cushion), HBM share risk vs Samsung/Micron, customer concentration (NVIDIA), China fab exposure, Korea geopolitical risk. Valuation from the model."}
+    },
+    "XOM": {
+      "sector": "Integrated oil & gas major (upstream, refining, chemicals, low-carbon)",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 0.9,
+      "crp": 0,
+      "kdSpread": 0.008,
+      "tax": 0.24,
+      "ebit1": 0.17,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "ExxonMobil. Year 1 / year 2 = consensus FY2026 / FY2027 revenue, which embeds the 2026 price spike (Brent above $100 since mid-2026) and a partial retracement in 2027. Years 3-5 assume prices normalise to the $75 Brent deck (see the price-deck row), net of volume growth. Guyana (Stabroek) and Permian (Pioneer) drive volume growth of ~3%/yr; downstream and chemicals dampen the upstream cycle. Buybacks ~$20B/yr (~2-3% of shares). Beta set to 0.9 (Yahoo 5-year beta 0.2 reflects the 2021-22 rotation, not long-run risk). Cycle-adjusted comps (compsCycle) avoid capitalising peak-price earnings.",
+      "daPct0": 0.09,
+      "daPctT": 0.09,
+      "capexPct1": 0.09,
+      "capexPctT": 0.09,
+      "nwcPct": 0.03,
+      "terminalG": 0.02,
+      "ronic": 0.1,
+      "shareChange": -0.02,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [4.5, 7.5],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "Oil & gas control deals (estimates): Exxon-Pioneer (2024, ~$64B, ~7x EBITDA), Chevron-Hess (2025, ~$53B, ~8x), ConocoPhillips-Marathon Oil (2024, ~$22B, ~6x), Diamondback-Endeavor (2024, ~$26B, ~5x), Occidental-CrownRock (2024, ~$12B, ~5x). Deals priced on mid-cycle ($70-80) decks; 4.5-7.5x EBITDA on peak TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: Chevron, Shell, TotalEnergies, BP, ConocoPhillips and Petrobras (USD). Integrated majors trade on lower multiples than pure upstream producers.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.06, "ebitT": 0.091, "desc": "Brent falls to ~$60 from 2027 as OPEC+ unwinds cuts and non-OPEC supply (US, Guyana, Brazil) grows; ExxonMobil cuts capex and buybacks; margins compress."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.05, "ebitT": 0.13, "desc": "Consensus 2026-27 at ~$90 Brent, then prices normalise to $75 from 2028 (revenue -5%/yr in years 3-5 net of volume growth); steady-state EBIT margin 13%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.05, "midGrowth": 0.0, "ebitT": 0.1625, "desc": "Tight market: underinvestment and OPEC+ discipline keep Brent near $90 through 2030; volumes grow and margins stay high."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.02, "ebitT": 0.0455, "ebit1": 0.119, "desc": "Demand shock (recession) plus a price war: Brent ~$45 for two years, as in 2015-16 / 2020; write-downs, dividend cover tested."},
+        {"id": "policyTail", "name": "Tail: demand peak / windfall tax", "p": 0.05, "growthAdj": 0, "g2": -0.05, "midGrowth": -0.08, "ebitT": 0.078, "desc": "Faster EV adoption and climate policy (or a windfall-profits tax) cut long-run prices and returns."},
+        {"id": "shockTail", "name": "Tail: supply shock ($130)", "p": 0.05, "growthAdj": 0, "g2": 0.2, "midGrowth": -0.03, "ebitT": 0.195, "desc": "Middle East or Russia supply disruption: Brent ~$130 for a year, then a slow decline."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"},
+        {"date": "~2026-10-30", "q": "Q3 2026", "event": "Q3 2026 results and buyback pace", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 9, "growth": 4, "risk": 7, "valuation": null, "rationale": "Quality: scale, Guyana/Permian low-cost barrels, integrated margins, AA balance sheet. Growth: volume +3%/yr; price-driven. Risk: oil price, energy-transition policy. Valuation from the model."}
+    },
+    "CVX": {
+      "sector": "Integrated oil & gas major (upstream incl. Hess/Guyana, refining, chemicals)",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 0.95,
+      "crp": 0,
+      "kdSpread": 0.008,
+      "tax": 0.24,
+      "ebit1": 0.17,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "Chevron. Year 1 / year 2 = consensus FY2026 / FY2027 revenue, which embeds the 2026 price spike (Brent above $100 since mid-2026) and a partial retracement in 2027. Years 3-5 assume prices normalise to the $75 Brent deck (see the price-deck row), net of volume growth. The Hess acquisition (closed 2025) adds a 30% stake in Guyana's Stabroek; Permian, Tengiz (TCO) ramp and cost cuts ($2-3B) support margins. Buybacks $10-20B/yr. Beta set to 0.95. Cycle-adjusted comps (compsCycle) avoid capitalising peak-price earnings.",
+      "daPct0": 0.1,
+      "daPctT": 0.1,
+      "capexPct1": 0.09,
+      "capexPctT": 0.09,
+      "nwcPct": 0.03,
+      "terminalG": 0.02,
+      "ronic": 0.1,
+      "shareChange": -0.03,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [4.5, 7.5],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "Oil & gas control deals (estimates): Exxon-Pioneer (2024, ~$64B, ~7x EBITDA), Chevron-Hess (2025, ~$53B, ~8x), ConocoPhillips-Marathon Oil (2024, ~$22B, ~6x), Diamondback-Endeavor (2024, ~$26B, ~5x), Occidental-CrownRock (2024, ~$12B, ~5x). Deals priced on mid-cycle ($70-80) decks; 4.5-7.5x EBITDA on peak TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: ExxonMobil, Shell, TotalEnergies, BP, ConocoPhillips and Petrobras (USD).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.06, "ebitT": 0.098, "desc": "Brent falls to ~$60 from 2027 as OPEC+ unwinds cuts and non-OPEC supply (US, Guyana, Brazil) grows; Chevron cuts capex and buybacks; margins compress."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.05, "ebitT": 0.14, "desc": "Consensus 2026-27 at ~$90 Brent, then prices normalise to $75 from 2028 (revenue -5%/yr in years 3-5 net of volume growth); steady-state EBIT margin 14%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.05, "midGrowth": 0.0, "ebitT": 0.175, "desc": "Tight market: underinvestment and OPEC+ discipline keep Brent near $90 through 2030; volumes grow and margins stay high."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.02, "ebitT": 0.049, "ebit1": 0.119, "desc": "Demand shock (recession) plus a price war: Brent ~$45 for two years, as in 2015-16 / 2020; write-downs, dividend cover tested."},
+        {"id": "policyTail", "name": "Tail: demand peak / windfall tax", "p": 0.05, "growthAdj": 0, "g2": -0.05, "midGrowth": -0.08, "ebitT": 0.084, "desc": "Faster EV adoption and climate policy (or a windfall-profits tax) cut long-run prices and returns."},
+        {"id": "shockTail", "name": "Tail: supply shock ($130)", "p": 0.05, "growthAdj": 0, "g2": 0.2, "midGrowth": -0.03, "ebitT": 0.21, "desc": "Middle East or Russia supply disruption: Brent ~$130 for a year, then a slow decline."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"},
+        {"date": "~2026-10-31", "q": "Q3 2026", "event": "Q3 2026 results; TCO / Guyana volumes", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 9, "growth": 4, "risk": 7, "valuation": null, "rationale": "Quality: diversified, low-cost Guyana and Permian barrels, strong balance sheet. Growth: Hess and TCO volumes. Risk: oil price, Kazakhstan/TCO. Valuation from the model."}
+    },
+    "COP": {
+      "sector": "Independent E&P (Permian, Alaska, LNG; largest US independent)",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 1.05,
+      "crp": 0,
+      "kdSpread": 0.01,
+      "tax": 0.23,
+      "ebit1": 0.33,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "ConocoPhillips. Year 1 / year 2 = consensus FY2026 / FY2027 revenue, which embeds the 2026 price spike (Brent above $100 since mid-2026) and a partial retracement in 2027. Years 3-5 assume prices normalise to the $75 Brent deck (see the price-deck row), net of volume growth. Pure upstream, so margins move more with prices than the majors; Marathon Oil (2024) adds Permian/Eagle Ford scale, and Willow (Alaska) and LNG (Port Arthur, Qatar) add growth from 2028-29. Capex ~22% of revenue. Beta set to 1.05. Cycle-adjusted comps (compsCycle) avoid capitalising peak-price earnings.",
+      "daPct0": 0.2,
+      "daPctT": 0.2,
+      "capexPct1": 0.22,
+      "capexPctT": 0.2,
+      "nwcPct": 0.03,
+      "terminalG": 0.02,
+      "ronic": 0.11,
+      "shareChange": -0.03,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [4.5, 7.5],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "Oil & gas control deals (estimates): Exxon-Pioneer (2024, ~$64B, ~7x EBITDA), Chevron-Hess (2025, ~$53B, ~8x), ConocoPhillips-Marathon Oil (2024, ~$22B, ~6x), Diamondback-Endeavor (2024, ~$26B, ~5x), Occidental-CrownRock (2024, ~$12B, ~5x). Deals priced on mid-cycle ($70-80) decks; 4.5-7.5x EBITDA on peak TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: EOG, Occidental, Devon, Diamondback, APA and ExxonMobil (USD).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.06, "ebitT": 0.182, "desc": "Brent falls to ~$60 from 2027 as OPEC+ unwinds cuts and non-OPEC supply (US, Guyana, Brazil) grows; ConocoPhillips cuts capex and buybacks; margins compress."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.05, "ebitT": 0.26, "desc": "Consensus 2026-27 at ~$90 Brent, then prices normalise to $75 from 2028 (revenue -5%/yr in years 3-5 net of volume growth); steady-state EBIT margin 26%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.05, "midGrowth": 0.0, "ebitT": 0.325, "desc": "Tight market: underinvestment and OPEC+ discipline keep Brent near $90 through 2030; volumes grow and margins stay high."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.02, "ebitT": 0.091, "ebit1": 0.231, "desc": "Demand shock (recession) plus a price war: Brent ~$45 for two years, as in 2015-16 / 2020; write-downs, dividend cover tested."},
+        {"id": "policyTail", "name": "Tail: demand peak / windfall tax", "p": 0.05, "growthAdj": 0, "g2": -0.05, "midGrowth": -0.08, "ebitT": 0.156, "desc": "Faster EV adoption and climate policy (or a windfall-profits tax) cut long-run prices and returns."},
+        {"id": "shockTail", "name": "Tail: supply shock ($130)", "p": 0.05, "growthAdj": 0, "g2": 0.2, "midGrowth": -0.03, "ebitT": 0.39, "desc": "Middle East or Russia supply disruption: Brent ~$130 for a year, then a slow decline."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 8, "growth": 5, "risk": 6, "valuation": null, "rationale": "Quality: low-cost diversified upstream, investment-grade. Growth: Willow/LNG from 2028. Risk: pure price exposure. Valuation from the model."}
+    },
+    "EOG": {
+      "sector": "Independent E&P (Delaware, Eagle Ford, Dorado gas, Utica)",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 1.05,
+      "crp": 0,
+      "kdSpread": 0.008,
+      "tax": 0.22,
+      "ebit1": 0.4,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "EOG Resources. Year 1 / year 2 = consensus FY2026 / FY2027 revenue, which embeds the 2026 price spike (Brent above $100 since mid-2026) and a partial retracement in 2027. Years 3-5 assume prices normalise to the $75 Brent deck (see the price-deck row), net of volume growth. Premium-well strategy with net cash/low leverage; Encino (Utica, 2025) adds gas and oil volumes. Beta set to 1.05. Cycle-adjusted comps (compsCycle) avoid capitalising peak-price earnings.",
+      "daPct0": 0.22,
+      "daPctT": 0.22,
+      "capexPct1": 0.24,
+      "capexPctT": 0.22,
+      "nwcPct": 0.03,
+      "terminalG": 0.02,
+      "ronic": 0.12,
+      "shareChange": -0.03,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [4.5, 7.5],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "Oil & gas control deals (estimates): Exxon-Pioneer (2024, ~$64B, ~7x EBITDA), Chevron-Hess (2025, ~$53B, ~8x), ConocoPhillips-Marathon Oil (2024, ~$22B, ~6x), Diamondback-Endeavor (2024, ~$26B, ~5x), Occidental-CrownRock (2024, ~$12B, ~5x). Deals priced on mid-cycle ($70-80) decks; 4.5-7.5x EBITDA on peak TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: ConocoPhillips, Devon, Diamondback, Occidental and Coterra (USD).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.06, "ebitT": 0.224, "desc": "Brent falls to ~$60 from 2027 as OPEC+ unwinds cuts and non-OPEC supply (US, Guyana, Brazil) grows; EOG cuts capex and buybacks; margins compress."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.05, "ebitT": 0.32, "desc": "Consensus 2026-27 at ~$90 Brent, then prices normalise to $75 from 2028 (revenue -5%/yr in years 3-5 net of volume growth); steady-state EBIT margin 32%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.05, "midGrowth": 0.0, "ebitT": 0.4, "desc": "Tight market: underinvestment and OPEC+ discipline keep Brent near $90 through 2030; volumes grow and margins stay high."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.02, "ebitT": 0.112, "ebit1": 0.28, "desc": "Demand shock (recession) plus a price war: Brent ~$45 for two years, as in 2015-16 / 2020; write-downs, dividend cover tested."},
+        {"id": "policyTail", "name": "Tail: demand peak / windfall tax", "p": 0.05, "growthAdj": 0, "g2": -0.05, "midGrowth": -0.08, "ebitT": 0.192, "desc": "Faster EV adoption and climate policy (or a windfall-profits tax) cut long-run prices and returns."},
+        {"id": "shockTail", "name": "Tail: supply shock ($130)", "p": 0.05, "growthAdj": 0, "g2": 0.2, "midGrowth": -0.03, "ebitT": 0.48, "desc": "Middle East or Russia supply disruption: Brent ~$130 for a year, then a slow decline."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 9, "growth": 5, "risk": 6, "valuation": null, "rationale": "Quality: best-in-class returns, low debt. Growth: Utica/Dorado. Risk: price exposure. Valuation from the model."}
+    },
+    "OXY": {
+      "sector": "Independent E&P (Permian, Middle East) plus OxyChem and carbon capture",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 1.2,
+      "crp": 0,
+      "kdSpread": 0.015,
+      "tax": 0.22,
+      "ebit1": 0.35,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "Occidental. Year 1 / year 2 = consensus FY2026 / FY2027 revenue, which embeds the 2026 price spike (Brent above $100 since mid-2026) and a partial retracement in 2027. Years 3-5 assume prices normalise to the $75 Brent deck (see the price-deck row), net of volume growth. Higher leverage after CrownRock (2024) and Anadarko (2019); OxyChem (sale to Berkshire agreed 2025) reduces diversification but cuts debt; Direct Air Capture (Stratos) is an option, not in the Base case. Beta set to 1.2. Cycle-adjusted comps (compsCycle) avoid capitalising peak-price earnings.",
+      "daPct0": 0.27,
+      "daPctT": 0.26,
+      "capexPct1": 0.24,
+      "capexPctT": 0.22,
+      "nwcPct": 0.03,
+      "terminalG": 0.02,
+      "ronic": 0.1,
+      "shareChange": 0.0,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [4.5, 7.5],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "Oil & gas control deals (estimates): Exxon-Pioneer (2024, ~$64B, ~7x EBITDA), Chevron-Hess (2025, ~$53B, ~8x), ConocoPhillips-Marathon Oil (2024, ~$22B, ~6x), Diamondback-Endeavor (2024, ~$26B, ~5x), Occidental-CrownRock (2024, ~$12B, ~5x). Deals priced on mid-cycle ($70-80) decks; 4.5-7.5x EBITDA on peak TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: ConocoPhillips, EOG, Devon, Diamondback and APA (USD).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.06, "ebitT": 0.154, "desc": "Brent falls to ~$60 from 2027 as OPEC+ unwinds cuts and non-OPEC supply (US, Guyana, Brazil) grows; Occidental cuts capex and buybacks; margins compress."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.05, "ebitT": 0.22, "desc": "Consensus 2026-27 at ~$90 Brent, then prices normalise to $75 from 2028 (revenue -5%/yr in years 3-5 net of volume growth); steady-state EBIT margin 22%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.05, "midGrowth": 0.0, "ebitT": 0.275, "desc": "Tight market: underinvestment and OPEC+ discipline keep Brent near $90 through 2030; volumes grow and margins stay high."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.02, "ebitT": 0.077, "ebit1": 0.245, "desc": "Demand shock (recession) plus a price war: Brent ~$45 for two years, as in 2015-16 / 2020; write-downs, dividend cover tested."},
+        {"id": "policyTail", "name": "Tail: demand peak / windfall tax", "p": 0.05, "growthAdj": 0, "g2": -0.05, "midGrowth": -0.08, "ebitT": 0.132, "desc": "Faster EV adoption and climate policy (or a windfall-profits tax) cut long-run prices and returns."},
+        {"id": "shockTail", "name": "Tail: supply shock ($130)", "p": 0.05, "growthAdj": 0, "g2": 0.2, "midGrowth": -0.03, "ebitT": 0.33, "desc": "Middle East or Russia supply disruption: Brent ~$130 for a year, then a slow decline."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 7, "growth": 4, "risk": 5, "valuation": null, "rationale": "Quality: strong Permian acreage; higher debt. Growth: modest. Risk: leverage plus price. Valuation from the model."}
+    },
+    "DVN": {
+      "sector": "Independent E&P (Delaware, Anadarko, Williston, Eagle Ford)",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 1.15,
+      "crp": 0,
+      "kdSpread": 0.012,
+      "tax": 0.22,
+      "ebit1": 0.33,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "Devon Energy. Year 1 / year 2 = consensus FY2026 / FY2027 revenue, which embeds the 2026 price spike (Brent above $100 since mid-2026) and a partial retracement in 2027. Years 3-5 assume prices normalise to the $75 Brent deck (see the price-deck row), net of volume growth. Multi-basin shale; Grayson Mill (Williston, 2024) adds volumes; fixed-plus-variable dividend and buybacks. Beta set to 1.15. Cycle-adjusted comps (compsCycle) avoid capitalising peak-price earnings.",
+      "daPct0": 0.25,
+      "daPctT": 0.25,
+      "capexPct1": 0.25,
+      "capexPctT": 0.23,
+      "nwcPct": 0.03,
+      "terminalG": 0.02,
+      "ronic": 0.11,
+      "shareChange": -0.03,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [4.5, 7.5],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "Oil & gas control deals (estimates): Exxon-Pioneer (2024, ~$64B, ~7x EBITDA), Chevron-Hess (2025, ~$53B, ~8x), ConocoPhillips-Marathon Oil (2024, ~$22B, ~6x), Diamondback-Endeavor (2024, ~$26B, ~5x), Occidental-CrownRock (2024, ~$12B, ~5x). Deals priced on mid-cycle ($70-80) decks; 4.5-7.5x EBITDA on peak TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: EOG, ConocoPhillips, Diamondback, Coterra and Occidental (USD).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.06, "ebitT": 0.168, "desc": "Brent falls to ~$60 from 2027 as OPEC+ unwinds cuts and non-OPEC supply (US, Guyana, Brazil) grows; Devon cuts capex and buybacks; margins compress."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.05, "ebitT": 0.24, "desc": "Consensus 2026-27 at ~$90 Brent, then prices normalise to $75 from 2028 (revenue -5%/yr in years 3-5 net of volume growth); steady-state EBIT margin 24%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.05, "midGrowth": 0.0, "ebitT": 0.3, "desc": "Tight market: underinvestment and OPEC+ discipline keep Brent near $90 through 2030; volumes grow and margins stay high."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.02, "ebitT": 0.084, "ebit1": 0.231, "desc": "Demand shock (recession) plus a price war: Brent ~$45 for two years, as in 2015-16 / 2020; write-downs, dividend cover tested."},
+        {"id": "policyTail", "name": "Tail: demand peak / windfall tax", "p": 0.05, "growthAdj": 0, "g2": -0.05, "midGrowth": -0.08, "ebitT": 0.144, "desc": "Faster EV adoption and climate policy (or a windfall-profits tax) cut long-run prices and returns."},
+        {"id": "shockTail", "name": "Tail: supply shock ($130)", "p": 0.05, "growthAdj": 0, "g2": 0.2, "midGrowth": -0.03, "ebitT": 0.36, "desc": "Middle East or Russia supply disruption: Brent ~$130 for a year, then a slow decline."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 7, "growth": 4, "risk": 6, "valuation": null, "rationale": "Quality: diversified shale. Growth: modest. Risk: price, Delaware well productivity. Valuation from the model."}
+    },
+    "SLB": {
+      "sector": "Oilfield services and technology (reservoir, well construction, production systems, digital)",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 1.2,
+      "crp": 0,
+      "kdSpread": 0.01,
+      "tax": 0.21,
+      "ebit1": 0.15,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "SLB. Year 1 / year 2 = consensus FY2026 / FY2027 revenue. Services revenue follows upstream capex with a lag of ~1-2 years, so the 2026 price spike lifts 2027-28 activity (Middle East, offshore) before prices normalise; Base mid-term growth +3%/yr and a 17% steady-state EBIT margin (ChampionX, 2025, adds production chemicals). The oil-price deck (row above) drives client capex. Cycle-adjusted comps (compsCycle).",
+      "daPct0": 0.07,
+      "daPctT": 0.07,
+      "capexPct1": 0.07,
+      "capexPctT": 0.06,
+      "nwcPct": 0.04,
+      "terminalG": 0.025,
+      "ronic": 0.12,
+      "shareChange": -0.02,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [6, 9],
+      "controlPremium": [0.2, 0.35],
+      "precedentNote": "",
+      "compsNote": "Comps: Halliburton, Baker Hughes, Weatherford, NOV and TechnipFMC (USD).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.05, "midGrowth": -0.02, "ebitT": 0.13, "desc": "Clients cut 2027 budgets as prices retreat; North America and international pricing soften."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": 0.03, "ebitT": 0.17, "desc": "Consensus 2026-27, then +3%/yr as Middle East and offshore activity continue; margins ~17%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.1, "midGrowth": 0.07, "ebitT": 0.2, "desc": "Multi-year international and offshore up-cycle; digital and production systems lift margins."},
+        {"id": "capexTail", "name": "Tail: upstream capex bust", "p": 0.05, "growthAdj": 0, "g2": -0.2, "midGrowth": -0.06, "ebitT": 0.0935, "desc": "Operators cut international and offshore budgets 25%+; pricing for drilling and completion services collapses."},
+        {"id": "shockTail", "name": "Tail: supply shock / capex super-cycle", "p": 0.05, "growthAdj": 0, "g2": 0.15, "midGrowth": 0.04, "ebitT": 0.221, "desc": "A supply shock triggers a multi-year international and offshore capex cycle."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.25, "midGrowth": -0.04, "ebitT": 0.08, "ebit1": 0.12, "desc": "Brent ~$45: clients cut capex 30%, service pricing collapses (2015-16 / 2020 analogue)."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"},
+        {"date": "~2027-01-23", "q": "Q4 2026", "event": "Q4 2026 results and 2027 international outlook", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 8, "growth": 5, "risk": 6, "valuation": null, "rationale": "Quality: technology leader in oilfield services. Growth: international/offshore and digital. Risk: client capex cycle. Valuation from the model."}
+    },
+    "PBR": {
+      "sector": "Brazilian state-controlled integrated oil (pre-salt deepwater, refining)",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 1.2,
+      "crp": 0.0324,
+      "crpLabel": "Brazil CRP, Damodaran Jan-2026 (Ba1)",
+      "kdSpread": 0.015,
+      "tax": 0.34,
+      "ebit1": 0.4,
+      "g1": 0.22,
+      "g2": -0.05,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "Petrobras (ADR, 1 ADR = 2 common shares; statements in USD, the reporting currency of its 20-F). Year 1 / year 2 = consensus FY2026 / FY2027 revenue, which embeds the 2026 price spike (Brent above $100 since mid-2026) and a partial retracement in 2027. Years 3-5 assume prices normalise to the $75 Brent deck (see the price-deck row), net of volume growth. Pre-salt (Búzios, Mero) FPSOs add ~3%/yr of volume; lifting cost ~$7/boe. Dividend policy (45% of FCF) and state control (fuel pricing, capex in refining/fertilisers) are the key risks. Cost of equity adds Brazil's CRP (3.24%). Growth years 1-2 set to +22% / -5% in USD (Yahoo's consensus is in BRL). Cycle-adjusted comps (compsCycle) avoid capitalising peak-price earnings.",
+      "daPct0": 0.14,
+      "daPctT": 0.14,
+      "capexPct1": 0.18,
+      "capexPctT": 0.16,
+      "nwcPct": 0.03,
+      "terminalG": 0.02,
+      "ronic": 0.1,
+      "shareChange": 0.0,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [4.5, 7.5],
+      "controlPremium": [0.0, 0.0],
+      "precedentNote": "Oil & gas control deals (estimates): Exxon-Pioneer (2024, ~$64B, ~7x EBITDA), Chevron-Hess (2025, ~$53B, ~8x), ConocoPhillips-Marathon Oil (2024, ~$22B, ~6x), Diamondback-Endeavor (2024, ~$26B, ~5x), Occidental-CrownRock (2024, ~$12B, ~5x). Deals priced on mid-cycle ($70-80) decks; 4.5-7.5x EBITDA on peak TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: ExxonMobil, Chevron, Shell, TotalEnergies, Equinor, Ecopetrol, YPF and PRIO (USD).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.06, "ebitT": 0.21, "desc": "Brent falls to ~$60 from 2027 as OPEC+ unwinds cuts and non-OPEC supply (US, Guyana, Brazil) grows; Petrobras cuts capex and buybacks; margins compress."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.05, "ebitT": 0.3, "desc": "Consensus 2026-27 at ~$90 Brent, then prices normalise to $75 from 2028 (revenue -5%/yr in years 3-5 net of volume growth); steady-state EBIT margin 30%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.05, "midGrowth": 0.0, "ebitT": 0.375, "desc": "Tight market: underinvestment and OPEC+ discipline keep Brent near $90 through 2030; volumes grow and margins stay high."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.02, "ebitT": 0.105, "ebit1": 0.28, "desc": "Demand shock (recession) plus a price war: Brent ~$45 for two years, as in 2015-16 / 2020; write-downs, dividend cover tested."},
+        {"id": "politicsTail", "name": "Tail: Brazil political interference / fiscal shock", "p": 0.05, "growthAdj": 0, "g2": -0.1, "midGrowth": -0.04, "ebitT": 0.18, "crpAdd": 0.03, "desc": "Government pressure on fuel pricing, dividends and capex (refining, fertilisers), or a fiscal/BRL crisis; ~300 bp more country risk."},
+        {"id": "shockTail", "name": "Tail: supply shock ($130)", "p": 0.05, "growthAdj": 0, "g2": 0.2, "midGrowth": -0.03, "ebitT": 0.45, "desc": "Middle East or Russia supply disruption: Brent ~$130 for a year, then a slow decline."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"},
+        {"date": "Ad hoc", "q": "Any", "event": "Brazil government policy on fuel prices, dividends and the 2026 election aftermath", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 7, "growth": 4, "risk": 4, "valuation": null, "rationale": "Quality: world-class pre-salt assets, low lifting cost. Growth: FPSO ramp. Risk: state interference, Brazil macro. Valuation from the model."},
+      "adrRatio": 2
+    },
+    "PRIO3.SA": {
+      "sector": "Brazilian independent E&P (offshore brownfields: Frade, Albacora Leste, Peregrino, Polvo/TBMT)",
+      "group": "Oil & gas",
+      "betaAdj": "blume",
+      "betaOverride": 1.2,
+      "crp": 0.0324,
+      "crpLabel": "Brazil CRP, Damodaran Jan-2026 (Ba1)",
+      "kdSpread": 0.025,
+      "tax": 0.34,
+      "ebit1": 0.5,
+      "priceDeck": "Brent $113.75 spot (ICE Brent front month, 2026-10-22; 12-month average $85). Base deck: Brent ~$90 average in 2026-27 (consensus revenue years 1-2), normalising to $75 (WTI ~$71, Henry Hub ~$3.5) from 2028; Bear $60 from 2027; Bull $90 sustained; tails: crash to $45 / supply shock $130. The deck enters the model through revenue growth (years 2-5) and the steady-state EBIT margin of each scenario, not as a separate price input.",
+      "growthNote": "PRIO (B3 listing in BRL, converted at the BCB PTAX rate; statements in BRL). Year 1 / year 2 = consensus FY2026 / FY2027 revenue, which embeds the 2026 price spike (Brent above $100 since mid-2026) and a partial retracement in 2027. Years 3-5 assume prices normalise to the $75 Brent deck (see the price-deck row), net of volume growth. Acquisitive model: buys mature offshore fields and cuts lifting cost (~$9/bbl); Peregrino (2025) and the Wahoo tie-back to Frade (2026) lift output toward ~200k bbl/d, behind the consensus +73% FY2026. Cost of equity adds Brazil's CRP. Cycle-adjusted comps (compsCycle) avoid capitalising peak-price earnings.",
+      "daPct0": 0.25,
+      "daPctT": 0.22,
+      "capexPct1": 0.3,
+      "capexPctT": 0.2,
+      "nwcPct": 0.03,
+      "terminalG": 0.02,
+      "ronic": 0.12,
+      "shareChange": -0.01,
+      "compsCycle": {"years": 4, "metrics": ["evEbitda", "pe"], "note": "Oil and gas earnings swing with prices (TTM at ~$100+ Brent); peer multiples are applied to the average of the last four fiscal years and TTM, which spans the 2022 peak and the 2023-25 ~$70-80 years."},
+      "precedentEvEbitda": [4.5, 7.5],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "Oil & gas control deals (estimates): Exxon-Pioneer (2024, ~$64B, ~7x EBITDA), Chevron-Hess (2025, ~$53B, ~8x), ConocoPhillips-Marathon Oil (2024, ~$22B, ~6x), Diamondback-Endeavor (2024, ~$26B, ~5x), Occidental-CrownRock (2024, ~$12B, ~5x). Deals priced on mid-cycle ($70-80) decks; 4.5-7.5x EBITDA on peak TTM EBITDA is a cross-check only.",
+      "compsNote": "Comps: Petrobras, Brava, PetroReconcavo (BRL, converted), Vista, APA and Occidental (USD).",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.15, "midGrowth": -0.06, "ebitT": 0.28, "desc": "Brent falls to ~$60 from 2027 as OPEC+ unwinds cuts and non-OPEC supply (US, Guyana, Brazil) grows; PRIO cuts capex and buybacks; margins compress."},
+        {"id": "base", "name": "Base", "p": 0.4, "growthAdj": 0, "midGrowth": -0.05, "ebitT": 0.4, "desc": "Consensus 2026-27 at ~$90 Brent, then prices normalise to $75 from 2028 (revenue -5%/yr in years 3-5 net of volume growth); steady-state EBIT margin 40%."},
+        {"id": "bull", "name": "Bull", "p": 0.18, "growthAdj": 0, "g2": 0.05, "midGrowth": 0.0, "ebitT": 0.5, "desc": "Tight market: underinvestment and OPEC+ discipline keep Brent near $90 through 2030; volumes grow and margins stay high."},
+        {"id": "crashTail", "name": "Tail: oil price crash ($45)", "p": 0.1, "growthAdj": 0, "g2": -0.35, "midGrowth": -0.02, "ebitT": 0.14, "ebit1": 0.35, "desc": "Demand shock (recession) plus a price war: Brent ~$45 for two years, as in 2015-16 / 2020; write-downs, dividend cover tested."},
+        {"id": "politicsTail", "name": "Tail: Brazil political interference / fiscal shock", "p": 0.05, "growthAdj": 0, "g2": -0.1, "midGrowth": -0.04, "ebitT": 0.24, "crpAdd": 0.03, "desc": "Government pressure on fuel pricing, dividends and capex (refining, fertilisers), or a fiscal/BRL crisis; ~300 bp more country risk."},
+        {"id": "shockTail", "name": "Tail: supply shock ($130)", "p": 0.05, "growthAdj": 0, "g2": 0.2, "midGrowth": -0.03, "ebitT": 0.6, "desc": "Middle East or Russia supply disruption: Brent ~$130 for a year, then a slow decline."}
+      ],
+      "catalysts": [
+        {"date": "Monthly", "q": "Any", "event": "OPEC+ meeting decisions and the IEA/EIA oil market reports", "impact": "High", "dir": "±"},
+        {"date": "Weekly", "q": "Any", "event": "EIA inventories, Brent-WTI spread and Henry Hub gas", "impact": "Medium", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Middle East / Russia supply risk and sanctions", "impact": "High", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "Wahoo first oil, Peregrino integration and IBAMA licensing", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 8, "growth": 7, "risk": 5, "valuation": null, "rationale": "Quality: low-cost operator, strong execution. Growth: Wahoo/Peregrino. Risk: price, M&A, Brazil. Valuation from the model."}
+    },
+    "CEG": {
+      "sector": "US nuclear-led power producer (largest US nuclear fleet; Calpine gas from 2026)",
+      "group": "Power generation",
+      "betaAdj": "blume",
+      "betaOverride": null,
+      "crp": 0,
+      "kdSpread": 0.015,
+      "tax": 0.2,
+      "ebit1": 0.16,
+      "growthNote": "Constellation Energy. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (Calpine acquisition, closed 2026, adds ~27 GW of gas and geothermal: partly inorganic). Reported revenue and margins include hedge marks, so year-1 EBIT margin is set at 16% and the steady state at 22% as nuclear output is contracted with hyperscalers (Microsoft/Crane, Meta/Clinton) at premium prices; the 45U nuclear PTC sets a floor. Base mid-term growth +6%/yr.",
+      "daPct0": 0.1,
+      "daPctT": 0.09,
+      "capexPct1": 0.14,
+      "capexPctT": 0.1,
+      "nwcPct": 0.02,
+      "terminalG": 0.025,
+      "ronic": 0.12,
+      "shareChange": -0.01,
+      "precedentEvEbitda": [8, 13],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "",
+      "compsNote": "Comps: Vistra, NRG, Talen, plus PSEG and Entergy as regulated-utility references.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": 0.0, "midGrowth": 0.02, "ebitT": 0.16, "ebit1": 0.14, "desc": "Fewer data-center PPAs and lower forward power prices; PJM capacity prices reset lower."},
+        {"id": "base", "name": "Base", "p": 0.43, "growthAdj": 0, "midGrowth": 0.06, "ebitT": 0.22, "desc": "Consensus 2026-27, then +6%/yr as nuclear and Calpine gas output is contracted at premium prices."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0, "g2": 0.12, "midGrowth": 0.1, "ebitT": 0.27, "desc": "Hyperscaler demand outruns supply; more nuclear uprates/restarts and long PPAs at higher prices."},
+        {"id": "dcTail", "name": "Tail: data-center demand bust", "p": 0.08, "growthAdj": 0, "g2": -0.1, "midGrowth": -0.02, "ebitT": 0.12, "desc": "AI capex pause: PPA pipeline stalls, forward curves fall 30%."},
+        {"id": "regTail", "name": "Tail: regulatory price cap / nuclear incident", "p": 0.05, "growthAdj": 0, "g2": -0.05, "midGrowth": 0.0, "ebitT": 0.13, "oneOff": -5000000000.0, "desc": "FERC/PJM caps co-located deals or capacity prices, or a nuclear outage/incident hits the fleet."},
+        {"id": "aiTail", "name": "Tail: AI power super-cycle", "p": 0.07, "growthAdj": 0, "g2": 0.2, "midGrowth": 0.14, "ebitT": 0.3, "desc": "Power scarcity: multi-decade PPAs at $100+/MWh across the fleet."}
+      ],
+      "catalysts": [
+        {"date": "~2026-11-04", "q": "Q3 2026", "event": "Q3 2026 results; new hyperscaler PPAs", "impact": "High", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "PJM capacity auctions and FERC co-location rules", "impact": "High", "dir": "±"}
+      ],
+      "score": {"quality": 8, "growth": 7, "risk": 6, "valuation": null, "rationale": "Quality: largest US nuclear fleet, contracted cash flows rising. Growth: data-center PPAs, Calpine. Risk: regulation, power prices, integration. Valuation from the model."}
+    },
+    "NRG": {
+      "sector": "US integrated power: retail electricity (Reliant, Direct, Vivint smart home) and gas generation (ERCOT, PJM)",
+      "group": "Power generation",
+      "betaAdj": "blume",
+      "betaOverride": null,
+      "crp": 0,
+      "kdSpread": 0.02,
+      "tax": 0.22,
+      "ebit1": 0.08,
+      "growthNote": "NRG Energy. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+15% / +2%; the LS Power gas and C&I assets acquired 2025-26 add ~13 GW: partly inorganic). Retail-heavy model, so EBIT margins are low (~8-9% steady state) and revenue moves with power prices; data-center contracts in ERCOT are the upside. Aggressive buybacks (~6% of shares a year for 3 years).",
+      "daPct0": 0.04,
+      "daPctT": 0.04,
+      "capexPct1": 0.04,
+      "capexPctT": 0.04,
+      "nwcPct": 0.02,
+      "terminalG": 0.02,
+      "ronic": 0.12,
+      "shareChange": -0.06,
+      "precedentEvEbitda": [8, 13],
+      "controlPremium": [0.15, 0.3],
+      "precedentNote": "",
+      "compsNote": "Comps: Vistra, Constellation, Talen, plus PSEG and Entergy as regulated-utility references.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.22, "growthAdj": 0, "g2": -0.03, "midGrowth": 0.01, "ebitT": 0.07, "desc": "Retail margins squeezed by competition and hedging costs; fewer data-center deals."},
+        {"id": "base", "name": "Base", "p": 0.43, "growthAdj": 0, "midGrowth": 0.04, "ebitT": 0.09, "desc": "Consensus 2026-27, then +4%/yr; buybacks continue."},
+        {"id": "bull", "name": "Bull", "p": 0.15, "growthAdj": 0, "g2": 0.08, "midGrowth": 0.08, "ebitT": 0.11, "desc": "ERCOT data-center load and new gas builds (Texas Energy Fund) lift generation margins."},
+        {"id": "dcTail", "name": "Tail: data-center demand bust", "p": 0.08, "growthAdj": 0, "g2": -0.06, "midGrowth": 0.0, "ebitT": 0.06, "desc": "Load growth disappoints; forward curves fall."},
+        {"id": "uriTail", "name": "Tail: ERCOT extreme-weather event", "p": 0.05, "growthAdj": 0, "midGrowth": 0.02, "ebitT": 0.05, "oneOff": -2000000000.0, "desc": "A Winter Storm Uri-type event forces costly power purchases (NRG lost ~$1B in 2021)."},
+        {"id": "aiTail", "name": "Tail: AI power super-cycle", "p": 0.07, "growthAdj": 0, "g2": 0.15, "midGrowth": 0.1, "ebitT": 0.13, "desc": "Power scarcity in ERCOT/PJM; long contracts at high prices."}
+      ],
+      "catalysts": [
+        {"date": "~2026-11-06", "q": "Q3 2026", "event": "Q3 2026 results; LS Power integration", "impact": "Medium", "dir": "±"}
+      ],
+      "score": {"quality": 7, "growth": 6, "risk": 5, "valuation": null, "rationale": "Quality: scale in Texas retail. Growth: data centers, LS Power. Risk: weather, power prices, leverage. Valuation from the model."}
+    },
+    "GOOGL": {
+      "sector": "Internet search and advertising (Google Services), cloud (Google Cloud) and AI (Gemini, TPUs), Waymo / Other Bets",
+      "group": "Internet platforms",
+      "betaAdj": "blume",
+      "betaOverride": null,
+      "crp": 0,
+      "kdSpread": 0.005,
+      "tax": 0.17,
+      "ebit1": 0.34,
+      "growthNote": "Alphabet (Class A; values per share apply to Class C GOOG too). Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+24% / +25%: Search plus AI Overviews/AI Mode monetisation, YouTube, Cloud growing ~40% on Gemini and TPU demand). Operating margin ~34%, held near 33% in steady state as AI capex (~$90B+ in 2026, ~23% of revenue) depreciates. Base growth 10%/yr in years 3-5. Net cash in the EV bridge; buybacks ~1.5% of shares a year. Other Bets (Waymo) are not valued separately.",
+      "daPct0": 0.06,
+      "daPctT": 0.07,
+      "capexPct1": 0.23,
+      "capexPctT": 0.15,
+      "nwcPct": 0.0,
+      "terminalG": 0.03,
+      "ronic": 0.2,
+      "shareChange": -0.015,
+      "precedentEvEbitda": [15, 22],
+      "controlPremium": [0.2, 0.35],
+      "precedentNote": "",
+      "compsNote": "Comps: Meta, Microsoft, Amazon, Apple and Netflix.",
+      "scenarios": [
+        {"id": "bear", "name": "Bear", "p": 0.25, "growthAdj": 0, "g2": 0.1, "midGrowth": 0.04, "ebitT": 0.27, "desc": "Generative-AI assistants take query share from Search; Cloud growth slows as capex rises; margins fall to ~27%."},
+        {"id": "base", "name": "Base", "p": 0.35, "growthAdj": 0, "midGrowth": 0.1, "ebitT": 0.33, "desc": "Consensus 2026-27, then +10%/yr; AI lifts Search and Cloud while capex depreciation holds margins near 33%."},
+        {"id": "bull", "name": "Bull", "p": 0.2, "growthAdj": 0, "g2": 0.28, "midGrowth": 0.14, "ebitT": 0.36, "desc": "Gemini and TPUs win; Cloud becomes a #2 hyperscaler; Waymo scales."},
+        {"id": "antitrustTail", "name": "Tail: antitrust remedies / breakup", "p": 0.07, "growthAdj": 0, "g2": 0.08, "midGrowth": 0.03, "ebitT": 0.25, "oneOff": -30000000000.0, "desc": "US/EU remedies (default-search payments banned, ad-tech divestiture, Chrome) cut Search economics."},
+        {"id": "disruptTail", "name": "Tail: AI disruption of search", "p": 0.06, "growthAdj": 0, "g2": 0.0, "midGrowth": -0.02, "ebitT": 0.2, "desc": "Search ad revenue declines structurally as answers move to chat agents that Google does not dominate."},
+        {"id": "aiTail", "name": "Tail: AI super-cycle (Cloud/Gemini)", "p": 0.07, "growthAdj": 0, "g2": 0.32, "midGrowth": 0.18, "ebitT": 0.38, "desc": "Gemini becomes the leading model and TPUs a merchant platform; Cloud margins approach AWS."}
+      ],
+      "catalysts": [
+        {"date": "~2026-10-28", "q": "Q3 2026", "event": "Q3 2026 results: Cloud growth, capex guide", "impact": "High", "dir": "±"},
+        {"date": "Ongoing", "q": "Any", "event": "US DOJ search and ad-tech remedies; EU DMA", "impact": "High", "dir": "−"}
+      ],
+      "score": {"quality": 9, "growth": 8, "risk": 7, "valuation": null, "rationale": "Quality: dominant search, YouTube, Android, Cloud and in-house AI chips. Growth: AI and Cloud. Risk: antitrust, AI disruption. Valuation from the model."}
     }
   }
 }

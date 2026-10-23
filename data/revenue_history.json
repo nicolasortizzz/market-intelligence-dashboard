@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T12:28:16Z",
+ "generatedAt": "2026-10-23T03:36:32Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -394,6 +394,244 @@
    },
    "note": "Constant currency (TWD, reporting currency; IFRS net revenue). FY2020-FY2025 is almost entirely organic, driven by HPC/AI accelerators (N5/N3, CoWoS); FY2023 dipped on the smartphone/PC inventory correction."
   },
+  "GOOGL": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 182527000000,
+    "FY2021": 257637000000,
+    "FY2022": 282836000000,
+    "FY2023": 307394000000,
+    "FY2024": 350018000000,
+    "FY2025": 402836000000
+   },
+   "cagr5": 0.1715483907713573,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001652044-22-000019",
+    "0001652044-26-000018"
+   ]
+  },
+  "XOM": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 178574000000.0,
+    "FY2025": 323905000000.0
+   },
+   "cagr5": 0.12647066121522932,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (10-K FY2020 'Sales and other operating revenue' (XOM tags revenue with a company extension, not in us-gaap frames), USD; 10-K/20-F)",
+   "accn": [
+    "",
+    ""
+   ]
+  },
+  "CVX": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 94692000000,
+    "FY2021": 162465000000,
+    "FY2022": 246252000000,
+    "FY2023": 200949000000,
+    "FY2024": 202792000000,
+    "FY2025": 189031000000
+   },
+   "cagr5": 0.14826981490757762,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000093410-23-000009",
+    "0000093410-26-000078"
+   ]
+  },
+  "COP": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 18784000000,
+    "FY2021": 45828000000,
+    "FY2022": 78494000000,
+    "FY2023": 56141000000,
+    "FY2024": 54745000000,
+    "FY2025": 58944000000
+   },
+   "cagr5": 0.2569856071675769,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001163165-23-000006",
+    "0001163165-26-000009"
+   ]
+  },
+  "EOG": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 11032000000,
+    "FY2021": 18642000000,
+    "FY2022": 25702000000,
+    "FY2023": 24186000000,
+    "FY2024": 23698000000,
+    "FY2025": 22632000000
+   },
+   "cagr5": 0.1545526335723717,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000821189-23-000015",
+    "0000821189-26-000054"
+   ]
+  },
+  "OXY": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 17809000000.0,
+    "FY2021": 25956000000,
+    "FY2022": 36634000000,
+    "FY2023": 23156000000,
+    "FY2024": 22019000000,
+    "FY2025": 21593000000
+   },
+   "cagr5": 0.03928507420805061,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (10-K FY2020 net sales (CY2020 frame missing in companyfacts), USD; 10-K/20-F)",
+   "accn": [
+    "",
+    "0001628280-26-009059"
+   ]
+  },
+  "DVN": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 4828000000,
+    "FY2021": 12206000000,
+    "FY2022": 19169000000,
+    "FY2023": 15258000000,
+    "FY2024": 15940000000,
+    "FY2025": 17188000000
+   },
+   "cagr5": 0.28911486607531267,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000950170-23-002852",
+    "0001193125-26-056485"
+   ]
+  },
+  "SLB": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 23601000000,
+    "FY2021": 22929000000,
+    "FY2022": 28091000000,
+    "FY2023": 33135000000,
+    "FY2024": 36289000000,
+    "FY2025": 35708000000
+   },
+   "cagr5": 0.08634313500805857,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0001564590-23-000762",
+    "0001193125-26-021017"
+   ]
+  },
+  "CEG": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 17603000000,
+    "FY2021": 19649000000,
+    "FY2022": 24440000000,
+    "FY2023": 24918000000,
+    "FY2024": 23568000000,
+    "FY2025": 25533000000
+   },
+   "cagr5": 0.07721658498380646,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001868275-23-000014",
+    "0001868275-26-000032"
+   ]
+  },
+  "NRG": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 9093000000,
+    "FY2021": 26989000000,
+    "FY2022": 31543000000,
+    "FY2023": 28823000000,
+    "FY2024": 28130000000,
+    "FY2025": 30713000000
+   },
+   "cagr5": 0.27562496379200296,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0001013871-23-000004",
+    "0001013871-26-000004"
+   ]
+  },
+  "PBR": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 53683000000,
+    "FY2021": 83966000000,
+    "FY2022": 124474000000,
+    "FY2023": 102409000000,
+    "FY2024": 91416000000,
+    "FY2025": 89186000000.0
+   },
+   "cagr5": 0.10685818691393001,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (ifrs-full:Revenue, USD; 10-K/20-F)",
+   "accn": [
+    "0001292814-23-001253",
+    ""
+   ]
+  },
   "GGAL": {
    "start": "FY2020",
    "end": "FY2025",
@@ -516,6 +754,45 @@
    "source": "SK hynix annual business reports and Q4 earnings releases (FY2020-FY2021); Yahoo Finance statements (FY2022-FY2025)",
    "accn": [],
    "note": "Constant currency (KRW, reporting currency). FY2020-FY2025 includes a full memory cycle: the 2021-22 boom, the 2023 bust (-27%) and the HBM-led recovery (FY2024 +102%, FY2025 +47%); FY2026 (consensus ~KRW 344T, +254%) is outside the window."
+  },
+  "PRIO3.SA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "BRL",
+   "values": {
+    "FY2020": 1904185000.0,
+    "FY2021": 4396003000.0,
+    "FY2022": 6363475000.0,
+    "FY2023": 11905041000.0,
+    "FY2024": 14360653000.0,
+    "FY2025": 15583960000.0
+   },
+   "cagr5": 0.5226277375169224,
+   "usd": {
+    "values": {
+     "FY2020": 366421960.09005713,
+     "FY2025": 2832211398.662402
+    },
+    "cagr5": 0.5053200095677273,
+    "fx": {
+     "FY2020": [
+      "2020-12-31",
+      5.1967
+     ],
+     "FY2025": [
+      "2025-12-31",
+      5.5024
+     ],
+     "source": "BCB PTAX selling rate"
+    },
+    "note": "translated at the BCB PTAX year-end rates (5.197 BRL/USD on 2020-12-31, 5.502 on 2025-12-31), so it mixes FX moves"
+   },
+   "definition": "Consolidated net revenue",
+   "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), PRIO S.A. CNPJ 10.629.105/0001-68",
+   "accn": [],
+   "note": "Constant currency (BRL). Growth is largely inorganic: Frade (2021-22), Albacora Leste (2023), Peregrino (2025) acquisitions; also tracks Brent."
   },
   "SPCX": {
    "start": "FY2023",

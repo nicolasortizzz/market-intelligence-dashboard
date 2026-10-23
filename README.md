@@ -208,3 +208,6 @@ Vanilla HTML/CSS/JS with [Plotly.js](https://plotly.com/javascript/) for the cha
 ## Disclaimer
 
 This project is for **educational and portfolio purposes only**. It is **not investment advice** or a recommendation to buy or sell any security. Data may be delayed, incomplete or inaccurate.
+
+### Multiples & commodity decks
+`validate_dashboard.py --export` also writes `data/multiples.json` (EV/EBITDA, P/E, forward P/E, P/FCF, FCF yield, dividend yield, net debt/EBITDA, P/B per ticker, plus sector median/mean by the `group` field in `data/valuation_assumptions.json`). Oil names carry a `priceDeck` (assumed Brent path) shown in the Valuation tab and use through-cycle comps (`compsCycle`). Year-end FX for revenue CAGRs is cached in `data/fx_yearend_cache.json` (ECB; BRL via BCB PTAX). All of this runs in `make update`.

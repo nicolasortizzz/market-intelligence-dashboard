@@ -27,7 +27,18 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "BE": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "AVGO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "VIST": ("ifrs-full", ["Revenue"], "USD"),
-       "TSM": ("ifrs-full", ["Revenue"], "TWD")}
+       "TSM": ("ifrs-full", ["Revenue"], "TWD"),
+       "GOOGL": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "XOM": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "CVX": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "COP": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "EOG": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "OXY": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "DVN": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "SLB": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "CEG": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "NRG": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "RevenueFromContractWithCustomerIncludingAssessedTax", "RevenuesAndOtherIncome"], "USD"),
+       "PBR": ("ifrs-full", ["Revenue"], "USD")}
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",
                    "source": "Grupo Galicia Form 20-F FY2020 (selected financial data, IFRS, Dec-2020 pesos)",
@@ -53,7 +64,24 @@ SPCX = {"values": {"FY2023": 10387e6, "FY2024": 14015e6, "FY2025": 18674e6}, "en
 SKHYNIX = {"FY2020": 31900418e6, "FY2021": 42997792e6, "FY2022": 44621568e6, "FY2023": 32765719e6, "FY2024": 66192960e6, "FY2025": 97146675e6}
 SAMSUNG = {"FY2020": 236806988e6, "FY2021": 279604799e6, "FY2022": 302231360e6, "FY2023": 258935494e6, "FY2024": 300870903e6, "FY2025": 333605938e6}
 
-def ecb_ccy(ccy, day):
+# Year-end FX fixings never change: cache them (data/fx_yearend_cache.json) so an ECB/BCB outage does not break the update.
+FXCACHE_P = os.path.join(os.path.dirname(OUT), "fx_yearend_cache.json")
+FXCACHE = json.load(open(FXCACHE_P)) if os.path.exists(FXCACHE_P) else {}
+def cached(key, fn):
+    if key in FXCACHE: return tuple(FXCACHE[key])
+    v = fn(); FXCACHE[key] = list(v); json.dump(FXCACHE, open(FXCACHE_P, "w"), indent=1); return v
+
+def ptax_ye(day):
+    """BCB PTAX selling rate (BRL per USD), last fixing on or before `day` (official Brazilian rate)."""
+    def go():
+        d = dt.date.fromisoformat(day)
+        u = ("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@i,dataFinalCotacao=@f)"
+             f"?@i='{(d - dt.timedelta(days=10)).strftime('%m-%d-%Y')}'&@f='{d.strftime('%m-%d-%Y')}'&$format=json")
+        v = requests.get(u, timeout=40).json()["value"][-1]; return v["dataHoraCotacao"][:10], float(v["cotacaoVenda"])
+    return cached(f"PTAX|{day}", go)
+
+def ecb_ccy(ccy, day): return cached(f"{ccy}|{day}", lambda: _ecb_ccy(ccy, day))
+def _ecb_ccy(ccy, day):
     """ECB reference rate for `ccy` per EUR on the last fixing on or before `day`."""
     d = dt.date.fromisoformat(day)
     for i in range(5):
@@ -65,8 +93,19 @@ def ecb_ccy(ccy, day):
             if i == 4: raise
             print("ecb retry", ex); time.sleep(5)
 
+# Non-SEC local filers: consolidated revenue in the reporting currency, hand-entered from the regulator's open data
+# (Brazil: CVM DFP "DRE consolidado" line 3.01 Receita de Venda, dados.cvm.gov.br, BRL thousand -> BRL). Add one dict per ticker.
+LOCAL_REV = {
+    "PRIO3.SA": {"ccy": "BRL", "values": {"FY2020": 1904185e3, "FY2021": 4396003e3, "FY2022": 6363475e3, "FY2023": 11905041e3, "FY2024": 14360653e3, "FY2025": 15583960e3},
+                 "source": "CVM DFP consolidated statements (dados.cvm.gov.br, line 3.01), PRIO S.A. CNPJ 10.629.105/0001-68",
+                 "note": "Constant currency (BRL). Growth is largely inorganic: Frade (2021-22), Albacora Leste (2023), Peregrino (2025) acquisitions; also tracks Brent."},
+}
 # Filed annual figures not (yet) in XBRL companyfacts; each value checked against the filed document.
-SEC_FALLBACK = {"TSM": {2025: {"val": 3809054000000, "end": "2025-12-31", "accn": "0001628280-26-025362", "usd": 121423000000,
+SEC_FALLBACK = {"XOM": {2020: {"val": 178574e6, "end": "2020-12-31", "accn": "", "tag": "10-K FY2020 'Sales and other operating revenue' (XOM tags revenue with a company extension, not in us-gaap frames)"},
+                        2025: {"val": 323905e6, "end": "2025-12-31", "accn": "", "tag": "10-K FY2025 'Sales and other operating revenue' (Yahoo statements, same line)"}},
+                "OXY": {2020: {"val": 17809e6, "end": "2020-12-31", "accn": "", "tag": "10-K FY2020 net sales (CY2020 frame missing in companyfacts)"}},
+                "PBR": {2025: {"val": 89186e6, "end": "2025-12-31", "accn": "", "tag": "20-F FY2025 sales revenues, USD (not yet in companyfacts; Yahoo statements)"}},
+                "TSM": {2025: {"val": 3809054000000, "end": "2025-12-31", "accn": "0001628280-26-025362", "usd": 121423000000,
                                "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-16, net revenue NT$3,809,054M / US$121,423M convenience translation; not in companyfacts frames)"}},
                 "VIST": {2025: {"val": 2474197000, "end": "2025-12-31", "accn": "0001193125-26-187099",
                                 "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-28, 'Revenue from contracts with customers' US$2,474,197k; not in companyfacts)"}}}
@@ -98,7 +137,8 @@ def cpi():
     r = requests.get("https://apis.datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&format=json&limit=1000", timeout=60).json()
     return {row[0][:7]: row[1] for row in r["data"]}
 
-def ecb(day):
+def ecb(day): return cached(f"USD|{day}", lambda: _ecb(day))
+def _ecb(day):
     """ECB euro reference rate (USD per EUR) on the last fixing on or before `day`."""
     d = dt.date.fromisoformat(day)
     for i in range(5):   # the ECB API intermittently returns an error page; retry
@@ -229,6 +269,18 @@ def main():
         "note": ("Constant currency (KRW, reporting currency). FY2020-FY2025 includes a full memory cycle: the 2021-22 boom, the 2023 bust (-27%) and the HBM-led "
                  "recovery (FY2024 +102%, FY2025 +47%); FY2026 (consensus ~KRW 344T, +254%) is outside the window.")}
     print("000660.KS", round(res["companies"]["000660.KS"]["cagr5"] * 100, 2))
+    for t, L in LOCAL_REV.items():
+        v = L["values"]; fxs = {}
+        for y, day in (("FY2020", "2020-12-31"), ("FY2025", "2025-12-31")):
+            if L["ccy"] == "BRL": fxs[y] = list(ptax_ye(day))
+            else: (kd_, lc), (_, usd) = ecb_ccy(L["ccy"], day), ecb_ccy("USD", day); fxs[y] = [kd_, lc / usd]
+        res["companies"][t] = {"start": "FY2020", "end": "FY2025", "startEnd": "2020-12-31", "endEnd": "2025-12-31", "currency": L["ccy"], "values": v,
+            "cagr5": cagr(v["FY2020"], v["FY2025"], 5),
+            "usd": {"values": {y: v[y] / fxs[y][1] for y in fxs}, "cagr5": cagr(v["FY2020"] / fxs["FY2020"][1], v["FY2025"] / fxs["FY2025"][1], 5),
+                    "fx": {**fxs, "source": "BCB PTAX selling rate" if L["ccy"] == "BRL" else f"ECB reference-rate cross ({L['ccy']}/EUR / USD/EUR)"},
+                    "note": f"translated at the {'BCB PTAX' if L['ccy'] == 'BRL' else 'ECB'} year-end rates ({fxs['FY2020'][1]:.3f} {L['ccy']}/USD on {fxs['FY2020'][0]}, {fxs['FY2025'][1]:.3f} on {fxs['FY2025'][0]}), so it mixes FX moves"},
+            "definition": L.get("definition", "Consolidated net revenue"), "source": L["source"], "accn": [], "note": L["note"]}
+        print(t, round(res["companies"][t]["cagr5"] * 100, 2))
     v = SPCX["values"]; n = 2
     res["companies"]["SPCX"] = {
         "start": "FY2023", "end": "FY2025", "startEnd": SPCX["ends"][0], "endEnd": SPCX["ends"][1], "currency": "USD", "periods": n,

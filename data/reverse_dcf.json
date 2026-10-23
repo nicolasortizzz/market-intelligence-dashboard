@@ -1,121 +1,198 @@
 {
- "generatedAt": "2026-10-21T12:28:15Z",
+ "generatedAt": "2026-10-23T03:32:33Z",
  "quotes": {
   "META": {
-   "price": 694.25,
-   "priceDate": "2026-10-20",
+   "price": 648.85,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "UNH": {
-   "price": 419.26,
-   "priceDate": "2026-10-20",
+   "price": 424.98,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "DIS": {
-   "price": 111.67,
-   "priceDate": "2026-10-20",
+   "price": 113.13,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "NIO": {
-   "price": 3.43,
-   "priceDate": "2026-10-20",
+   "price": 3.31,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "YPF": {
-   "price": 50.78,
-   "priceDate": "2026-10-20",
+   "price": 49.17,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "GGAL": {
-   "price": 35.46,
-   "priceDate": "2026-10-20",
+   "price": 36.12,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "MU": {
-   "price": 904.9,
-   "priceDate": "2026-10-19",
+   "price": 856.49,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ASML": {
-   "price": 1630.84,
-   "priceDate": "2026-10-20",
+   "price": 1560.54,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "VST": {
-   "price": 150.32,
-   "priceDate": "2026-10-20",
+   "price": 140.83,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ABEV": {
-   "price": 3.32,
-   "priceDate": "2026-10-20",
+   "price": 3.33,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "UBER": {
-   "price": 68.94,
-   "priceDate": "2026-10-20",
+   "price": 69.07,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "BE": {
-   "price": 222.65,
-   "priceDate": "2026-10-20",
+   "price": 217.77,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AVGO": {
-   "price": 334.37,
-   "priceDate": "2026-10-20",
+   "price": 323.24,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "VIST": {
-   "price": 70.66,
-   "priceDate": "2026-10-20",
+   "price": 70.61,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "TSM": {
-   "price": 425.08,
-   "priceDate": "2026-10-20",
+   "price": 412.35,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SPCX": {
-   "price": 147.79,
-   "priceDate": "2026-10-20",
+   "price": 144.75,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "005930.KS": {
-   "price": 168.3188,
-   "priceLocal": 223500.0,
+   "price": 157.3988,
+   "priceLocal": 209000.0,
    "currencyLocal": "KRW",
    "fx": 1327.8377173428446,
    "fxDate": "2026-10-20",
    "fxSource": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)",
-   "priceDate": "2026-10-21",
+   "priceDate": "2026-10-23",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "000660.KS": {
-   "price": 974.5167,
-   "priceLocal": 1294000.0,
+   "price": 919.5401,
+   "priceLocal": 1221000.0,
    "currencyLocal": "KRW",
    "fx": 1327.8377173428446,
    "fxDate": "2026-10-20",
    "fxSource": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)",
+   "priceDate": "2026-10-23",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "GOOGL": {
+   "price": 324.22,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "XOM": {
+   "price": 178.23,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "CVX": {
+   "price": 226.68,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "COP": {
+   "price": 145.63,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "EOG": {
+   "price": 157.96,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "OXY": {
+   "price": 62.5,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "DVN": {
+   "price": 49.18,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SLB": {
+   "price": 49.55,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "PBR": {
+   "price": 25.62,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "PRIO3.SA": {
+   "price": 14.1536,
+   "priceLocal": 71.30999755859375,
+   "currencyLocal": "BRL",
+   "fx": 5.0383,
+   "fxDate": "2026-10-22",
+   "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
    "priceDate": "2026-10-21",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "CEG": {
+   "price": 255.21,
+   "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "NRG": {
+   "price": 94.38,
+   "priceDate": "2026-10-22",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   }

@@ -86,6 +86,15 @@ def main():
         out = {"generatedAt": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "source": "market-intelligence-dashboard valuation engine (valuation.js valSummary, model defaults)",
                "dashboard": "https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation", "fx": V.get("fx", {}), "tickers": list(summ), "companies": summ}
         json.dump(out, open(exp, "w"), indent=1); print("== wrote", exp)
+        # data/multiples.json: the multiples table for every ticker plus group (sector) median / mean, same engine
+        mx = {"generatedAt": out["generatedAt"], "source": "valuation.js multiplesOf / mxGroup (model inputs, USD at official rates)",
+              "definitions": {"evEbitda": "EV / TTM EBITDA (EV = market cap + net debt + minority interest)", "pe": "Market cap / TTM net income",
+                              "fpe": "Price / next-fiscal-year consensus EPS", "pfcf": "Market cap / last-FY free cash flow", "fcfY": "Last-FY free cash flow / market cap",
+                              "divY": "Last-FY cash dividends / market cap", "ndE": "Net debt / TTM EBITDA", "pb": "Price / book (latest quarter)"},
+              "companies": {t: {**v["multiples"], "price": v["price"], "priceDate": v["priceDate"], "name": v["name"]} for t, v in summ.items()},
+              "groups": {}}
+        for t, v in summ.items(): mx["groups"].setdefault(v["group"], v["groupMultiples"])
+        mp = os.path.join(os.path.dirname(os.path.abspath(exp)), "multiples.json"); json.dump(mx, open(mp, "w"), indent=1); print("== wrote", mp)
 
 if __name__ == "__main__":
     main()

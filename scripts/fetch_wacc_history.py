@@ -30,8 +30,9 @@ CHINA_CRP = {2021: 0.00695887, 2022: 0.01217149, 2023: 0.01031353, 2024: 0.00941
 BRAZIL_CRP = {2021: 0.02970905, 2022: 0.05193169, 2023: 0.04400441, 2024: 0.03341000, 2025: 0.03240970}
 TAIWAN_CRP = {2021: 0.00597750, 2022: 0.01034577, 2023: 0.00876650, 2024: 0.00799958, 2025: 0.00776007}   # Aa3; ctryprem21-24 archives and Jan-2026 file
 KOREA_CRP = {2021: 0.00490700, 2022: 0.00852000, 2023: 0.00721900, 2024: 0.00658800, 2025: 0.00639100}   # Aa2; ctryprem21-24 archives and Jan-2026 file
-COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP), "TSM": ("Taiwan", TAIWAN_CRP), "005930.KS": ("Korea", KOREA_CRP), "000660.KS": ("Korea", KOREA_CRP)}
-LOCAL_PX = {"005930.KS": "KRW=X", "000660.KS": "KRW=X"}   # local-currency listings: prices converted to USD (Yahoo FX) for beta and market cap; today uses the model's ECB rate   # Damodaran rating-based CRP; add new EM countries here
+COUNTRY_CRP = {"NIO": ("China", CHINA_CRP), "ABEV": ("Brazil", BRAZIL_CRP), "TSM": ("Taiwan", TAIWAN_CRP), "005930.KS": ("Korea", KOREA_CRP), "000660.KS": ("Korea", KOREA_CRP),
+               "PBR": ("Brazil", BRAZIL_CRP), "PRIO3.SA": ("Brazil", BRAZIL_CRP)}
+LOCAL_PX = {"005930.KS": "KRW=X", "000660.KS": "KRW=X", "PRIO3.SA": "BRL=X"}   # local-currency listings: prices converted to USD (Yahoo FX) for beta and market cap; today uses the model's ECB rate   # Damodaran rating-based CRP; add new EM countries here
 # Recently listed names: years before the IPO (and today, while < 24 monthly returns exist) use an ESTIMATED proxy beta =
 # segment-revenue-weighted median of the Blume-adjusted 60-month peer betas at that date, and the equity weight uses
 # private-market marks (secondary/tender offers, widely reported; estimates) instead of a listed market cap.

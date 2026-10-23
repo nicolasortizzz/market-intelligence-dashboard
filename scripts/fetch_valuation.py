@@ -28,13 +28,26 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "TSM": ["005930.KS", "INTC", "UMC", "GFS", "0981.HK", "ASML", "AMAT"],
            "005930.KS": ["000660.KS", "MU", "TSM", "AAPL", "1810.HK", "SNDK", "WDC"],
            "000660.KS": ["005930.KS", "MU", "SNDK", "WDC", "TSM", "NVDA"],   # NVDA: HBM customer, reference only
+           "GOOGL": ["META", "MSFT", "AMZN", "AAPL", "NFLX"],
+           "XOM": ["CVX", "SHEL", "TTE", "BP", "COP", "PBR"],
+           "CVX": ["XOM", "SHEL", "TTE", "BP", "COP", "PBR"],
+           "COP": ["EOG", "OXY", "DVN", "FANG", "APA", "XOM"],
+           "EOG": ["COP", "DVN", "FANG", "OXY", "PR"],
+           "OXY": ["COP", "EOG", "DVN", "FANG", "APA"],
+           "DVN": ["EOG", "COP", "FANG", "PR", "OXY"],
+           "SLB": ["HAL", "BKR", "WFRD", "NOV", "FTI"],
+           "PBR": ["XOM", "CVX", "SHEL", "TTE", "EQNR", "EC", "YPF", "PRIO3.SA"],
+           "PRIO3.SA": ["PBR", "BRAV3.SA", "RECV3.SA", "VIST", "APA", "OXY"],
+           "CEG": ["VST", "NRG", "TLN", "PEG", "ETR"],
+           "NRG": ["VST", "CEG", "TLN", "PEG", "ETR"],
            "SPCX": ["RKLB", "ASTS", "IRDM", "SATS", "VSAT", "LMT", "NOC", "TMUS"]}
 # Local-currency listings (Samsung: KRX common in KRW). Price, market cap, 52w range and targets are converted to USD at the
 # official rate (fx.KRWUSD: ECB reference rates, KRW/EUR divided by USD/EUR, same fixing date); KRW originals are kept as *Local.
 LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred shares (KRX)", "SMSN.IL": "GDR, London (1 GDR = 25 common shares)"}},
-                 "000660.KS": {"ccy": "KRW", "related": {}}}
+                 "000660.KS": {"ccy": "KRW", "related": {}},
+                 "PRIO3.SA": {"ccy": "BRL", "related": {}}}   # B3 listing in BRL, converted at the BCB PTAX rate (fx.BRLUSD)
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
-USD_STMT = {"YPF"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
+USD_STMT = {"YPF", "PBR"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}
 # Latest filed quarter newer than Yahoo's snapshot (applied only while Yahoo's last quarter is older than "period").
 # SPCX: Q3 2026 earnings release (8-K Ex-99.1, accession 0001628280-26-066482, filed 2026-10-20), USD millions.
@@ -244,7 +257,7 @@ def usd_stmt_fix(d, k):
         mc = d["self"].get("marketCap"); d["self"]["book"] = eq; d["self"]["pb"] = mc / eq if mc else None
         d["self"]["netIncome"] = sum(g(qi, "Net Income", c) or 0 for c in q4)
         if mc and d["self"]["netIncome"] > 0: d["self"]["pe"] = mc / d["self"]["netIncome"]
-    d["note"] = "Statements in USD (functional currency). Yahoo revenue/EPS estimates for YPF are in ARS/USD mixed and are not used for growth."
+    d["note"] = "Statements in USD (functional currency); Yahoo 'info' totals are in the local currency and are rebuilt from the USD statements."
 
 def bank_block(d, k, ratio):
     """GGAL: book value and history in USD per ADR (IAS 29 homogeneous ARS converted at the BCRA rate on each statement date)."""
@@ -303,9 +316,10 @@ def main():
         ed, ev = ecb_eurusd()
         res.setdefault("fx", {}).update({"EURUSD": 1 / ev, "EURUSD_ecb": ev, "EUR_date": ed, "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"})
         FXC["EUR"] = 1 / ev
-    if not only or "ABEV" in only:
+    if not only or {"ABEV", "PRIO3.SA"} & set(only):   # BRL (PTAX) refreshed with the BRL names
         bd, bv = ptax()
         if bv: res.setdefault("fx", {}).update({"BRLUSD": bv, "BRL_date": bd, "BRL_source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"}); FXC["BRL"] = bv
+    elif res.get("fx", {}).get("BRLUSD"): FXC["BRL"] = res["fx"]["BRLUSD"]
     if not only or "TSM" in only:   # TWD only refreshed with TSM
         td, tv = cbc_twd()
         if tv: res.setdefault("fx", {}).update({"TWDUSD": tv, "TWD_date": td, "TWD_source": "Central Bank of the R.O.C. (Taiwan), NT$/US$ interbank closing rate (cbc.gov.tw)"}); FXC["TWD"] = tv

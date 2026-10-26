@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T04:29:27Z",
+ "generatedAt": "2026-10-26T02:39:44Z",
  "quotes": {
   "META": {
    "price": 648.85,
@@ -342,6 +342,24 @@
   "BMY": {
    "price": 63.0,
    "priceDate": "2026-10-22",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "MA": {
+   "price": 623.6,
+   "priceDate": "2026-10-23",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "V": {
+   "price": 407.92,
+   "priceDate": "2026-10-23",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "PM": {
+   "price": 199.47,
+   "priceDate": "2026-10-23",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   }

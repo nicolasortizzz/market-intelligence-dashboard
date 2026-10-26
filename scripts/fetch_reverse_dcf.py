@@ -7,7 +7,7 @@ import json, os, datetime as dt
 import yfinance as yf
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "reverse_dcf.json")
-TICKERS = ["META", "UNH", "DIS", "NIO", "YPF", "GGAL", "MU", "ASML", "VST", "ABEV", "UBER", "BE", "AVGO", "VIST", "TSM", "SPCX", "005930.KS", "000660.KS", "GOOGL", "XOM", "CVX", "COP", "EOG", "OXY", "DVN", "SLB", "PBR", "PRIO3.SA", "CEG", "NRG", "AXIA3.SA", "EQTL3.SA", "CMIG4.SA", "TAEE11.SA", "CPFE3.SA", "EGIE3.SA", "CPLE3.SA", "NEE", "DUK", "SO", "AEP", "BEP", "GEV", "FSLR", "CCJ", "OKLO", "SMR", "MRK", "BMY"]
+TICKERS = ["META", "UNH", "DIS", "NIO", "YPF", "GGAL", "MU", "ASML", "VST", "ABEV", "UBER", "BE", "AVGO", "VIST", "TSM", "SPCX", "005930.KS", "000660.KS", "GOOGL", "XOM", "CVX", "COP", "EOG", "OXY", "DVN", "SLB", "PBR", "PRIO3.SA", "CEG", "NRG", "AXIA3.SA", "EQTL3.SA", "CMIG4.SA", "TAEE11.SA", "CPFE3.SA", "EGIE3.SA", "CPLE3.SA", "NEE", "DUK", "SO", "AEP", "BEP", "GEV", "FSLR", "CCJ", "OKLO", "SMR", "MRK", "BMY", "MA", "V", "PM"]
 LOCAL = {"005930.KS": "KRW", "000660.KS": "KRW", "PRIO3.SA": "BRL", "AXIA3.SA": "BRL", "EQTL3.SA": "BRL", "CMIG4.SA": "BRL", "TAEE11.SA": "BRL", "CPFE3.SA": "BRL", "EGIE3.SA": "BRL", "CPLE3.SA": "BRL"}   # local-currency listings: close converted to USD at the valuation.json official rate (fx.<CCY>USD)
 
 

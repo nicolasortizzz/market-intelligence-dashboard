@@ -39,7 +39,7 @@ const RVL=bk=>bk?{g:"Book-value CAGR, years 1-5",gS:"book-value CAGR",m:"Sustain
    most cells sit roughly within 0.3×-3× price. A "nice" step keeps ~11 points per axis. Per-ticker extra bounds
    (RV_EXTRA, e.g. NIO margin up to 18%) widen the range and the step is enlarged to keep ≤12 rows. */
 const NICE2=[0.15,0.2,0.25,0.5];
-const RV_EXTRA={NIO:{mMax:0.18},SPCX:{gMax:2.0},OKLO:{gMax:3.5,mMin:-0.1},SMR:{gMax:3.5},BEP:{mMin:0.7,mMax:1.2}},NICE=[0.0025,0.005,0.01,0.015,0.02,0.025,0.03,0.04,0.05,0.075,0.1];
+const RV_EXTRA={NIO:{mMax:0.18},SPCX:{gMax:2.0},OKLO:{gMax:3.5,mMin:-0.1},SMR:{gMax:3.5},BEP:{mMin:0.7,mMax:1.2},V:{mMax:0.75},MA:{mMax:0.72}},NICE=[0.0025,0.005,0.01,0.015,0.02,0.025,0.03,0.04,0.05,0.075,0.1];
 const axFmt=v=>(v*100).toFixed(1)+"%";
 /* at most `max` labelled ticks (every k-th grid point, always including the centre point) so labels never overlap */
 function rvTicks(v,max){const k=Math.ceil(v.length/max),c=Math.floor(v.length/2),vals=v.filter((x,i)=>(i-c)%k===0);return{tickvals:vals,ticktext:vals.map(axFmt)}}

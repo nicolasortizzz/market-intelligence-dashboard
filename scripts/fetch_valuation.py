@@ -51,7 +51,10 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "BEP": ["NEE", "AES", "CWEN", "ORA", "BEPC"],
            "GEV": ["ETN", "VRT", "HUBB", "PWR", "SIE.DE"], "FSLR": ["ENPH", "NXT", "ARRY", "CSIQ", "JKS"],
            "MRK": ["PFE", "ABBV", "LLY", "JNJ", "AZN", "NVS", "BMY"], "BMY": ["PFE", "ABBV", "MRK", "JNJ", "AZN", "NVS", "GILD"],
-           "CCJ": ["UEC", "NXE", "DNN", "BWXT", "LEU"], "OKLO": ["SMR", "NNE", "BWXT", "LEU", "CCJ"], "SMR": ["OKLO", "NNE", "BWXT", "LEU", "GEV"]}
+           "CCJ": ["UEC", "NXE", "DNN", "BWXT", "LEU"], "OKLO": ["SMR", "NNE", "BWXT", "LEU", "CCJ"], "SMR": ["OKLO", "NNE", "BWXT", "LEU", "GEV"],
+           # batch 3: BRK / portfolio list
+           "MA": ["V", "AXP", "PYPL", "FISV", "FIS"], "V": ["MA", "AXP", "PYPL", "FISV", "FIS"],
+           "PM": ["MO", "BTI", "IMBBY", "JAPAY", "UVV"]}
 # Local-currency listings (Samsung: KRX common in KRW). Price, market cap, 52w range and targets are converted to USD at the
 # official rate (fx.KRWUSD: ECB reference rates, KRW/EUR divided by USD/EUR, same fixing date); KRW originals are kept as *Local.
 LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred shares (KRX)", "SMSN.IL": "GDR, London (1 GDR = 25 common shares)"}},

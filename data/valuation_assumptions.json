@@ -6101,6 +6101,349 @@
     "valuation": null,
     "rationale": "Quality: cash-generative, ~25% FCF margin. Growth: negative through 2028-30 cliffs. Risk: patent cliffs, execution on launches. Valuation from the model."
    }
+  },
+  "V": {
+   "group": "Payments networks",
+   "groupPeersFromComps": true,
+   "sector": "Global card network (payments volume, cross-border, processing) and value-added services",
+   "betaAdj": "blume",
+   "crp": 0,
+   "kdSpread": 0.007,
+   "tax": 0.2,
+   "daPct0": 0.04,
+   "daPctT": 0.035,
+   "capexPct1": 0.045,
+   "capexPctT": 0.04,
+   "nwcPct": 0.0,
+   "terminalG": 0.03,
+   "ronic": 0.3,
+   "shareChange": -0.02,
+   "precedentEvEbitda": [
+    18,
+    25
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "No control deal for a global card network exists; reference fintech/payments M&A (estimates): Global Payments-Worldpay (2025, ~$24B, ~12x EBITDA), Capital One-Discover (2025, ~$35B, ~9x), Visa-Plaid (blocked 2021, ~$5B), Mastercard-Recorded Future (2024, ~$2.65B). Range set at the networks' own trading band because any buyer would pay for the duopoly economics.",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.77).",
+   "ebit1": 0.67,
+   "growthNote": "Visa. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+14% / +11%; fiscal year ends September). Net revenue tracks nominal payments volume (~8-9%), cross-border travel (~12%) and value-added services (~20%), less rising client incentives. Base: +9%/yr in years 3-5 as cash-to-card digitisation slows in mature markets; steady-state EBIT margin 65% (GAAP FY2025 ~60% incl. litigation accruals; underlying ~67%).",
+   "compsNote": "Comps: Mastercard, American Express, PayPal, Fiserv and Fidelity National (TTM, Yahoo). Only MA shares the asset-light network model; AXP/PYPL/FI trade lower on balance-sheet and processing exposure.",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.06,
+     "ebitT": 0.6,
+     "desc": "Consumer slowdown in stagflation, cross-border normalises, incentives rise; US interchange caps (Credit Card Competition Act) take share to alternative routing."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.09,
+     "ebitT": 0.65,
+     "desc": "Consensus FY2026-27, then ~9%/yr; margins ~65%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.13,
+     "midGrowth": 0.11,
+     "ebitT": 0.68,
+     "desc": "Tap-to-pay, Visa Direct/B2B flows and agentic commerce credentials keep revenue compounding double-digit."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: US/EU regulatory break-up of network economics",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.05,
+     "midGrowth": 0.02,
+     "ebitT": 0.52,
+     "desc": "DOJ debit monopolisation case lost plus CCCA routing mandate and EU interchange cuts compress yield on volume."
+    },
+    {
+     "id": "disruptTail",
+     "name": "Tail: A2A / stablecoin disintermediation",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.07,
+     "midGrowth": 0.03,
+     "ebitT": 0.55,
+     "desc": "Real-time account-to-account rails (Pix-style FedNow, UPI) and stablecoins capture e-commerce volume."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: deep recession",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": -0.03,
+     "midGrowth": 0.05,
+     "ebitT": 0.6,
+     "desc": "Global volume contraction and travel collapse (2020 style) for two years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01-27",
+     "q": "Q1 FY2027",
+     "event": "Q1 results; US payments volume and cross-border trends",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Any",
+     "event": "DOJ debit antitrust case and Credit Card Competition Act",
+     "impact": "High",
+     "dir": "−"
+    }
+   ],
+   "score": {
+    "quality": 10,
+    "growth": 7,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: two-sided network duopoly, ~65% EBIT margins, minimal capital. Growth: high single/low double digit. Risk: regulation and litigation, not competition. Valuation from the model."
+   }
+  },
+  "MA": {
+   "group": "Payments networks",
+   "groupPeersFromComps": true,
+   "sector": "Global card network (payments volume, cross-border, switching) and services (cyber, data, loyalty)",
+   "betaAdj": "blume",
+   "crp": 0,
+   "kdSpread": 0.007,
+   "tax": 0.18,
+   "daPct0": 0.04,
+   "daPctT": 0.035,
+   "capexPct1": 0.045,
+   "capexPctT": 0.04,
+   "nwcPct": 0.0,
+   "terminalG": 0.03,
+   "ronic": 0.3,
+   "shareChange": -0.02,
+   "precedentEvEbitda": [
+    18,
+    25
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "No control deal for a global card network exists; reference fintech/payments M&A (estimates): Global Payments-Worldpay (2025, ~$24B, ~12x EBITDA), Capital One-Discover (2025, ~$35B, ~9x), Visa-Plaid (blocked 2021, ~$5B), Mastercard-Recorded Future (2024, ~$2.65B). Range set at the networks' own trading band because any buyer would pay for the duopoly economics.",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.76).",
+   "ebit1": 0.6,
+   "growthNote": "Mastercard. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+14% / +13%). Higher cross-border and Europe/emerging-market mix and faster-growing value-added services (~40% of revenue) than Visa. Base: +10%/yr in years 3-5; steady-state EBIT margin 59% (GAAP 2025 ~58%; TTM ~61%).",
+   "compsNote": "Comps: Visa, American Express, PayPal, Fiserv and Fidelity National (TTM, Yahoo). Only V shares the asset-light network model.",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.09,
+     "midGrowth": 0.07,
+     "ebitT": 0.54,
+     "desc": "Stagflation slows consumer spending, cross-border normalises, incentives rise; US routing mandate."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.1,
+     "ebitT": 0.59,
+     "desc": "Consensus 2026-27, then ~10%/yr; margins ~59%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.14,
+     "midGrowth": 0.12,
+     "ebitT": 0.62,
+     "desc": "Services and cross-border keep compounding; tokenisation/agentic commerce and new flows (B2B, disbursements) add volume."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: US/EU regulatory break-up of network economics",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.05,
+     "midGrowth": 0.03,
+     "ebitT": 0.47,
+     "desc": "CCCA routing mandate, EU interchange/scheme-fee caps and merchant litigation compress yield."
+    },
+    {
+     "id": "disruptTail",
+     "name": "Tail: A2A / stablecoin disintermediation",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.07,
+     "midGrowth": 0.04,
+     "ebitT": 0.5,
+     "desc": "Account-to-account rails and stablecoins take e-commerce and cross-border volume."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: deep recession",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": -0.03,
+     "midGrowth": 0.06,
+     "ebitT": 0.55,
+     "desc": "Global volume contraction and travel collapse for two years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01-29",
+     "q": "Q4 2026",
+     "event": "Q4 results; cross-border and services growth",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Any",
+     "event": "US Credit Card Competition Act / merchant interchange settlement",
+     "impact": "High",
+     "dir": "−"
+    }
+   ],
+   "score": {
+    "quality": 10,
+    "growth": 7,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: network duopoly, ~60% EBIT margins. Growth: low double digit with services mix. Risk: regulation. Valuation from the model."
+   }
+  },
+  "PM": {
+   "group": "Consumer staples",
+   "groupPeersFromComps": true,
+   "sector": "International tobacco: combustibles (Marlboro ex-US) and smoke-free (IQOS heated tobacco, ZYN nicotine pouches, VEEV)",
+   "betaAdj": "blume",
+   "betaOverride": 0.6,
+   "betaNote": "Yahoo 5Y beta (~0.36) understates equity risk for a levered tobacco name; an assumed 0.6 (staples norm) is used.",
+   "crp": 0,
+   "kdSpread": 0.012,
+   "tax": 0.22,
+   "ebit1": 0.4,
+   "growthNote": "Philip Morris International. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+7% / +5%). Smoke-free (~40% of revenue, growing ~12-15%: IQOS + ZYN) offsets combustible volume decline (~-2%/yr) with pricing of ~6-8%. Base: +5%/yr in years 3-5; steady-state EBIT margin 42% as smoke-free gross margin converges above combustibles (adjusted 2025 ~40%). Reports in USD; ~70% of revenue is non-USD so FX is a recurring headwind.",
+   "daPct0": 0.04,
+   "daPctT": 0.035,
+   "capexPct1": 0.04,
+   "capexPctT": 0.035,
+   "nwcPct": 0.02,
+   "terminalG": 0.02,
+   "ronic": 0.25,
+   "shareChange": 0.0,
+   "precedentEvEbitda": [
+    11,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Tobacco M&A (estimates): BAT-Reynolds American (2017, ~$49B, ~16x EBITDA), PMI-Swedish Match (2022, ~$16B, ~20x incl. ZYN growth), Imperial-ITG (2015), Japan Tobacco-Vector (2024, ~$2.4B). Mature combustible deals 10-13x.",
+   "compsNote": "Comps: Altria, British American Tobacco, Imperial Brands, Japan Tobacco and Universal (TTM, Yahoo). PM trades at a premium for the smoke-free mix and no US combustible exposure.",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.03,
+     "midGrowth": 0.02,
+     "ebitT": 0.37,
+     "desc": "ZYN growth stalls on competition/supply, IQOS hits excise increases, FX headwinds from EM currencies in stagflation."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.05,
+     "ebitT": 0.42,
+     "desc": "Consensus 2026-27, then ~5%/yr; margins ~42%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.07,
+     "midGrowth": 0.07,
+     "ebitT": 0.45,
+     "desc": "IQOS ILUMA launches in the US and ZYN keeps share; smoke-free reaches >50% of revenue by 2028."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: nicotine regulation shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.0,
+     "midGrowth": -0.02,
+     "ebitT": 0.33,
+     "desc": "EU/WHO flavour and nicotine-cap rules, pouch bans or FDA action on ZYN; heavy excise harmonisation on heated tobacco."
+    },
+    {
+     "id": "litigationTail",
+     "name": "Tail: litigation / Canada-style settlement",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.03,
+     "midGrowth": 0.02,
+     "ebitT": 0.36,
+     "desc": "Large multi-country health-care cost settlement (Canada CCAA ~C$32.5B precedent) diverts cash for years."
+    },
+    {
+     "id": "smokeFreeTail",
+     "name": "Tail: smoke-free acceleration",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.09,
+     "midGrowth": 0.09,
+     "ebitT": 0.48,
+     "desc": "Combustible-to-smoke-free switching accelerates globally with higher unit economics."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-02-05",
+     "q": "Q4 2026",
+     "event": "Q4 results; ZYN US shipments and IQOS volumes",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Any",
+     "event": "FDA authorisation for IQOS ILUMA in the US",
+     "impact": "Medium",
+     "dir": "+"
+    }
+   ],
+   "score": {
+    "quality": 8,
+    "growth": 5,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: pricing power, global brands, defensive in stagflation. Growth: mid single digit led by smoke-free. Risk: regulation, litigation, FX and leverage. Valuation from the model."
+   }
   }
  }
 }

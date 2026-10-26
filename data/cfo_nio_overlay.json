@@ -1,0 +1,240 @@
+{
+  "asof": "2026-10-25",
+  "source": "CFO bot \u2014 nioswaps + deliveries panel + other-sales bridge",
+  "ticker": "NIO",
+  "currency": "CNY",
+  "fy2025_reported": {
+    "total": 87487510000,
+    "vehicle": 76883876000,
+    "other": 10603634000,
+    "parts": 4174135000,
+    "power": 2464441000,
+    "other_rest": 3965058000
+  },
+  "asp_2025_rmb": 235820,
+  "arps_power_rmb": 71.02,
+  "fleet_end_2025": 997592,
+  "ytd_deliveries_2026_sep": 300301,
+  "q4_2026_delivery_scenarios": {
+    "bear": {
+      "oct": 38000,
+      "nov": 42000,
+      "dec": 45728,
+      "q4": 125728,
+      "fy2026": 426029
+    },
+    "base": {
+      "oct": 42000,
+      "nov": 45500,
+      "dec": 50542,
+      "q4": 138042,
+      "fy2026": 438343
+    },
+    "bull": {
+      "oct": 48000,
+      "nov": 48000,
+      "dec": 55355,
+      "q4": 151355,
+      "fy2026": 451656
+    },
+    "mgmt_floor": {
+      "oct": 40000,
+      "nov": 40000,
+      "dec": 40000,
+      "q4": 120000,
+      "fy2026": 420301
+    }
+  },
+  "fy2026": {
+    "bear": {
+      "scenario": "bear",
+      "deliveries": 426029,
+      "q4_deliveries": 125728,
+      "fleet_end": 1423621,
+      "asp_rmb": 207521,
+      "vehicle_sales_rmb": 88410165726,
+      "power_rmb": 2937051574,
+      "parts_rmb": 6054838449,
+      "other_rest_rmb": 5409368482,
+      "other_sales_rmb": 14401258504,
+      "total_revenue_rmb": 102811424230,
+      "swaps": 44953239,
+      "yoy_total": 0.1752,
+      "yoy_vehicle": 0.1499,
+      "yoy_other": 0.3581,
+      "other_pct_of_total": 0.1401
+    },
+    "base": {
+      "scenario": "base",
+      "deliveries": 438343,
+      "q4_deliveries": 138042,
+      "fleet_end": 1435935,
+      "asp_rmb": 216954,
+      "vehicle_sales_rmb": 95100384473,
+      "power_rmb": 3267851939,
+      "parts_rmb": 6085632634,
+      "other_rest_rmb": 5510924758,
+      "other_sales_rmb": 14864409331,
+      "total_revenue_rmb": 109964793803,
+      "swaps": 46015020,
+      "yoy_total": 0.2569,
+      "yoy_vehicle": 0.2369,
+      "yoy_other": 0.4018,
+      "other_pct_of_total": 0.1352
+    },
+    "bull": {
+      "scenario": "bull",
+      "deliveries": 451656,
+      "q4_deliveries": 151355,
+      "fleet_end": 1449248,
+      "asp_rmb": 224029,
+      "vehicle_sales_rmb": 101183980222,
+      "power_rmb": 3486291995,
+      "parts_rmb": 6118925064,
+      "other_rest_rmb": 5620720007,
+      "other_sales_rmb": 15225937066,
+      "total_revenue_rmb": 116409917287,
+      "swaps": 46753239,
+      "yoy_total": 0.3306,
+      "yoy_vehicle": 0.3161,
+      "yoy_other": 0.4359,
+      "other_pct_of_total": 0.1308
+    },
+    "mgmt_floor": {
+      "scenario": "mgmt_floor",
+      "deliveries": 420301,
+      "q4_deliveries": 120000,
+      "fleet_end": 1417893,
+      "asp_rmb": 212238,
+      "vehicle_sales_rmb": 89203789153,
+      "power_rmb": 3213752484,
+      "parts_rmb": 6040514176,
+      "other_rest_rmb": 5362128401,
+      "other_sales_rmb": 14616395061,
+      "total_revenue_rmb": 103820184215,
+      "swaps": 45253239,
+      "yoy_total": 0.1867,
+      "yoy_vehicle": 0.1602,
+      "yoy_other": 0.3784,
+      "other_pct_of_total": 0.1408
+    }
+  },
+  "fy2027": {
+    "bear": {
+      "scenario": "bear",
+      "deliveries": 451591,
+      "fleet_end": 1875212,
+      "asp_rmb": 203371,
+      "vehicle_sales_rmb": 91840533033,
+      "power_rmb": 3914655852,
+      "parts_rmb": 8249543053,
+      "other_rest_rmb": 6429804942,
+      "other_sales_rmb": 18594003847,
+      "total_revenue_rmb": 110434536880,
+      "swaps": 61247494,
+      "yoy_total": 0.0741,
+      "yoy_from_fy2025": 0.2623
+    },
+    "base": {
+      "scenario": "base",
+      "deliveries": 504094,
+      "fleet_end": 1940029,
+      "asp_rmb": 212615,
+      "vehicle_sales_rmb": 107178037624,
+      "power_rmb": 4760069656,
+      "parts_rmb": 8442428084,
+      "other_rest_rmb": 6886210167,
+      "other_sales_rmb": 20088707907,
+      "total_revenue_rmb": 127266745531,
+      "swaps": 67027119,
+      "yoy_total": 0.1573,
+      "yoy_from_fy2025": 0.4547
+    },
+    "bull": {
+      "scenario": "bull",
+      "deliveries": 551020,
+      "fleet_end": 2000268,
+      "asp_rmb": 219548,
+      "vehicle_sales_rmb": 120975496498,
+      "power_rmb": 5661986505,
+      "parts_rmb": 8626362946,
+      "other_rest_rmb": 7298519131,
+      "other_sales_rmb": 21586868581,
+      "total_revenue_rmb": 142562365079,
+      "swaps": 73821407,
+      "yoy_total": 0.2247,
+      "yoy_from_fy2025": 0.6295
+    },
+    "mgmt_floor": {
+      "scenario": "mgmt_floor",
+      "deliveries": 462331,
+      "fleet_end": 1880224,
+      "asp_rmb": 207993,
+      "vehicle_sales_rmb": 96161663908,
+      "power_rmb": 4293732343,
+      "parts_rmb": 8247752519,
+      "other_rest_rmb": 6507494662,
+      "other_sales_rmb": 19048979524,
+      "total_revenue_rmb": 115210643432,
+      "swaps": 63642702,
+      "yoy_total": 0.1097,
+      "yoy_from_fy2025": 0.3169
+    }
+  },
+  "dcf_overlay": {
+    "note": "Suggested overrides for valuation_assumptions.json companies.NIO. g1/g2 replace Yahoo consensus growth for years 1-2. Scenario growthAdj still layers on top of g1/g2 in the DCF engine \u2014 prefer setting g1/g2 to the BASE bridge and keep growthAdj as relative.",
+    "recommended_base": {
+      "g1": 0.2569,
+      "g2": 0.1573,
+      "g1_label": "FY2026e total revenue YoY from CFO bridge (base)",
+      "g2_label": "FY2027e total revenue YoY from CFO bridge (base)"
+    },
+    "scenario_total_revenue_yoy": {
+      "bear": {
+        "g1": 0.1752,
+        "g2": 0.0741
+      },
+      "base": {
+        "g1": 0.2569,
+        "g2": 0.1573
+      },
+      "bull": {
+        "g1": 0.3306,
+        "g2": 0.2247
+      },
+      "mgmt_floor": {
+        "g1": 0.1867,
+        "g2": 0.1097
+      }
+    },
+    "vs_prior_consensus_in_assumptions": {
+      "prior_desc": "Consensus 2026-27 (+47% / +19%) in base scenario text",
+      "cfo_base_g1_g2": [
+        0.2569,
+        0.1573
+      ],
+      "delta_pp_g1": -21.3,
+      "delta_pp_g2": -3.3
+    },
+    "power_ebit_at_18pct_margin_fy2026_rmb": {
+      "bear": 528669283,
+      "base": 588213349,
+      "bull": 627532559,
+      "mgmt_floor": 578475447
+    },
+    "catalyst_patch": {
+      "date": "Monthly + nioswaps",
+      "event": "CFO overlay: Q4-26 deliveries scenarios + other sales (Power/parts) from nioswaps",
+      "impact": "Medium",
+      "dir": "\u00b1"
+    }
+  },
+  "caveats": [
+    "Swaps alone do not predict deliveries well; Q4 band is judgment + level regression + mgmt floor.",
+    "Other sales bridge allocates Power via ARPS, parts via fleet, residual via mix of deliveries/fleet.",
+    "ASP path assumes continued mix shift to ONVO/Firefly (lower ASP than FY2025).",
+    "Company ebitT in DCF stays scenario-driven (base ~4%); 18% applies only as Power-segment memo unless explicitly changed."
+  ],
+  "_superseded_by": "data/nio_ops_bridge.json",
+  "_note": "Prefer nio_ops_bridge.json (Admin contract)."
+}

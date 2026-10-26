@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T04:32:14Z",
+ "generatedAt": "2026-10-26T01:52:40Z",
  "source": "valuation.js multiplesOf / mxGroup (model inputs, USD at official rates)",
  "definitions": {
   "evEbitda": "EV / TTM EBITDA (EV = market cap + net debt + minority interest)",

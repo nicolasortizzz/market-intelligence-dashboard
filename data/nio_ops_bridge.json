@@ -1,0 +1,122 @@
+{
+  "asof": "2026-10-25",
+  "ticker": "NIO",
+  "fx": {
+    "pair": "USDCNY",
+    "rate": 7.1,
+    "date": "2026-10-25",
+    "note": "placeholder ~7.1; Admin can overwrite with live Yahoo/BOC"
+  },
+  "next_quarter": {
+    "label": "Q4-2026",
+    "deliveries": {
+      "bear": 125728,
+      "base": 138042,
+      "bull": 151355
+    },
+    "mgmt_aim": 120000,
+    "arps_rmb": 71.02,
+    "vehicle_sales_rmb_m": {
+      "bear": 26091.2,
+      "base": 29948.8,
+      "bull": 33907.9
+    },
+    "other_sales_rmb_m": {
+      "bear": 4117.5,
+      "base": 4468.9,
+      "bull": 4805.7,
+      "note": "Power (~1/4 FY) + parts/resto scaled by Q4/FY deliveries"
+    },
+    "power_rmb_m": {
+      "fy2025": 2464.4,
+      "next_q_est": 817.0,
+      "by_scenario_q4_est": {
+        "bear": 734.3,
+        "base": 817.0,
+        "bull": 871.6
+      }
+    }
+  },
+  "fy_bridge": {
+    "fy2025_total_rmb_m": 87487.5,
+    "fy2026": {
+      "bear": {
+        "deliveries": 426029,
+        "total_revenue_rmb_m": 102811.4,
+        "vehicle_rmb_m": 88410.2,
+        "other_rmb_m": 14401.3,
+        "yoy_total": 0.1752
+      },
+      "base": {
+        "deliveries": 438343,
+        "total_revenue_rmb_m": 109964.8,
+        "vehicle_rmb_m": 95100.4,
+        "other_rmb_m": 14864.4,
+        "yoy_total": 0.2569
+      },
+      "bull": {
+        "deliveries": 451656,
+        "total_revenue_rmb_m": 116409.9,
+        "vehicle_rmb_m": 101184.0,
+        "other_rmb_m": 15225.9,
+        "yoy_total": 0.3306
+      }
+    },
+    "fy2027": {
+      "bear": {
+        "deliveries": 451591,
+        "total_revenue_rmb_m": 110434.5,
+        "yoy_total": 0.0741
+      },
+      "base": {
+        "deliveries": 504094,
+        "total_revenue_rmb_m": 127266.7,
+        "yoy_total": 0.1573
+      },
+      "bull": {
+        "deliveries": 551020,
+        "total_revenue_rmb_m": 142562.4,
+        "yoy_total": 0.2247
+      }
+    }
+  },
+  "implied_dcf": {
+    "g1": 0.2569,
+    "g2": 0.1573,
+    "growthNote": "Yr-1/Yr-2 revenue growth from CFO nioswaps+deliveries+other-sales bridge (base): g1=25.7% (FY2026e total vs FY2025), g2=15.7% (FY2027e vs FY2026e). More conservative than prior Yahoo-consensus narrative ~+47%/+19%. Scenario growthAdj below is additive to g1 (and 0.8× to g2) per valuation.js; set company g1/g2 to BASE and apply hints so bear/bull track bridge YoY. ebitT unchanged (Power 18% EBIT is memo only). Not investment advice.",
+    "scenarioHints": {
+      "bear": {
+        "growthAdj": -0.0817,
+        "midGrowth": null
+      },
+      "base": {
+        "growthAdj": 0,
+        "midGrowth": null
+      },
+      "bull": {
+        "growthAdj": 0.0737,
+        "midGrowth": null
+      }
+    },
+    "bridge_g1_g2_by_scenario": {
+      "bear": {
+        "g1": 0.1752,
+        "g2": 0.0741
+      },
+      "base": {
+        "g1": 0.2569,
+        "g2": 0.1573
+      },
+      "bull": {
+        "g1": 0.3306,
+        "g2": 0.2247
+      }
+    }
+  },
+  "source_files": {
+    "full_bridge": "/workspace/cfo/nio_other_sales_delivery_bridge.json",
+    "delivery_model": "/workspace/cfo/nio_delivery_model.json",
+    "legacy_overlay_copy": "/workspace/github-admin/market-intelligence-dashboard/data/cfo_nio_overlay.json"
+  },
+  "caveat": "Swaps alone are a weak predictor of deliveries (YoY corr ~-0.27); Q4 band is judgment + level regression + mgmt floor. Other sales allocates Power via ARPS×swaps, parts via fleet, residual via mix. ASP path assumes continued ONVO/Firefly mix (lower ASP). Do not change company ebitT from this file unless Nico asks — 18% is Power-segment memo only. Artifact only; no .py in the public repo."
+}

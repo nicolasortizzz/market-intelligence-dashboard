@@ -434,11 +434,12 @@
      "id": "bear",
      "name": "Bear",
      "p": 0.25,
-     "growthAdj": -0.15,
+     "growthAdj": -0.0817,
      "midGrowth": 0.06,
      "ebitT": 0.015,
      "shareChange": 0.08,
-     "desc": "The price war led by BYD and Tesla erodes the 18% vehicle margin, ONVO/firefly volumes stall, and NIO keeps raising equity (~8%/yr dilution). It never earns a sustainable profit."
+     "desc": "The price war led by BYD and Tesla erodes the 18% vehicle margin, ONVO/firefly volumes stall, and NIO keeps raising equity (~8%/yr dilution). It never earns a sustainable profit.",
+     "cfo_g1_ref": 0.1752
     },
     {
      "id": "base",
@@ -447,17 +448,18 @@
      "growthAdj": 0,
      "midGrowth": 0.12,
      "ebitT": 0.04,
-     "desc": "Consensus 2026-27 (+47% / +19%); Q2 2026 gross margin of 18.4% holds, and operating leverage brings a ~4% EBIT margin by year 5. Dilution ~4%/yr for 3 years."
+     "desc": "CFO bridge base: FY2026e revenue YoY 26% / FY2027e 16% (deliveries ~438,343, other sales ~RMB 14.9B). Q2 2026 gross margin of 18.4% holds, operating leverage to ~4% EBIT by year 5. Dilution ~4%/yr for 3 years."
     },
     {
      "id": "bull",
      "name": "Bull",
      "p": 0.12,
-     "growthAdj": 0.05,
+     "growthAdj": 0.0737,
      "midGrowth": 0.18,
      "ebitT": 0.07,
      "shareChange": 0.02,
-     "desc": "Three brands scale and battery swap (>3,000 stations, plus 1,000 more in 2026) becomes a moat and a partner network; exports to Europe and the Middle East grow."
+     "desc": "Three brands scale and battery swap (>3,000 stations, plus 1,000 more in 2026) becomes a moat and a partner network; exports to Europe and the Middle East grow.",
+     "cfo_g1_ref": 0.3306
     },
     {
      "id": "cashTail",
@@ -481,6 +483,13 @@
     }
    ],
    "catalysts": [
+    {
+     "date": "Ongoing (CFO)",
+     "q": "Q4 2026 / Q1 2027",
+     "event": "CFO nioswaps overlay: delivery scenarios + other sales → DCF g1/g2",
+     "impact": "Medium",
+     "dir": "±"
+    },
     {
      "date": "Monthly (1st)",
      "q": "Each month",
@@ -516,7 +525,17 @@
     "risk": 2,
     "valuation": null,
     "rationale": "Quality: still loss-making at the operating level (FY2025 EBIT margin −16%), though the Q2 2026 gross margin reached 18.4% with four straight quarters of positive operating cash flow. Growth: very high, with consensus revenue +47% in 2026 and +19% in 2027. Risk: very high, given a brutal China price war, repeated dilution, policy dependence and geopolitical/ADR risk. Valuation: scored from the model's implied upside, with very wide dispersion."
-   }
+   },
+   "g1": 0.2569,
+   "g2": 0.1573,
+   "cfoOverlay": {
+    "asof": "2026-10-25",
+    "file": "data/nio_ops_bridge.json",
+    "g1": 0.2569,
+    "g2": 0.1573,
+    "note": "Aligned from nio_ops_bridge.json; midGrowth left unchanged (hints null)."
+   },
+   "growthNote": "Yr-1/Yr-2 revenue growth from CFO nioswaps+deliveries+other-sales bridge (base): g1=25.7% (FY2026e total vs FY2025), g2=15.7% (FY2027e vs FY2026e). More conservative than prior Yahoo-consensus narrative ~+47%/+19%. Scenario growthAdj below is additive to g1 (and 0.8× to g2) per valuation.js; set company g1/g2 to BASE and apply hints so bear/bull track bridge YoY. ebitT unchanged (Power 18% EBIT is memo only). Not investment advice."
   },
   "YPF": {
    "group": "Oil & gas",

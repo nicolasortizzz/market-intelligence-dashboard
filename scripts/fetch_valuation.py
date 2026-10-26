@@ -164,7 +164,12 @@ def sec_facts(cik_map, t):
 
 def ecb_eurusd():
     """ECB euro foreign exchange reference rate (USD per EUR), latest observation."""
-    r = requests.get("https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?lastNObservations=1&format=csvdata", timeout=30)
+    for i in range(3):
+        try:
+            r = requests.get("https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?lastNObservations=1&format=csvdata", timeout=30); break
+        except Exception:
+            if i == 2: raise
+            time.sleep(5)
     row = r.text.strip().splitlines(); hdr = row[0].split(","); v = row[-1].split(",")
     return v[hdr.index("TIME_PERIOD")], float(v[hdr.index("OBS_VALUE")])
 
@@ -334,9 +339,16 @@ def main():
     res["generatedAt"] = now
     if not only or "NIO" in only: res.setdefault("fx", {})["CNYUSD"] = cny
     if not only or "ASML" in only:
-        ed, ev = ecb_eurusd()
-        res.setdefault("fx", {}).update({"EURUSD": 1 / ev, "EURUSD_ecb": ev, "EUR_date": ed, "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"})
-        FXC["EUR"] = 1 / ev
+        try:
+            ed, ev = ecb_eurusd()
+            res.setdefault("fx", {}).update({"EURUSD": 1 / ev, "EURUSD_ecb": ev, "EUR_date": ed, "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"})
+            FXC["EUR"] = 1 / ev
+        except Exception as ex:   # ECB unreachable: keep last published ECB rate (and its date) from the previous snapshot
+            prev = (json.load(open(path)) if os.path.exists(path) else {}).get("fx", {})
+            if not prev.get("EURUSD"): raise
+            print("ECB fetch failed, keeping previous EUR rate", prev.get("EUR_date"), ex)
+            res.setdefault("fx", {}).update({k: prev[k] for k in ("EURUSD", "EURUSD_ecb", "EUR_date", "EUR_source") if k in prev})
+            FXC["EUR"] = prev["EURUSD"]
     if not only or ({"ABEV", "PRIO3.SA"} | {t for t, v in LOCAL_LISTING.items() if v["ccy"] == "BRL"}) & set(only):   # BRL (PTAX) refreshed with the BRL names
         bd, bv = ptax()
         if bv: res.setdefault("fx", {}).update({"BRLUSD": bv, "BRL_date": bd, "BRL_source": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)"}); FXC["BRL"] = bv
@@ -348,6 +360,11 @@ def main():
     if not only or {"005930.KS", "000660.KS"} & set(only):   # KRW only refreshed with the KRX names
         kd_, kv = ecb_cross("KRW")
         if kv: res.setdefault("fx", {}).update({"KRWUSD": kv, "KRW_date": kd_, "KRW_source": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)"}); FXC["KRW"] = kv
+        else:   # ECB unreachable: keep last published KRW cross (and its date) from the previous snapshot
+            prev = (json.load(open(path)) if os.path.exists(path) else {}).get("fx", {})
+            if prev.get("KRWUSD"):
+                print("ECB KRW fetch failed, keeping previous KRW rate", prev.get("KRW_date"))
+                res.setdefault("fx", {}).update({k: prev[k] for k in ("KRWUSD", "KRW_date", "KRW_source") if k in prev}); FXC["KRW"] = prev["KRWUSD"]
     elif res.get("fx", {}).get("KRWUSD"): FXC["KRW"] = res["fx"]["KRWUSD"]
     if not only or {"YPF", "GGAL"} & set(only):   # ARS rate only refreshed with the Argentine names
         fd, ars = bcra((dt.date.today() - dt.timedelta(days=10)).isoformat(), dt.date.today().isoformat())

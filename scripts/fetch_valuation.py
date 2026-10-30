@@ -382,7 +382,7 @@ def main():
     for t, peers in TARGETS.items():
         if only and t not in only: continue
         k = yf.Ticker(t); i = k.info or {}
-        h = k.history(period="1y")
+        h = k.history(period="1y"); h = h[h["Close"].notna()]  # drop in-session NaN close rows (KRX)
         d = {"ticker": t, "name": i.get("shortName"), "price": f(h["Close"].iloc[-1]), "priceDate": h.index[-1].strftime("%Y-%m-%d"),
              "currency": i.get("currency"), "financialCurrency": i.get("financialCurrency"),
              "sharesOutstanding": i.get("sharesOutstanding"), "impliedShares": i.get("impliedSharesOutstanding"),

@@ -71,3 +71,22 @@ table.mx td.self{font-weight:700}table.mx tbody tr+tr td{border-top:1px solid co
 table.mx .cheap{color:var(--up)}table.mx .rich{color:var(--dn)}table.mx .def{display:block;font-size:11.5px;color:var(--mu);font-weight:400}
 .prerev{margin:0 0 12px;padding:10px 14px;border-radius:10px;border:1px solid color-mix(in srgb,#f59e0b 55%,transparent);background:color-mix(in srgb,#f59e0b 12%,transparent);font-size:13px;line-height:1.5}
 .prerev b{color:#f59e0b}
+
+/* company picker (valuation) */
+.vpick{position:relative;min-width:320px;max-width:440px;flex:1 1 320px}
+.vpick-l{display:block;font:600 11px Inter;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin-bottom:5px}
+.vpick-box{position:relative;display:flex;align-items:center}
+.vpick-ico{position:absolute;left:11px;font-size:13px;opacity:.6;pointer-events:none}
+.vpick input{width:100%;padding:11px 12px 11px 34px;font-size:14px;border-radius:12px}
+.vpick.has input::placeholder{color:var(--tx);font-weight:600;opacity:1}
+.vpick.open input::placeholder{color:var(--mu);font-weight:400}
+.vpick-list{position:absolute;z-index:30;top:calc(100% + 6px);left:0;right:0;margin:0;padding:6px;list-style:none;background:var(--bg2);border:1px solid var(--bd);border-radius:12px;box-shadow:var(--sh);max-height:340px;overflow:auto;display:none}
+.vpick.open .vpick-list{display:block}
+.vpick-list li{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:13px}
+.vpick-list li .tkr{min-width:84px;font-weight:700;color:var(--ac)}
+.vpick-n{flex:1;color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vpick-list li.act{background:color-mix(in srgb,var(--ac) 18%,transparent)}
+.vpick-list li.cur .vpick-n{font-weight:600}.vpick-ck{color:var(--ac)}
+.vpick-list mark{background:none;color:var(--ac2);text-decoration:underline}
+.vpick-empty{color:var(--mu);cursor:default!important}
+@media (max-width:720px){.vpick{min-width:0;max-width:none;width:100%;flex-basis:100%}.vpick-list{max-height:50vh}.vpick-list li .tkr{min-width:70px}}

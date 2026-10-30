@@ -41,6 +41,11 @@ def check(d):
     if not d["wh"] or d["whRows"] < 6: p.append(f"WACC history rows {d['whRows']} (need 5 years + today)")
     return p
 
+def pick(pg, tk):
+    """Select a company through the searchable valuation picker (type ticker, Enter)."""
+    pg.click("#vPickIn"); pg.fill("#vPickIn", tk); pg.keyboard.press("Enter")
+
+
 def main():
     args = sys.argv[1:]; url = None
     if "--url" in args: i = args.index("--url"); url = args[i + 1]; del args[i:i + 2]
@@ -56,15 +61,15 @@ def main():
         pg.click("button[data-tab=valuation]"); pg.wait_for_timeout(2000)
         tks = args or pg.evaluate("()=>VT")
         for n, tk in enumerate(tks):
-            pg.click(f'#vSeg button[data-k="{tk}"]'); pg.wait_for_function("tk=>document.querySelector('#rvTitle')?.textContent.includes(tk)", arg=tk, timeout=30000)
+            pick(pg, tk); pg.wait_for_function("tk=>document.querySelector('#rvTitle')?.textContent.includes(tk)", arg=tk, timeout=30000)
             pg.wait_for_timeout(1200)
             d = pg.evaluate("tk=>rvDiag(tk)", tk); p = check(d)
             # stale-state check: move the margin slider, leave, come back -> defaults restored
             if n == 0 and len(tks) > 1:
                 pg.evaluate("()=>{const i=document.querySelector('#rvSliders input[data-k=m]');i.value=+i.max;i.dispatchEvent(new Event('input'))}"); pg.wait_for_timeout(600)
                 if not pg.evaluate("tk=>rvDiag(tk).warn.some(w=>w.includes('custom'))", tk): p.append("custom slider value not flagged")
-                other = tks[1]; pg.click(f'#vSeg button[data-k="{other}"]'); pg.wait_for_timeout(1500)
-                pg.click(f'#vSeg button[data-k="{tk}"]'); pg.wait_for_timeout(1500)
+                other = tks[1]; pick(pg, other); pg.wait_for_timeout(1500)
+                pick(pg, tk); pg.wait_for_timeout(1500)
                 if check(pg.evaluate("tk=>rvDiag(tk)", tk)): p.append("custom slider value carried over after switching ticker")
             print(f"{'FAIL' if p else 'ok  '} {tk:10} price {d['price']:.2f} implied g {('n/a' if d['gImp'] is None else f'{d['gImp']*100:.1f}%'):>7} "
                   f"base m {d['baseM']*100:.1f}% grid g[{d['gs'][0]*100:.1f},{d['gs'][-1]*100:.1f}] m[{d['ms'][0]*100:.1f},{d['ms'][-1]*100:.1f}] labels {d['xTicks']}/{d['yTicks']}"

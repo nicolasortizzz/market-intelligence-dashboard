@@ -146,7 +146,7 @@ function monteCarlo(tk,n=4000){const key=tk+JSON.stringify(V.ov[tk]||{});if(V.mc
 
 /* ---------- rendering ---------- */
 const usd=v=>money(v),bn=v=>big(v);
-function valTab(){loadVal().then(()=>{if(!$("#vSeg").dataset.init){$("#vSeg").dataset.init=1;$("#vSeg").innerHTML=VT.map(t=>`<button data-k="${t}" class="${t===V.tk?"on":""}">${t}</button>`).join("");seg("#vSeg",k=>{V.tk=k;V.scen="base";history.replaceState(null,"",location.search+"#valuation/"+k);renderVal()})}renderVal()}).catch(e=>{console.error(e);toast("Valuation data failed to load")})}
+function valTab(){loadVal().then(()=>{initPicker();renderVal()}).catch(e=>{console.error(e);toast("Valuation data failed to load")})}
 function renderVal(){const tk=V.tk,a=V.A.companies[tk],b=inputs(tk);
   $("#vScen").innerHTML=a.scenarios.map(s=>`<option value="${s.id}" ${s.id===V.scen?"selected":""}>${s.name} (${Math.round(s.p*100)}%)</option>`).join("");
   const r0=dcf(tk,V.scen,V.ov[tk]);
@@ -333,3 +333,26 @@ const _dvMx=drawVal;drawVal=function(full){_dvMx(full);try{drawMx()}catch(e){con
 const _dvPre=drawVal;drawVal=function(full){_dvPre(full);const a=V.A.companies[V.tk],k=$("#vK");if(!k)return;let f=$("#preRevFlag");
   if(!a.preRevenue){if(f)f.remove();return}if(!f){k.insertAdjacentHTML("beforebegin",'<div id="preRevFlag" class="prerev"></div>');f=$("#preRevFlag")}
   f.innerHTML=`<b>⚠ Pre-revenue company.</b> ${a.preRevenue}`};
+
+// Searchable company picker (replaces the ticker chip strip): matches ticker and company name
+const vName=tk=>(V.A.companies[tk]&&V.A.companies[tk].displayName)||(V.D.companies[tk]&&V.D.companies[tk].name)||tk;
+const vNorm=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+const vEsc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function selectVal(k){if(!VT.includes(k))return;V.tk=k;V.scen="base";history.replaceState(null,"",location.search+"#valuation/"+k);pickShow();renderVal()}
+function pickShow(){const i=$("#vPickIn");if(!i)return;i.value="";i.placeholder=`${V.tk} · ${vName(V.tk)}`;$("#vPickCur").textContent="";$("#vPick").classList.add("has")}
+function pickMatches(q){q=vNorm(q.trim());const all=VT.map(t=>({t,n:vName(t)}));if(!q)return all;
+  return all.map(o=>{const T=vNorm(o.t),N=vNorm(o.n),bare=T.split(".")[0];let r=T===q||bare===q?0:T.startsWith(q)?1:N.startsWith(q)?2:N.split(/[\s,.()&-]+/).some(w=>w.startsWith(q))?3:N.includes(q)||T.includes(q)?4:9;return{...o,r}}).filter(o=>o.r<9).sort((a,b)=>a.r-b.r||a.t.localeCompare(b.t))}
+function initPicker(){const box=$("#vPick");if(!box||box.dataset.init){pickShow();return}box.dataset.init=1;const i=$("#vPickIn"),L=$("#vPickList");let items=[],ai=0;
+  const hl=(s,q)=>{if(!q)return vEsc(s);const k=vNorm(s).indexOf(vNorm(q));return k<0?vEsc(s):vEsc(s.slice(0,k))+"<mark>"+vEsc(s.slice(k,k+q.length))+"</mark>"+vEsc(s.slice(k+q.length))};
+  const draw=()=>{const q=i.value.trim();items=pickMatches(q);ai=Math.min(ai,Math.max(items.length-1,0));
+    L.innerHTML=items.length?items.map((o,n)=>`<li role="option" id="vpo${n}" data-k="${vEsc(o.t)}" aria-selected="${n===ai}" class="${n===ai?"act":""} ${o.t===V.tk?"cur":""}"><span class="tkr">${hl(o.t,q)}</span><span class="vpick-n">${hl(o.n,q)}</span>${o.t===V.tk?'<span class="vpick-ck">✓</span>':""}</li>`).join(""):`<li class="vpick-empty">No company matches “${vEsc(q)}”</li>`;
+    i.setAttribute("aria-activedescendant",items.length?"vpo"+ai:"");const a=L.querySelector("li.act");a&&a.scrollIntoView({block:"nearest"})};
+  const open=()=>{box.classList.add("open");i.setAttribute("aria-expanded","true");draw()},close=()=>{box.classList.remove("open");i.setAttribute("aria-expanded","false");i.value=""};
+  const choose=k=>{close();i.blur();if(k&&k!==V.tk)selectVal(k);else pickShow()};
+  i.addEventListener("focus",()=>{ai=Math.max(0,VT.indexOf(V.tk));open()});
+  i.addEventListener("input",()=>{ai=0;open()});
+  i.addEventListener("keydown",e=>{if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if(!box.classList.contains("open"))return open();if(items.length){ai=(ai+(e.key==="ArrowDown"?1:-1)+items.length)%items.length;draw()}}
+    else if(e.key==="Enter"){e.preventDefault();if(items[ai])choose(items[ai].t)}else if(e.key==="Escape"){e.preventDefault();close();i.blur()}else if(e.key==="Tab")close()});
+  L.addEventListener("mousedown",e=>{const li=e.target.closest("li[data-k]");if(li){e.preventDefault();choose(li.dataset.k)}});
+  document.addEventListener("mousedown",e=>{if(!box.contains(e.target))close()});
+  pickShow()}

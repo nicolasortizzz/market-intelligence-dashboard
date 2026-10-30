@@ -90,3 +90,16 @@ table.mx .cheap{color:var(--up)}table.mx .rich{color:var(--dn)}table.mx .def{dis
 .vpick-list mark{background:none;color:var(--ac2);text-decoration:underline}
 .vpick-empty{color:var(--mu);cursor:default!important}
 @media (max-width:720px){.vpick{min-width:0;max-width:none;width:100%;flex-basis:100%}.vpick-list{max-height:50vh}.vpick-list li .tkr{min-width:70px}}
+
+.vcov{padding:0}.vcov>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 16px}
+.vcov>summary::-webkit-details-marker{display:none}.vcov>summary::before{content:"\25B8";color:var(--ac);transition:transform .2s}.vcov[open]>summary::before{transform:rotate(90deg)}
+.vcov-t{flex:1;font-weight:700}.vcov-n{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:color-mix(in srgb,var(--ac) 22%,transparent);color:var(--ac2);font-size:12px}
+.vcov-f{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px}#vCovG{padding:0 16px 16px;max-height:520px;overflow:auto}
+.vcov-g{margin-top:10px}.vcov-gh{font:600 11px Inter;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin-bottom:6px}
+.vcov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px}
+.vcov-i{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--bd);border-radius:10px;background:var(--bg2);color:var(--tx);text-decoration:none;font-size:13px;min-width:0}
+.vcov-i:hover{border-color:var(--ac)}.vcov-i.cur{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 16%,var(--bg2))}
+.vcov-i .tkr{font-weight:700;color:var(--ac);min-width:62px}.vcov-nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vcov-b{font-size:10px;padding:1px 6px;border-radius:6px;border:1px solid var(--bd);color:var(--mu);white-space:nowrap}
+@media (max-width:720px){.vcov-h{display:none}.vcov-grid{grid-template-columns:1fr}#vCovG{max-height:60vh}}
+.vcov-f .chip.active{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 22%,var(--bg2))}

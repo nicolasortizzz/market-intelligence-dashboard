@@ -67,6 +67,16 @@ def main():
             pg.evaluate("()=>document.querySelector('#vCov').open=true"); pg.click(f"#vCovG a[data-k='{cov[1]}']")
             pg.wait_for_function("tk=>V.tk===tk&&location.hash.endsWith(tk)", arg=cov[1], timeout=30000)
             pg.evaluate("()=>document.querySelector('#vCov').open=false")
+        # industry filter: narrows both the picker dropdown and the coverage index; "All" resets
+        inds = pg.evaluate("()=>[...document.querySelectorAll('#vInd option')].map(o=>o.value).filter(v=>v!=='All')")
+        if not inds: errs.append("industry filter has no options")
+        else:
+            g = inds[0]; pg.select_option("#vInd", g); pg.wait_for_timeout(300)
+            r = pg.evaluate("""g=>{const ok=t=>vIndOf(t)===g;const p=pickMatches('').map(o=>o.t),c=[...document.querySelectorAll('#vCovG a[data-k]')].map(a=>a.dataset.k);
+              return {p:p.length&&p.every(ok),pn:p.length===VT.filter(ok).length,c:c.every(ok),cn:c.length===vFull().filter(ok).length}}""", g)
+            if not all(r.values()): errs.append(f"industry filter '{g}' mismatch: {r}")
+            pg.select_option("#vInd", "All"); pg.wait_for_timeout(300)
+            if len(pg.evaluate("()=>pickMatches('')")) != len(tks if not args else pg.evaluate("()=>VT")): errs.append("industry 'All' did not reset picker")
         for n, tk in enumerate(tks):
             pick(pg, tk); pg.wait_for_function("tk=>document.querySelector('#rvTitle')?.textContent.includes(tk)", arg=tk, timeout=30000)
             pg.wait_for_timeout(1200)

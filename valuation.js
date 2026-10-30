@@ -340,12 +340,16 @@ const vNorm=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLower
 const vEsc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function selectVal(k){if(!VT.includes(k))return;V.tk=k;V.scen="base";history.replaceState(null,"",location.search+"#valuation/"+k);pickShow();renderVal()}
 function pickShow(){const i=$("#vPickIn");if(!i)return;i.value="";i.placeholder=`${V.tk} · ${vName(V.tk)}`;$("#vPickCur").textContent="";$("#vPick").classList.add("has")}
-function pickMatches(q){q=vNorm(q.trim());const all=VT.map(t=>({t,n:vName(t)}));if(!q)return all;
+let vIndF="All";const vIndOf=t=>{const a=V.A.companies[t]||{};return a.group||a.sector||"Other"};
+function initInd(){const sel=$("#vInd");if(!sel)return;const c={};VT.forEach(t=>{const g=vIndOf(t);c[g]=(c[g]||0)+1});
+  sel.innerHTML=`<option value="All">All industries (${VT.length})</option>`+Object.keys(c).sort().map(g=>`<option value="${vEsc(g)}">${vEsc(g)} (${c[g]})</option>`).join("");sel.value=vIndF;
+  if(!sel.dataset.init){sel.dataset.init=1;sel.addEventListener("change",()=>{vIndF=sel.value;$("#vPick").classList.toggle("filt",vIndF!=="All");drawCov();const i=$("#vPickIn");i.focus()})}}
+function pickMatches(q){q=vNorm(q.trim());const all=VT.filter(t=>vIndF==="All"||vIndOf(t)===vIndF).map(t=>({t,n:vName(t)}));if(!q)return all;
   return all.map(o=>{const T=vNorm(o.t),N=vNorm(o.n),bare=T.split(".")[0];let r=T===q||bare===q?0:T.startsWith(q)?1:N.startsWith(q)?2:N.split(/[\s,.()&-]+/).some(w=>w.startsWith(q))?3:N.includes(q)||T.includes(q)?4:9;return{...o,r}}).filter(o=>o.r<9).sort((a,b)=>a.r-b.r||a.t.localeCompare(b.t))}
-function initPicker(){const box=$("#vPick");if(!box||box.dataset.init){pickShow();return}box.dataset.init=1;const i=$("#vPickIn"),L=$("#vPickList");let items=[],ai=0;
+function initPicker(){initInd();const box=$("#vPick");if(!box||box.dataset.init){pickShow();return}box.dataset.init=1;const i=$("#vPickIn"),L=$("#vPickList");let items=[],ai=0;
   const hl=(s,q)=>{if(!q)return vEsc(s);const k=vNorm(s).indexOf(vNorm(q));return k<0?vEsc(s):vEsc(s.slice(0,k))+"<mark>"+vEsc(s.slice(k,k+q.length))+"</mark>"+vEsc(s.slice(k+q.length))};
   const draw=()=>{const q=i.value.trim();items=pickMatches(q);ai=Math.min(ai,Math.max(items.length-1,0));
-    L.innerHTML=items.length?items.map((o,n)=>`<li role="option" id="vpo${n}" data-k="${vEsc(o.t)}" aria-selected="${n===ai}" class="${n===ai?"act":""} ${o.t===V.tk?"cur":""}"><span class="tkr">${hl(o.t,q)}</span><span class="vpick-n">${hl(o.n,q)}</span>${o.t===V.tk?'<span class="vpick-ck">✓</span>':""}</li>`).join(""):`<li class="vpick-empty">No company matches “${vEsc(q)}”</li>`;
+    L.innerHTML=items.length?items.map((o,n)=>`<li role="option" id="vpo${n}" data-k="${vEsc(o.t)}" aria-selected="${n===ai}" class="${n===ai?"act":""} ${o.t===V.tk?"cur":""}"><span class="tkr">${hl(o.t,q)}</span><span class="vpick-n">${hl(o.n,q)}</span>${o.t===V.tk?'<span class="vpick-ck">✓</span>':""}</li>`).join(""):`<li class="vpick-empty">No company matches “${vEsc(q)}”${vIndF!=="All"?" in "+vEsc(vIndF):""}</li>`;
     i.setAttribute("aria-activedescendant",items.length?"vpo"+ai:"");const a=L.querySelector("li.act");a&&a.scrollIntoView({block:"nearest"})};
   const open=()=>{box.classList.add("open");i.setAttribute("aria-expanded","true");draw()},close=()=>{box.classList.remove("open");i.setAttribute("aria-expanded","false");i.value=""};
   const choose=k=>{close();i.blur();if(k&&k!==V.tk)selectVal(k);else pickShow()};
@@ -362,9 +366,9 @@ function initPicker(){const box=$("#vPick");if(!box||box.dataset.init){pickShow(
 const VMODEL={bank:"Residual income",ddm:"DDM",utility:"Utility DCF"},vModel=t=>VMODEL[V.A.companies[t].model]||"DCF";
 const vFull=()=>VT.filter(t=>V.A.companies[t]&&V.D.companies[t]);
 let vCovM="All";
-function drawCov(){const box=$("#vCov");if(!box)return;const T=vFull(),ms=["All",...new Set(T.map(vModel))];$("#vCovN").textContent=T.length;
+function drawCov(){const box=$("#vCov");if(!box)return;const T=vFull().filter(t=>vIndF==="All"||vIndOf(t)===vIndF),ms=["All",...new Set(T.map(vModel))];$("#vCovN").textContent=T.length;
   $("#vCovF").innerHTML=ms.map(m=>`<button class="chip ${m===vCovM?"active":""}" data-m="${vEsc(m)}">${vEsc(m)} <span class="muted">${m==="All"?T.length:T.filter(t=>vModel(t)===m).length}</span></button>`).join("");
-  const S=T.filter(t=>vCovM==="All"||vModel(t)===vCovM),G={};S.forEach(t=>{const g=V.A.companies[t].group||V.A.companies[t].sector||"Other";(G[g]=G[g]||[]).push(t)});
+  const S=T.filter(t=>vCovM==="All"||vModel(t)===vCovM),G={};S.forEach(t=>{const g=vIndOf(t);(G[g]=G[g]||[]).push(t)});
   $("#vCovG").innerHTML=Object.entries(G).map(([g,ts])=>`<div class="vcov-g"><div class="vcov-gh">${vEsc(g)} <span class="muted">${ts.length}</span></div><div class="vcov-grid">${ts.map(t=>`<a href="#valuation/${encodeURIComponent(t)}" data-k="${vEsc(t)}" class="vcov-i ${t===V.tk?"cur":""}"><span class="tkr">${vEsc(t)}</span><span class="vcov-nm">${vEsc(vName(t))}</span><span class="vcov-b">${vEsc(vModel(t))}</span></a>`).join("")}</div></div>`).join("")}
 document.addEventListener("click",e=>{const f=e.target.closest("#vCovF [data-m]");if(f){vCovM=f.dataset.m;drawCov();return}
   const a=e.target.closest("#vCovG a[data-k]");if(a){e.preventDefault();selectVal(a.dataset.k);const k=$("#vK");k&&k.scrollIntoView({behavior:"smooth",block:"start"})}});

@@ -356,3 +356,16 @@ function initPicker(){const box=$("#vPick");if(!box||box.dataset.init){pickShow(
   L.addEventListener("mousedown",e=>{const li=e.target.closest("li[data-k]");if(li){e.preventDefault();choose(li.dataset.k)}});
   document.addEventListener("mousedown",e=>{if(!box.contains(e.target))close()});
   pickShow()}
+
+/* Full-analysis coverage index: every ticker with BOTH a hand-authored entry in data/valuation_assumptions.json
+   and a valuation payload in data/valuation.json (i.e. the full workbench renders). Grouped by sector group, filterable by model. */
+const VMODEL={bank:"Residual income",ddm:"DDM",utility:"Utility DCF"},vModel=t=>VMODEL[V.A.companies[t].model]||"DCF";
+const vFull=()=>VT.filter(t=>V.A.companies[t]&&V.D.companies[t]);
+let vCovM="All";
+function drawCov(){const box=$("#vCov");if(!box)return;const T=vFull(),ms=["All",...new Set(T.map(vModel))];$("#vCovN").textContent=T.length;
+  $("#vCovF").innerHTML=ms.map(m=>`<button class="chip ${m===vCovM?"active":""}" data-m="${vEsc(m)}">${vEsc(m)} <span class="muted">${m==="All"?T.length:T.filter(t=>vModel(t)===m).length}</span></button>`).join("");
+  const S=T.filter(t=>vCovM==="All"||vModel(t)===vCovM),G={};S.forEach(t=>{const g=V.A.companies[t].group||V.A.companies[t].sector||"Other";(G[g]=G[g]||[]).push(t)});
+  $("#vCovG").innerHTML=Object.entries(G).map(([g,ts])=>`<div class="vcov-g"><div class="vcov-gh">${vEsc(g)} <span class="muted">${ts.length}</span></div><div class="vcov-grid">${ts.map(t=>`<a href="#valuation/${encodeURIComponent(t)}" data-k="${vEsc(t)}" class="vcov-i ${t===V.tk?"cur":""}"><span class="tkr">${vEsc(t)}</span><span class="vcov-nm">${vEsc(vName(t))}</span><span class="vcov-b">${vEsc(vModel(t))}</span></a>`).join("")}</div></div>`).join("")}
+document.addEventListener("click",e=>{const f=e.target.closest("#vCovF [data-m]");if(f){vCovM=f.dataset.m;drawCov();return}
+  const a=e.target.closest("#vCovG a[data-k]");if(a){e.preventDefault();selectVal(a.dataset.k);const k=$("#vK");k&&k.scrollIntoView({behavior:"smooth",block:"start"})}});
+const _dvCov=drawVal;drawVal=function(full){_dvCov(full);try{drawCov()}catch(e){console.error(e)}};

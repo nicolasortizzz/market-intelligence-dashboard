@@ -60,6 +60,13 @@ def main():
         pg.goto(url + "#valuation", wait_until="networkidle"); pg.wait_for_timeout(1500)
         pg.click("button[data-tab=valuation]"); pg.wait_for_timeout(2000)
         tks = args or pg.evaluate("()=>VT")
+        # coverage index: lists exactly the full-analysis tickers and its links select the company
+        cov = pg.evaluate("()=>[...document.querySelectorAll('#vCovG a[data-k]')].map(a=>a.dataset.k)")
+        if sorted(cov) != sorted(pg.evaluate("()=>vFull()")): errs.append(f"coverage index lists {len(cov)} tickers, expected full-analysis set")
+        if len(cov) > 1:
+            pg.evaluate("()=>document.querySelector('#vCov').open=true"); pg.click(f"#vCovG a[data-k='{cov[1]}']")
+            pg.wait_for_function("tk=>V.tk===tk&&location.hash.endsWith(tk)", arg=cov[1], timeout=30000)
+            pg.evaluate("()=>document.querySelector('#vCov').open=false")
         for n, tk in enumerate(tks):
             pick(pg, tk); pg.wait_for_function("tk=>document.querySelector('#rvTitle')?.textContent.includes(tk)", arg=tk, timeout=30000)
             pg.wait_for_timeout(1200)

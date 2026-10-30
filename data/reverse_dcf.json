@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T14:15:38Z",
+ "generatedAt": "2026-10-29T23:57:36Z",
  "quotes": {
   "META": {
    "price": 634.535,
@@ -360,6 +360,36 @@
   "PM": {
    "price": 203.045,
    "priceDate": "2026-10-26",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "PFE": {
+   "price": 29.95,
+   "priceDate": "2026-10-29",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "JNJ": {
+   "price": 275.2,
+   "priceDate": "2026-10-29",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AZN": {
+   "price": 174.4,
+   "priceDate": "2026-10-29",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ABBV": {
+   "price": 290.79,
+   "priceDate": "2026-10-29",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "LLY": {
+   "price": 1373.7,
+   "priceDate": "2026-10-29",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   }

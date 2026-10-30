@@ -6444,6 +6444,581 @@
     "valuation": null,
     "rationale": "Quality: pricing power, global brands, defensive in stagflation. Growth: mid single digit led by smoke-free. Risk: regulation, litigation, FX and leverage. Valuation from the model."
    }
+  },
+  "PFE": {
+   "group": "Pharma",
+   "groupPeersFromComps": true,
+   "sector": "Global biopharma (Eliquis, Vyndaqel, Prevnar, Padcev/Seagen oncology, Nurtec; post-COVID Comirnaty/Paxlovid tail)",
+   "betaAdj": "blume",
+   "betaOverride": 0.7,
+   "betaNote": "Yahoo 5Y beta (~0.2) reflects the defensive 2022-25 rotation; an assumed 0.7 (large-cap pharma norm) is used.",
+   "crp": 0,
+   "kdSpread": 0.008,
+   "tax": 0.15,
+   "ebit1": 0.3,
+   "growthNote": "Pfizer. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (~-2% / -1%; FY2026 guide $59.5-62.5B). COVID products (Comirnaty, Paxlovid) keep shrinking to ~$5B; the 2026-28 LOE cliff (Eliquis, Ibrance, Xtandi, Prevnar 13, Xeljanz, Vyndaqel ~2028) puts ~$17B of revenue at risk. Seagen oncology, Metsera obesity assets and the $7.2B cost programme offset part. Base: revenue -3%/yr in 2028-30, steady-state EBIT margin 28%.",
+   "daPct0": 0.08,
+   "daPctT": 0.06,
+   "capexPct1": 0.05,
+   "capexPctT": 0.045,
+   "nwcPct": 0.05,
+   "terminalG": 0.02,
+   "ronic": 0.2,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    16
+   ],
+   "controlPremium": [
+    0.25,
+    0.45
+   ],
+   "precedentNote": "Large pharma M&A (estimates): Pfizer-Seagen (2023, ~$43B), BMS-Celgene (2019, ~$74B, ~9x EBITDA), AbbVie-Allergan (2020, ~$63B, ~11x), Merck-Verona (2025, ~$10B), J&J-Intra-Cellular (2025, ~$15B). Megamerger EV/EBITDA 9-16x.",
+   "compsNote": "Comps: AbbVie, Merck, J&J, AstraZeneca, BMS, Novartis and Gilead (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "midGrowth": -0.06,
+     "ebitT": 0.24,
+     "desc": "Cliff erosion faster; Seagen ADCs and Metsera obesity underdeliver.",
+     "g2": -0.04
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "growthAdj": 0,
+     "midGrowth": -0.03,
+     "ebitT": 0.28,
+     "desc": "Consensus 2026-27, then -3%/yr through the 2028 cliff; margins ~28%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "growthAdj": 0,
+     "midGrowth": 0.02,
+     "ebitT": 0.32,
+     "desc": "Oncology (Padcev, sigvotatug, PD-1xVEGF) and obesity launches refill the base.",
+     "g2": 0.02
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: 2026-28 patent cliff (severe) + COVID to zero",
+     "p": 0.12,
+     "growthAdj": 0,
+     "midGrowth": -0.1,
+     "ebitT": 0.22,
+     "desc": "Eliquis/Ibrance/Xtandi/Vyndaqel generics plus COVID revenue collapse: -10%/yr in 2028-30.",
+     "g2": -0.06
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US drug-pricing shock (MFN / IRA)",
+     "p": 0.06,
+     "growthAdj": 0,
+     "midGrowth": -0.06,
+     "ebitT": 0.23,
+     "desc": "MFN pricing and IRA negotiation cut US net prices ~20% (TrumpRx deal only partially shields).",
+     "g2": -0.08
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins (obesity, oncology)",
+     "p": 0.07,
+     "growthAdj": 0,
+     "midGrowth": 0.05,
+     "ebitT": 0.34,
+     "desc": "Metsera monthly GLP-1 and PD-1xVEGF bispecific become blockbusters.",
+     "g2": 0.04
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2026-11-04",
+     "q": "Q4 2026",
+     "event": "Q3 results; 2026 guide and Metsera obesity updates",
+     "impact": "High",
+     "dir": "±"
+    },
+    {
+     "date": "2028",
+     "q": "Any",
+     "event": "Eliquis, Ibrance, Xtandi, Vyndaqel loss of exclusivity",
+     "impact": "High",
+     "dir": "−"
+    }
+   ],
+   "score": {
+    "quality": 6,
+    "growth": 2,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: big FCF, 7% dividend yield but leverage post-Seagen. Growth: flat-to-negative through 2028 LOEs. Risk: cliff, pricing policy. Valuation from the model."
+   }
+  },
+  "JNJ": {
+   "group": "Pharma",
+   "groupPeersFromComps": true,
+   "sector": "Diversified healthcare: Innovative Medicine (Darzalex, Stelara tail, Tremfya, Carvykti, Spravato, Rybrevant) and MedTech (ortho, surgery, Abiomed, Shockwave)",
+   "betaAdj": "blume",
+   "betaOverride": 0.6,
+   "betaNote": "Yahoo 5Y beta (~0.2) reflects the defensive 2022-25 rotation; an assumed 0.7 (large-cap pharma norm) is used.",
+   "crp": 0,
+   "kdSpread": 0.008,
+   "tax": 0.17,
+   "ebit1": 0.3,
+   "growthNote": "Johnson & Johnson. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+6% / +4%; 2026 guide ~$100B). Innovative Medicine (~64%) absorbs the Stelara biosimilar erosion (2025-26) on the back of Darzalex, Tremfya, Carvykti, Spravato, Rybrevant/Lazcluze and Caplyta (Intra-Cellular); MedTech (~36%) grows mid-single digit (Shockwave, Abiomed; orthopaedics spin-off planned). Talc litigation remains a contingent liability. Base: revenue +3.5%/yr in 2028-30, steady-state EBIT margin 31%.",
+   "daPct0": 0.07,
+   "daPctT": 0.06,
+   "capexPct1": 0.05,
+   "capexPctT": 0.05,
+   "nwcPct": 0.05,
+   "terminalG": 0.025,
+   "ronic": 0.2,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    16
+   ],
+   "controlPremium": [
+    0.25,
+    0.45
+   ],
+   "precedentNote": "Large pharma M&A (estimates): Pfizer-Seagen (2023, ~$43B), BMS-Celgene (2019, ~$74B, ~9x EBITDA), AbbVie-Allergan (2020, ~$63B, ~11x), Merck-Verona (2025, ~$10B), J&J-Intra-Cellular (2025, ~$15B). Megamerger EV/EBITDA 9-16x.",
+   "compsNote": "Comps: Pfizer, AbbVie, Merck, AstraZeneca, Novartis, Eli Lilly and Abbott (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "midGrowth": 0.01,
+     "ebitT": 0.27,
+     "desc": "Stelara erosion deeper, Darzalex IRA price from 2028, MedTech share loss.",
+     "g2": 0.01
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.035,
+     "ebitT": 0.31,
+     "desc": "Consensus 2026-27, then +3.5%/yr; margins ~31%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "growthAdj": 0,
+     "midGrowth": 0.06,
+     "ebitT": 0.33,
+     "desc": "Icotrokinra (oral IL-23), Tremfya IBD and Rybrevant subQ beat; MedTech accelerates.",
+     "g2": 0.06
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: Darzalex / Stelara cliff (severe)",
+     "p": 0.1,
+     "growthAdj": 0,
+     "midGrowth": -0.03,
+     "ebitT": 0.25,
+     "desc": "Stelara biosimilars plus Darzalex IRA/LOE (~2029) hit faster than launches ramp.",
+     "g2": -0.02
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: talc litigation / US pricing shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "midGrowth": 0.0,
+     "ebitT": 0.26,
+     "desc": "Adverse talc rulings (~$10B+) plus MFN pricing.",
+     "g2": -0.02
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.06,
+     "growthAdj": 0,
+     "midGrowth": 0.08,
+     "ebitT": 0.34,
+     "desc": "Icotrokinra, Carvykti earlier lines and nipocalimab become multi-blockbusters.",
+     "g2": 0.07
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2026-10-14",
+     "q": "Q3 2026",
+     "event": "Q3 results (reported); 2027 outlook in January",
+     "impact": "High",
+     "dir": "±"
+    },
+    {
+     "date": "2028-2029",
+     "q": "Any",
+     "event": "Darzalex IRA negotiation / loss of exclusivity",
+     "impact": "High",
+     "dir": "−"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 5,
+    "risk": 7,
+    "valuation": null,
+    "rationale": "Quality: AAA balance sheet, diversified. Growth: mid-single digit through Stelara LOE. Risk: low, talc tail. Valuation from the model."
+   }
+  },
+  "AZN": {
+   "group": "Pharma",
+   "groupPeersFromComps": true,
+   "sector": "Global biopharma, oncology-led (Tagrisso, Imfinzi, Enhertu, Calquence, Datroway), BioPharmaceuticals (Farxiga, Fasenra, Breztri) and Rare Disease (Alexion: Ultomiris)",
+   "betaAdj": "blume",
+   "betaOverride": 0.7,
+   "betaNote": "Yahoo 5Y beta (~0.2) reflects the defensive 2022-25 rotation; an assumed 0.7 (large-cap pharma norm) is used.",
+   "crp": 0,
+   "kdSpread": 0.008,
+   "tax": 0.19,
+   "ebit1": 0.3,
+   "growthNote": "AstraZeneca (US listing; reports in USD under IFRS). Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+7% / +7%). Oncology (~43%) drives growth (Enhertu, Imfinzi, Datroway, camizestrant); Farxiga loses US/EU exclusivity 2025-26 and enters IRA price setting (2026); Soliris faces biosimilars. Target $80B revenue by 2030. Core operating margin mid-30s, but GAAP/IFRS EBIT is depressed by acquisition amortisation (~$4B/yr), so a 30% GAAP-like margin is used. Base: revenue +6%/yr in 2028-30, steady-state EBIT margin 33%.",
+   "daPct0": 0.08,
+   "daPctT": 0.06,
+   "capexPct1": 0.05,
+   "capexPctT": 0.05,
+   "nwcPct": 0.05,
+   "terminalG": 0.025,
+   "ronic": 0.2,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    16
+   ],
+   "controlPremium": [
+    0.25,
+    0.45
+   ],
+   "precedentNote": "Large pharma M&A (estimates): Pfizer-Seagen (2023, ~$43B), BMS-Celgene (2019, ~$74B, ~9x EBITDA), AbbVie-Allergan (2020, ~$63B, ~11x), Merck-Verona (2025, ~$10B), J&J-Intra-Cellular (2025, ~$15B). Megamerger EV/EBITDA 9-16x.",
+   "compsNote": "Comps: Pfizer, Merck, J&J, Novartis, Eli Lilly, GSK and BMS (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "midGrowth": 0.02,
+     "ebitT": 0.28,
+     "desc": "Enhertu/Datroway competition and China probe weigh; Farxiga erodes.",
+     "g2": 0.03
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "growthAdj": 0,
+     "midGrowth": 0.06,
+     "ebitT": 0.33,
+     "desc": "Consensus 2026-27, then +6%/yr toward the $80B 2030 target; margins ~33%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.16,
+     "growthAdj": 0,
+     "midGrowth": 0.09,
+     "ebitT": 0.36,
+     "desc": "$80B+ by 2030 delivered early; baxdrostat, camizestrant and oral GLP-1 succeed.",
+     "g2": 0.1
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: oncology LOE / Tagrisso cliff (early 2030s pulled forward)",
+     "p": 0.1,
+     "growthAdj": 0,
+     "midGrowth": -0.02,
+     "ebitT": 0.26,
+     "desc": "Tagrisso, Lynparza and Soliris erosion outpaces launches.",
+     "g2": 0.0
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: China probe + US pricing / tariffs",
+     "p": 0.08,
+     "growthAdj": 0,
+     "midGrowth": 0.01,
+     "ebitT": 0.27,
+     "desc": "China (~13% of sales) investigation escalates, MFN pricing and tariffs.",
+     "g2": -0.02
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.06,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.38,
+     "desc": "ADC platform (Enhertu earlier lines, Datroway) and cardiometabolic launches become category leaders.",
+     "g2": 0.12
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2026-11-06",
+     "q": "Q4 2026",
+     "event": "Q3 / 9M results",
+     "impact": "High",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2030",
+     "q": "Any",
+     "event": "Delivery vs $80B 2030 revenue ambition; Farxiga IRA price",
+     "impact": "High",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 6,
+    "valuation": null,
+    "rationale": "Quality: broad oncology franchise, rising margins. Growth: high-single digit. Risk: China, LOEs, ADC competition. Valuation from the model."
+   }
+  },
+  "ABBV": {
+   "group": "Pharma",
+   "groupPeersFromComps": true,
+   "sector": "Global biopharma: immunology (Skyrizi, Rinvoq, Humira tail), oncology (Imbruvica, Venclexta, Elahere, Epkinly), neuroscience (Botox therapeutic, Vraylar, Qulipta) and aesthetics",
+   "betaAdj": "blume",
+   "betaOverride": 0.7,
+   "betaNote": "Yahoo 5Y beta (~0.2) reflects the defensive 2022-25 rotation; an assumed 0.7 (large-cap pharma norm) is used.",
+   "crp": 0,
+   "kdSpread": 0.008,
+   "tax": 0.15,
+   "ebit1": 0.33,
+   "growthNote": "AbbVie. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+9% / +7%). Post-Humira: Skyrizi + Rinvoq (>$25B 2025, guided >$31B by 2027) replace Humira, now ~$4B and falling; neuroscience (Vraylar, Botox, Qulipta, Ubrelvy, Vyalev) grows double digit; aesthetics weak. GAAP EBIT is depressed by ~$7B/yr of intangible amortisation (Allergan) and IPR&D, so a 33% GAAP-like margin is used vs ~45% adjusted. Imbruvica in IRA (2026). Rinvoq LOE ~2033 (settled). Base: revenue +6%/yr in 2028-30, steady-state EBIT margin 38% as amortisation rolls off.",
+   "daPct0": 0.11,
+   "daPctT": 0.07,
+   "capexPct1": 0.02,
+   "capexPctT": 0.02,
+   "nwcPct": 0.05,
+   "terminalG": 0.025,
+   "ronic": 0.2,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    16
+   ],
+   "controlPremium": [
+    0.25,
+    0.45
+   ],
+   "precedentNote": "Large pharma M&A (estimates): Pfizer-Seagen (2023, ~$43B), BMS-Celgene (2019, ~$74B, ~9x EBITDA), AbbVie-Allergan (2020, ~$63B, ~11x), Merck-Verona (2025, ~$10B), J&J-Intra-Cellular (2025, ~$15B). Megamerger EV/EBITDA 9-16x.",
+   "compsNote": "Comps: Pfizer, Merck, J&J, AstraZeneca, BMS, Eli Lilly and Amgen (TTM, Yahoo). TTM P/E is inflated by amortisation and IPR&D; forward P/E ~16x.",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "midGrowth": 0.02,
+     "ebitT": 0.32,
+     "desc": "Skyrizi/Rinvoq growth slows on competition (oral IL-23), aesthetics stays weak.",
+     "g2": 0.03
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "growthAdj": 0,
+     "midGrowth": 0.06,
+     "ebitT": 0.38,
+     "desc": "Consensus 2026-27, then +6%/yr; margin expands to ~38% as amortisation rolls off."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.16,
+     "growthAdj": 0,
+     "midGrowth": 0.09,
+     "ebitT": 0.42,
+     "desc": "Immunology >$35B by 2030, neuroscience (emraclidine follow-ons, tavapadon) adds.",
+     "g2": 0.09
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: immunology price / LOE cliff",
+     "p": 0.1,
+     "growthAdj": 0,
+     "midGrowth": -0.03,
+     "ebitT": 0.3,
+     "desc": "Skyrizi/Rinvoq IRA selection and early biosimilar pressure cap the franchise.",
+     "g2": 0.0
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US drug-pricing shock (MFN)",
+     "p": 0.07,
+     "growthAdj": 0,
+     "midGrowth": 0.0,
+     "ebitT": 0.31,
+     "desc": "MFN pricing cuts US (~75% of sales) net prices ~15%.",
+     "g2": -0.03
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.07,
+     "growthAdj": 0,
+     "midGrowth": 0.11,
+     "ebitT": 0.44,
+     "desc": "Neuroscience and oncology ADCs (Temab-A, Elahere) become blockbusters.",
+     "g2": 0.11
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2026-10-31",
+     "q": "Q3 2026",
+     "event": "Q3 results; Skyrizi/Rinvoq trajectory and 2027 outlook",
+     "impact": "High",
+     "dir": "±"
+    },
+    {
+     "date": "2033",
+     "q": "Any",
+     "event": "Rinvoq US loss of exclusivity (settled date)",
+     "impact": "High",
+     "dir": "−"
+    }
+   ],
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 6,
+    "valuation": null,
+    "rationale": "Quality: high margins, proven Humira transition. Growth: high-single digit. Risk: leverage, immunology concentration. Valuation from the model."
+   }
+  },
+  "LLY": {
+   "group": "Pharma",
+   "groupPeersFromComps": true,
+   "sector": "Global biopharma led by incretins (Mounjaro, Zepbound, orforglipron), plus Verzenio, Jardiance, Taltz, Kisunla and Ebglyss",
+   "betaAdj": "blume",
+   "betaOverride": 0.8,
+   "betaNote": "Yahoo 5Y beta (~0.2) reflects the defensive 2022-25 rotation; an assumed 0.7 (large-cap pharma norm) is used.",
+   "crp": 0,
+   "kdSpread": 0.008,
+   "tax": 0.16,
+   "ebit1": 0.43,
+   "growthNote": "Eli Lilly. Year 1 / year 2 = consensus FY2026 / FY2027 revenue (+25% / +18%; 2026 guide ~$80-83B after ~$65B in 2025). Mounjaro + Zepbound (tirzepatide) are >55% of sales; orforglipron (oral GLP-1, launch 2026) and retatrutide extend the franchise; capacity build-out drives capex ~10% of sales. Tirzepatide patents run to ~2036. Base: revenue +12%/yr in 2028-30 as obesity volume growth meets price erosion (TrumpRx/Medicare deal), steady-state EBIT margin 45%; terminal growth 3% given the obesity TAM.",
+   "daPct0": 0.04,
+   "daPctT": 0.04,
+   "capexPct1": 0.1,
+   "capexPctT": 0.06,
+   "nwcPct": 0.05,
+   "terminalG": 0.03,
+   "ronic": 0.2,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    16
+   ],
+   "controlPremium": [
+    0.25,
+    0.45
+   ],
+   "precedentNote": "Large pharma M&A (estimates): Pfizer-Seagen (2023, ~$43B), BMS-Celgene (2019, ~$74B, ~9x EBITDA), AbbVie-Allergan (2020, ~$63B, ~11x), Merck-Verona (2025, ~$10B), J&J-Intra-Cellular (2025, ~$15B). Megamerger EV/EBITDA 9-16x.",
+   "compsNote": "Comps: Novo Nordisk, Merck, J&J, AstraZeneca, AbbVie, Pfizer and Amgen (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "midGrowth": 0.06,
+     "ebitT": 0.38,
+     "desc": "GLP-1 price war (Novo, compounded, oral entrants) compresses price faster than volume grows.",
+     "g2": 0.1
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.45,
+     "desc": "Consensus 2026-27, then +12%/yr; margins ~45%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.16,
+     "growthAdj": 0,
+     "midGrowth": 0.17,
+     "ebitT": 0.48,
+     "desc": "Orforglipron and retatrutide dominate; cardiovascular/OSA/MASH labels widen the TAM.",
+     "g2": 0.24
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: incretin price collapse / competition",
+     "p": 0.1,
+     "growthAdj": 0,
+     "midGrowth": 0.0,
+     "ebitT": 0.33,
+     "desc": "Medicare/MFN price cuts and generic semaglutide (2031-32 ex-US earlier) halve net prices.",
+     "g2": 0.05
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US pricing / tariffs shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "midGrowth": 0.04,
+     "ebitT": 0.36,
+     "desc": "MFN plus IRA selection of tirzepatide; tariffs on ex-US manufacturing.",
+     "g2": 0.08
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.07,
+     "growthAdj": 0,
+     "midGrowth": 0.22,
+     "ebitT": 0.5,
+     "desc": "Retatrutide >25% weight loss plus Kisunla and lepodisiran: revenue >$150B by 2030.",
+     "g2": 0.28
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2026-10-30",
+     "q": "Q3 2026",
+     "event": "Q3 results; Zepbound/Mounjaro scripts, orforglipron launch",
+     "impact": "High",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Any",
+     "event": "Orforglipron approval/launch; retatrutide phase 3 data",
+     "impact": "High",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 10,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: best-in-class margins and pipeline. Growth: highest in large pharma. Risk: GLP-1 concentration, pricing. Valuation from the model."
+   }
   }
  }
 }

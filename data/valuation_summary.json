@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T14:26:51Z",
+ "generatedAt": "2026-10-30T00:03:12Z",
  "source": "market-intelligence-dashboard valuation engine (valuation.js valSummary, model defaults)",
  "dashboard": "https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation",
  "fx": {
@@ -73,6 +73,11 @@
   "SMR",
   "MRK",
   "BMY",
+  "PFE",
+  "JNJ",
+  "AZN",
+  "ABBV",
+  "LLY",
   "MA",
   "V",
   "PM"
@@ -101,10 +106,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 255.7,
-    "p50": 536.8,
-    "p90": 909.51,
-    "pAbovePrice": 0.349
+    "p10": 259.07,
+    "p50": 538.69,
+    "p90": 901.05,
+    "pAbovePrice": 0.34825
    },
    "scenarios": [
     {
@@ -179,8 +184,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.09930745667459663
+     "date": "2026-10-29",
+     "value": 0.09925394019494659
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -284,10 +289,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 185.25,
-    "p50": 407.26,
-    "p90": 668.85,
-    "pAbovePrice": 0.4725
+    "p10": 193.31,
+    "p50": 408.88,
+    "p90": 668.98,
+    "pAbovePrice": 0.48375
    },
    "scenarios": [
     {
@@ -362,8 +367,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.0745620720874732
+     "date": "2026-10-29",
+     "value": 0.07488260053624819
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -465,10 +470,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 38.13,
-    "p50": 72.01,
-    "p90": 107.81,
-    "pAbovePrice": 0.0765
+    "p10": 39.33,
+    "p50": 72.45,
+    "p90": 105.85,
+    "pAbovePrice": 0.0675
    },
    "scenarios": [
     {
@@ -543,8 +548,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.09496224040299911
+     "date": "2026-10-29",
+     "value": 0.09521061786433067
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -652,9 +657,9 @@
    "monteCarlo": {
     "n": 4000,
     "p10": 0,
-    "p50": 2.42,
-    "p90": 8.68,
-    "pAbovePrice": 0.33625
+    "p50": 2.34,
+    "p90": 8.28,
+    "pAbovePrice": 0.31575
    },
    "scenarios": [
     {
@@ -729,8 +734,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.08133819938013619
+     "date": "2026-10-29",
+     "value": 0.08146145852640942
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -832,10 +837,10 @@
    "terminalG": 0.015,
    "monteCarlo": {
     "n": 4000,
-    "p10": 3.19,
-    "p50": 38.31,
-    "p90": 73.66,
-    "pAbovePrice": 0.353
+    "p10": 3.88,
+    "p50": 38.64,
+    "p90": 74.76,
+    "pAbovePrice": 0.37
    },
    "scenarios": [
     {
@@ -910,8 +915,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.12751033484743712
+     "date": "2026-10-29",
+     "value": 0.12748889891783763
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1028,10 +1033,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 20.24,
-    "p50": 36.58,
-    "p90": 59.79,
-    "pAbovePrice": 0.53875
+    "p10": 20.59,
+    "p50": 36.93,
+    "p90": 60.59,
+    "pAbovePrice": 0.542
    },
    "scenarios": [
     {
@@ -1106,8 +1111,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.16952640275409045
+     "date": "2026-10-29",
+     "value": 0.1695105602407208
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -1209,10 +1214,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 200.26,
-    "p50": 625.39,
-    "p90": 1001.72,
-    "pAbovePrice": 0.166
+    "p10": 201.52,
+    "p50": 626.24,
+    "p90": 1009.73,
+    "pAbovePrice": 0.1585
    },
    "scenarios": [
     {
@@ -1293,8 +1298,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.13498393271256315
+     "date": "2026-10-29",
+     "value": 0.1347925436880673
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1406,10 +1411,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 444.92,
-    "p50": 834.35,
-    "p90": 1253.42,
-    "pAbovePrice": 0.0245
+    "p10": 442.61,
+    "p50": 827.82,
+    "p90": 1260.21,
+    "pAbovePrice": 0.02825
    },
    "scenarios": [
     {
@@ -1490,8 +1495,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.11796099193274451
+     "date": "2026-10-29",
+     "value": 0.1179053401094372
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1598,10 +1603,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 44.02,
-    "p50": 155.63,
-    "p90": 261.36,
-    "pAbovePrice": 0.56575
+    "p10": 45.09,
+    "p50": 154.64,
+    "p90": 261.01,
+    "pAbovePrice": 0.56275
    },
    "scenarios": [
     {
@@ -1682,8 +1687,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.08761754001968566
+     "date": "2026-10-29",
+     "value": 0.08770822834158296
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1796,10 +1801,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 2.01,
-    "p50": 2.76,
-    "p90": 3.68,
-    "pAbovePrice": 0.4765
+    "p10": 1.99,
+    "p50": 2.78,
+    "p90": 3.66,
+    "pAbovePrice": 0.481
    },
    "scenarios": [
     {
@@ -1880,8 +1885,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.1148199206306788
+     "date": "2026-10-29",
+     "value": 0.11491009334188769
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1991,10 +1996,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 39.87,
-    "p50": 82.88,
-    "p90": 139.18,
-    "pAbovePrice": 0.6395
+    "p10": 38.84,
+    "p50": 83.47,
+    "p90": 140.83,
+    "pAbovePrice": 0.6485
    },
    "scenarios": [
     {
@@ -2075,8 +2080,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.09894288605181514
+     "date": "2026-10-29",
+     "value": 0.09904879538809874
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2180,10 +2185,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 11.28,
-    "p50": 58.35,
-    "p90": 125.98,
-    "pAbovePrice": 0.01875
+    "p10": 11.71,
+    "p50": 58.86,
+    "p90": 127.72,
+    "pAbovePrice": 0.0275
    },
    "scenarios": [
     {
@@ -2264,8 +2269,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.1669167471505062
+     "date": "2026-10-29",
+     "value": 0.16655329169299082
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2373,10 +2378,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 91.71,
-    "p50": 304.16,
-    "p90": 548.37,
-    "pAbovePrice": 0.43025
+    "p10": 89.11,
+    "p50": 303.42,
+    "p90": 551.06,
+    "pAbovePrice": 0.43
    },
    "scenarios": [
     {
@@ -2457,8 +2462,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.10679251458458433
+     "date": "2026-10-29",
+     "value": 0.10678026714052385
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2565,10 +2570,10 @@
    "terminalG": 0.015,
    "monteCarlo": {
     "n": 4000,
-    "p10": 8.76,
-    "p50": 41.55,
-    "p90": 83.96,
-    "pAbovePrice": 0.165
+    "p10": 8.69,
+    "p50": 42.95,
+    "p90": 83.81,
+    "pAbovePrice": 0.17275
    },
    "scenarios": [
     {
@@ -2655,8 +2660,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.12372790699423178
+     "date": "2026-10-29",
+     "value": 0.12387012545785706
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2773,10 +2778,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 129.22,
-    "p50": 312.82,
-    "p90": 507.36,
-    "pAbovePrice": 0.20875
+    "p10": 128.13,
+    "p50": 316.94,
+    "p90": 518.26,
+    "pAbovePrice": 0.21975
    },
    "scenarios": [
     {
@@ -2863,8 +2868,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.1144246845590988
+     "date": "2026-10-29",
+     "value": 0.11442366941528624
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2971,10 +2976,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 2.84,
-    "p50": 24.12,
-    "p90": 73.92,
-    "pAbovePrice": 0.0395
+    "p10": 3.02,
+    "p50": 24.53,
+    "p90": 74.64,
+    "pAbovePrice": 0.03675
    },
    "scenarios": [
     {
@@ -3031,32 +3036,32 @@
     {
      "year": 2021,
      "date": "2021-12-31",
-     "value": 0.05089447727770819
+     "value": 0.050894482281045685
     },
     {
      "year": 2022,
      "date": "2022-12-30",
-     "value": 0.08768192171366788
+     "value": 0.08768192194227534
     },
     {
      "year": 2023,
      "date": "2023-12-29",
-     "value": 0.08182139150541202
+     "value": 0.081821384717616
     },
     {
      "year": 2024,
      "date": "2024-12-31",
-     "value": 0.08549597007876865
+     "value": 0.08549596090890942
     },
     {
      "year": 2025,
      "date": "2025-12-31",
-     "value": 0.08100759143999038
+     "value": 0.08100757818075051
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.10223993345432653
+     "date": "2026-10-29",
+     "value": 0.10228035652456792
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3163,10 +3168,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 70.15,
-    "p50": 193.92,
-    "p90": 384.88,
-    "pAbovePrice": 0.62175
+    "p10": 69.58,
+    "p50": 193.57,
+    "p90": 377.83,
+    "pAbovePrice": 0.61425
    },
    "scenarios": [
     {
@@ -3247,8 +3252,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.11797957706739536
+     "date": "2026-10-29",
+     "value": 0.11779738238373895
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3360,10 +3365,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 253.05,
-    "p50": 888.47,
-    "p90": 1993.96,
-    "pAbovePrice": 0.397
+    "p10": 251.67,
+    "p50": 893.05,
+    "p90": 1942.61,
+    "pAbovePrice": 0.40075
    },
    "scenarios": [
     {
@@ -3450,8 +3455,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.1416024207300964
+     "date": "2026-10-29",
+     "value": 0.14125004036587308
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3558,10 +3563,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 100.18,
-    "p50": 207.74,
-    "p90": 343.72,
-    "pAbovePrice": 0.1445
+    "p10": 99.7,
+    "p50": 211.37,
+    "p90": 341.81,
+    "pAbovePrice": 0.13725
    },
    "scenarios": [
     {
@@ -3642,8 +3647,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.10009813570842648
+     "date": "2026-10-29",
+     "value": 0.10012443714041672
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3747,10 +3752,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 36.73,
-    "p50": 98.59,
-    "p90": 179.51,
-    "pAbovePrice": 0.087
+    "p10": 44.23,
+    "p50": 101.87,
+    "p90": 180.07,
+    "pAbovePrice": 0.09275
    },
    "scenarios": [
     {
@@ -3831,8 +3836,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.06778985657316633
+     "date": "2026-10-29",
+     "value": 0.0680961399149424
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3944,10 +3949,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 50.04,
-    "p50": 125.28,
-    "p90": 239.6,
-    "pAbovePrice": 0.1175
+    "p10": 47.52,
+    "p50": 125.33,
+    "p90": 238.65,
+    "pAbovePrice": 0.11375
    },
    "scenarios": [
     {
@@ -4028,8 +4033,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.07503714984364503
+     "date": "2026-10-29",
+     "value": 0.0753679003502836
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4141,10 +4146,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 39.02,
-    "p50": 109.74,
-    "p90": 213.38,
-    "pAbovePrice": 0.24975
+    "p10": 49.73,
+    "p50": 109.23,
+    "p90": 211.63,
+    "pAbovePrice": 0.234
    },
    "scenarios": [
     {
@@ -4225,8 +4230,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.0663104512421112
+     "date": "2026-10-29",
+     "value": 0.06670939643814958
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4338,10 +4343,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 54.43,
-    "p50": 123.86,
-    "p90": 250.73,
-    "pAbovePrice": 0.25925
+    "p10": 52.55,
+    "p50": 126.58,
+    "p90": 254.46,
+    "pAbovePrice": 0.27525
    },
    "scenarios": [
     {
@@ -4422,8 +4427,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.07054667244514824
+     "date": "2026-10-29",
+     "value": 0.07094614745292543
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4535,10 +4540,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 20.05,
-    "p50": 42.15,
-    "p90": 80.32,
-    "pAbovePrice": 0.21
+    "p10": 20.32,
+    "p50": 42.33,
+    "p90": 79.9,
+    "pAbovePrice": 0.21025
    },
    "scenarios": [
     {
@@ -4619,8 +4624,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.060295645313840046
+     "date": "2026-10-29",
+     "value": 0.06059410648929103
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4732,10 +4737,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 13.94,
-    "p50": 37.97,
-    "p90": 69.57,
-    "pAbovePrice": 0.2485
+    "p10": 9.33,
+    "p50": 37.75,
+    "p90": 70.26,
+    "pAbovePrice": 0.25425
    },
    "scenarios": [
     {
@@ -4816,8 +4821,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.0744532785368426
+     "date": "2026-10-29",
+     "value": 0.07473209005186933
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4929,10 +4934,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 9.7,
+    "p10": 8.84,
     "p50": 39.64,
-    "p90": 65.47,
-    "pAbovePrice": 0.26225
+    "p90": 65.56,
+    "pAbovePrice": 0.25525
    },
    "scenarios": [
     {
@@ -5013,8 +5018,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.08287295086138628
+     "date": "2026-10-29",
+     "value": 0.08309676026170375
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5126,9 +5131,9 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 3.9,
-    "p50": 16.53,
-    "p90": 36.77,
+    "p10": 3.01,
+    "p50": 16.43,
+    "p90": 36.82,
     "pAbovePrice": 0.29825
    },
    "scenarios": [
@@ -5210,8 +5215,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.08770237258873864
+     "date": "2026-10-29",
+     "value": 0.08781487911867905
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5328,10 +5333,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 2.47,
-    "p50": 11,
-    "p90": 21.67,
-    "pAbovePrice": 0.3205
+    "p10": 2.19,
+    "p50": 11.14,
+    "p90": 21.17,
+    "pAbovePrice": 0.31775
    },
    "scenarios": [
     {
@@ -5412,8 +5417,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.0866102956074482
+     "date": "2026-10-29",
+     "value": 0.08685996490138116
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5525,10 +5530,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 43.3,
-    "p50": 191.11,
-    "p90": 423.81,
-    "pAbovePrice": 0.3225
+    "p10": 42.24,
+    "p50": 189.7,
+    "p90": 423.79,
+    "pAbovePrice": 0.31325
    },
    "scenarios": [
     {
@@ -5609,8 +5614,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.09322308528977276
+     "date": "2026-10-29",
+     "value": 0.09329731990793634
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5718,10 +5723,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 5.53,
-    "p50": 106.12,
-    "p90": 298.63,
-    "pAbovePrice": 0.563
+    "p10": 5.45,
+    "p50": 110.29,
+    "p90": 316.93,
+    "pAbovePrice": 0.5755
    },
    "scenarios": [
     {
@@ -5802,8 +5807,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.07337767225075573
+     "date": "2026-10-29",
+     "value": 0.07341380535483227
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5911,10 +5916,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 31.04,
-    "p50": 49.77,
-    "p90": 73.87,
-    "pAbovePrice": 0.05025
+    "p10": 31.64,
+    "p50": 49.67,
+    "p90": 73.76,
+    "pAbovePrice": 0.051
    },
    "scenarios": [
     {
@@ -5995,8 +6000,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.08296793315014644
+     "date": "2026-10-29",
+     "value": 0.08327076546099485
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6106,10 +6111,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 55.74,
-    "p50": 89.21,
-    "p90": 138.4,
-    "pAbovePrice": 0.16375
+    "p10": 57.02,
+    "p50": 89.97,
+    "p90": 136.96,
+    "pAbovePrice": 0.15025
    },
    "scenarios": [
     {
@@ -6190,8 +6195,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.07450918667346132
+     "date": "2026-10-29",
+     "value": 0.07481100769951772
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6301,10 +6306,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 39.23,
-    "p50": 58.94,
-    "p90": 87.27,
-    "pAbovePrice": 0.0655
+    "p10": 38.15,
+    "p50": 59.21,
+    "p90": 87.68,
+    "pAbovePrice": 0.0705
    },
    "scenarios": [
     {
@@ -6385,8 +6390,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.07375892277248923
+     "date": "2026-10-29",
+     "value": 0.07409670241495463
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6496,10 +6501,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 53.99,
-    "p50": 88.14,
-    "p90": 134.79,
-    "pAbovePrice": 0.11775
+    "p10": 54.34,
+    "p50": 88.08,
+    "p90": 135.28,
+    "pAbovePrice": 0.12375
    },
    "scenarios": [
     {
@@ -6580,8 +6585,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.07844546326790094
+     "date": "2026-10-29",
+     "value": 0.07874344227489767
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6696,10 +6701,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.86,
-    "p50": 3.11,
-    "p90": 5.09,
-    "pAbovePrice": 0.01975
+    "p10": 1.91,
+    "p50": 3.1,
+    "p90": 5.04,
+    "pAbovePrice": 0.0245
    },
    "scenarios": [
     {
@@ -6780,8 +6785,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.11323204637259317
+     "date": "2026-10-29",
+     "value": 0.11302318544966641
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6897,9 +6902,9 @@
    "monteCarlo": {
     "n": 4000,
     "p10": 1.46,
-    "p50": 2.2,
-    "p90": 3.2,
-    "pAbovePrice": 0.60625
+    "p50": 2.19,
+    "p90": 3.23,
+    "pAbovePrice": 0.60725
    },
    "scenarios": [
     {
@@ -6980,8 +6985,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.11764510013818277
+     "date": "2026-10-29",
+     "value": 0.117557977025413
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -7096,10 +7101,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 4.88,
-    "p50": 6.67,
-    "p90": 9.26,
-    "pAbovePrice": 0.16375
+    "p10": 4.85,
+    "p50": 6.72,
+    "p90": 9.49,
+    "pAbovePrice": 0.17925
    },
    "scenarios": [
     {
@@ -7180,8 +7185,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.11227408359970616
+     "date": "2026-10-29",
+     "value": 0.11224154989278791
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -7296,10 +7301,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.02,
+    "p10": 1,
     "p50": 1.53,
     "p90": 2.31,
-    "pAbovePrice": 0.014
+    "pAbovePrice": 0.01525
    },
    "scenarios": [
     {
@@ -7380,8 +7385,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.12267419962663027
+     "date": "2026-10-29",
+     "value": 0.12258834999617076
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -7496,10 +7501,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 4.14,
-    "p50": 5.58,
-    "p90": 7.62,
-    "pAbovePrice": 0.082
+    "p10": 4.18,
+    "p50": 5.65,
+    "p90": 7.67,
+    "pAbovePrice": 0.08175
    },
    "scenarios": [
     {
@@ -7580,8 +7585,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.10883694850141722
+     "date": "2026-10-29",
+     "value": 0.10880495446317073
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -7696,10 +7701,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 3.73,
-    "p50": 9.28,
-    "p90": 15.82,
-    "pAbovePrice": 0.45075
+    "p10": 3.92,
+    "p50": 9.4,
+    "p90": 15.77,
+    "pAbovePrice": 0.45125
    },
    "scenarios": [
     {
@@ -7780,8 +7785,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.0987561105199696
+     "date": "2026-10-29",
+     "value": 0.0987229414688314
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -7894,10 +7899,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.25,
-    "p50": 3.58,
-    "p90": 6.83,
-    "pAbovePrice": 0.22625
+    "p10": 1.34,
+    "p50": 3.64,
+    "p90": 6.97,
+    "pAbovePrice": 0.23675
    },
    "scenarios": [
     {
@@ -7978,8 +7983,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.09758185631943697
+     "date": "2026-10-29",
+     "value": 0.09762040600792987
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8087,10 +8092,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 19.21,
-    "p50": 26.87,
-    "p90": 35.04,
-    "pAbovePrice": 0.3915
+    "p10": 18.85,
+    "p50": 26.62,
+    "p90": 35.24,
+    "pAbovePrice": 0.379
    },
    "scenarios": [
     {
@@ -8171,8 +8176,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.06373589358693768
+     "date": "2026-10-29",
+     "value": 0.06378900100161208
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8280,10 +8285,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 156.05,
-    "p50": 418.75,
-    "p90": 732.4,
-    "pAbovePrice": 0.057
+    "p10": 169.02,
+    "p50": 427.68,
+    "p90": 746.22,
+    "pAbovePrice": 0.06275
    },
    "scenarios": [
     {
@@ -8364,8 +8369,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.09505837626980694
+     "date": "2026-10-29",
+     "value": 0.09412613774296118
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8471,10 +8476,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 50.79,
-    "p50": 161.75,
-    "p90": 258.94,
-    "pAbovePrice": 0.4605
+    "p10": 49.73,
+    "p50": 162.55,
+    "p90": 255.69,
+    "pAbovePrice": 0.467
    },
    "scenarios": [
     {
@@ -8555,8 +8560,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.11489109354467417
+     "date": "2026-10-29",
+     "value": 0.1149611868911125
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8662,10 +8667,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 14.37,
-    "p50": 27.82,
-    "p90": 46.32,
-    "pAbovePrice": 0.00275
+    "p10": 14.49,
+    "p50": 27.98,
+    "p90": 46.11,
+    "pAbovePrice": 0.00125
    },
    "scenarios": [
     {
@@ -8746,8 +8751,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.09887401426501581
+     "date": "2026-10-29",
+     "value": 0.09883656425548516
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8853,10 +8858,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 10.43,
-    "p50": 11.65,
-    "p90": 34.88,
-    "pAbovePrice": 0.197
+    "p10": 10.46,
+    "p50": 12.06,
+    "p90": 34.94,
+    "pAbovePrice": 0.196
    },
    "scenarios": [
     {
@@ -8930,8 +8935,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.10334002093323856
+     "date": "2026-10-29",
+     "value": 0.10293707021196828
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9038,9 +9043,9 @@
    "monteCarlo": {
     "n": 4000,
     "p10": 0,
-    "p50": 1.28,
-    "p90": 18.62,
-    "pAbovePrice": 0.2015
+    "p50": 1.26,
+    "p90": 19.5,
+    "pAbovePrice": 0.2105
    },
    "scenarios": [
     {
@@ -9114,8 +9119,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.141366524233788
+     "date": "2026-10-29",
+     "value": 0.1409514851189904
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9221,10 +9226,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 51.86,
-    "p50": 93.46,
-    "p90": 158.02,
-    "pAbovePrice": 0.145
+    "p10": 51.92,
+    "p50": 93.13,
+    "p90": 160.42,
+    "pAbovePrice": 0.1545
    },
    "scenarios": [
     {
@@ -9305,8 +9310,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.06591454198630926
+     "date": "2026-10-29",
+     "value": 0.06604288526457551
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9342,56 +9347,60 @@
    "groupMultiples": {
     "members": [
      "MRK",
-     "BMY"
-    ],
-    "extraPeers": [
+     "BMY",
      "PFE",
-     "ABBV",
-     "LLY",
      "JNJ",
      "AZN",
+     "ABBV",
+     "LLY"
+    ],
+    "extraPeers": [
      "NVS",
-     "GILD"
+     "GILD",
+     "ABT",
+     "GSK",
+     "AMGN",
+     "NVO"
     ],
     "evEbitda": {
-     "med": 14.50229703393486,
-     "mean": 15.786060408551306,
-     "n": 9
+     "med": 14.84786057320838,
+     "mean": 15.508961413791289,
+     "n": 12
     },
     "pe": {
-     "med": 32.52471422851626,
-     "mean": 30.814634776391614,
-     "n": 6
-    },
-    "fpe": {
-     "med": 15.673344,
-     "mean": 16.72720871989083,
+     "med": 28.48969382599332,
+     "mean": 29.532424194333924,
      "n": 9
     },
+    "fpe": {
+     "med": 15.961553,
+     "mean": 17.214331979607554,
+     "n": 11
+    },
     "pfcf": {
-     "med": 19.307259915782524,
-     "mean": 19.307259915782524,
-     "n": 2
+     "med": 28.830107993995433,
+     "mean": 25.294586625275087,
+     "n": 6
     },
     "fcfY": {
-     "med": 0.06838695804444045,
-     "mean": 0.06838695804444045,
-     "n": 2
+     "med": 0.0346709191564801,
+     "mean": 0.04152595860091408,
+     "n": 7
     },
     "divY": {
-     "med": 0.031522231866141504,
-     "mean": 0.031522231866141504,
-     "n": 2
+     "med": 0.02268516527879931,
+     "mean": 0.02634727372842301,
+     "n": 7
     },
     "ndE": {
-     "med": 1.707658017372906,
-     "mean": 1.707658017372906,
-     "n": 2
+     "med": 1.619964626937836,
+     "mean": 1.5421161230576519,
+     "n": 7
     },
     "pb": {
-     "med": 7.504668000071927,
-     "mean": 10.877254417791049,
-     "n": 8
+     "med": 6.3339811019364,
+     "mean": 10.283711681423547,
+     "n": 12
     }
    }
   },
@@ -9418,10 +9427,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 34.93,
-    "p50": 67.52,
-    "p90": 125.32,
-    "pAbovePrice": 0.5735
+    "p10": 35.81,
+    "p50": 67.78,
+    "p90": 127.2,
+    "pAbovePrice": 0.57675
    },
    "scenarios": [
     {
@@ -9502,8 +9511,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.06161790811170921
+     "date": "2026-10-29",
+     "value": 0.06174296809802032
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9539,56 +9548,1065 @@
    "groupMultiples": {
     "members": [
      "MRK",
-     "BMY"
-    ],
-    "extraPeers": [
+     "BMY",
      "PFE",
-     "ABBV",
-     "LLY",
      "JNJ",
      "AZN",
+     "ABBV",
+     "LLY"
+    ],
+    "extraPeers": [
      "NVS",
-     "GILD"
+     "GILD",
+     "ABT",
+     "GSK",
+     "AMGN",
+     "NVO"
     ],
     "evEbitda": {
-     "med": 14.50229703393486,
-     "mean": 15.786060408551306,
-     "n": 9
+     "med": 14.84786057320838,
+     "mean": 15.508961413791289,
+     "n": 12
     },
     "pe": {
-     "med": 32.52471422851626,
-     "mean": 30.814634776391614,
-     "n": 6
-    },
-    "fpe": {
-     "med": 15.673344,
-     "mean": 16.72720871989083,
+     "med": 28.48969382599332,
+     "mean": 29.532424194333924,
      "n": 9
     },
+    "fpe": {
+     "med": 15.961553,
+     "mean": 17.214331979607554,
+     "n": 11
+    },
     "pfcf": {
-     "med": 19.307259915782524,
-     "mean": 19.307259915782524,
-     "n": 2
+     "med": 28.830107993995433,
+     "mean": 25.294586625275087,
+     "n": 6
     },
     "fcfY": {
-     "med": 0.06838695804444045,
-     "mean": 0.06838695804444045,
-     "n": 2
+     "med": 0.0346709191564801,
+     "mean": 0.04152595860091408,
+     "n": 7
     },
     "divY": {
-     "med": 0.031522231866141504,
-     "mean": 0.031522231866141504,
-     "n": 2
+     "med": 0.02268516527879931,
+     "mean": 0.02634727372842301,
+     "n": 7
     },
     "ndE": {
-     "med": 1.707658017372906,
-     "mean": 1.707658017372906,
-     "n": 2
+     "med": 1.619964626937836,
+     "mean": 1.5421161230576519,
+     "n": 7
     },
     "pb": {
-     "med": 7.504668000071927,
-     "mean": 10.877254417791049,
-     "n": 8
+     "med": 6.3339811019364,
+     "mean": 10.283711681423547,
+     "n": 12
+    }
+   }
+  },
+  "PFE": {
+   "ticker": "PFE",
+   "name": "Pfizer, Inc.",
+   "sector": "Global biopharma (Eliquis, Vyndaqel, Prevnar, Padcev/Seagen oncology, Nurtec; post-COVID Comirnaty/Paxlovid tail)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 29.95,
+   "priceDate": "2026-10-29",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 31.08,
+   "probWeighted": 31.46,
+   "comps": 56.37,
+   "compsCycleAdjusted": false,
+   "triangulated": 41.43,
+   "upside": 0.3832061398669506,
+   "wacc": 0.07277162687766094,
+   "costOfEquity": null,
+   "terminalG": 0.02,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 16.15,
+    "p50": 28.57,
+    "p90": 54.34,
+    "pAbovePrice": 0.454
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 22.15
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "value": 31.08
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 49.4
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: 2026-28 patent cliff (severe) + COVID to zero",
+     "p": 0.12,
+     "value": 15.32
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US drug-pricing shock (MFN / IRA)",
+     "p": 0.06,
+     "value": 19.85
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins (obesity, oncology)",
+     "p": 0.07,
+     "value": 61.98
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": -0.03187453448772429,
+    "impliedMargin": 0.2707955360412598,
+    "baseMargin": 0.28
+   },
+   "revenueCagr": {
+    "value": 0.08482737844510346,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.045904583594741526
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07939420527635888
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.05931863458520963
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.06482253642678638
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.056434314234099676
+    },
+    {
+     "year": "current",
+     "date": "2026-10-29",
+     "value": 0.0632222684706229
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 6,
+    "growth": 2,
+    "risk": 5,
+    "valuation": 9,
+    "total": 5.5
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 26,
+    "targetMean": 29.25962
+   },
+   "group": "Pharma",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "PFE",
+    "group": "Pharma",
+    "bank": false,
+    "marketCap": 170705223680,
+    "ev": 222780223680,
+    "evEbitda": 8.776749128089195,
+    "pe": 39.342067580935,
+    "fpe": 10.384558305371696,
+    "pfcf": 18.81049296749311,
+    "fcfY": 0.053161817807121016,
+    "divY": 0.057239021685220874,
+    "ndE": 2.039790405761865,
+    "pb": 2.003817627421059
+   },
+   "groupMultiples": {
+    "members": [
+     "MRK",
+     "BMY",
+     "PFE",
+     "JNJ",
+     "AZN",
+     "ABBV",
+     "LLY"
+    ],
+    "extraPeers": [
+     "NVS",
+     "GILD",
+     "ABT",
+     "GSK",
+     "AMGN",
+     "NVO"
+    ],
+    "evEbitda": {
+     "med": 14.84786057320838,
+     "mean": 15.508961413791289,
+     "n": 12
+    },
+    "pe": {
+     "med": 28.48969382599332,
+     "mean": 29.532424194333924,
+     "n": 9
+    },
+    "fpe": {
+     "med": 15.961553,
+     "mean": 17.214331979607554,
+     "n": 11
+    },
+    "pfcf": {
+     "med": 28.830107993995433,
+     "mean": 25.294586625275087,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.0346709191564801,
+     "mean": 0.04152595860091408,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.02268516527879931,
+     "mean": 0.02634727372842301,
+     "n": 7
+    },
+    "ndE": {
+     "med": 1.619964626937836,
+     "mean": 1.5421161230576519,
+     "n": 7
+    },
+    "pb": {
+     "med": 6.3339811019364,
+     "mean": 10.283711681423547,
+     "n": 12
+    }
+   }
+  },
+  "JNJ": {
+   "ticker": "JNJ",
+   "name": "Johnson & Johnson",
+   "sector": "Diversified healthcare: Innovative Medicine (Darzalex, Stelara tail, Tremfya, Carvykti, Spravato, Rybrevant) and MedTech (ortho, surgery, Abiomed, Shockwave)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 275.2,
+   "priceDate": "2026-10-29",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 225.83,
+   "probWeighted": 208.56,
+   "comps": 235.84,
+   "compsCycleAdjusted": false,
+   "triangulated": 219.47,
+   "upside": -0.2025006526455031,
+   "wacc": 0.07517769789801967,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 130.49,
+    "p50": 205.8,
+    "p90": 303.51,
+    "pAbovePrice": 0.16875
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 168.63
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 225.83
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 265.23
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: Darzalex / Stelara cliff (severe)",
+     "p": 0.1,
+     "value": 127.93
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: talc litigation / US pricing shock",
+     "p": 0.07,
+     "value": 151.07
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.06,
+     "value": 299.6
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.07819728553295135,
+    "impliedMargin": 0.38109992146491994,
+    "baseMargin": 0.31
+   },
+   "revenueCagr": {
+    "value": 0.02665503872479502,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.04750997216916409
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07682097938559895
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06761003403466333
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.07122798433046504
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.062325639034613634
+    },
+    {
+     "year": "current",
+     "date": "2026-10-29",
+     "value": 0.06911696563173564
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 5,
+    "risk": 7,
+    "valuation": 3,
+    "total": 6
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 22,
+    "targetMean": 279.4091
+   },
+   "group": "Pharma",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "JNJ",
+    "group": "Pharma",
+    "bank": false,
+    "marketCap": 662491824128,
+    "ev": 689914824704,
+    "evEbitda": 19.996371569947314,
+    "pe": 41.161344676500924,
+    "fpe": 23.687668142586606,
+    "pfcf": 34.302895672759284,
+    "fcfY": 0.02915205787697168,
+    "divY": 0.018688532520829824,
+    "ndE": 0.794823490444408,
+    "pb": 8.125842634252843
+   },
+   "groupMultiples": {
+    "members": [
+     "MRK",
+     "BMY",
+     "PFE",
+     "JNJ",
+     "AZN",
+     "ABBV",
+     "LLY"
+    ],
+    "extraPeers": [
+     "NVS",
+     "GILD",
+     "ABT",
+     "GSK",
+     "AMGN",
+     "NVO"
+    ],
+    "evEbitda": {
+     "med": 14.84786057320838,
+     "mean": 15.508961413791289,
+     "n": 12
+    },
+    "pe": {
+     "med": 28.48969382599332,
+     "mean": 29.532424194333924,
+     "n": 9
+    },
+    "fpe": {
+     "med": 15.961553,
+     "mean": 17.214331979607554,
+     "n": 11
+    },
+    "pfcf": {
+     "med": 28.830107993995433,
+     "mean": 25.294586625275087,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.0346709191564801,
+     "mean": 0.04152595860091408,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.02268516527879931,
+     "mean": 0.02634727372842301,
+     "n": 7
+    },
+    "ndE": {
+     "med": 1.619964626937836,
+     "mean": 1.5421161230576519,
+     "n": 7
+    },
+    "pb": {
+     "med": 6.3339811019364,
+     "mean": 10.283711681423547,
+     "n": 12
+    }
+   }
+  },
+  "AZN": {
+   "ticker": "AZN",
+   "name": "AstraZeneca PLC",
+   "sector": "Global biopharma, oncology-led (Tagrisso, Imfinzi, Enhertu, Calquence, Datroway), BioPharmaceuticals (Farxiga, Fasenra, Breztri) and Rare Disease (Alexion: Ultomiris)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 174.4,
+   "priceDate": "2026-10-29",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 233.79,
+   "probWeighted": 217.68,
+   "comps": 222.04,
+   "compsCycleAdjusted": false,
+   "triangulated": 219.42,
+   "upside": 0.2581591213363683,
+   "wacc": 0.07781235502279409,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 125.33,
+    "p50": 211.19,
+    "p90": 336.97,
+    "pAbovePrice": 0.67125
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 161.6
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "value": 233.79
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.16,
+     "value": 299.54
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: oncology LOE / Tagrisso cliff (early 2030s pulled forward)",
+     "p": 0.1,
+     "value": 121.74
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: China probe + US pricing / tariffs",
+     "p": 0.08,
+     "value": 141.3
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.06,
+     "value": 364.72
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.01789692342281342,
+    "impliedMargin": 0.24463409781455991,
+    "baseMargin": 0.33
+   },
+   "revenueCagr": {
+    "value": 0.17153020100948413,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.042030229036369195
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07723404054799465
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06802586147738236
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.07175962748860658
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.06437876407524086
+    },
+    {
+     "year": "current",
+     "date": "2026-10-29",
+     "value": 0.07028704492325906
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 6,
+    "valuation": 8,
+    "total": 7.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 12,
+    "targetMean": 206.65833
+   },
+   "group": "Pharma",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "AZN",
+    "group": "Pharma",
+    "bank": false,
+    "marketCap": 270477950976,
+    "ev": 297911950080,
+    "evEbitda": 14.712427824662718,
+    "pe": 25.89296837657477,
+    "fpe": 15.37467338925028,
+    "pfcf": 31.196995498961936,
+    "fcfY": 0.032054368826423506,
+    "divY": 0.018378577558956315,
+    "ndE": 1.352264269373545,
+    "pb": 5.37782982356099
+   },
+   "groupMultiples": {
+    "members": [
+     "MRK",
+     "BMY",
+     "PFE",
+     "JNJ",
+     "AZN",
+     "ABBV",
+     "LLY"
+    ],
+    "extraPeers": [
+     "NVS",
+     "GILD",
+     "ABT",
+     "GSK",
+     "AMGN",
+     "NVO"
+    ],
+    "evEbitda": {
+     "med": 14.84786057320838,
+     "mean": 15.508961413791289,
+     "n": 12
+    },
+    "pe": {
+     "med": 28.48969382599332,
+     "mean": 29.532424194333924,
+     "n": 9
+    },
+    "fpe": {
+     "med": 15.961553,
+     "mean": 17.214331979607554,
+     "n": 11
+    },
+    "pfcf": {
+     "med": 28.830107993995433,
+     "mean": 25.294586625275087,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.0346709191564801,
+     "mean": 0.04152595860091408,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.02268516527879931,
+     "mean": 0.02634727372842301,
+     "n": 7
+    },
+    "ndE": {
+     "med": 1.619964626937836,
+     "mean": 1.5421161230576519,
+     "n": 7
+    },
+    "pb": {
+     "med": 6.3339811019364,
+     "mean": 10.283711681423547,
+     "n": 12
+    }
+   }
+  },
+  "ABBV": {
+   "ticker": "ABBV",
+   "name": "AbbVie Inc.",
+   "sector": "Global biopharma: immunology (Skyrizi, Rinvoq, Humira tail), oncology (Imbruvica, Venclexta, Elahere, Epkinly), neuroscience (Botox therapeutic, Vraylar, Qulipta) and aesthetics",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 290.79,
+   "priceDate": "2026-10-29",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 269.35,
+   "probWeighted": 246.23,
+   "comps": 186.78,
+   "compsCycleAdjusted": false,
+   "triangulated": 222.45,
+   "upside": -0.2350231927551747,
+   "wacc": 0.07759659456758272,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 134.05,
+    "p50": 242.7,
+    "p90": 385.38,
+    "pAbovePrice": 0.32975
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 177.3
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "value": 269.35
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.16,
+     "value": 340.2
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: immunology price / LOE cliff",
+     "p": 0.1,
+     "value": 125.56
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US drug-pricing shock (MFN)",
+     "p": 0.07,
+     "value": 145.08
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.07,
+     "value": 396.07
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.08349802792072296,
+    "impliedMargin": 0.4105121433734894,
+    "baseMargin": 0.38
+   },
+   "revenueCagr": {
+    "value": 0.05952891709050534,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.045612190577674065
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07543512039495925
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.061532246768879896
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.06901497167861284
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.060112787523458014
+    },
+    {
+     "year": "current",
+     "date": "2026-10-29",
+     "value": 0.0666213982464074
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 7,
+    "risk": 6,
+    "valuation": 3,
+    "total": 6
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 27,
+    "targetMean": 283.18518
+   },
+   "group": "Pharma",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "ABBV",
+    "group": "Pharma",
+    "bank": false,
+    "marketCap": 513860042752,
+    "ev": 578218041984,
+    "evEbitda": 18.795892650028,
+    "pe": 81.95534804812048,
+    "fpe": 17.953901622137764,
+    "pfcf": 28.842615780871128,
+    "fcfY": 0.0346709191564801,
+    "divY": 0.02268516527879931,
+    "ndE": 2.0906933534900083,
+    "pb": null
+   },
+   "groupMultiples": {
+    "members": [
+     "MRK",
+     "BMY",
+     "PFE",
+     "JNJ",
+     "AZN",
+     "ABBV",
+     "LLY"
+    ],
+    "extraPeers": [
+     "NVS",
+     "GILD",
+     "ABT",
+     "GSK",
+     "AMGN",
+     "NVO"
+    ],
+    "evEbitda": {
+     "med": 14.84786057320838,
+     "mean": 15.508961413791289,
+     "n": 12
+    },
+    "pe": {
+     "med": 28.48969382599332,
+     "mean": 29.532424194333924,
+     "n": 9
+    },
+    "fpe": {
+     "med": 15.961553,
+     "mean": 17.214331979607554,
+     "n": 11
+    },
+    "pfcf": {
+     "med": 28.830107993995433,
+     "mean": 25.294586625275087,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.0346709191564801,
+     "mean": 0.04152595860091408,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.02268516527879931,
+     "mean": 0.02634727372842301,
+     "n": 7
+    },
+    "ndE": {
+     "med": 1.619964626937836,
+     "mean": 1.5421161230576519,
+     "n": 7
+    },
+    "pb": {
+     "med": 6.3339811019364,
+     "mean": 10.283711681423547,
+     "n": 12
+    }
+   }
+  },
+  "LLY": {
+   "ticker": "LLY",
+   "name": "Eli Lilly and Company",
+   "sector": "Global biopharma led by incretins (Mounjaro, Zepbound, orforglipron), plus Verzenio, Jardiance, Taltz, Kisunla and Ebglyss",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 1373.7,
+   "priceDate": "2026-10-29",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 1006.39,
+   "probWeighted": 953.45,
+   "comps": 636.36,
+   "compsCycleAdjusted": false,
+   "triangulated": 826.61,
+   "upside": -0.39825764102732264,
+   "wacc": 0.08440067104276958,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 447.13,
+    "p50": 890.42,
+    "p90": 1591.51,
+    "pAbovePrice": 0.17125
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 622.66
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.38,
+     "value": 1006.39
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.16,
+     "value": 1420.38
+    },
+    {
+     "id": "cliffTail",
+     "name": "Tail: incretin price collapse / competition",
+     "p": 0.1,
+     "value": 391.48
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US pricing / tariffs shock",
+     "p": 0.07,
+     "value": 528.88
+    },
+    {
+     "id": "pipelineTail",
+     "name": "Tail: pipeline wins",
+     "p": 0.07,
+     "value": 1865.83
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.21333995759487157,
+    "impliedMargin": 0.6105365812778472,
+    "baseMargin": 0.45
+   },
+   "revenueCagr": {
+    "value": 0.21575855656690868,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.03816762598900179
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07107421990706063
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.061896767586902886
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.07031896424240847
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.06434104728628352
+    },
+    {
+     "year": "current",
+     "date": "2026-10-29",
+     "value": 0.07665994218106735
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 10,
+    "risk": 5,
+    "valuation": 1,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 29,
+    "targetMean": 1336.6083
+   },
+   "group": "Pharma",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "LLY",
+    "group": "Pharma",
+    "bank": false,
+    "marketCap": 1224985149440,
+    "ev": 1271022648032,
+    "evEbitda": 30.475043850749476,
+    "pe": 45.86070133900915,
+    "fpe": 28.941866837319292,
+    "pfcf": 205.3965709993293,
+    "fcfY": 0.004868630450521325,
+    "divY": 0.004395155322871699,
+    "ndE": 1.1019253075879267,
+    "pb": 36.15765369225774
+   },
+   "groupMultiples": {
+    "members": [
+     "MRK",
+     "BMY",
+     "PFE",
+     "JNJ",
+     "AZN",
+     "ABBV",
+     "LLY"
+    ],
+    "extraPeers": [
+     "NVS",
+     "GILD",
+     "ABT",
+     "GSK",
+     "AMGN",
+     "NVO"
+    ],
+    "evEbitda": {
+     "med": 14.84786057320838,
+     "mean": 15.508961413791289,
+     "n": 12
+    },
+    "pe": {
+     "med": 28.48969382599332,
+     "mean": 29.532424194333924,
+     "n": 9
+    },
+    "fpe": {
+     "med": 15.961553,
+     "mean": 17.214331979607554,
+     "n": 11
+    },
+    "pfcf": {
+     "med": 28.830107993995433,
+     "mean": 25.294586625275087,
+     "n": 6
+    },
+    "fcfY": {
+     "med": 0.0346709191564801,
+     "mean": 0.04152595860091408,
+     "n": 7
+    },
+    "divY": {
+     "med": 0.02268516527879931,
+     "mean": 0.02634727372842301,
+     "n": 7
+    },
+    "ndE": {
+     "med": 1.619964626937836,
+     "mean": 1.5421161230576519,
+     "n": 7
+    },
+    "pb": {
+     "med": 6.3339811019364,
+     "mean": 10.283711681423547,
+     "n": 12
     }
    }
   },
@@ -9615,10 +10633,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 324.68,
-    "p50": 492.6,
-    "p90": 702.65,
-    "pAbovePrice": 0.2185
+    "p10": 325.08,
+    "p50": 493.11,
+    "p90": 690.95,
+    "pAbovePrice": 0.19925
    },
    "scenarios": [
     {
@@ -9699,8 +10717,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.08704556593180236
+     "date": "2026-10-29",
+     "value": 0.0873730510654564
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9809,10 +10827,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 191.66,
-    "p50": 291.23,
-    "p90": 413.26,
-    "pAbovePrice": 0.1115
+    "p10": 192.78,
+    "p50": 289.95,
+    "p90": 411.6,
+    "pAbovePrice": 0.10625
    },
    "scenarios": [
     {
@@ -9893,8 +10911,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.08766823474166406
+     "date": "2026-10-29",
+     "value": 0.08801180812119484
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -10003,10 +11021,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 98.9,
-    "p50": 161.45,
-    "p90": 246.41,
-    "pAbovePrice": 0.244
+    "p10": 100.83,
+    "p50": 163.56,
+    "p90": 243.92,
+    "pAbovePrice": 0.25275
    },
    "scenarios": [
     {
@@ -10087,8 +11105,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-26",
-     "value": 0.07112500437885441
+     "date": "2026-10-29",
+     "value": 0.07134163724651531
     }
    ],
    "waccHistoryMetric": "WACC",

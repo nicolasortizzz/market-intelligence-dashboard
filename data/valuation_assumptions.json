@@ -6445,6 +6445,121 @@
     "rationale": "Quality: pricing power, global brands, defensive in stagflation. Growth: mid single digit led by smoke-free. Risk: regulation, litigation, FX and leverage. Valuation from the model."
    }
   },
+  "PG": {
+   "group": "Consumer staples",
+   "groupPeersFromComps": true,
+   "sector": "Household & personal care: Fabric & Home Care, Baby/Feminine/Family Care, Beauty, Grooming, Health Care (Tide, Pampers, Gillette, Charmin, Oral-B)",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.4) understates long-run equity risk; an assumed 0.55 (defensive staples norm) is used.",
+   "crp": 0,
+   "kdSpread": 0.008,
+   "tax": 0.21,
+   "ebit1": 0.24,
+   "growthNote": "Procter & Gamble (fiscal year ends June 30). Year 1 / year 2 ~ consensus organic growth (+2% / +3%) after restructuring (~7,000 non-manufacturing roles cut, portfolio exits). Base: +3.5%/yr years 3-5 from pricing/mix + modest volume; steady-state EBIT margin ~25% (FY2025 ~24%) on productivity savings. ~50% of sales non-US, so FX is a recurring headwind. ROIC well above 20%.",
+   "daPct0": 0.035,
+   "daPctT": 0.035,
+   "capexPct1": 0.045,
+   "capexPctT": 0.042,
+   "nwcPct": 0.0,
+   "terminalG": 0.02,
+   "ronic": 0.2,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    13,
+    18
+   ],
+   "controlPremium": [
+    0.2,
+    0.3
+   ],
+   "precedentNote": "Household/personal-care M&A (estimates): P&G-Gillette (2005, ~$57B, ~18x EBITDA), Reckitt-Mead Johnson (2017, ~$17B, ~19x), Kimberly-Clark-Kenvue (2025, ~$49B, ~14x), Unilever/Kraft Heinz bid (2017, rejected). Mature staples deals 12-16x.",
+   "compsNote": "Comps: Colgate-Palmolive, Kimberly-Clark, Unilever, Church & Dwight, Clorox and Kenvue (TTM, Yahoo). PG trades at a premium for scale, category leadership and consistent organic growth.",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.01,
+     "midGrowth": 0.02,
+     "ebitT": 0.225,
+     "desc": "Volume weakness persists (US consumer trade-down to private label, China SK-II softness), commodity/tariff cost inflation squeezes margins."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "growthAdj": 0,
+     "midGrowth": 0.035,
+     "ebitT": 0.25,
+     "desc": "Consensus FY2026-27, then ~3.5%/yr; productivity lifts EBIT margin to ~25%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.2,
+     "growthAdj": 0,
+     "g2": 0.05,
+     "midGrowth": 0.05,
+     "ebitT": 0.265,
+     "desc": "Innovation-led share gains and pricing power; restructuring savings beat plan."
+    },
+    {
+     "id": "privateLabelTail",
+     "name": "Tail: private-label / recession shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.01,
+     "midGrowth": 0.01,
+     "ebitT": 0.21,
+     "desc": "Deep recession drives sustained trade-down and retailer pushback on pricing."
+    },
+    {
+     "id": "costTail",
+     "name": "Tail: commodity & tariff spike",
+     "p": 0.04,
+     "growthAdj": 0,
+     "g2": 0.02,
+     "midGrowth": 0.025,
+     "ebitT": 0.2,
+     "desc": "Oil-linked resin/pulp costs and tariffs spike faster than pricing can recover."
+    },
+    {
+     "id": "emTail",
+     "name": "Tail: emerging-market acceleration",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.06,
+     "ebitT": 0.27,
+     "desc": "China recovery and India/EM premiumisation accelerate organic growth."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01-22",
+     "q": "Q2 FY2027",
+     "event": "Q2 FY27 results; organic volume, pricing and restructuring savings",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Any",
+     "event": "US tariff policy on imported inputs; commodity costs",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 4,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: category leadership, high ROIC, 68+ years of dividend growth. Growth: low-to-mid single digit. Risk: low (defensive, AA- credit); FX and private label. Valuation from the model."
+   }
+  },
   "PFE": {
    "group": "Pharma",
    "groupPeersFromComps": true,

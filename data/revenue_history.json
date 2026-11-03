@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T17:07:56Z",
+ "generatedAt": "2026-11-03T03:05:47Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -960,6 +960,28 @@
    "accn": [
     "0001413329-23-000025",
     "0001628280-26-005939"
+   ]
+  },
+  "PG": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-06-30",
+   "endEnd": "2025-06-30",
+   "currency": "USD",
+   "values": {
+    "FY2020": 70950000000,
+    "FY2021": 76118000000,
+    "FY2022": 80187000000,
+    "FY2023": 82006000000,
+    "FY2024": 84039000000,
+    "FY2025": 84284000000
+   },
+   "cagr5": 0.03504336978124267,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000080424-22-000064",
+    "0000080424-26-000103"
    ]
   },
   "BEP": {

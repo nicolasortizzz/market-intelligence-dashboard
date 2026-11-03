@@ -46,7 +46,18 @@ function hzCard(h,isNow){const M=S.mclock||{},src=isNow?M.now:h;
    <h4 style="margin:12px 0 4px">Sectores</h4>
    <div>${(h.favored||[]).map(s=>`<span class="tesis-badge fav">▲ ${esc(s)}</span>`).join("")||`<span class="muted small">sin sectores (fase sin dato)</span>`}${(h.avoided||[]).map(s=>`<span class="tesis-badge avo">▼ ${esc(s)}</span>`).join("")}</div>
    ${h.note?`<p class="muted small">${esc(h.note)}</p>`:""}
+   ${secTable(h.phase)}
    <p class="muted small">Fuente: ${esc(src?.source||"–")} · al ${esc(isNow?M.asOf:h.asOf||"–")}</p>`}
+function radarOf(sec){const H=new Set((S.hold?.holdings||[]).map(h=>h.ticker)),C=S.clock||{};
+  return Object.keys(C.tickerSector||{}).filter(t=>C.tickerSector[t]===sec).sort((a,b)=>H.has(b)-H.has(a)||a.localeCompare(b)).map(t=>H.has(t)?`<b title="En cartera">${esc(t)}●</b>`:esc(t)).join(", ")}
+function secTable(ph){const C=S.clock||{},R=C.sectorReturns?.[ph];if(!R)return"";const sm=C.sectorMap?.[ph]||{},fav=new Set(sm.favored||[]),avo=new Set(sm.avoided||[]);
+  const H=(S.hold?.holdings||[]).map(h=>h.ticker),multi=H.filter(t=>C.etfMulti?.[t]);
+  return`<details class="wz-sec" open><summary class="small"><b>Rendimiento sectorial esperado en ${esc(PHL[ph]||ph)}</b> y tu radar</summary>
+   <table class="tbl small"><thead><tr><th>Sector</th><th style="text-align:right">Rel. vs mercado (pp/año)</th><th>Tu radar</th></tr></thead><tbody>
+   ${R.map(r=>`<tr class="${fav.has(r.sector)?"sec-fav":avo.has(r.sector)?"sec-avo":""}"><td>${fav.has(r.sector)?"▲ ":avo.has(r.sector)?"▼ ":""}${esc(r.sector)}${r.paper!==r.sector?` <span class="muted">(${esc(r.paper)})</span>`:""}</td><td style="text-align:right">${r.rel>0?"+":""}${r.rel.toFixed(1).replace(".",",")}</td><td>${radarOf(r.sector)||'<span class="muted">–</span>'}</td></tr>`).join("")}
+   </tbody></table>
+   ${multi.length?`<p class="muted small">Multi-sector (sin sector único): ${multi.map(t=>`<b>${esc(t)}●</b> ${esc(C.etfMulti[t])}`).join(" · ")}</p>`:""}
+   <p class="muted small">● = en cartera. Radar = tenencias + universo con DCF del dashboard. Fuente: ${esc(C.sectorReturnsSource||"–")} Histórico 1973–2004, no es un pronóstico.</p></details>`}
 function tesisTab(){const T=TS(),el=$("#tWiz");if(!S.clock){el.innerHTML=`<p class="muted">No se pudo cargar data/investment_clock.json.</p>`;return}
   const H=horizons(),st=T.step;
   $("#tSteps").innerHTML=STEPS.map((s,i)=>`<li class="${i<st?"done":""}${i===st?" cur":""}" data-s="${i}">${i+1}. ${s[0]}<small>${s[1]}</small></li>`).join("");

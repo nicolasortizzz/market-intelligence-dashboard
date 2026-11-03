@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T17:11:12Z",
+ "generatedAt": "2026-11-03T03:12:44Z",
  "source": "market-intelligence-dashboard valuation engine (valuation.js valSummary, model defaults)",
  "dashboard": "https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation",
  "fx": {
@@ -80,7 +80,8 @@
   "LLY",
   "MA",
   "V",
-  "PM"
+  "PM",
+  "PG"
  ],
  "companies": {
   "META": {
@@ -106,10 +107,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 259.9,
-    "p50": 546.8,
-    "p90": 935.72,
-    "pAbovePrice": 0.385
+    "p10": 256.92,
+    "p50": 534.39,
+    "p90": 912.16,
+    "pAbovePrice": 0.3635
    },
    "scenarios": [
     {
@@ -144,8 +145,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.157648691534996,
-    "impliedMargin": 0.3980398118495941,
+    "impliedGrowth5y": 0.15371216237545016,
+    "impliedMargin": 0.3900649964809417,
     "baseMargin": 0.38
    },
    "revenueCagr": {
@@ -184,8 +185,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.09942149564173441
+     "date": "2026-11-02",
+     "value": 0.09900663302184941
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -289,10 +290,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 185.49,
-    "p50": 402.42,
-    "p90": 664.99,
-    "pAbovePrice": 0.489
+    "p10": 186.58,
+    "p50": 405.83,
+    "p90": 653.68,
+    "pAbovePrice": 0.499
    },
    "scenarios": [
     {
@@ -327,8 +328,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.024897703528404234,
-    "impliedMargin": 0.056600171327590945,
+    "impliedGrowth5y": 0.022631970047950752,
+    "impliedMargin": 0.05576520562171937,
     "baseMargin": 0.065
    },
    "revenueCagr": {
@@ -367,8 +368,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.0739443311639017
+     "date": "2026-11-02",
+     "value": 0.07340707027066219
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -470,10 +471,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 37.94,
-    "p50": 71.55,
-    "p90": 107.41,
-    "pAbovePrice": 0.07925
+    "p10": 38.17,
+    "p50": 71.69,
+    "p90": 107.56,
+    "pAbovePrice": 0.07875
    },
    "scenarios": [
     {
@@ -508,8 +509,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.09831928312778472,
-    "impliedMargin": 0.21178922057151794,
+    "impliedGrowth5y": 0.10047762095928191,
+    "impliedMargin": 0.2144122779369354,
     "baseMargin": 0.16
    },
    "revenueCagr": {
@@ -548,8 +549,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.09443924752596225
+     "date": "2026-11-02",
+     "value": 0.09336453228921376
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -657,9 +658,9 @@
    "monteCarlo": {
     "n": 4000,
     "p10": 0,
-    "p50": 2.5,
-    "p90": 8.53,
-    "pAbovePrice": 0.36325
+    "p50": 2.33,
+    "p90": 8.66,
+    "pAbovePrice": 0.3435
    },
    "scenarios": [
     {
@@ -734,8 +735,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.08067965507916394
+     "date": "2026-11-02",
+     "value": 0.08018699469170729
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -837,10 +838,10 @@
    "terminalG": 0.015,
    "monteCarlo": {
     "n": 4000,
-    "p10": 5.73,
-    "p50": 41.71,
-    "p90": 78.65,
-    "pAbovePrice": 0.40275
+    "p10": 5.14,
+    "p50": 42.47,
+    "p90": 79.69,
+    "pAbovePrice": 0.41725
    },
    "scenarios": [
     {
@@ -875,8 +876,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.08860771358013153,
-    "impliedMargin": 0.1876830279827118,
+    "impliedGrowth5y": 0.07947337925434113,
+    "impliedMargin": 0.17908002734184264,
     "baseMargin": 0.19
    },
    "revenueCagr": {
@@ -915,8 +916,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.12775684536586168
+     "date": "2026-11-02",
+     "value": 0.12714845028138033
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1033,10 +1034,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 20.52,
-    "p50": 37.16,
-    "p90": 59.63,
-    "pAbovePrice": 0.56675
+    "p10": 20.49,
+    "p50": 36.5,
+    "p90": 60.81,
+    "pAbovePrice": 0.55375
    },
    "scenarios": [
     {
@@ -1072,7 +1073,7 @@
    ],
    "reverse": {
     "impliedGrowth5y": null,
-    "impliedMargin": 0.14987233281135554,
+    "impliedMargin": 0.14558718800544734,
     "baseMargin": 0.18
    },
    "revenueCagr": {
@@ -1111,8 +1112,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.16972060237335462
+     "date": "2026-11-02",
+     "value": 0.16851604032482823
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -1214,10 +1215,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 203.42,
-    "p50": 622.66,
-    "p90": 1019.68,
-    "pAbovePrice": 0.171
+    "p10": 199.17,
+    "p50": 627.13,
+    "p90": 1024.39,
+    "pAbovePrice": 0.17075
    },
    "scenarios": [
     {
@@ -1258,8 +1259,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.1760586529970169,
-    "impliedMargin": 0.5844099819660185,
+    "impliedGrowth5y": 0.1643931120634079,
+    "impliedMargin": 0.5424485743045806,
     "baseMargin": 0.38
    },
    "revenueCagr": {
@@ -1298,8 +1299,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.13527984339074853
+     "date": "2026-11-02",
+     "value": 0.13591990475279472
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1411,10 +1412,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 444.78,
-    "p50": 831.29,
-    "p90": 1264,
-    "pAbovePrice": 0.0285
+    "p10": 449.32,
+    "p50": 819.74,
+    "p90": 1250.88,
+    "pAbovePrice": 0.02675
    },
    "scenarios": [
     {
@@ -1455,8 +1456,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.24803642332553866,
-    "impliedMargin": 0.7682048261165617,
+    "impliedGrowth5y": 0.2433332413434982,
+    "impliedMargin": 0.7491193592548369,
     "baseMargin": 0.42
    },
    "revenueCagr": {
@@ -1495,8 +1496,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.11806664388291223
+     "date": "2026-11-02",
+     "value": 0.11752670675215256
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1603,10 +1604,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 39.86,
-    "p50": 149.13,
-    "p90": 256.19,
-    "pAbovePrice": 0.549
+    "p10": 39.56,
+    "p50": 147.52,
+    "p90": 254.35,
+    "pAbovePrice": 0.5445
    },
    "scenarios": [
     {
@@ -1647,8 +1648,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.0579994946718216,
-    "impliedMargin": 0.19837252497673036,
+    "impliedGrowth5y": 0.05581034123897553,
+    "impliedMargin": 0.19555645585060116,
     "baseMargin": 0.24
    },
    "revenueCagr": {
@@ -1687,8 +1688,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.08723483506348709
+     "date": "2026-11-02",
+     "value": 0.08694176565429602
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1804,7 +1805,7 @@
     "p10": 1.92,
     "p50": 2.63,
     "p90": 3.45,
-    "pAbovePrice": 0.47175
+    "pAbovePrice": 0.469
    },
    "scenarios": [
     {
@@ -1845,8 +1846,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.025294831395149237,
-    "impliedMargin": 0.23253368735313418,
+    "impliedGrowth5y": 0.02637540996074677,
+    "impliedMargin": 0.23418300747871396,
     "baseMargin": 0.25
    },
    "revenueCagr": {
@@ -1885,8 +1886,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.11485014941321298
+     "date": "2026-11-02",
+     "value": 0.11409300757912563
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -1922,54 +1923,62 @@
    "groupMultiples": {
     "members": [
      "ABEV",
-     "PM"
+     "PM",
+     "PG"
     ],
     "extraPeers": [
      "MO",
      "BTI",
      "IMBBY",
      "JAPAY",
-     "UVV"
+     "UVV",
+     "CL",
+     "KMB",
+     "UL",
+     "PEP",
+     "KO",
+     "CHD",
+     "EL"
     ],
     "evEbitda": {
-     "med": 11.452919779757964,
-     "mean": 11.150245779799345,
-     "n": 7
+     "med": 12.10547733964046,
+     "mean": 14.12975500367336,
+     "n": 15
     },
     "pe": {
-     "med": 16.03969868244576,
-     "mean": 23.431795819347588,
-     "n": 7
+     "med": 22.104179512905343,
+     "mean": 24.959738614809563,
+     "n": 14
     },
     "fpe": {
-     "med": 12.992236428443405,
-     "mean": 14.885941808073172,
-     "n": 4
+     "med": 22.11609157416838,
+     "mean": 19.727753436951005,
+     "n": 11
     },
     "pfcf": {
-     "med": 20.89719461849455,
-     "mean": 20.89719461849455,
-     "n": 2
+     "med": 25.02783366211131,
+     "mean": 22.274074299700136,
+     "n": 3
     },
     "fcfY": {
-     "med": 0.06078958887393346,
-     "mean": 0.06078958887393346,
-     "n": 2
+     "med": 0.039955515667097555,
+     "mean": 0.053844897804988155,
+     "n": 3
     },
     "divY": {
-     "med": 0.0590073158701787,
-     "mean": 0.0590073158701787,
-     "n": 2
+     "med": 0.02699048235992224,
+     "mean": 0.04833503803342654,
+     "n": 3
     },
     "ndE": {
-     "med": 0.6741818055378002,
-     "mean": 0.6741818055378002,
-     "n": 2
+     "med": 0.9390944081632653,
+     "mean": 0.7624860064129552,
+     "n": 3
     },
     "pb": {
-     "med": 2.5315165472564822,
-     "mean": 2.747831249348939,
-     "n": 5
+     "med": 6.880530636513785,
+     "mean": 31.80401507412308,
+     "n": 13
     }
    }
   },
@@ -1996,10 +2005,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 39.57,
-    "p50": 82.93,
-    "p90": 140.75,
-    "pAbovePrice": 0.65125
+    "p10": 39.73,
+    "p50": 83.45,
+    "p90": 142.4,
+    "pAbovePrice": 0.6565
    },
    "scenarios": [
     {
@@ -2040,8 +2049,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.05710243284702303,
-    "impliedMargin": 0.12036748528480529,
+    "impliedGrowth5y": 0.06158911883831025,
+    "impliedMargin": 0.12403195500373843,
     "baseMargin": 0.17
    },
    "revenueCagr": {
@@ -2080,8 +2089,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.09871576376012413
+     "date": "2026-11-02",
+     "value": 0.09754851473839957
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2185,9 +2194,9 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 11.55,
-    "p50": 57.85,
-    "p90": 124.56,
+    "p10": 11.63,
+    "p50": 59.63,
+    "p90": 129.89,
     "pAbovePrice": 0.0205
    },
    "scenarios": [
@@ -2229,8 +2238,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.6937432497739795,
-    "impliedMargin": 0.6324840128421785,
+    "impliedGrowth5y": 0.6880512148141864,
+    "impliedMargin": 0.6182463705539702,
     "baseMargin": 0.2
    },
    "revenueCagr": {
@@ -2269,8 +2278,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.1674862929639382
+     "date": "2026-11-02",
+     "value": 0.1665448193166411
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2378,10 +2387,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 93.86,
-    "p50": 306.32,
-    "p90": 553.42,
-    "pAbovePrice": 0.43525
+    "p10": 89.03,
+    "p50": 302.09,
+    "p90": 553.31,
+    "pAbovePrice": 0.4265
    },
    "scenarios": [
     {
@@ -2422,8 +2431,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.2871713191270828,
-    "impliedMargin": 0.5149700582027434,
+    "impliedGrowth5y": 0.2861862689256668,
+    "impliedMargin": 0.512137883901596,
     "baseMargin": 0.52
    },
    "revenueCagr": {
@@ -2462,8 +2471,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.10676647160201241
+     "date": "2026-11-02",
+     "value": 0.10643279956537546
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2570,10 +2579,10 @@
    "terminalG": 0.015,
    "monteCarlo": {
     "n": 4000,
-    "p10": 11.42,
-    "p50": 47.25,
-    "p90": 90.49,
-    "pAbovePrice": 0.22175
+    "p10": 11.89,
+    "p50": 47.05,
+    "p90": 91.5,
+    "pAbovePrice": 0.232
    },
    "scenarios": [
     {
@@ -2620,8 +2629,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.19064466059207913,
-    "impliedMargin": 0.40872580409049986,
+    "impliedGrowth5y": 0.18367351591587067,
+    "impliedMargin": 0.3945551693439483,
     "baseMargin": 0.36
    },
    "revenueCagr": {
@@ -2660,8 +2669,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.12338171343349352
+     "date": "2026-11-02",
+     "value": 0.12241765661978382
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2778,10 +2787,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 128.5,
-    "p50": 320.02,
-    "p90": 516.63,
-    "pAbovePrice": 0.271
+    "p10": 132.34,
+    "p50": 322.63,
+    "p90": 520.31,
+    "pAbovePrice": 0.2535
    },
    "scenarios": [
     {
@@ -2828,8 +2837,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.250724133849144,
-    "impliedMargin": 0.585118192434311,
+    "impliedGrowth5y": 0.24747649729251864,
+    "impliedMargin": 0.5754570901393892,
     "baseMargin": 0.52
    },
    "revenueCagr": {
@@ -2868,8 +2877,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.11450006374107143
+     "date": "2026-11-02",
+     "value": 0.11417248704363117
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -2976,10 +2985,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 2.9,
-    "p50": 25.09,
-    "p90": 75.41,
-    "pAbovePrice": 0.0415
+    "p10": 3.01,
+    "p50": 24.42,
+    "p90": 75.61,
+    "pAbovePrice": 0.04275
    },
    "scenarios": [
     {
@@ -3020,7 +3029,7 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.8537774309515953,
+    "impliedGrowth5y": 0.8523661509156228,
     "impliedMargin": null,
     "baseMargin": 0.28
    },
@@ -3036,32 +3045,32 @@
     {
      "year": 2021,
      "date": "2021-12-31",
-     "value": 0.050894486017809236
+     "value": 0.05089449188082044
     },
     {
      "year": 2022,
      "date": "2022-12-30",
-     "value": 0.0876819324371369
+     "value": 0.08768193374715097
     },
     {
      "year": 2023,
      "date": "2023-12-29",
-     "value": 0.08182140463551227
+     "value": 0.08182139856075318
     },
     {
      "year": 2024,
      "date": "2024-12-31",
-     "value": 0.08549598072430449
+     "value": 0.08549597447767658
     },
     {
      "year": 2025,
      "date": "2025-12-31",
-     "value": 0.08100759998889147
+     "value": 0.08100758962123919
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.1018581557893906
+     "date": "2026-11-02",
+     "value": 0.10107997284814067
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3168,10 +3177,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 71.63,
-    "p50": 203.11,
-    "p90": 389.86,
-    "pAbovePrice": 0.61175
+    "p10": 72.01,
+    "p50": 202.29,
+    "p90": 379.77,
+    "pAbovePrice": 0.60975
    },
    "scenarios": [
     {
@@ -3212,8 +3221,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.13794080317020418,
-    "impliedMargin": 0.15436409115791322,
+    "impliedGrowth5y": 0.1267173022031784,
+    "impliedMargin": 0.14098653197288513,
     "baseMargin": 0.22
    },
    "revenueCagr": {
@@ -3252,8 +3261,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.1180394657297916
+     "date": "2026-11-02",
+     "value": 0.11771857944201268
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3365,10 +3374,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 290.18,
-    "p50": 1057.1,
-    "p90": 2320.04,
-    "pAbovePrice": 0.3985
+    "p10": 289.2,
+    "p50": 1043.71,
+    "p90": 2334.48,
+    "pAbovePrice": 0.38875
    },
    "scenarios": [
     {
@@ -3415,8 +3424,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.3180700570344925,
-    "impliedMargin": 0.3476337015628815,
+    "impliedGrowth5y": 0.2987374633550644,
+    "impliedMargin": 0.3071583092212677,
     "baseMargin": 0.35
    },
    "revenueCagr": {
@@ -3455,8 +3464,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.1417081671328441
+     "date": "2026-11-02",
+     "value": 0.1418900951184253
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3563,10 +3572,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 101.77,
-    "p50": 212.98,
-    "p90": 343.93,
-    "pAbovePrice": 0.25325
+    "p10": 102.44,
+    "p50": 213.07,
+    "p90": 349.2,
+    "pAbovePrice": 0.2535
    },
    "scenarios": [
     {
@@ -3607,8 +3616,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.17880589663982388,
-    "impliedMargin": 0.3927636563777923,
+    "impliedGrowth5y": 0.17842181622982023,
+    "impliedMargin": 0.3919817626476288,
     "baseMargin": 0.33
    },
    "revenueCagr": {
@@ -3647,8 +3656,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.1004460332341265
+     "date": "2026-11-02",
+     "value": 0.09975411691007843
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3752,10 +3761,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 36.39,
-    "p50": 98.12,
-    "p90": 178.75,
-    "pAbovePrice": 0.0795
+    "p10": 46.35,
+    "p50": 99.6,
+    "p90": 180.07,
+    "pAbovePrice": 0.08075
    },
    "scenarios": [
     {
@@ -3796,8 +3805,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.11014493405818938,
-    "impliedMargin": 0.2373956978321075,
+    "impliedGrowth5y": 0.103383269906044,
+    "impliedMargin": 0.2278358995914459,
     "baseMargin": 0.13
    },
    "revenueCagr": {
@@ -3836,8 +3845,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06716166071646412
+     "date": "2026-11-02",
+     "value": 0.06641437842337392
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -3949,10 +3958,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 53.6,
-    "p50": 126.76,
-    "p90": 237.84,
-    "pAbovePrice": 0.10625
+    "p10": 59.03,
+    "p50": 127.38,
+    "p90": 244.57,
+    "pAbovePrice": 0.11625
    },
    "scenarios": [
     {
@@ -3993,8 +4002,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.09842753112316131,
-    "impliedMargin": 0.2547699272632599,
+    "impliedGrowth5y": 0.09280204474925996,
+    "impliedMargin": 0.24592034220695497,
     "baseMargin": 0.14
    },
    "revenueCagr": {
@@ -4033,8 +4042,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.07439425118263537
+     "date": "2026-11-02",
+     "value": 0.07389453206998982
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4146,10 +4155,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 43.3,
-    "p50": 108.16,
-    "p90": 215.17,
-    "pAbovePrice": 0.244
+    "p10": 37.07,
+    "p50": 108.28,
+    "p90": 212.87,
+    "pAbovePrice": 0.23825
    },
    "scenarios": [
     {
@@ -4190,8 +4199,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.040396246314048784,
-    "impliedMargin": 0.34761809706687924,
+    "impliedGrowth5y": 0.03320480287075042,
+    "impliedMargin": 0.331777948141098,
     "baseMargin": 0.26
    },
    "revenueCagr": {
@@ -4230,8 +4239,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06553887309806743
+     "date": "2026-11-02",
+     "value": 0.06492261794891738
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4343,10 +4352,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 61.59,
-    "p50": 126.58,
-    "p90": 249.21,
-    "pAbovePrice": 0.2605
+    "p10": 46.58,
+    "p50": 127.13,
+    "p90": 253.48,
+    "pAbovePrice": 0.2705
    },
    "scenarios": [
     {
@@ -4387,8 +4396,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.03201656639575959,
-    "impliedMargin": 0.40076500773429863,
+    "impliedGrowth5y": 0.024086794257164,
+    "impliedMargin": 0.3804815828800201,
     "baseMargin": 0.32
    },
    "revenueCagr": {
@@ -4427,8 +4436,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06977748430709087
+     "date": "2026-11-02",
+     "value": 0.06912096801815572
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4540,10 +4549,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 13.98,
-    "p50": 41.48,
-    "p90": 79.62,
-    "pAbovePrice": 0.20975
+    "p10": 21.97,
+    "p50": 42.01,
+    "p90": 80.21,
+    "pAbovePrice": 0.20575
    },
    "scenarios": [
     {
@@ -4584,8 +4593,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.06087144315242768,
-    "impliedMargin": 0.3330294787883758,
+    "impliedGrowth5y": 0.05283224284648895,
+    "impliedMargin": 0.31463486552238473,
     "baseMargin": 0.22
    },
    "revenueCagr": {
@@ -4624,8 +4633,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.05975098787432284
+     "date": "2026-11-02",
+     "value": 0.0589725457144557
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4737,10 +4746,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 10.21,
-    "p50": 38.45,
-    "p90": 71.57,
-    "pAbovePrice": 0.25525
+    "p10": 10.92,
+    "p50": 37.66,
+    "p90": 71.08,
+    "pAbovePrice": 0.2475
    },
    "scenarios": [
     {
@@ -4781,8 +4790,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.07767735421657564,
-    "impliedMargin": 0.3025396287441254,
+    "impliedGrowth5y": 0.06732855737209321,
+    "impliedMargin": 0.28242092728614804,
     "baseMargin": 0.24
    },
    "revenueCagr": {
@@ -4821,8 +4830,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.07391954822790792
+     "date": "2026-11-02",
+     "value": 0.07384510162826458
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -4934,10 +4943,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 8.75,
-    "p50": 40.06,
-    "p90": 66.41,
-    "pAbovePrice": 0.24375
+    "p10": 8.93,
+    "p50": 40.8,
+    "p90": 66.15,
+    "pAbovePrice": 0.24975
    },
    "scenarios": [
     {
@@ -4978,8 +4987,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.07031111419200899,
-    "impliedMargin": 0.20571489930152898,
+    "impliedGrowth5y": 0.06642002165317536,
+    "impliedMargin": 0.20080457329750057,
     "baseMargin": 0.17
    },
    "revenueCagr": {
@@ -5018,8 +5027,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.08248224273197176
+     "date": "2026-11-02",
+     "value": 0.08157886116583606
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5131,10 +5140,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 0.73,
-    "p50": 16.32,
-    "p90": 36.81,
-    "pAbovePrice": 0.2785
+    "p10": 4.63,
+    "p50": 16.56,
+    "p90": 36.79,
+    "pAbovePrice": 0.293
    },
    "scenarios": [
     {
@@ -5175,8 +5184,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.020903345942497258,
-    "impliedMargin": 0.3538017332553863,
+    "impliedGrowth5y": 0.01542734801769257,
+    "impliedMargin": 0.34161178469657905,
     "baseMargin": 0.3
    },
    "revenueCagr": {
@@ -5215,8 +5224,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.0877500395038468
+     "date": "2026-11-02",
+     "value": 0.08774466158608324
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5333,10 +5342,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.44,
-    "p50": 10.37,
+    "p10": 1.38,
+    "p50": 10.25,
     "p90": 20.2,
-    "pAbovePrice": 0.30325
+    "pAbovePrice": 0.293
    },
    "scenarios": [
     {
@@ -5377,8 +5386,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.09659406840801239,
-    "impliedMargin": 0.46256665587425233,
+    "impliedGrowth5y": 0.0971102625131607,
+    "impliedMargin": 0.464193570613861,
     "baseMargin": 0.4
    },
    "revenueCagr": {
@@ -5417,8 +5426,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.08677341045053664
+     "date": "2026-11-02",
+     "value": 0.08634972453279262
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5530,10 +5539,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 43.4,
-    "p50": 193.48,
-    "p90": 430.46,
-    "pAbovePrice": 0.29475
+    "p10": 42.15,
+    "p50": 195.07,
+    "p90": 420.46,
+    "pAbovePrice": 0.29225
    },
    "scenarios": [
     {
@@ -5574,8 +5583,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.13107915222644806,
-    "impliedMargin": 0.2572770774364472,
+    "impliedGrowth5y": 0.12913632690906524,
+    "impliedMargin": 0.2544239580631256,
     "baseMargin": 0.22
    },
    "revenueCagr": {
@@ -5614,8 +5623,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.09306624852211443
+     "date": "2026-11-02",
+     "value": 0.09268206721501715
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5723,10 +5732,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 2.94,
-    "p50": 103.27,
-    "p90": 297.36,
-    "pAbovePrice": 0.53825
+    "p10": 5.9,
+    "p50": 108.86,
+    "p90": 292.91,
+    "pAbovePrice": 0.54925
    },
    "scenarios": [
     {
@@ -5767,8 +5776,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.03418428003787993,
-    "impliedMargin": 0.0795002281665802,
+    "impliedGrowth5y": 0.034027251601219166,
+    "impliedMargin": 0.0794206202030182,
     "baseMargin": 0.09
    },
    "revenueCagr": {
@@ -5807,8 +5816,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.07372687578637642
+     "date": "2026-11-02",
+     "value": 0.0731886721511406
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -5916,10 +5925,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 31.42,
-    "p50": 49.98,
-    "p90": 74.4,
-    "pAbovePrice": 0.047
+    "p10": 31.51,
+    "p50": 50.01,
+    "p90": 73.95,
+    "pAbovePrice": 0.0475
    },
    "scenarios": [
     {
@@ -5960,8 +5969,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.22831778228282923,
-    "impliedMargin": 0.18145591616630552,
+    "impliedGrowth5y": 0.23160003721714023,
+    "impliedMargin": 0.1831547200679779,
     "baseMargin": 0.125
    },
    "revenueCagr": {
@@ -6000,8 +6009,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.08231256792049083
+     "date": "2026-11-02",
+     "value": 0.08180574116295292
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6111,10 +6120,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 56.76,
-    "p50": 90.64,
-    "p90": 137.14,
-    "pAbovePrice": 0.14325
+    "p10": 56.66,
+    "p50": 90.75,
+    "p90": 137.7,
+    "pAbovePrice": 0.145
    },
    "scenarios": [
     {
@@ -6155,8 +6164,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.21586565673351288,
-    "impliedMargin": 0.1247127115726471,
+    "impliedGrowth5y": 0.2175441890954971,
+    "impliedMargin": 0.12509815096855165,
     "baseMargin": 0.1
    },
    "revenueCagr": {
@@ -6195,8 +6204,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.0738347409722949
+     "date": "2026-11-02",
+     "value": 0.07304492657630421
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6306,10 +6315,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 38.69,
-    "p50": 59.04,
-    "p90": 86.68,
-    "pAbovePrice": 0.06175
+    "p10": 38.74,
+    "p50": 59.4,
+    "p90": 87.93,
+    "pAbovePrice": 0.06725
    },
    "scenarios": [
     {
@@ -6350,8 +6359,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.20142756402492523,
-    "impliedMargin": 0.16819935441017148,
+    "impliedGrowth5y": 0.2028217405080795,
+    "impliedMargin": 0.16886500716209413,
     "baseMargin": 0.12
    },
    "revenueCagr": {
@@ -6390,8 +6399,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.07307482565119185
+     "date": "2026-11-02",
+     "value": 0.07241174490639563
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6501,10 +6510,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 55.92,
-    "p50": 91.07,
-    "p90": 139.33,
-    "pAbovePrice": 0.12875
+    "p10": 54.93,
+    "p50": 90.45,
+    "p90": 140.52,
+    "pAbovePrice": 0.135
    },
    "scenarios": [
     {
@@ -6545,8 +6554,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.19462531507015224,
-    "impliedMargin": 0.13886215090751647,
+    "impliedGrowth5y": 0.19155306518077841,
+    "impliedMargin": 0.1379104435443878,
     "baseMargin": 0.11
    },
    "revenueCagr": {
@@ -6585,8 +6594,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.0778395330766257
+     "date": "2026-11-02",
+     "value": 0.07713281539948734
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6701,10 +6710,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.74,
-    "p50": 2.9,
-    "p90": 4.83,
-    "pAbovePrice": 0.02425
+    "p10": 1.72,
+    "p50": 2.86,
+    "p90": 4.85,
+    "pAbovePrice": 0.0295
    },
    "scenarios": [
     {
@@ -6746,7 +6755,7 @@
    ],
    "reverse": {
     "impliedGrowth5y": null,
-    "impliedMargin": 0.17883836627006533,
+    "impliedMargin": 0.17854087948799136,
     "baseMargin": 0.11
    },
    "revenueCagr": {
@@ -6785,8 +6794,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.11370117144755161
+     "date": "2026-11-02",
+     "value": 0.11314119349163068
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -6901,10 +6910,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.37,
-    "p50": 2.05,
-    "p90": 2.96,
-    "pAbovePrice": 0.62825
+    "p10": 1.39,
+    "p50": 2.04,
+    "p90": 3.04,
+    "pAbovePrice": 0.62425
    },
    "scenarios": [
     {
@@ -6946,7 +6955,7 @@
    ],
    "reverse": {
     "impliedGrowth5y": null,
-    "impliedMargin": 0.12332482933998108,
+    "impliedMargin": 0.12372787594795227,
     "baseMargin": 0.14
    },
    "revenueCagr": {
@@ -6985,8 +6994,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.1177896254512396
+     "date": "2026-11-02",
+     "value": 0.1171935097967309
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -7101,10 +7110,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 4.49,
-    "p50": 6.22,
-    "p90": 8.65,
-    "pAbovePrice": 0.1915
+    "p10": 4.52,
+    "p50": 6.2,
+    "p90": 8.69,
+    "pAbovePrice": 0.197
    },
    "scenarios": [
     {
@@ -7145,8 +7154,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.10966722667217253,
-    "impliedMargin": 0.21250811219215393,
+    "impliedGrowth5y": 0.10948934853076936,
+    "impliedMargin": 0.21240981221199035,
     "baseMargin": 0.18
    },
    "revenueCagr": {
@@ -7185,8 +7194,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.11239878806850911
+     "date": "2026-11-02",
+     "value": 0.11182624019558567
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -7301,10 +7310,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 0.96,
-    "p50": 1.44,
-    "p90": 2.2,
-    "pAbovePrice": 0.0285
+    "p10": 0.92,
+    "p50": 1.43,
+    "p90": 2.15,
+    "pAbovePrice": 0.02575
    },
    "scenarios": [
     {
@@ -7346,7 +7355,7 @@
    ],
    "reverse": {
     "impliedGrowth5y": null,
-    "impliedMargin": 0.18998181223869326,
+    "impliedMargin": 0.1905577600002289,
     "baseMargin": 0.12
    },
    "revenueCagr": {
@@ -7385,8 +7394,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.12288782944717282
+     "date": "2026-11-02",
+     "value": 0.12230229903581134
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -7501,10 +7510,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 3.89,
+    "p10": 3.85,
     "p50": 5.21,
-    "p90": 7.1,
-    "pAbovePrice": 0.084
+    "p90": 7.22,
+    "pAbovePrice": 0.09275
    },
    "scenarios": [
     {
@@ -7545,8 +7554,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.2401268452405929,
-    "impliedMargin": 0.17073262333869932,
+    "impliedGrowth5y": 0.2406705766916275,
+    "impliedMargin": 0.17089793086051946,
     "baseMargin": 0.13
    },
    "revenueCagr": {
@@ -7585,8 +7594,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.10882814300593972
+     "date": "2026-11-02",
+     "value": 0.10824234318255212
     }
    ],
    "waccHistoryMetric": "cost of equity",
@@ -7701,10 +7710,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 3.44,
-    "p50": 8.6,
-    "p90": 14.51,
-    "pAbovePrice": 0.49325
+    "p10": 3.59,
+    "p50": 8.7,
+    "p90": 14.88,
+    "pAbovePrice": 0.4995
    },
    "scenarios": [
     {
@@ -7745,8 +7754,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.05140639841556549,
-    "impliedMargin": 0.32928723692893985,
+    "impliedGrowth5y": 0.05210138857364656,
+    "impliedMargin": 0.33071642518043515,
     "baseMargin": 0.36
    },
    "revenueCagr": {
@@ -7785,8 +7794,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.09854606216040421
+     "date": "2026-11-02",
+     "value": 0.09820410790216165
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -7899,10 +7908,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 1.19,
-    "p50": 3.4,
-    "p90": 6.25,
-    "pAbovePrice": 0.2395
+    "p10": 1.13,
+    "p50": 3.33,
+    "p90": 6.43,
+    "pAbovePrice": 0.23925
    },
    "scenarios": [
     {
@@ -7943,8 +7952,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.04250062406063079,
-    "impliedMargin": 0.5120122969150542,
+    "impliedGrowth5y": 0.042014983296394345,
+    "impliedMargin": 0.5104548931121826,
     "baseMargin": 0.44
    },
    "revenueCagr": {
@@ -7983,8 +7992,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.09744004952346039
+     "date": "2026-11-02",
+     "value": 0.09712569549980518
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8092,10 +8101,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 18.91,
-    "p50": 26.61,
-    "p90": 35.23,
-    "pAbovePrice": 0.3895
+    "p10": 19.08,
+    "p50": 26.71,
+    "p90": 34.96,
+    "pAbovePrice": 0.38225
    },
    "scenarios": [
     {
@@ -8136,7 +8145,7 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.059021064639091486,
+    "impliedGrowth5y": 0.06801561415195463,
     "impliedMargin": null,
     "baseMargin": 1
    },
@@ -8176,8 +8185,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06363818591364376
+     "date": "2026-11-02",
+     "value": 0.06331442352129585
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8285,10 +8294,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 196.16,
-    "p50": 448.72,
-    "p90": 762.3,
-    "pAbovePrice": 0.05775
+    "p10": 186.52,
+    "p50": 442.94,
+    "p90": 772.1,
+    "pAbovePrice": 0.05875
    },
    "scenarios": [
     {
@@ -8329,8 +8338,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.2388841897249222,
-    "impliedMargin": 0.2868841469287873,
+    "impliedGrowth5y": 0.23997847139835354,
+    "impliedMargin": 0.2886112391948701,
     "baseMargin": 0.15
    },
    "revenueCagr": {
@@ -8369,8 +8378,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.09594397279884044
+     "date": "2026-11-02",
+     "value": 0.09604153065481054
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8476,10 +8485,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 49.71,
-    "p50": 161.53,
-    "p90": 260.94,
-    "pAbovePrice": 0.4305
+    "p10": 49.73,
+    "p50": 164.06,
+    "p90": 260.05,
+    "pAbovePrice": 0.44425
    },
    "scenarios": [
     {
@@ -8520,8 +8529,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.057765492796897897,
-    "impliedMargin": 0.27289559245109557,
+    "impliedGrowth5y": 0.06944283545017242,
+    "impliedMargin": 0.29257110953330995,
     "baseMargin": 0.28
    },
    "revenueCagr": {
@@ -8560,8 +8569,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.11465921355518359
+     "date": "2026-11-02",
+     "value": 0.1133265585257704
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8667,9 +8676,9 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 14.24,
-    "p50": 28.27,
-    "p90": 46.1,
+    "p10": 14.73,
+    "p50": 28.18,
+    "p90": 46.43,
     "pAbovePrice": 0.0025
    },
    "scenarios": [
@@ -8711,8 +8720,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.264701697230339,
-    "impliedMargin": 0.929264920949936,
+    "impliedGrowth5y": 0.25953647792339324,
+    "impliedMargin": 0.9039556801319124,
     "baseMargin": 0.32
    },
    "revenueCagr": {
@@ -8751,8 +8760,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.09903791791592555
+     "date": "2026-11-02",
+     "value": 0.09839776024661574
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -8858,10 +8867,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 8.26,
-    "p50": 10.57,
-    "p90": 35.39,
-    "pAbovePrice": 0.199
+    "p10": 8.35,
+    "p50": 12.2,
+    "p90": 35.38,
+    "pAbovePrice": 0.2045
    },
    "scenarios": [
     {
@@ -8902,8 +8911,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 1.3784007295966147,
-    "impliedMargin": 0.645676988363266,
+    "impliedGrowth5y": 1.3557116106152534,
+    "impliedMargin": 0.5985711872577668,
     "baseMargin": 0.25
    },
    "revenueCagr": null,
@@ -8935,8 +8944,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.10420318611123751
+     "date": "2026-11-02",
+     "value": 0.10378970082210659
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9045,7 +9054,7 @@
     "p10": 0,
     "p50": 1.28,
     "p90": 19.02,
-    "pAbovePrice": 0.20525
+    "pAbovePrice": 0.196
    },
    "scenarios": [
     {
@@ -9086,8 +9095,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 1.0982396140694615,
-    "impliedMargin": 0.3135877788066864,
+    "impliedGrowth5y": 1.0915380015969274,
+    "impliedMargin": 0.3078162848949432,
     "baseMargin": 0.2
    },
    "revenueCagr": null,
@@ -9119,8 +9128,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.14190852555746167
+     "date": "2026-11-02",
+     "value": 0.14147602320598837
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9226,10 +9235,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 68.15,
-    "p50": 104.99,
-    "p90": 164.67,
-    "pAbovePrice": 0.15725
+    "p10": 67.74,
+    "p50": 105.34,
+    "p90": 165.88,
+    "pAbovePrice": 0.1705
    },
    "scenarios": [
     {
@@ -9270,8 +9279,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.04517233669757843,
-    "impliedMargin": 0.4506893813610078,
+    "impliedGrowth5y": 0.0429995745420456,
+    "impliedMargin": 0.444354373216629,
     "baseMargin": 0.33
    },
    "revenueCagr": {
@@ -9310,8 +9319,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06563837603197302
+     "date": "2026-11-02",
+     "value": 0.06453208836296616
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9427,10 +9436,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 47.34,
-    "p50": 75.19,
-    "p90": 124.52,
-    "pAbovePrice": 0.67
+    "p10": 46.5,
+    "p50": 74.4,
+    "p90": 125.02,
+    "pAbovePrice": 0.661
    },
    "scenarios": [
     {
@@ -9471,8 +9480,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": -0.06790426671504975,
-    "impliedMargin": 0.21766936182975766,
+    "impliedGrowth5y": -0.06681050956249238,
+    "impliedMargin": 0.2195202887058258,
     "baseMargin": 0.3
    },
    "revenueCagr": {
@@ -9511,8 +9520,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06145861170089083
+     "date": "2026-11-02",
+     "value": 0.06066078122273834
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9628,10 +9637,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 16.52,
-    "p50": 28.83,
-    "p90": 56.19,
-    "pAbovePrice": 0.449
+    "p10": 16.4,
+    "p50": 28.97,
+    "p90": 55.93,
+    "pAbovePrice": 0.45925
    },
    "scenarios": [
     {
@@ -9672,8 +9681,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": -0.029684528708457936,
-    "impliedMargin": 0.27503582835197443,
+    "impliedGrowth5y": -0.029040548205375664,
+    "impliedMargin": 0.27629036307334903,
     "baseMargin": 0.28
    },
    "revenueCagr": {
@@ -9712,8 +9721,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06271100216391845
+     "date": "2026-11-02",
+     "value": 0.06294742501923623
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -9829,10 +9838,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 131.99,
-    "p50": 209.71,
-    "p90": 306.93,
-    "pAbovePrice": 0.18375
+    "p10": 133.91,
+    "p50": 207.44,
+    "p90": 305.31,
+    "pAbovePrice": 0.17825
    },
    "scenarios": [
     {
@@ -9873,8 +9882,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.0779554158449173,
-    "impliedMargin": 0.38053815960884096,
+    "impliedGrowth5y": 0.07470384538173673,
+    "impliedMargin": 0.37279857993125914,
     "baseMargin": 0.31
    },
    "revenueCagr": {
@@ -9913,8 +9922,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06856675452097187
+     "date": "2026-11-02",
+     "value": 0.0679162760400001
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -10030,10 +10039,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 126.22,
-    "p50": 212.5,
-    "p90": 336.11,
-    "pAbovePrice": 0.61025
+    "p10": 125.86,
+    "p50": 213.76,
+    "p90": 339.6,
+    "pAbovePrice": 0.60825
    },
    "scenarios": [
     {
@@ -10074,8 +10083,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.02910265624523163,
-    "impliedMargin": 0.2636916935443878,
+    "impliedGrowth5y": 0.028280863165855406,
+    "impliedMargin": 0.2622544944286347,
     "baseMargin": 0.33
    },
    "revenueCagr": {
@@ -10114,8 +10123,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06941416583792832
+     "date": "2026-11-02",
+     "value": 0.0684230023757548
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -10231,10 +10240,10 @@
    "terminalG": 0.025,
    "monteCarlo": {
     "n": 4000,
-    "p10": 133.21,
-    "p50": 245.43,
-    "p90": 390.96,
-    "pAbovePrice": 0.31975
+    "p10": 135.6,
+    "p50": 241.52,
+    "p90": 392.08,
+    "pAbovePrice": 0.31075
    },
    "scenarios": [
     {
@@ -10275,8 +10284,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.08597291409969328,
-    "impliedMargin": 0.4175899088382721,
+    "impliedGrowth5y": 0.0819910138845444,
+    "impliedMargin": 0.40688897967338555,
     "baseMargin": 0.38
    },
    "revenueCagr": {
@@ -10315,8 +10324,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.06582036115466394
+     "date": "2026-11-02",
+     "value": 0.06538345784636121
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -10432,10 +10441,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 512.88,
-    "p50": 958.47,
-    "p90": 1672.5,
-    "pAbovePrice": 0.184
+    "p10": 507.7,
+    "p50": 959.45,
+    "p90": 1714.9,
+    "pAbovePrice": 0.199
    },
    "scenarios": [
     {
@@ -10476,8 +10485,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.21705310642719272,
-    "impliedMargin": 0.6116428315639495,
+    "impliedGrowth5y": 0.21590014398097995,
+    "impliedMargin": 0.607742792367935,
     "baseMargin": 0.45
    },
    "revenueCagr": {
@@ -10516,8 +10525,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.07537401476288005
+     "date": "2026-11-02",
+     "value": 0.07470033555115504
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -10633,10 +10642,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 289.71,
-    "p50": 443.59,
-    "p90": 614.46,
-    "pAbovePrice": 0.07575
+    "p10": 288.86,
+    "p50": 443.04,
+    "p90": 618.43,
+    "pAbovePrice": 0.07725
    },
    "scenarios": [
     {
@@ -10677,8 +10686,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.1557857245206833,
-    "impliedMargin": 0.7750497758388519,
+    "impliedGrowth5y": 0.16150359213352206,
+    "impliedMargin": 0.8014049351215362,
     "baseMargin": 0.59
    },
    "revenueCagr": {
@@ -10717,8 +10726,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.08629798978709001
+     "date": "2026-11-02",
+     "value": 0.08535536085245224
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -10827,10 +10836,10 @@
    "terminalG": 0.03,
    "monteCarlo": {
     "n": 4000,
-    "p10": 215.83,
-    "p50": 330.86,
-    "p90": 465.48,
-    "pAbovePrice": 0.19775
+    "p10": 217.8,
+    "p50": 330.13,
+    "p90": 462.14,
+    "pAbovePrice": 0.20075
    },
    "scenarios": [
     {
@@ -10871,8 +10880,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.143666735291481,
-    "impliedMargin": 0.7503814041614532,
+    "impliedGrowth5y": 0.14803966581821437,
+    "impliedMargin": 0.7701926887035366,
     "baseMargin": 0.65
    },
    "revenueCagr": {
@@ -10911,8 +10920,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.08692228747675272
+     "date": "2026-11-02",
+     "value": 0.08591043853868621
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -11021,10 +11030,10 @@
    "terminalG": 0.02,
    "monteCarlo": {
     "n": 4000,
-    "p10": 99.59,
-    "p50": 165.25,
-    "p90": 249.08,
-    "pAbovePrice": 0.23775
+    "p10": 100.01,
+    "p50": 162.53,
+    "p90": 242.55,
+    "pAbovePrice": 0.21575
    },
    "scenarios": [
     {
@@ -11065,8 +11074,8 @@
     }
    ],
    "reverse": {
-    "impliedGrowth5y": 0.08184755742549898,
-    "impliedMargin": 0.5037813007831571,
+    "impliedGrowth5y": 0.0813817173242569,
+    "impliedMargin": 0.502317315340042,
     "baseMargin": 0.42
    },
    "revenueCagr": {
@@ -11105,8 +11114,8 @@
     },
     {
      "year": "current",
-     "date": "2026-10-30",
-     "value": 0.0707169075554932
+     "date": "2026-11-02",
+     "value": 0.06981860323440858
     }
    ],
    "waccHistoryMetric": "WACC",
@@ -11142,54 +11151,265 @@
    "groupMultiples": {
     "members": [
      "ABEV",
-     "PM"
+     "PM",
+     "PG"
     ],
     "extraPeers": [
      "MO",
      "BTI",
      "IMBBY",
      "JAPAY",
-     "UVV"
+     "UVV",
+     "CL",
+     "KMB",
+     "UL",
+     "PEP",
+     "KO",
+     "CHD",
+     "EL"
     ],
     "evEbitda": {
-     "med": 11.452919779757964,
-     "mean": 11.150245779799345,
-     "n": 7
+     "med": 12.10547733964046,
+     "mean": 14.12975500367336,
+     "n": 15
     },
     "pe": {
-     "med": 16.03969868244576,
-     "mean": 23.431795819347588,
-     "n": 7
+     "med": 22.104179512905343,
+     "mean": 24.959738614809563,
+     "n": 14
     },
     "fpe": {
-     "med": 12.992236428443405,
-     "mean": 14.885941808073172,
-     "n": 4
+     "med": 22.11609157416838,
+     "mean": 19.727753436951005,
+     "n": 11
     },
     "pfcf": {
-     "med": 20.89719461849455,
-     "mean": 20.89719461849455,
-     "n": 2
+     "med": 25.02783366211131,
+     "mean": 22.274074299700136,
+     "n": 3
     },
     "fcfY": {
-     "med": 0.06078958887393346,
-     "mean": 0.06078958887393346,
-     "n": 2
+     "med": 0.039955515667097555,
+     "mean": 0.053844897804988155,
+     "n": 3
     },
     "divY": {
-     "med": 0.0590073158701787,
-     "mean": 0.0590073158701787,
-     "n": 2
+     "med": 0.02699048235992224,
+     "mean": 0.04833503803342654,
+     "n": 3
     },
     "ndE": {
-     "med": 0.6741818055378002,
-     "mean": 0.6741818055378002,
-     "n": 2
+     "med": 0.9390944081632653,
+     "mean": 0.7624860064129552,
+     "n": 3
     },
     "pb": {
-     "med": 2.5315165472564822,
-     "mean": 2.747831249348939,
-     "n": 5
+     "med": 6.880530636513785,
+     "mean": 31.80401507412308,
+     "n": 13
+    }
+   }
+  },
+  "PG": {
+   "ticker": "PG",
+   "name": "Procter & Gamble Company (The)",
+   "sector": "Household & personal care: Fabric & Home Care, Baby/Feminine/Family Care, Beauty, Grooming, Health Care (Tide, Pampers, Gillette, Charmin, Oral-B)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 163.56,
+   "priceDate": "2026-11-02",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 145.72,
+   "probWeighted": 142.07,
+   "comps": 169.14,
+   "compsCycleAdjusted": false,
+   "triangulated": 152.9,
+   "upside": -0.06519300198949252,
+   "wacc": 0.07186003032400215,
+   "costOfEquity": null,
+   "terminalG": 0.02,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 99.97,
+    "p50": 141.18,
+    "p90": 197.91,
+    "pAbovePrice": 0.2825
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 120.46
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "value": 145.72
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.2,
+     "value": 167.72
+    },
+    {
+     "id": "privateLabelTail",
+     "name": "Tail: private-label / recession shock",
+     "p": 0.07,
+     "value": 105.52
+    },
+    {
+     "id": "costTail",
+     "name": "Tail: commodity & tariff spike",
+     "p": 0.04,
+     "value": 110.82
+    },
+    {
+     "id": "emTail",
+     "name": "Tail: emerging-market acceleration",
+     "p": 0.05,
+     "value": 180.06
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.05201176106929781,
+    "impliedMargin": 0.2811356008052826,
+    "baseMargin": 0.25
+   },
+   "revenueCagr": {
+    "value": 0.03504336978124267,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.039968545085023156
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07115003506952147
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06460540973787675
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.07014667110647228
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.06339538313782893
+    },
+    {
+     "year": "current",
+     "date": "2026-11-02",
+     "value": 0.07159945171982038
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 4,
+    "risk": 8,
+    "valuation": 4,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 23,
+    "targetMean": 173.65218
+   },
+   "group": "Consumer staples",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "PG",
+    "group": "Consumer staples",
+    "bank": false,
+    "marketCap": 379096596480,
+    "ev": 402886596992,
+    "evEbitda": 16.058936423469387,
+    "pe": 24.091038646758275,
+    "fpe": 22.11609157416838,
+    "pfcf": 25.02783366211131,
+    "fcfY": 0.039955515667097555,
+    "divY": 0.02699048235992224,
+    "ndE": 0.9390944081632653,
+    "pb": 6.880530636513785
+   },
+   "groupMultiples": {
+    "members": [
+     "ABEV",
+     "PM",
+     "PG"
+    ],
+    "extraPeers": [
+     "MO",
+     "BTI",
+     "IMBBY",
+     "JAPAY",
+     "UVV",
+     "CL",
+     "KMB",
+     "UL",
+     "PEP",
+     "KO",
+     "CHD",
+     "EL"
+    ],
+    "evEbitda": {
+     "med": 12.10547733964046,
+     "mean": 14.12975500367336,
+     "n": 15
+    },
+    "pe": {
+     "med": 22.104179512905343,
+     "mean": 24.959738614809563,
+     "n": 14
+    },
+    "fpe": {
+     "med": 22.11609157416838,
+     "mean": 19.727753436951005,
+     "n": 11
+    },
+    "pfcf": {
+     "med": 25.02783366211131,
+     "mean": 22.274074299700136,
+     "n": 3
+    },
+    "fcfY": {
+     "med": 0.039955515667097555,
+     "mean": 0.053844897804988155,
+     "n": 3
+    },
+    "divY": {
+     "med": 0.02699048235992224,
+     "mean": 0.04833503803342654,
+     "n": 3
+    },
+    "ndE": {
+     "med": 0.9390944081632653,
+     "mean": 0.7624860064129552,
+     "n": 3
+    },
+    "pb": {
+     "med": 6.880530636513785,
+     "mean": 31.80401507412308,
+     "n": 13
     }
    }
   }

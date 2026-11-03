@@ -144,3 +144,14 @@ jobs:
 - `data/valuation_summary.json` is written by `scripts/validate_dashboard.py --export` (run by `make update` / `make summary` after every check passes). It holds, per ticker, the model-default values from the same engine (`valSummary()` in `valuation.js`): price, Base / probability-weighted DCF, comps, triangulated value, upside, WACC and its 5-year history, Monte Carlo percentiles, scenarios, reverse-DCF implied growth, 5-year revenue CAGR and the FX rate with date.
 - The ModelosArgentina site (https://nicolasortizzz.github.io/ModelosArgentina/) reads this file and embeds the workbench with `?embed=valuation#valuation/<TICKER>` (embed mode hides the header, tape, tabs and footer; `&theme=light|dark`). Nothing is copied, so this repo stays the single source of truth: refresh here and push, and that site updates.
 
+
+## Tesis / Decisión (asistente de compra)
+
+| Archivo | Cómo se actualiza |
+|---|---|
+| `data/macro_clock.json` | `now.computed` se refresca con `scripts/fetch_macro_clock.py` (paso `macro_clock` de `update_all.py`): FRED CPIAUCSL, GDPC1, GDPPOT (CBO, proxy del output gap OECD). Si FRED no responde, conserva lo anterior. `now.inflation/gap` y `forecasts.y1/y2` son **manuales**: actualizar tras cada CPI (BLS), PIB (BEA), Fed SEP (mar/jun/sep/dic) y FMI WEO (abr/oct). **TODO:** cargar 2028 (y2) desde Fed SEP / WEO; automatizar OECD EO (SDMX) cuando sea alcanzable. |
+| `data/byma_cedears.json` | `python scripts/parse_byma_cedears.py byma.txt` (pdftotext -layout del listado BYMA). Alias en el script (DIS→DISN). |
+| `data/smart_money.json` | Manual desde Quiver (STOCK Act) y Dataroma (13F, Q3 vence ~14-11). Estados explícitos: `con movimiento`, `sin movimiento`, `sin posición`, `no verificado`. Nunca cargar montos no verificados. |
+| `data/investment_clock.json` | `sectorMap` y `tickerSector` (sector por ticker). |
+
+`validate_dashboard.py` verifica la estructura de estos tres JSON.

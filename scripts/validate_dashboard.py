@@ -46,6 +46,25 @@ def pick(pg, tk):
     pg.click("#vPickIn"); pg.fill("#vPickIn", tk); pg.keyboard.press("Enter")
 
 
+def check_tesis_json():
+    """Structure of the BUY-wizard JSON files (macro_clock, byma_cedears, smart_money)."""
+    p, D = [], os.path.join(ROOT, "data")
+    try:
+        m = json.load(open(os.path.join(D, "macro_clock.json")))
+        for k in ("y1", "y2"):
+            f = m["forecasts"][k]
+            for f2 in ("inflation", "growthOrGap", "phase", "favored", "avoided", "source"):
+                if f2 not in f: p.append(f"macro_clock.forecasts.{k}.{f2} missing")
+        if m["now"].get("phase") not in ("reflacion", "recuperacion", "sobrecalentamiento", "estanflacion"): p.append("macro_clock.now.phase invalid")
+        b = json.load(open(os.path.join(D, "byma_cedears.json")))
+        if len(b.get("cedears", {})) < 100: p.append("byma_cedears.json has < 100 CEDEARs")
+        s = json.load(open(os.path.join(D, "smart_money.json")))
+        for t, e in s["tickers"].items():
+            for side in ("politicians", "superinvestors"):
+                if "status" not in e.get(side, {}): p.append(f"smart_money {t}.{side}.status missing")
+    except Exception as e: p.append(f"tesis json: {e}")
+    return p
+
 def main():
     args = sys.argv[1:]; url = None
     if "--url" in args: i = args.index("--url"); url = args[i + 1]; del args[i:i + 2]
@@ -54,6 +73,9 @@ def main():
     srv = None; summ = {}
     if not url: srv, url = serve()
     fails, errs = {}, []
+    tj = check_tesis_json()
+    if tj: fails["tesis_json"] = tj; print("!! tesis json:", tj)
+    else: print("ok tesis json (macro_clock, byma_cedears, smart_money)")
     with sync_playwright() as pw:
         b = pw.chromium.launch(); pg = b.new_page(viewport={"width": 1440, "height": 1000}); pg.set_default_timeout(120000)
         pg.on("pageerror", lambda e: errs.append(str(e))); pg.on("console", lambda m: errs.append("console: " + m.text) if m.type == "error" else None)

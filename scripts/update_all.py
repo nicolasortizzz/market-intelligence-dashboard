@@ -20,9 +20,9 @@ import json, os, sys, subprocess, shutil, datetime as dt, math, time, socket, te
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DATA = os.path.join(ROOT, "data"); PY = sys.executable
 STEPS = [("market", ["fetch_data.py"]), ("valuation", ["fetch_valuation.py"]), ("reverse", ["fetch_reverse_dcf.py"]),
-         ("revenue", ["fetch_revenue_history.py"]), ("wacc", ["fetch_wacc_history.py"]), ("embi", ["fetch_embi.py"])]
+         ("revenue", ["fetch_revenue_history.py"]), ("wacc", ["fetch_wacc_history.py"]), ("embi", ["fetch_embi.py"]), ("macro_clock", ["fetch_macro_clock.py"])]
 FILES = ["market.json", "prices.json", "activity.json", "macro.json", "valuation.json", "reverse_dcf.json",
-         "revenue_history.json", "wacc_history.json", "embi.json"]
+         "revenue_history.json", "wacc_history.json", "embi.json", "macro_clock.json"]
 
 def arg(name): return name in sys.argv
 def skipped():

@@ -13,9 +13,9 @@
     "items": [
      {
       "who": "Nancy Pelosi",
-      "action": "compra",
+      "action": "compra (ejercicio de 50 calls)",
       "amount": "100k–250k",
-      "date": "16-01-2026",
+      "date": "op. 16-01-2026, decl. 23-01-2026",
       "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
      },
      {
@@ -31,6 +31,13 @@
       "amount": "1k–15k",
       "date": "feb–ago 2026",
       "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "Lisa McClain",
+      "action": "compra y ventas",
+      "amount": "1k–15k",
+      "date": "op. 30/31-10-2025, decl. 21-11-2025",
+      "source": "politicos_trades.md (relevado 23-10)"
      }
     ]
    },
@@ -137,6 +144,13 @@
       "amount": null,
       "date": "Q2-2026",
       "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Bill Nygren",
+      "action": "0,00% (+4,35%)",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "informe 3-11 (Dataroma)"
      }
     ]
    }
@@ -149,20 +163,20 @@
       "who": "Pete Sessions",
       "action": "venta",
       "amount": "1k–15k",
-      "date": "decl. 30-09→1-11",
-      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+      "date": "decl. 27-10-2026",
+      "source": "informe 3-11 (Quiver)"
      },
      {
       "who": "Nancy Pelosi",
-      "action": "venta",
+      "action": "venta — no verificado (fuentes en conflicto: politicos_trades.md dice que no declaró ventas en 2026 y no la lista en el PTR del 23-01)",
       "amount": "1M–5M",
-      "date": "dic-2025",
-      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+      "date": "op. 30-12-2025, decl. 23-01-2026",
+      "source": "informe 3-11 (Quiver)"
      }
     ]
    },
    "superinvestors": {
-    "status": "sin posición (14 gestores seguidos)",
+    "status": "sin posición (14 gestores seguidos); en Dataroma general DIS es 6ª compra 2 trimestres y 1ª en Q3 parcial (8/82 filings)",
     "items": []
    }
   },

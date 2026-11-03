@@ -128,3 +128,5 @@ table.mx .cheap{color:var(--up)}table.mx .rich{color:var(--dn)}table.mx .def{dis
 .fit{padding:2px 8px;border-radius:999px;font:600 12px Inter}.fit-bueno{background:rgba(34,197,94,.15);color:#16a34a}.fit-neutro{background:rgba(234,179,8,.15);color:#a16207}.fit-malo{background:rgba(239,68,68,.12);color:#dc2626}.fit-sin{opacity:.6}
 .sm-list{margin:2px 0 4px 16px;padding:0}.tesis-warn{opacity:.7}
 @media(max-width:640px){.tesis-steps li{flex:1 1 40%;padding:6px 8px;font-size:12px}}
+.wz-sec{margin-top:10px}.wz-sec table{width:100%;border-collapse:collapse;margin-top:6px}.wz-sec td,.wz-sec th{padding:4px 6px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+.wz-sec tr.sec-fav td:first-child{color:#16a34a;font-weight:600}.wz-sec tr.sec-avo td:first-child{color:#dc2626;font-weight:600}

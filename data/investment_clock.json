@@ -190,7 +190,225 @@
   "OKLO": "Utilities",
   "SMR": "Utilities",
   "BE": "Industrials",
-  "GEV": "Industrials"
+  "GEV": "Industrials",
+  "SMH": "Technology",
+  "TQQQ": "Technology"
  },
- "tickerSectorNote": "Sector económico asignado a las empresas con DCF (juicio propio a partir de la descripción de valuation_summary.json). ADRs argentinos se asignan a su sector real (YPF/VIST Energy, GGAL Financials)."
+ "tickerSectorNote": "Sector económico asignado a las empresas con DCF (juicio propio a partir de la descripción de valuation_summary.json). ADRs argentinos se asignan a su sector real (YPF/VIST Energy, GGAL Financials). SMH y TQQQ se asignan a Technology (semis / Nasdaq-100 x3). SPY, EWZ y EWY son multi-sector y no se asignan a un sector único. Ojo: Communication incluye META/GOOGL/DIS, pero el paper mide Telecoms (operadoras); el mapeo es aproximado.",
+ "sectorReturns": {
+  "recuperacion": [
+   {
+    "sector": "Consumer Disc.",
+    "paper": "Consumer Discretionary",
+    "rel": 3.8
+   },
+   {
+    "sector": "Communication",
+    "paper": "Telecoms",
+    "rel": 3.7
+   },
+   {
+    "sector": "Technology",
+    "paper": "Technology",
+    "rel": 3.3
+   },
+   {
+    "sector": "Financials",
+    "paper": "Financials",
+    "rel": 1.4
+   },
+   {
+    "sector": "Industrials",
+    "paper": "Industrials",
+    "rel": -0.4
+   },
+   {
+    "sector": "Materials",
+    "paper": "Basic Materials",
+    "rel": -2.4
+   },
+   {
+    "sector": "Consumer Staples",
+    "paper": "Consumer Staples",
+    "rel": -3.1
+   },
+   {
+    "sector": "Utilities",
+    "paper": "Utilities",
+    "rel": -3.1
+   },
+   {
+    "sector": "Energy",
+    "paper": "Oil & Gas",
+    "rel": -4.4
+   },
+   {
+    "sector": "Health Care",
+    "paper": "Pharmaceuticals",
+    "rel": -4.5
+   }
+  ],
+  "sobrecalentamiento": [
+   {
+    "sector": "Technology",
+    "paper": "Technology",
+    "rel": 4.7
+   },
+   {
+    "sector": "Industrials",
+    "paper": "Industrials",
+    "rel": 4.3
+   },
+   {
+    "sector": "Energy",
+    "paper": "Oil & Gas",
+    "rel": 4.2
+   },
+   {
+    "sector": "Health Care",
+    "paper": "Pharmaceuticals",
+    "rel": 2.9
+   },
+   {
+    "sector": "Consumer Staples",
+    "paper": "Consumer Staples",
+    "rel": 1.1
+   },
+   {
+    "sector": "Communication",
+    "paper": "Telecoms",
+    "rel": -0.9
+   },
+   {
+    "sector": "Financials",
+    "paper": "Financials",
+    "rel": -1.8
+   },
+   {
+    "sector": "Utilities",
+    "paper": "Utilities",
+    "rel": -3.2
+   },
+   {
+    "sector": "Materials",
+    "paper": "Basic Materials",
+    "rel": -3.6
+   },
+   {
+    "sector": "Consumer Disc.",
+    "paper": "Consumer Discretionary",
+    "rel": -5.8
+   }
+  ],
+  "reflacion": [
+   {
+    "sector": "Consumer Staples",
+    "paper": "Consumer Staples",
+    "rel": 13.3
+   },
+   {
+    "sector": "Financials",
+    "paper": "Financials",
+    "rel": 11.0
+   },
+   {
+    "sector": "Consumer Disc.",
+    "paper": "Consumer Discretionary",
+    "rel": 8.9
+   },
+   {
+    "sector": "Health Care",
+    "paper": "Pharmaceuticals",
+    "rel": 5.6
+   },
+   {
+    "sector": "Materials",
+    "paper": "Basic Materials",
+    "rel": 0.5
+   },
+   {
+    "sector": "Industrials",
+    "paper": "Industrials",
+    "rel": -4.5
+   },
+   {
+    "sector": "Technology",
+    "paper": "Technology",
+    "rel": -4.6
+   },
+   {
+    "sector": "Utilities",
+    "paper": "Utilities",
+    "rel": -4.7
+   },
+   {
+    "sector": "Communication",
+    "paper": "Telecoms",
+    "rel": -10.2
+   },
+   {
+    "sector": "Energy",
+    "paper": "Oil & Gas",
+    "rel": -12.8
+   }
+  ],
+  "estanflacion": [
+   {
+    "sector": "Energy",
+    "paper": "Oil & Gas",
+    "rel": 14.7
+   },
+   {
+    "sector": "Health Care",
+    "paper": "Pharmaceuticals",
+    "rel": 11.6
+   },
+   {
+    "sector": "Utilities",
+    "paper": "Utilities",
+    "rel": 6.4
+   },
+   {
+    "sector": "Consumer Staples",
+    "paper": "Consumer Staples",
+    "rel": 2.5
+   },
+   {
+    "sector": "Industrials",
+    "paper": "Industrials",
+    "rel": 2.1
+   },
+   {
+    "sector": "Materials",
+    "paper": "Basic Materials",
+    "rel": 2.1
+   },
+   {
+    "sector": "Financials",
+    "paper": "Financials",
+    "rel": 1.6
+   },
+   {
+    "sector": "Communication",
+    "paper": "Telecoms",
+    "rel": 0.0
+   },
+   {
+    "sector": "Consumer Disc.",
+    "paper": "Consumer Discretionary",
+    "rel": -8.9
+   },
+   {
+    "sector": "Technology",
+    "paper": "Technology",
+    "rel": -12.5
+   }
+  ]
+ },
+ "sectorReturnsSource": "Merrill Lynch, The Investment Clock (Greetham & Hartnett, 10-nov-2004), Tabla 6 «U.S. Broad Sector Returns Relative to the Market». EE.UU. abr-1973–jul-2004, índices Datastream (10 sectores, 92% del mercado). Unidad: retorno anual relativo al S&P/mercado, promedio geométrico, en puntos porcentuales. Misma tabla que usa la tesina (cap. 2.3). Telecoms→Communication, Pharma→Health Care, Oil & Gas→Energy.",
+ "etfMulti": {
+  "SPY": "S&P 500 (multi-sector, ~1/3 tecnología)",
+  "EWZ": "Brasil (Petrobras, Vale, bancos: energía/materiales/financieras)",
+  "EWY": "Corea (Samsung + SK Hynix ~40% semis)"
+ }
 }

@@ -13,9 +13,9 @@
     "items": [
      {
       "who": "Nancy Pelosi",
-      "action": "compra",
+      "action": "compra (ejercicio de 50 calls)",
       "amount": "100k–250k",
-      "date": "16-01-2026",
+      "date": "op. 16-01-2026, decl. 23-01-2026",
       "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
      },
      {
@@ -31,6 +31,13 @@
       "amount": "1k–15k",
       "date": "feb–ago 2026",
       "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "Lisa McClain",
+      "action": "compra y ventas",
+      "amount": "1k–15k",
+      "date": "op. 30/31-10-2025, decl. 21-11-2025",
+      "source": "politicos_trades.md (relevado 23-10)"
      }
     ]
    },
@@ -39,17 +46,17 @@
     "items": [
      {
       "who": "David Tepper",
-      "action": "sumó (+9,5%), 4,7% de la cartera",
-      "amount": null,
+      "action": "sumó +9,54% · 4,70% de la cartera",
+      "amount": "2.215.272 acciones",
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "Stephen Mandel",
       "action": "vendió todo",
-      "amount": null,
+      "amount": "6.187.585 acciones",
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -79,17 +86,17 @@
     "items": [
      {
       "who": "Chase Coleman",
-      "action": "recortó (−15%), 0,5%",
+      "action": "recortó −15,1% · 0,52% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "David Tepper",
       "action": "vendió todo",
-      "amount": null,
+      "amount": "90.000 acciones",
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -112,31 +119,38 @@
     "items": [
      {
       "who": "Bill Ackman",
-      "action": "sumó (+20%), 9,3%",
+      "action": "sumó +20,1% · 9,25% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "Chase Coleman",
-      "action": "6,6%",
+      "action": "recortó −8,5% · 6,63% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "David Tepper",
-      "action": "sumó (+55%), 5,1%",
+      "action": "sumó +54,6% · 5,09% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "Dan Loeb",
       "action": "vendió todo",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
+     },
+     {
+      "who": "Bill Nygren",
+      "action": "sumó +4,35% · 0,00% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -149,20 +163,20 @@
       "who": "Pete Sessions",
       "action": "venta",
       "amount": "1k–15k",
-      "date": "decl. 30-09→1-11",
-      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+      "date": "decl. 27-10-2026",
+      "source": "informe 3-11 (Quiver)"
      },
      {
       "who": "Nancy Pelosi",
-      "action": "venta",
+      "action": "venta — no verificado (fuentes en conflicto: politicos_trades.md dice que no declaró ventas en 2026 y no la lista en el PTR del 23-01)",
       "amount": "1M–5M",
-      "date": "dic-2025",
-      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+      "date": "op. 30-12-2025, decl. 23-01-2026",
+      "source": "informe 3-11 (Quiver)"
      }
     ]
    },
    "superinvestors": {
-    "status": "sin posición (14 gestores seguidos)",
+    "status": "sin posición (14 gestores seguidos); en Dataroma general DIS es 6ª compra 2 trimestres y 1ª en Q3 parcial (8/82 filings)",
     "items": []
    }
   },
@@ -448,14 +462,14 @@
     "items": []
    },
    "superinvestors": {
-    "status": "con posición",
+    "status": "con movimiento",
     "items": [
      {
       "who": "David Tepper",
-      "action": "6,6%",
+      "action": "sumó +1,0% · 6,55% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -470,10 +484,10 @@
     "items": [
      {
       "who": "Bill Nygren",
-      "action": "~0% (−72%)",
+      "action": "recortó −72,2% · 0,00% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -509,9 +523,9 @@
      {
       "who": "Dan Loeb",
       "action": "vendió todo",
-      "amount": null,
+      "amount": "40.000 acciones",
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }

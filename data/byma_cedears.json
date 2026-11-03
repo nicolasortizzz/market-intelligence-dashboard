@@ -1,0 +1,2160 @@
+{
+ "asOf": "2026-11-03",
+ "source": "BYMA, listado 'CEDEARs Negociables en BYMA' (byma.pdf → pdftotext)",
+ "count": 429,
+ "cedears": {
+  "BYMA": {
+   "name": "",
+   "market": "Cotiza",
+   "ratio": null
+  },
+  "AABA": {
+   "name": "Altaba Inc.",
+   "market": "NASDAQ",
+   "ratio": "3:1"
+  },
+  "AAL": {
+   "name": "American Airlines Group Inc",
+   "market": "NASDAQ",
+   "ratio": "2:1"
+  },
+  "AAP": {
+   "name": "Advanced Auto Parts Inc",
+   "market": "NYSE",
+   "ratio": "14:1"
+  },
+  "AAPL": {
+   "name": "Apple Inc.",
+   "market": "NASDAQ",
+   "ratio": "20:1"
+  },
+  "ABBV": {
+   "name": "AbbVie Inc.",
+   "market": "NYSE",
+   "ratio": "10:1"
+  },
+  "ABEV": {
+   "name": "Ambev S.A.",
+   "market": "NASDAQ",
+   "ratio": "1:3"
+  },
+  "B3": {
+   "name": "Ambev S.A.                                                 ABEV3",
+   "market": "",
+   "ratio": "1:1"
+  },
+  "ABNB": {
+   "name": "Airbnb Inc",
+   "market": "NASDAQ GS",
+   "ratio": "15:1"
+  },
+  "ABT": {
+   "name": "Abbott Labs",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "ACN": {
+   "name": "Accenture",
+   "market": "NYSE",
+   "ratio": "75:1"
+  },
+  "ACWI": {
+   "name": "iShares MSCI ACWI ETF",
+   "market": "NASDAQ",
+   "ratio": "26:1"
+  },
+  "ADBE": {
+   "name": "Adobe Systems Incorporated",
+   "market": "NASDAQ",
+   "ratio": "44:1"
+  },
+  "ADGO": {
+   "name": "Adecoagro S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "ADI": {
+   "name": "Analog Devices",
+   "market": "NASDAQ",
+   "ratio": "15:1"
+  },
+  "ADP": {
+   "name": "Automatic Data Processing Inc.",
+   "market": "NASDAQ",
+   "ratio": "6:1"
+  },
+  "ADS": {
+   "name": "Adidas AG",
+   "market": "XETRA",
+   "ratio": "22:1"
+  },
+  "AEG": {
+   "name": "Aegon N.V.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "AEM": {
+   "name": "Agnico Eagle Mines Limited",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "AI": {
+   "name": "C3.AI INC",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "AIG": {
+   "name": "American International Group (AIG)",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "AKO.B": {
+   "name": "Embotelladora Andina S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "ALAB": {
+   "name": "Astera Labs Inc",
+   "market": "NASDAQ",
+   "ratio": "44:1"
+  },
+  "AMAT": {
+   "name": "Applied Materials Inc.",
+   "market": "NASDAQ",
+   "ratio": "5:1"
+  },
+  "AMD": {
+   "name": "Advanced Micro Devices, Inc.",
+   "market": "NASDAQ",
+   "ratio": "10:1"
+  },
+  "AMGN": {
+   "name": "Amgen Inc.",
+   "market": "NASDAQ",
+   "ratio": "30:1"
+  },
+  "AMX": {
+   "name": "America Movil",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "AMZN": {
+   "name": "Amazon.Com, Inc.",
+   "market": "NYSE",
+   "ratio": "144:1"
+  },
+  "ANET": {
+   "name": "Arista Networks Inc.",
+   "market": "NYSE",
+   "ratio": "29:1"
+  },
+  "ANF": {
+   "name": "Abercrombie & Fitch Co",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "AOCA": {
+   "name": "Aluminum Corp Of China",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "ARCO": {
+   "name": "Arcos Dorados Holdings Inc.",
+   "market": "NYSE",
+   "ratio": "1:2"
+  },
+  "ARKK": {
+   "name": "ARK INNOVATION",
+   "market": "NYSE Arca",
+   "ratio": "10:1"
+  },
+  "ARM": {
+   "name": "ARM Holdings Plc",
+   "market": "NASDAQ",
+   "ratio": "27:1"
+  },
+  "ASML": {
+   "name": "ASML HOLDING NV",
+   "market": "NASDAQ GS",
+   "ratio": "146:1"
+  },
+  "ASR": {
+   "name": "Grupo Aeroportuario Del Sureste , S.A.B. de C.V.",
+   "market": "NYSE",
+   "ratio": "20:1"
+  },
+  "ASTS": {
+   "name": "AST SpaceMobile Inc",
+   "market": "NASDAQ",
+   "ratio": "15:1"
+  },
+  "ATAD": {
+   "name": "Pjsc Tatneft",
+   "market": "",
+   "ratio": "4:1"
+  },
+  "EXCHANGE": {
+   "name": "",
+   "market": "",
+   "ratio": null
+  },
+  "AUY": {
+   "name": "Yamana Gold Inc.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "AVGO": {
+   "name": "Broadcom Inc.",
+   "market": "NASDAQ",
+   "ratio": "39:1"
+  },
+  "AVY": {
+   "name": "Avery Dennison Corp.",
+   "market": "NYSE",
+   "ratio": "18:1"
+  },
+  "AXP": {
+   "name": "American Express Co",
+   "market": "NYSE",
+   "ratio": "15:1"
+  },
+  "AZN": {
+   "name": "Astrazeneca Plc",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "B": {
+   "name": "Barrick Gold Corp",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "BA": {
+   "name": "The Boeing Company",
+   "market": "NYSE",
+   "ratio": "24:1"
+  },
+  "BA.C": {
+   "name": "Bank Of America Corporation",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "BABA": {
+   "name": "Alibaba Group Holding Limited",
+   "market": "NYSE",
+   "ratio": "9:1"
+  },
+  "BAK": {
+   "name": "Braskem SA",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "BAS": {
+   "name": "Basf SE",
+   "market": "FRANKFURT",
+   "ratio": "2:1"
+  },
+  "BAYN": {
+   "name": "Bayer AG",
+   "market": "FRANKFURT",
+   "ratio": "3:1"
+  },
+  "BB": {
+   "name": "Blackberry Limited",
+   "market": "NASDAQ",
+   "ratio": "3:1"
+  },
+  "BBAX": {
+   "name": "JPMorgan BetaBuilders Developed Asia Pacific-ex Japan ETF",
+   "market": "CBOE",
+   "ratio": "13:1"
+  },
+  "BBCA": {
+   "name": "JPMorgan BetaBuilders Canada ETF",
+   "market": "CBOE",
+   "ratio": "20:1"
+  },
+  "BBD": {
+   "name": "Banco Bradesco S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "BBV": {
+   "name": "Bilbao Vizcaya Argentaria S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "BCS": {
+   "name": "Barclays Bank Plc",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "BHP": {
+   "name": "Bhp Group Ltd",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "BIDU": {
+   "name": "Baidu, Inc.",
+   "market": "NASDAQ",
+   "ratio": "11:1"
+  },
+  "BIIB": {
+   "name": "Biogen Inc.",
+   "market": "NASDAQ",
+   "ratio": "13:1"
+  },
+  "BIOX": {
+   "name": "Bioceres Crop Solutions Corp.",
+   "market": "NYSE American",
+   "ratio": "1:1"
+  },
+  "BK": {
+   "name": "The Bank Of New York Mellon Corp.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "BKNG": {
+   "name": "Booking",
+   "market": "NASDAQ",
+   "ratio": "700:1"
+  },
+  "BKR": {
+   "name": "Baker Hughes Co",
+   "market": "NASDAQ",
+   "ratio": "7:1"
+  },
+  "BMNR": {
+   "name": "Bitmine Inmersion Technologies, Inc.",
+   "market": "NYSE",
+   "ratio": "8:1"
+  },
+  "BMY": {
+   "name": "Bristol-Myers Squibb Company",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "BNG": {
+   "name": "Bunge Limited",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "BP": {
+   "name": "BP PCL",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "BRFS": {
+   "name": "BRF S.A.",
+   "market": "NYSE",
+   "ratio": "1:3"
+  },
+  "BRKB": {
+   "name": "Berkshire Hathaway Inc.",
+   "market": "NYSE",
+   "ratio": "22:1"
+  },
+  "BSBR": {
+   "name": "Banco Santander (Brasil) S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "BSN": {
+   "name": "Danone",
+   "market": "FRANKFURT",
+   "ratio": "20:1"
+  },
+  "BX": {
+   "name": "Blackstone Inc.",
+   "market": "NYSE",
+   "ratio": "30:1"
+  },
+  "C": {
+   "name": "Citigroup Inc",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "CAAP": {
+   "name": "Corporación America Airports S.A.",
+   "market": "NYSE",
+   "ratio": "1:4"
+  },
+  "CAH": {
+   "name": "Cardinal Health Inc",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "CAJ": {
+   "name": "Canon Inc",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "CAR": {
+   "name": "Avis Budget Group Inc.",
+   "market": "NASDAQ",
+   "ratio": "26:1"
+  },
+  "CAT": {
+   "name": "Caterpillar Inc",
+   "market": "NYSE",
+   "ratio": "20:1"
+  },
+  "CBRD": {
+   "name": "Companhia Brasileira De Dis NPV ADR",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "CCJ": {
+   "name": "Cameco Corporation",
+   "market": "NYSE",
+   "ratio": "23:1"
+  },
+  "CCL": {
+   "name": "Carnival",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "CDE": {
+   "name": "Coeur Mining Inc.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "CEG": {
+   "name": "CONSTELLATION ENERGY CORPORATION",
+   "market": "NASDAQ GS",
+   "ratio": "45:1"
+  },
+  "CIBR": {
+   "name": "First Trust NASDAQ Cybersecurity",
+   "market": "NASDAQ GM",
+   "ratio": "10:01"
+  },
+  "CL": {
+   "name": "Colgate Palmolive Co",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "CLS": {
+   "name": "CELESTICA INC",
+   "market": "NYSE",
+   "ratio": "20:1"
+  },
+  "COIN": {
+   "name": "Coinbase Global Inc",
+   "market": "NASDAQ",
+   "ratio": "27:1"
+  },
+  "COP": {
+   "name": "ConocoPhillips",
+   "market": "NYSE",
+   "ratio": "25:1"
+  },
+  "COPX": {
+   "name": "Global X Copper Miners ETF",
+   "market": "NYSE",
+   "ratio": "14:1"
+  },
+  "CORN": {
+   "name": "Teucrium Corn Fund",
+   "market": "NYSE Arca",
+   "ratio": "4:1"
+  },
+  "COST": {
+   "name": "Costco Wholesale Corp",
+   "market": "NASDAQ",
+   "ratio": "48:1"
+  },
+  "CRM": {
+   "name": "Salesforce Inc.",
+   "market": "NYSE",
+   "ratio": "18:1"
+  },
+  "CRWD": {
+   "name": "CrowdStrike Holdings, Inc.",
+   "market": "NASDAQ GS",
+   "ratio": "79:1"
+  },
+  "CRWV": {
+   "name": "CoreWeave Inc",
+   "market": "NASDAQ",
+   "ratio": "27:1"
+  },
+  "CS": {
+   "name": "Credit Suisse Group",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "CSCO": {
+   "name": "Cisco Systems Inc",
+   "market": "NASDAQ",
+   "ratio": "5:1"
+  },
+  "CVS": {
+   "name": "CVS Health",
+   "market": "NYSE",
+   "ratio": "15:1"
+  },
+  "CVX": {
+   "name": "Chevron Corp.",
+   "market": "NYSE",
+   "ratio": "16:1"
+  },
+  "CX": {
+   "name": "Cemex S.A.B. de CV",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "DAL": {
+   "name": "Delta Air Lines",
+   "market": "NYSE",
+   "ratio": "8:1"
+  },
+  "DD": {
+   "name": "Dupont de Nemours Inc.",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "DE": {
+   "name": "Deere & Co.",
+   "market": "NYSE",
+   "ratio": "40:1"
+  },
+  "DECK": {
+   "name": "DECKERS OUTDOOR CORPORATION",
+   "market": "NYSE",
+   "ratio": "25:1"
+  },
+  "DELL": {
+   "name": "DELL TECHNOLOGIES INC",
+   "market": "NYSE",
+   "ratio": "74:1"
+  },
+  "DEO": {
+   "name": "Diageo PLC",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "DHR": {
+   "name": "Danaher Corp",
+   "market": "NYSE",
+   "ratio": "54:1"
+  },
+  "DIA": {
+   "name": "SPDR DOW JONES INDUSTRIAL",
+   "market": "NYSE Arca",
+   "ratio": "20:1"
+  },
+  "DISN": {
+   "name": "The Walt Disney Co.",
+   "market": "NYSE",
+   "ratio": "12:1"
+  },
+  "DOCU": {
+   "name": "DocuSign Inc.",
+   "market": "NASDAQ",
+   "ratio": "22:1"
+  },
+  "DOW": {
+   "name": "DOW Inc",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "DTEA": {
+   "name": "Deutsche Telekom Ag",
+   "market": "OTC US",
+   "ratio": "3:1"
+  },
+  "E": {
+   "name": "Eni Spa",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "EA": {
+   "name": "Electronic Arts Inc",
+   "market": "NASDAQ",
+   "ratio": "14:1"
+  },
+  "EBAY": {
+   "name": "Ebay Inc.",
+   "market": "NASDAQ",
+   "ratio": "2:1"
+  },
+  "EBR": {
+   "name": "Centrais Eléctricas Brasileiras S.A. - Eletrobras",
+   "market": "NYSE",
+   "ratio": "1:4"
+  },
+  "ECL": {
+   "name": "Ecolab Inc",
+   "market": "NYSE",
+   "ratio": "56:1"
+  },
+  "EEM": {
+   "name": "ISHARES MSCI EMERGING MARKET",
+   "market": "NYSE Arca",
+   "ratio": "5:01"
+  },
+  "EFA": {
+   "name": "iShares MSCI EAFE ETF",
+   "market": "NYSE",
+   "ratio": "18:1"
+  },
+  "EFX": {
+   "name": "Equifax Inc.",
+   "market": "NYSE",
+   "ratio": "16:1"
+  },
+  "ELP": {
+   "name": "Companhia Paranaense de Energía - COPEL",
+   "market": "NYSE",
+   "ratio": "1:3"
+  },
+  "EOAN": {
+   "name": "E.On Se",
+   "market": "FRANKFURT",
+   "ratio": "6:1"
+  },
+  "EQNR": {
+   "name": "Equinor Asa",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "ERIC": {
+   "name": "Lm Ericsson Telephone Co.",
+   "market": "NASDAQ",
+   "ratio": "2:1"
+  },
+  "ERJ": {
+   "name": "Embraer-Empresa Brasileira de Aeronáutica S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "ESGU": {
+   "name": "IShares ESG Aware MSCI USA ETF",
+   "market": "NASDAQ",
+   "ratio": "30:1"
+  },
+  "ETHA": {
+   "name": "ISHARES ETHEREUM TR ETF",
+   "market": "NASDAQ",
+   "ratio": "5:1"
+  },
+  "ETSY": {
+   "name": "Etsy Inc.",
+   "market": "NASDAQ",
+   "ratio": "16:1"
+  },
+  "EWJ": {
+   "name": "iShares MSCI JAPAN ETF",
+   "market": "NYSE Arca",
+   "ratio": "14:1"
+  },
+  "EWY": {
+   "name": "iShares MSCI South Korea ETF",
+   "market": "NYSE ARCA",
+   "ratio": "50:1"
+  },
+  "EWZ": {
+   "name": "ISHARES MSCI BRAZIL CAP",
+   "market": "NYSE Arca",
+   "ratio": "2:1"
+  },
+  "F": {
+   "name": "Ford Motor Company",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "FCX": {
+   "name": "Freeport Mcmoran Copper & Gold Inc.",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "FDX": {
+   "name": "Fedex Corp",
+   "market": "NYSE",
+   "ratio": "10:1"
+  },
+  "FISV": {
+   "name": "Fiserv, Inc.",
+   "market": "NASDAQ GS",
+   "ratio": "11:1"
+  },
+  "FMCC": {
+   "name": "Freddie Mac (Federal Home Loan)",
+   "market": "OTC",
+   "ratio": "1:1"
+  },
+  "FMX": {
+   "name": "Fomento Economico Mexicano - Femsa",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "FNMA": {
+   "name": "Fed. Natl, Mortgage - Fannie Mae",
+   "market": "OTC",
+   "ratio": "1:1"
+  },
+  "FSLR": {
+   "name": "First Solar Inc.",
+   "market": "NASDAQ",
+   "ratio": "18:1"
+  },
+  "FXI": {
+   "name": "ISHARES CHINA LARGE-CAP ETF",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "GDX": {
+   "name": "Van Eck Gold Miners ETF/USA",
+   "market": "NYSE",
+   "ratio": "10:1"
+  },
+  "GE": {
+   "name": "General Electric Co.",
+   "market": "NYSE",
+   "ratio": "8:1"
+  },
+  "GEV": {
+   "name": "GE VERNOVA INC",
+   "market": "NYSE",
+   "ratio": "180:1"
+  },
+  "GFI": {
+   "name": "Gold Fields Ltd.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "GGB": {
+   "name": "Gerdau S.A.",
+   "market": "NYSE",
+   "ratio": "1:4"
+  },
+  "GILD": {
+   "name": "Gilead Sciences, Inc.",
+   "market": "NASDAQ",
+   "ratio": "4:1"
+  },
+  "GLD": {
+   "name": "ETF SPDR GOLD TRUST",
+   "market": "NYSE",
+   "ratio": "50:1"
+  },
+  "GLNG": {
+   "name": "Golar LNG Ltd.",
+   "market": "NASDAQ GS",
+   "ratio": "10:1"
+  },
+  "GLOB": {
+   "name": "Globant S.A.",
+   "market": "NYSE",
+   "ratio": "18:1"
+  },
+  "GLW": {
+   "name": "Corning Inc.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "GM": {
+   "name": "General Motors Co",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "GOOGL": {
+   "name": "Alphabet Inc.",
+   "market": "NASDAQ",
+   "ratio": "58:1"
+  },
+  "GPRK": {
+   "name": "Geopark Ltd.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "GRMN": {
+   "name": "Garmin Ltd.",
+   "market": "NASDAQ",
+   "ratio": "3:1"
+  },
+  "GS": {
+   "name": "The Goldman Sachs Group, Inc",
+   "market": "NYSE",
+   "ratio": "13:1"
+  },
+  "GSG": {
+   "name": "iShares S&P GSCI Commodity-Indexed Trust",
+   "market": "NYSE Arca",
+   "ratio": "6:1"
+  },
+  "GSK": {
+   "name": "GSK Plc.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "GT": {
+   "name": "Goodyear Tire & Rubber co./the",
+   "market": "NASDAQ",
+   "ratio": "2:1"
+  },
+  "HAL": {
+   "name": "Halliburton Co.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "HD": {
+   "name": "The Home Depot Inc.",
+   "market": "NYSE",
+   "ratio": "32:1"
+  },
+  "HDB": {
+   "name": "Hdfc Bank Limited.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "HHPD": {
+   "name": "Hon Hai Precision Industry Co. Ltd.",
+   "market": "",
+   "ratio": "2:1"
+  },
+  "HIMS": {
+   "name": "Hims & Hers Health, Inc.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "HL": {
+   "name": "Hecla Mining Co .",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "HMC": {
+   "name": "Honda Motor Co. Ltd",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "HMY": {
+   "name": "Harmony Gold Mining Company Ltd.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "HNPIY": {
+   "name": "Huaneng Power Intl",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "HOG": {
+   "name": "Harley-Davidson Inc.",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "HON": {
+   "name": "Honeywell International Inc.",
+   "market": "NYSE",
+   "ratio": "8:1"
+  },
+  "HOOD": {
+   "name": "Robinhood Markets Inc",
+   "market": "NASDAQ",
+   "ratio": "29:1"
+  },
+  "HPQ": {
+   "name": "Hp Inc",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "HSBC": {
+   "name": "Hsbc Holdings Plc",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "HSY": {
+   "name": "The Hershey Company",
+   "market": "NYSE",
+   "ratio": "21:1"
+  },
+  "HUT": {
+   "name": "Hut 8 Mining Corp.",
+   "market": "NASDAQ GS",
+   "ratio": "5:1"
+  },
+  "HWM": {
+   "name": "Howmet Aerospace Inc.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "IBB": {
+   "name": "iShares Nasdaq Biotechnology ETF",
+   "market": "NASDAQ",
+   "ratio": "27:1"
+  },
+  "IBIT": {
+   "name": "ISHARES BITCOIN TRUST",
+   "market": "NASDAQ",
+   "ratio": "10:1"
+  },
+  "IBKR": {
+   "name": "INTERACTIVE BROKERS GROUP INC",
+   "market": "NASDAQ GS",
+   "ratio": "17:1"
+  },
+  "IBM": {
+   "name": "International Business Machines",
+   "market": "NYSE",
+   "ratio": "15:1"
+  },
+  "IBN": {
+   "name": "Icici Bank Ltd.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "ICLN": {
+   "name": "iShares Global Clean Energy ETF",
+   "market": "NASDAQ GM",
+   "ratio": "5:1"
+  },
+  "IEMG": {
+   "name": "iShares Core MSCI Emerging Markets ETF",
+   "market": "NYSE",
+   "ratio": "12:1"
+  },
+  "IEUR": {
+   "name": "iShares Core MSCI Europe ETF",
+   "market": "NYSE Arca",
+   "ratio": "11:1"
+  },
+  "IFF": {
+   "name": "International Flavors & Fragrances Inc.",
+   "market": "NYSE",
+   "ratio": "12:1"
+  },
+  "IJH": {
+   "name": "iShares CORE S&P MID-CAP ETF",
+   "market": "NYSE Arca",
+   "ratio": "12:1"
+  },
+  "ILF": {
+   "name": "IShares Latin America 40 ETF",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "INFY": {
+   "name": "Infosys Limited",
+   "market": "NASDAQ",
+   "ratio": "1:1"
+  },
+  "ING": {
+   "name": "Ing Groep Nv",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "INTC": {
+   "name": "Intel Corporation",
+   "market": "NASDAQ",
+   "ratio": "5:1"
+  },
+  "IP": {
+   "name": "International Paper Co.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "IREN": {
+   "name": "Iren Ltd",
+   "market": "NASDAQ",
+   "ratio": "12:1"
+  },
+  "ISRG": {
+   "name": "Intuitive Surgical inc",
+   "market": "NASDAQ",
+   "ratio": "90:1"
+  },
+  "ITA": {
+   "name": "iShares U.S. Aerospace & Defense",
+   "market": "CBOE",
+   "ratio": "50:1"
+  },
+  "ITUB": {
+   "name": "Itaú Unibanco Holding S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "IVE": {
+   "name": "iShares S&P 500 Value ETF",
+   "market": "NYSE Arca",
+   "ratio": "40:1"
+  },
+  "IVV": {
+   "name": "IShares Core S&P 500 ETF",
+   "market": "NYSE",
+   "ratio": "692:1"
+  },
+  "IVW": {
+   "name": "iShares S&P 500 Growth ETF",
+   "market": "NYSE Arca",
+   "ratio": "20:1"
+  },
+  "IWM": {
+   "name": "ISHARES TRUST RUSSELL 2000",
+   "market": "NYSE Arca",
+   "ratio": "10:1"
+  },
+  "JCI": {
+   "name": "Johnson Controls International",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "JD": {
+   "name": "Jd.Com, Inc.",
+   "market": "NASDAQ",
+   "ratio": "4:1"
+  },
+  "JMIA": {
+   "name": "Adr Jumia Technologies Ag",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "JNJ": {
+   "name": "Johnson & Johnson",
+   "market": "NYSE",
+   "ratio": "15:1"
+  },
+  "JOYY": {
+   "name": "JOYY Inc.",
+   "market": "NASDAQ",
+   "ratio": "5:1"
+  },
+  "JPM": {
+   "name": "J.P. Morgan & Chase Co.",
+   "market": "NYSE",
+   "ratio": "15:1"
+  },
+  "KB": {
+   "name": "Kb Financial Group Inc.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "KEEL": {
+   "name": "Bitfarms Ltd.",
+   "market": "NASDAQ GM",
+   "ratio": "1:5"
+  },
+  "KEP": {
+   "name": "Korea Electric Power Corp.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "KGC": {
+   "name": "Kinross Gold Corp",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "KLAC": {
+   "name": "KLA CORP",
+   "market": "NASDAQ GS",
+   "ratio": "34:1"
+  },
+  "KMB": {
+   "name": "Kimberly-Clark Corp.",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "KO": {
+   "name": "The Coca Cola Company",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "KOFM": {
+   "name": "Coca-Cola Femsa, S.A.B. De C.V.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "LAC": {
+   "name": "Lithium Americas Corp",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "LAR": {
+   "name": "Lithium Americas (Argentina) Corp",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "LFC": {
+   "name": "China Life Insurance",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "LIN": {
+   "name": "LINDE PLC",
+   "market": "NASDAQ GS",
+   "ratio": "102:1"
+  },
+  "LKOD": {
+   "name": "Pjsc Lukoil",
+   "market": "",
+   "ratio": "4:1"
+  },
+  "LLY": {
+   "name": "Eli Lilly and Company",
+   "market": "NYSE",
+   "ratio": "56:1"
+  },
+  "LMT": {
+   "name": "Lockheed Martin Corporation",
+   "market": "NYSE",
+   "ratio": "20:1"
+  },
+  "LND": {
+   "name": "Brasilagro - Co Brasileira de Propriedades Agrícolas",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "LRCX": {
+   "name": "Lam Research Corp",
+   "market": "NASDAQ",
+   "ratio": "56:1"
+  },
+  "LVS": {
+   "name": "Las Vegas Sands Corp",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "LYG": {
+   "name": "Lloyds Banking Group Plc",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "MA": {
+   "name": "Mastercard Inc.",
+   "market": "NYSE",
+   "ratio": "33:1"
+  },
+  "MBG": {
+   "name": "Mercedes-Benz Group AG",
+   "market": "FRANKFURT",
+   "ratio": "4:1"
+  },
+  "MBT": {
+   "name": "Mobile Telesystems",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "MCD": {
+   "name": "Mcdonald'S Corp.",
+   "market": "NYSE",
+   "ratio": "24:1"
+  },
+  "MDLZ": {
+   "name": "Mondelez",
+   "market": "NASDAQ",
+   "ratio": "15:1"
+  },
+  "MDT": {
+   "name": "Medtronic Public Limited Company",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "MELI": {
+   "name": "Mercadolibre Inc.",
+   "market": "NASDAQ",
+   "ratio": "120:1"
+  },
+  "META": {
+   "name": "Meta Platforms Inc",
+   "market": "NASDAQ",
+   "ratio": "24:1"
+  },
+  "MFG": {
+   "name": "Mizuho Financial Group",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "MMC": {
+   "name": "Marsh & Mclennan Companies Inc.",
+   "market": "NYSE",
+   "ratio": "16:1"
+  },
+  "MMM": {
+   "name": "3M Company",
+   "market": "NYSE",
+   "ratio": "10:1"
+  },
+  "MO": {
+   "name": "Altria Group Inc.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "MOS": {
+   "name": "The Mosaic Co",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "MP": {
+   "name": "MP Materials Corp.",
+   "market": "NYSE",
+   "ratio": "10:1"
+  },
+  "MRK": {
+   "name": "Merck & Co. Inc.",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "MRNA": {
+   "name": "Moderna Inc",
+   "market": "NASDAQ",
+   "ratio": "19:1"
+  },
+  "MRVL": {
+   "name": "Marvell Technology Inc",
+   "market": "NASDAQ",
+   "ratio": "14:1"
+  },
+  "MS": {
+   "name": "MORGAN STANLEY",
+   "market": "NYSE",
+   "ratio": "41:1"
+  },
+  "MSFT": {
+   "name": "Microsoft Corp.",
+   "market": "NASDAQ",
+   "ratio": "30:1"
+  },
+  "MSI": {
+   "name": "Motorola Solutions, Inc.",
+   "market": "NYSE",
+   "ratio": "20:1"
+  },
+  "MSTR": {
+   "name": "Microstrategy Inc Cl A New",
+   "market": "NASDAQ GS",
+   "ratio": "20:1"
+  },
+  "MU": {
+   "name": "Micron Technology Inc",
+   "market": "NASDAQ GS",
+   "ratio": "5:1"
+  },
+  "MUFG": {
+   "name": "Mitsubishi Ufj Financial Group",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "MUX": {
+   "name": "McEwen Mining Inc",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "NBIS": {
+   "name": "Nebius Group N.V.",
+   "market": "NASDAQ GS",
+   "ratio": "27:1"
+  },
+  "NEC1": {
+   "name": "Nec Corporation",
+   "market": "FRANKFURT",
+   "ratio": "1:3"
+  },
+  "NEE": {
+   "name": "NextEra Energy, Inc.",
+   "market": "NYSE",
+   "ratio": "19:1"
+  },
+  "NEM": {
+   "name": "Newmont Corporation",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "NFLX": {
+   "name": "Netflix, Inc.",
+   "market": "NASDAQ",
+   "ratio": "48:1"
+  },
+  "NG": {
+   "name": "Novagold Resources INC.",
+   "market": "NYSE",
+   "ratio": "1:4"
+  },
+  "NGG": {
+   "name": "National Grid Plc",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "NIO": {
+   "name": "NIO Inc.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "NKE": {
+   "name": "Nike Inc.",
+   "market": "NYSE",
+   "ratio": "12:1"
+  },
+  "NLM": {
+   "name": "Novolipetsk Steel PJSC",
+   "market": "",
+   "ratio": "2:1"
+  },
+  "NMR": {
+   "name": "Nomura Holdings, Inc",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "NOKA": {
+   "name": "Nokia Corporation",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "NOW": {
+   "name": "SERVICENOW INC",
+   "market": "NYSE",
+   "ratio": "172:1"
+  },
+  "NSAN": {
+   "name": "Nissan Motor Co., Ltd",
+   "market": "OTC US",
+   "ratio": "1:1"
+  },
+  "NTES": {
+   "name": "Netease, Inc",
+   "market": "NASDAQ",
+   "ratio": "14:1"
+  },
+  "NTRA": {
+   "name": "NATERA INC",
+   "market": "NASDAQ GS",
+   "ratio": "51:1"
+  },
+  "NUE": {
+   "name": "Nucor Corp",
+   "market": "NYSE",
+   "ratio": "16:1"
+  },
+  "NVDA": {
+   "name": "Nvidia Corporation",
+   "market": "NASDAQ",
+   "ratio": "24:1"
+  },
+  "NVO": {
+   "name": "NOVO NORDISK A/S",
+   "market": "NYSE",
+   "ratio": "7:1"
+  },
+  "NVS": {
+   "name": "Novartis Ag",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "NXE": {
+   "name": "Nexgen Energy LTD",
+   "market": "NYSE",
+   "ratio": "01:01"
+  },
+  "O": {
+   "name": "Realty Income Corp.",
+   "market": "NYSE",
+   "ratio": "13:1"
+  },
+  "OGZD": {
+   "name": "Pjsc Gazprom",
+   "market": "",
+   "ratio": "2:1"
+  },
+  "OKLO": {
+   "name": "Oklo Inc",
+   "market": "NYSE",
+   "ratio": "28:1"
+  },
+  "ONDS": {
+   "name": "Ondas Holdings Inc.",
+   "market": "NASDAQ CM",
+   "ratio": "2:1"
+  },
+  "ORAN": {
+   "name": "Orange S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "ORCL": {
+   "name": "Oracle Corporation",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "ORLY": {
+   "name": "O'reilly Automotive Inc",
+   "market": "NASDAQ",
+   "ratio": "222:1"
+  },
+  "OXY": {
+   "name": "Occidental Petroleum Corp.",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "PAAS": {
+   "name": "Pan American Silver Corp.",
+   "market": "NASDAQ",
+   "ratio": "3:1"
+  },
+  "PAC": {
+   "name": "Grupo Aeroportuario del Pacifico, S.A.B. de C.V.",
+   "market": "NYSE",
+   "ratio": "16:1"
+  },
+  "PAGS": {
+   "name": "Pagseguro Digital Ltd",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "PANW": {
+   "name": "Palo Alto Networks Inc",
+   "market": "NASDAQ GS",
+   "ratio": "50:1"
+  },
+  "PATH": {
+   "name": "UIPATH INC",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "PBI": {
+   "name": "Pitney Bowes Inc",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "PBR": {
+   "name": "Petrobras (ADR)",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "PCAR": {
+   "name": "Paccar Inc.",
+   "market": "NASDAQ",
+   "ratio": "3:1"
+  },
+  "PCRF": {
+   "name": "Panasonic Corporation",
+   "market": "OTC US",
+   "ratio": "2:1"
+  },
+  "PDD": {
+   "name": "PDD HOLDINGS INC",
+   "market": "NASDAQ GS",
+   "ratio": "25:1"
+  },
+  "PEP": {
+   "name": "Pepsico Inc",
+   "market": "NASDAQ",
+   "ratio": "18:1"
+  },
+  "PFE": {
+   "name": "Pfizer Inc.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "PG": {
+   "name": "Procter & Gamble",
+   "market": "NYSE",
+   "ratio": "15:1"
+  },
+  "PHG": {
+   "name": "Koninklijke Philips N.V.",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "PINS": {
+   "name": "Pinterest",
+   "market": "NYSE",
+   "ratio": "7:1"
+  },
+  "PKS": {
+   "name": "Posco Holdings Inc.",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "PLD": {
+   "name": "PROLOGIS INC",
+   "market": "NYSE",
+   "ratio": "29:1"
+  },
+  "PLTR": {
+   "name": "Palantir Technologies Inc",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "PM": {
+   "name": "Philip Morris International",
+   "market": "NYSE",
+   "ratio": "18:1"
+  },
+  "PSO": {
+   "name": "Pearson Plc",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "PSQ": {
+   "name": "PROSHARES SHORT QQQ",
+   "market": "NYSE Arca",
+   "ratio": "8:1"
+  },
+  "PSX": {
+   "name": "Phillips 66",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "PTR": {
+   "name": "Petrochina Co Ltd",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "PYPL": {
+   "name": "Paypal Holdings, Inc.",
+   "market": "NASDAQ",
+   "ratio": "8:1"
+  },
+  "QCOM": {
+   "name": "Qualcomm Inc.",
+   "market": "NASDAQ",
+   "ratio": "11:1"
+  },
+  "QQQ": {
+   "name": "INVESCO QQQ TRUST",
+   "market": "NASDAQ",
+   "ratio": "20:1"
+  },
+  "RACE": {
+   "name": "Ferrari",
+   "market": "NYSE",
+   "ratio": "83:1"
+  },
+  "RBLX": {
+   "name": "Roblox Corp.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "RCTB4": {
+   "name": "Telebras PN",
+   "market": "BOVESPA",
+   "ratio": "1:1000"
+  },
+  "RGTI": {
+   "name": "RIGETTI COMPUTING INC",
+   "market": "NASDAQ CM",
+   "ratio": "2:1"
+  },
+  "RIO": {
+   "name": "Rio Tinto Plc",
+   "market": "NYSE",
+   "ratio": "8:1"
+  },
+  "RIOT": {
+   "name": "Riot Platforms",
+   "market": "NASDAQ",
+   "ratio": "3:1"
+  },
+  "RKLB": {
+   "name": "Rocket Lab Corp",
+   "market": "NASDAQ",
+   "ratio": "12:1"
+  },
+  "ROKU": {
+   "name": "Roku",
+   "market": "NASDAQ",
+   "ratio": "13:1"
+  },
+  "ROST": {
+   "name": "Ross Stores, Inc.",
+   "market": "NASDAQ",
+   "ratio": "4:1"
+  },
+  "RSP": {
+   "name": "Invesco S&P 500 eql wght ETF",
+   "market": "NYSE ARCA",
+   "ratio": "30:1"
+  },
+  "RTX": {
+   "name": "Raytheon Technologies Corp",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "SAN": {
+   "name": "Banco Santander S.A",
+   "market": "NYSE",
+   "ratio": "1:4"
+  },
+  "SAP": {
+   "name": "Sap Se",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "SATL": {
+   "name": "Satellogic Inc.",
+   "market": "NASDAQ GS",
+   "ratio": "1:1"
+  },
+  "NYSE": {
+   "name": "SBS",
+   "market": "",
+   "ratio": "1:2"
+  },
+  "SBUX": {
+   "name": "Starbucks Corporation",
+   "market": "NASDAQ",
+   "ratio": "12:1"
+  },
+  "SCCO": {
+   "name": "Southern Copper Corp",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "SCHW": {
+   "name": "Charles Schwab",
+   "market": "NYSE",
+   "ratio": "13:1"
+  },
+  "SDA": {
+   "name": "SunCar Technology Group Inc",
+   "market": "NASDAQ",
+   "ratio": "2:1"
+  },
+  "SE": {
+   "name": "Sea Ltd.",
+   "market": "NYSE",
+   "ratio": "32:1"
+  },
+  "SH": {
+   "name": "PROSHARES SHORT S&P500",
+   "market": "NYSE",
+   "ratio": "8:1"
+  },
+  "SHEL": {
+   "name": "Royal Dutch Shell Plc",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "SHOP": {
+   "name": "Shopify Inc.",
+   "market": "NYSE",
+   "ratio": "107:1"
+  },
+  "SHPW": {
+   "name": "Shapeways Holdings Inc",
+   "market": "NYSE",
+   "ratio": "1:2"
+  },
+  "SHW": {
+   "name": "SHERWIN-WILLIAMS CO/THE",
+   "market": "NYSE",
+   "ratio": "69:1"
+  },
+  "SI": {
+   "name": "Silvergate Bancorp",
+   "market": "NYSE",
+   "ratio": "10:1"
+  },
+  "SID": {
+   "name": "Companhia Siderúrgica Nacional",
+   "market": "NYSE",
+   "ratio": "1:8"
+  },
+  "SIEGY": {
+   "name": "Siemens Ag Adr",
+   "market": "OTC",
+   "ratio": "3:1"
+  },
+  "SKHY": {
+   "name": "SK HYNIX INC",
+   "market": "NASDAQ GS",
+   "ratio": "25:1"
+  },
+  "SLB": {
+   "name": "Schlumberger Ltd",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "SLV": {
+   "name": "iShares SILVER TRUST",
+   "market": "NYSE Arca",
+   "ratio": "6:1"
+  },
+  "SMH": {
+   "name": "VAN ECK SEMICONDUCTOR ETF",
+   "market": "NASDAQ",
+   "ratio": "50:1"
+  },
+  "SMSN": {
+   "name": "Samsung Electronics Co. Ltd.",
+   "market": "",
+   "ratio": "14:1"
+  },
+  "SNA": {
+   "name": "Snap-On Inc",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "SNAP": {
+   "name": "Snap Inc.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "SNDK": {
+   "name": "Sandisk Corporation",
+   "market": "NASDAQ GS",
+   "ratio": "170:1"
+  },
+  "SNOW": {
+   "name": "Snowflake Inc.",
+   "market": "NYSE",
+   "ratio": "30:1"
+  },
+  "SNP": {
+   "name": "China Petroleum & Chem",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "SONY": {
+   "name": "Sony Group Corporation",
+   "market": "NYSE",
+   "ratio": "8:1"
+  },
+  "SOYB": {
+   "name": "Teucrium Soybean Fund",
+   "market": "NYSE Arca",
+   "ratio": "5:1"
+  },
+  "SPCE": {
+   "name": "Virgin Galactic",
+   "market": "NYSE",
+   "ratio": "1:2"
+  },
+  "SPCX": {
+   "name": "SPACE EXPLORATION TECHNOLOGIES CORP.",
+   "market": "NASDAQ GS",
+   "ratio": "50:1"
+  },
+  "SPGI": {
+   "name": "S&P Global Inc",
+   "market": "NYSE",
+   "ratio": "45:1"
+  },
+  "SPHQ": {
+   "name": "Invesco S&P 500 quality ETF",
+   "market": "NYSE ARCA",
+   "ratio": "14:1"
+  },
+  "SPOT": {
+   "name": "Spotify Technology S.A.",
+   "market": "NYSE",
+   "ratio": "28:1"
+  },
+  "SPXL": {
+   "name": "DIREXION DAILY S&P 500 BULL 3X",
+   "market": "NYSE Arca",
+   "ratio": "25:1"
+  },
+  "SPY": {
+   "name": "SPDR S&P 500",
+   "market": "NYSE Arca",
+   "ratio": "60:1"
+  },
+  "STLA": {
+   "name": "Stellantis",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "STNE": {
+   "name": "StoneCo Ltd",
+   "market": "NASDAQ",
+   "ratio": "3:1"
+  },
+  "SUZ": {
+   "name": "Suzano Papel E Celulose S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "SWKS": {
+   "name": "Skyworks Solutions",
+   "market": "NASDAQ",
+   "ratio": "21:1"
+  },
+  "SYY": {
+   "name": "Sysco Corp.",
+   "market": "NYSE",
+   "ratio": "8:1"
+  },
+  "T": {
+   "name": "At &T Inc.",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "TCOM": {
+   "name": "TRIP.COM Group Ltd.",
+   "market": "NASDAQ",
+   "ratio": "2:1"
+  },
+  "TEAM": {
+   "name": "ATLASSIAN CORPORATION",
+   "market": "NASDAQ GS",
+   "ratio": "47:1"
+  },
+  "TEM": {
+   "name": "TEMPUS AI INC",
+   "market": "NASDAQ GS",
+   "ratio": "12:1"
+  },
+  "TEN": {
+   "name": "Tenaris",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "TGT": {
+   "name": "Target Corporation",
+   "market": "NYSE",
+   "ratio": "24:1"
+  },
+  "TIIAY": {
+   "name": "Telecom Italia S.P.A. Ordinary Shares",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "TIMB": {
+   "name": "Tim Participações S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "TJX": {
+   "name": "TJX Companies Inc/The",
+   "market": "NYSE",
+   "ratio": "22:1"
+  },
+  "TLN": {
+   "name": "TALEN ENERGY CORP",
+   "market": "NASDAQ GS",
+   "ratio": "63:1"
+  },
+  "TM": {
+   "name": "Toyota Motor Corporation",
+   "market": "NYSE",
+   "ratio": "15:1"
+  },
+  "TMO": {
+   "name": "Thermo Fisher Scientific Inc.",
+   "market": "NYSE",
+   "ratio": "22:1"
+  },
+  "TMUS": {
+   "name": "T-mobile",
+   "market": "NASDAQ",
+   "ratio": "33:1"
+  },
+  "TQQQ": {
+   "name": "ProShares UltraPro QQQ",
+   "market": "NASDAQ",
+   "ratio": "25:1"
+  },
+  "TRIP": {
+   "name": "Tripadvisor, Inc.",
+   "market": "NASDAQ",
+   "ratio": "2:1"
+  },
+  "TRVV": {
+   "name": "The Travelers Cos. Inc.",
+   "market": "NYSE",
+   "ratio": "6:1"
+  },
+  "TSLA": {
+   "name": "Tesla, Inc.",
+   "market": "NASDAQ",
+   "ratio": "15:1"
+  },
+  "TSM": {
+   "name": "Taiwan Semiconductor Manufacturing",
+   "market": "NYSE",
+   "ratio": "9:1"
+  },
+  "TTE": {
+   "name": "TotalEnergies SE",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "TTM": {
+   "name": "Tata Motors Ltd",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "TV": {
+   "name": "Grupo Televisa S.A.",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "TWLO": {
+   "name": "Twilio Inc",
+   "market": "NYSE",
+   "ratio": "36:1"
+  },
+  "TWTR": {
+   "name": "Twitter, Inc.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "TXN": {
+   "name": "Texas Instruments Inc",
+   "market": "NASDAQ",
+   "ratio": "5:1"
+  },
+  "TXR": {
+   "name": "Ternium S.A.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "UAL": {
+   "name": "United Airlines Holdings Inc.",
+   "market": "NASDAQ GS",
+   "ratio": "5:1"
+  },
+  "UBER": {
+   "name": "Uber Technologies Inc.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "UGP": {
+   "name": "Ultrapar Participações S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "UL": {
+   "name": "Unilever PLC - Sponsored",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "UN": {
+   "name": "NU Holdings Ltd/Cayman Islands",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "UNH": {
+   "name": "UnitedHealth Group Inc.",
+   "market": "NYSE",
+   "ratio": "33:1"
+  },
+  "UNP": {
+   "name": "Union Pacific Corp.",
+   "market": "NYSE",
+   "ratio": "20:1"
+  },
+  "UPST": {
+   "name": "Upstart Hldgs Inc",
+   "market": "NASDAQ GS",
+   "ratio": "5:1"
+  },
+  "URA": {
+   "name": "Global X Uranium ETF",
+   "market": "NYSE Arca",
+   "ratio": "5:1"
+  },
+  "URBN": {
+   "name": "Urban Outfitters INC.",
+   "market": "NASDAQ",
+   "ratio": "2:1"
+  },
+  "USB": {
+   "name": "U.S. Bancorp",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "USO": {
+   "name": "United States Oil Fund",
+   "market": "NYSE",
+   "ratio": "15:1"
+  },
+  "V": {
+   "name": "Visa Inc",
+   "market": "NYSE",
+   "ratio": "18:1"
+  },
+  "VALE": {
+   "name": "Vale S.A.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "VEA": {
+   "name": "Vanguard FTSE Developed Markets ETF",
+   "market": "NYSE Arca",
+   "ratio": "10:1"
+  },
+  "VIG": {
+   "name": "VANGUARD DIVIDEND APPRECIATION",
+   "market": "NYSE Arca",
+   "ratio": "39:1"
+  },
+  "VIST": {
+   "name": "Vista Energy S.A.B. de C.V.",
+   "market": "NYSE",
+   "ratio": "3:1"
+  },
+  "VIV": {
+   "name": "Telefônica Brasil S.A.",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "VOD": {
+   "name": "Vodafone Group Plc",
+   "market": "NASDAQ",
+   "ratio": "1:1"
+  },
+  "VRSN": {
+   "name": "Verisign, Inc.",
+   "market": "NASDAQ GS",
+   "ratio": "6:1"
+  },
+  "VRTX": {
+   "name": "VERTEX PHARMACEUTICALS INC",
+   "market": "NYSE",
+   "ratio": "101:1"
+  },
+  "VST": {
+   "name": "VISTRA CORPORATION",
+   "market": "NYSE",
+   "ratio": "26:1"
+  },
+  "VXX": {
+   "name": "iPath Series B S&P 500 VIX",
+   "market": "CBOE",
+   "ratio": "5:1"
+  },
+  "VZ": {
+   "name": "Verizon Communications Inc.",
+   "market": "NYSE",
+   "ratio": "4:1"
+  },
+  "WBA": {
+   "name": "Walgreens Boots Alliance Inc.",
+   "market": "NASDAQ",
+   "ratio": "3:1"
+  },
+  "WBO": {
+   "name": "Weibo Corporation",
+   "market": "NASDAQ",
+   "ratio": "6:1"
+  },
+  "WDC": {
+   "name": "WESTERN DIGITAL CORP",
+   "market": "NASDAQ GS",
+   "ratio": "92:1"
+  },
+  "WELL": {
+   "name": "WELLTOWER INC",
+   "market": "NYSE",
+   "ratio": "48:1"
+  },
+  "WFC": {
+   "name": "Wells Fargo & Co.",
+   "market": "NYSE",
+   "ratio": "5:1"
+  },
+  "WMT": {
+   "name": "Walmart Inc.",
+   "market": "NYSE",
+   "ratio": "18:1"
+  },
+  "XLB": {
+   "name": "The Materials Select Sector SPDR Fund",
+   "market": "NYSE Arca",
+   "ratio": "18:1"
+  },
+  "XLC": {
+   "name": "The Communication Services Select Sector SPDR Fund",
+   "market": "NYSE Arca",
+   "ratio": "19:1"
+  },
+  "XLE": {
+   "name": "ENERGY SELECT SECTOR SPDR FUND",
+   "market": "NYSE Arca",
+   "ratio": "2:1"
+  },
+  "XLF": {
+   "name": "FINANCIAL SELECT SECTOR SPDR FUND",
+   "market": "NYSE Arca",
+   "ratio": "2:1"
+  },
+  "XLI": {
+   "name": "The Industrial Select Sector SPDR Fund",
+   "market": "NYSE Arca",
+   "ratio": "28:1"
+  },
+  "XLK": {
+   "name": "The Technology Select Sector SPDR Fund",
+   "market": "NYSE Arca",
+   "ratio": "46:1"
+  },
+  "XLP": {
+   "name": "The Consumer Staples Select Sector SPDR Fund",
+   "market": "NYSE Arca",
+   "ratio": "16:1"
+  },
+  "XLRE": {
+   "name": "The Real Estate Select Sector SPDR Fund",
+   "market": "NYSE Arca",
+   "ratio": "9:1"
+  },
+  "XLU": {
+   "name": "First Trust NASDAQ Cybersecurity",
+   "market": "NASDAQ",
+   "ratio": "10:1"
+  },
+  "XLV": {
+   "name": "The Health Care Select Sector SPDR Fund",
+   "market": "NYSE Arca",
+   "ratio": "29:1"
+  },
+  "XLY": {
+   "name": "The Consumer Discretionary Select Sector SPDR Fund",
+   "market": "NYSE Arca",
+   "ratio": "43:1"
+  },
+  "XME": {
+   "name": "State Street SPDR S&P Metals & Mining ETF",
+   "market": "NYSE ARCA",
+   "ratio": "30:1"
+  },
+  "XOM": {
+   "name": "Exxon Mobil Corporation",
+   "market": "NYSE",
+   "ratio": "10:1"
+  },
+  "XP": {
+   "name": "XP Inc",
+   "market": "NASDAQ",
+   "ratio": "04:01"
+  },
+  "XPEV": {
+   "name": "XPENG INC",
+   "market": "New York",
+   "ratio": "4:1"
+  },
+  "XROX": {
+   "name": "Xerox Holding Corporation",
+   "market": "NYSE",
+   "ratio": "1:1"
+  },
+  "XYZ": {
+   "name": "Square Inc.",
+   "market": "NYSE",
+   "ratio": "20:1"
+  },
+  "YELP": {
+   "name": "Yelp Inc.",
+   "market": "NYSE",
+   "ratio": "2:1"
+  },
+  "YZCA": {
+   "name": "Yanzhou Coal Mining Co. Ltd.",
+   "market": "OTC US",
+   "ratio": "2:1"
+  },
+  "ZM": {
+   "name": "Zoom Video Communications Inc.",
+   "market": "NASDAQ",
+   "ratio": "47:1"
+  }
+ },
+ "alias": {
+  "DIS": "DISN",
+  "005930.KS": "SMSN"
+ },
+ "local": {
+  "GGAL": "Grupo Financiero Galicia (acción local BYMA)",
+  "YPF": "YPF (acción local YPFD BYMA)"
+ }
+}

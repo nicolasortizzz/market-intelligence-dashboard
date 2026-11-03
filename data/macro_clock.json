@@ -1,0 +1,37 @@
+{
+ "asOf": "2026-10-23",
+ "method": "Investment Clock (Merrill Lynch 2004): dirección de la brecha del producto (output gap) × dirección de la inflación. Gap ↑ & CPI ↓ = Recuperación; Gap ↑ & CPI ↑ = Sobrecalentamiento; Gap ↓ & CPI ↑ = Estanflación; Gap ↓ & CPI ↓ = Reflación. Se usa el signo de la primera derivada, no el nivel.",
+ "now": {
+  "phase": "estanflacion",
+  "phaseLabel": "Sobrecalentamiento tardío → Estanflación",
+  "inflation": {"value": 3.7, "unit": "% a/a CPI", "period": "sep-26", "dir": "up", "note": "3,4% (ago) → 3,7% (sep); core 2,6%", "source": "BLS, 14-oct-2026 https://www.bls.gov/news.release/cpi.nr0.htm"},
+  "gap": {"value": 1.0, "unit": "% del PIB potencial", "period": "2026 (proy. CBO feb-26)", "dir": "down", "note": "Gap positivo (~+1%) pero el crecimiento se frena: ISM 55,6 (jul) → 54,5 (sep), nóminas +29k (sep). Dirección ↓ = juicio a partir de ISM/empleo; no hay estimación OECD/CBO más reciente.", "source": "CBO feb-2026 https://www.cbo.gov/publication/62105 ; ISM sep-26"},
+  "gdp": {"value": 2.2, "unit": "% t/t anualizado", "period": "2T-26", "source": "BEA 30-sep-2026"},
+  "source": "/workspace/cfo/investment_clock_analisis.md + clock_2026_fechado.md",
+  "computed": null
+ },
+ "forecasts": {
+  "y1": {
+   "year": 2027,
+   "inflation": {"value": 2.8, "unit": "% CPI (FMI WEO oct-26)", "prev": 3.6, "dir": "down", "alt": "Fed SEP 16-sep-26: PCE 2,3%, core 2,5%"},
+   "growthOrGap": {"value": 2.3, "unit": "% PIB real (FMI WEO oct-26)", "prev": 2.3, "dir": "flat", "alt": "Fed SEP: PIB 2,4%; crecimiento ≈ tendencia (~2%) → gap estable/levemente ↑"},
+   "phase": "recuperacion",
+   "phaseNote": "Inflación ↓ con crecimiento en/encima de tendencia → Recuperación (escenario base Fed/FMI). Riesgos (opinión, no dato): 35% Estanflación si sigue el shock de petróleo, 20% Reflación.",
+   "favored": ["Consumer Disc.", "Communication", "Technology"],
+   "avoided": ["Health Care", "Energy"],
+   "source": "FMI WEO oct-2026 tabla A2 https://www.imf.org/en/publications/weo/issues/2026/10/13/world-economic-outlook-october-2026 ; Fed SEP https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+   "asOf": "2026-10-23"
+  },
+  "y2": {
+   "year": 2028,
+   "inflation": {"value": null, "unit": "no verificado", "dir": null},
+   "growthOrGap": {"value": null, "unit": "no verificado", "dir": null},
+   "phase": null,
+   "phaseNote": "Sin proyección verificada para 2028 en nuestras fuentes (solo: Fed SEP sin recortes hasta 2028). TODO: cargar Fed SEP / FMI WEO 2028.",
+   "favored": [],
+   "avoided": [],
+   "source": "pendiente: Fed SEP (columna 2028) / FMI WEO",
+   "asOf": null
+  }
+ }
+}

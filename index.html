@@ -135,11 +135,10 @@
   <div class="card"><div class="card-h"><h3>SEC XBRL cross-check (reported, USD m)</h3></div><div class="tablewrap"><table id="vSec"></table></div></div>
 </section>
 <section id="tesis" class="tab">
-  <div class="card"><h3 style="margin:0">Tesis / Decisión: embudo de selección</h3><p class="muted small" style="margin:4px 0 0">Proceso secuencial de la tesina: <b>1. Ciclo</b> (Investment Clock) → <b>2. Fundamental</b> (firmas bajo su valor intrínseco por DCF) → <b>3. Markowitz</b> (pesos óptimos). Estimaciones de modelo, no asesoramiento.</p></div>
+  <div class="card"><h3 style="margin:0">Tesis / Decisión: asistente de compra</h3><p class="muted small" style="margin:4px 0 0">Paso a paso según la conclusión de la tesina: <b>Ciclo</b> (hoy, año+1, año+2) → <b>Fair value</b> (DCF, CEDEARs BYMA) → <b>Markowitz</b> (fit con tu cartera) + nota de smart money. Solo compra; estimaciones de modelo, no asesoramiento.</p></div>
   <ol class="tesis-steps" id="tSteps"></ol>
-  <div class="card tesis-step"><div class="card-h"><h3><span class="tesis-n">1</span> Ciclo económico</h3><span class="muted small" id="tAsof"></span></div><div id="tClock"></div></div>
-  <div class="card tesis-step"><div class="card-h"><h3><span class="tesis-n">2</span> Shortlist: subvaluadas en sectores favorecidos</h3><span class="muted small" id="tCount"></span></div><div id="tShort"></div></div>
-  <div class="card tesis-step tesis-act"><div class="card-h"><h3><span class="tesis-n">3</span> Elegí tu acción</h3></div><div id="tCta"></div></div>
+  <div class="card tesis-step" id="tWiz"></div>
+  <div class="card" id="tHub"><h3 style="margin:0 0 8px">Explorar libremente</h3><div class="hub"><button class="chip" data-go="valuation">DCF y valuaciones</button><button class="chip" data-go="macro">Macro</button><button class="chip" data-go="portfolio">Portfolio / Markowitz</button><button class="chip" data-go="company">Empresa</button><button class="chip" data-go="risk">Riesgo</button></div></div>
 </section>
 </main>
 <footer><p id="foot"></p><p>Data snapshot from Yahoo Finance (yfinance), SEC EDGAR, U.S. Treasury and BCRA. For educational and portfolio purposes only — <b>not investment advice</b>.</p></footer>

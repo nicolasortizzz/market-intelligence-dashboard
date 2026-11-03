@@ -20,7 +20,7 @@ function renderKpis(el,arr){el.innerHTML=arr.map((k,i)=>`<div class="kpi" style=
 async function load(){
   const [m,p,a,x]=await Promise.all(["market","prices","activity","macro"].map(n=>fetch(`data/${n}.json`).then(r=>r.json())));
   Object.assign(S,{m,p,a,x});
-  [S.clock,S.vsum,S.hold]=await Promise.all(["investment_clock","valuation_summary","portfolio_holdings"].map(n=>fetch(`data/${n}.json`).then(r=>r.ok?r.json():null).catch(()=>null)));
+  [S.clock,S.vsum,S.hold,S.mclock,S.byma,S.smart]=await Promise.all(["investment_clock","valuation_summary","portfolio_holdings","macro_clock","byma_cedears","smart_money"].map(n=>fetch(`data/${n}.json`).then(r=>r.ok?r.json():null).catch(()=>null)));
   const d=new Date(m.generatedAt);
   $("#asof").textContent=`Market close ${m.asOf} · snapshot ${d.toISOString().slice(0,16).replace("T"," ")} UTC`;
   $("#foot").textContent=`Universe: ${m.companies.length} companies · ${a.filings.length} SEC filings · ${a.insiders.length} insider transactions · USD/ARS (BCRA) ${x.fx.ARS_BCRA??"n/a"} on ${x.fx.BCRA_date??"n/a"}`;

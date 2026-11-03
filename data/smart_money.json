@@ -1,0 +1,540 @@
+{
+ "asOf": "2026-11-03",
+ "sources": {
+  "politicians": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)",
+  "superinvestors": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+ },
+ "lag": "STOCK Act: hasta 45 días de atraso; 13F: hasta 45 días después del trimestre (Q3 vence ~14-11).",
+ "default": "no verificado",
+ "tickers": {
+  "VST": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Nancy Pelosi",
+      "action": "compra",
+      "amount": "100k–250k",
+      "date": "16-01-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "Julia Letlow",
+      "action": "compra",
+      "amount": "1k–15k",
+      "date": "17-02-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "Ro Khanna",
+      "action": "compras/ventas alternadas",
+      "amount": "1k–15k",
+      "date": "feb–ago 2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "David Tepper",
+      "action": "sumó (+9,5%), 4,7% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Stephen Mandel",
+      "action": "vendió todo",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "UNH": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Kevin Hern",
+      "action": "venta",
+      "amount": "15k–50k",
+      "date": "decl. 30-09→1-11",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "M. E. Salazar",
+      "action": "venta",
+      "amount": "1k–15k",
+      "date": "decl. 30-09→1-11",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Chase Coleman",
+      "action": "recortó (−15%), 0,5%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "David Tepper",
+      "action": "vendió todo",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "META": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "M. E. Salazar",
+      "action": "2 compras y 1 venta",
+      "amount": "1k–15k c/u",
+      "date": "decl. 30-09→1-11",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Bill Ackman",
+      "action": "sumó (+20%), 9,3%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Chase Coleman",
+      "action": "6,6%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "David Tepper",
+      "action": "sumó (+55%), 5,1%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Dan Loeb",
+      "action": "vendió todo",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "DIS": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Pete Sessions",
+      "action": "venta",
+      "amount": "1k–15k",
+      "date": "decl. 30-09→1-11",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "Nancy Pelosi",
+      "action": "venta",
+      "amount": "1M–5M",
+      "date": "dic-2025",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "sin posición (14 gestores seguidos)",
+    "items": []
+   }
+  },
+  "CEG": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Ro Khanna",
+      "action": "6 compras y 1 venta",
+      "amount": "1k–15k",
+      "date": "feb–jul 2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "John Boozman",
+      "action": "compra / venta parcial",
+      "amount": "1k–15k",
+      "date": "abr/ago 2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "Shelley Moore Capito",
+      "action": "venta parcial",
+      "amount": "1k–15k",
+      "date": "17-04-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "NEE": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Kevin Hern",
+      "action": "venta",
+      "amount": "15k–50k",
+      "date": "02-10-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "DUK": {
+   "politicians": {
+    "status": "no verificado",
+    "items": [
+     {
+      "who": "David J. Taylor",
+      "action": "n/d (tipo no verificado)",
+      "amount": "1k–15k",
+      "date": "decl. 17-07-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "BE": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Nancy Pelosi",
+      "action": "compra acciones + calls",
+      "amount": "~3M–12M combinado",
+      "date": "jul-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "UBER": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Nancy Pelosi",
+      "action": "compra calls",
+      "amount": "500k–1M",
+      "date": "29-05-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "John Hickenlooper",
+      "action": "compra",
+      "amount": "100k–250k",
+      "date": "14-01-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     },
+     {
+      "who": "Michael McCaul",
+      "action": "venta",
+      "amount": "15k–50k",
+      "date": "11-05-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "GOOGL": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Nancy Pelosi",
+      "action": "compra (ejercicio calls)",
+      "amount": "500k–1M",
+      "date": "16-01-2026",
+      "source": "politicos_trades.md (Quiver/House Clerk PTR, relevado 23-10) e informe 3-11 (Quiver feed 30-09→1-11)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Li Lu",
+      "action": "24,6%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Warren Buffett",
+      "action": "sumó (+45%), 9,4%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Dan Loeb",
+      "action": "sumó (+486%), 8,0%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Chase Coleman",
+      "action": "recortó (−45%), 8,7%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "MU": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "David Tepper",
+      "action": "recortó (−41%), 15,1%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "TSM": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con posición",
+    "items": [
+     {
+      "who": "David Tepper",
+      "action": "10,6%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Chase Coleman",
+      "action": "9,7%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "MA": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Chuck Akre",
+      "action": "recortó (−13%), 20,0%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Bill Ackman",
+      "action": "compra nueva",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "V": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Chris Hohn",
+      "action": "19,8%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     },
+     {
+      "who": "Bill Ackman",
+      "action": "compra nueva",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "PFE": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Bruce Berkowitz",
+      "action": "compra nueva",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "EWY": {
+   "politicians": {
+    "status": "sin movimiento (feed 30-09→1-11)",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con posición",
+    "items": [
+     {
+      "who": "David Tepper",
+      "action": "6,6%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "SPY": {
+   "politicians": {
+    "status": "sin movimiento (feed 30-09→1-11)",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Bill Nygren",
+      "action": "~0% (−72%)",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "NIO": {
+   "politicians": {
+    "status": "sin movimiento (feed 30-09→1-11)",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "sin posición (14 gestores seguidos)",
+    "items": []
+   }
+  },
+  "TQQQ": {
+   "politicians": {
+    "status": "sin movimiento (feed 30-09→1-11)",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "sin posición (14 gestores seguidos)",
+    "items": []
+   }
+  },
+  "SMH": {
+   "politicians": {
+    "status": "sin movimiento (feed 30-09→1-11)",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Dan Loeb",
+      "action": "vendió todo",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+     }
+    ]
+   }
+  },
+  "EWZ": {
+   "politicians": {
+    "status": "sin movimiento (feed 30-09→1-11)",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "sin posición (14 gestores seguidos)",
+    "items": []
+   }
+  },
+  "ABEV": {
+   "politicians": {
+    "status": "sin movimiento (feed 30-09→1-11)",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "sin posición (14 gestores seguidos)",
+    "items": []
+   }
+  }
+ }
+}

@@ -1,0 +1,196 @@
+{
+ "asOf": "2026-10-23",
+ "source": "/workspace/cfo/clock_2026_fechado.md (Merrill Lynch 2004 Investment Clock, EE.UU.)",
+ "phase": "estanflacion",
+ "phaseLabel": "Sobrecalentamiento tardío → Estanflación",
+ "phaseRaw": "sobrecalentamiento_tardia",
+ "transitionNote": "Sep–oct-26: la Fed sube (16-sep, 3,75–4,00), el CPI vuelve a acelerar (3,7% vs prom. 12m 3,23) y el ISM baja levemente (54,5); el empleo se enfría. Oct-26 sin dato aún: CPI sale el 10-nov, ISM el 2-nov.",
+ "drivers": {
+  "cpi": "CPI headline a/a 3,7% (sep-26) vs promedio 12m 3,23 → sube. Core 2,6%: la suba es sobre todo energía.",
+  "ism": "ISM manufacturero 54,5 (sep-26), bajando desde 55,6 (jul-26).",
+  "fed": "Suba el 16-sep-26 a 3,75–4,00; FOMC 28-oct mantiene 3,75–4,00.",
+  "curve": "10y-2y 0,34 pp (prom. sep-26): bear flattening desde ~0,74 en ene-26.",
+  "gdp": "PIB real 2T-26 +2,2% (3ª est.)."
+ },
+ "history": [
+  {
+   "m": "2025-11",
+   "phase": "reflacion",
+   "label": "Reflación"
+  },
+  {
+   "m": "2025-12",
+   "phase": "reflacion",
+   "label": "Reflación"
+  },
+  {
+   "m": "2026-01",
+   "phase": "recuperacion",
+   "label": "Recuperación"
+  },
+  {
+   "m": "2026-02",
+   "phase": "recuperacion",
+   "label": "Recuperación"
+  },
+  {
+   "m": "2026-03",
+   "phase": "sobrecalentamiento",
+   "label": "Sobrecalentamiento temprano (ambiguo)"
+  },
+  {
+   "m": "2026-04",
+   "phase": "sobrecalentamiento",
+   "label": "Sobrecalentamiento (ambiguo)"
+  },
+  {
+   "m": "2026-05",
+   "phase": "sobrecalentamiento",
+   "label": "Sobrecalentamiento"
+  },
+  {
+   "m": "2026-06",
+   "phase": "sobrecalentamiento",
+   "label": "Sobrecalentamiento"
+  },
+  {
+   "m": "2026-07",
+   "phase": "sobrecalentamiento",
+   "label": "Sobrecalentamiento claro"
+  },
+  {
+   "m": "2026-08",
+   "phase": "sobrecalentamiento",
+   "label": "Sobrecalentamiento"
+  },
+  {
+   "m": "2026-09",
+   "phase": "estanflacion",
+   "label": "Sobrecalentamiento tardío → Estanflación"
+  },
+  {
+   "m": "2026-10",
+   "phase": null,
+   "label": "s/d (CPI 10-nov, ISM 2-nov)"
+  }
+ ],
+ "phases": {
+  "reflacion": "Reflación",
+  "recuperacion": "Recuperación",
+  "sobrecalentamiento": "Sobrecalentamiento",
+  "estanflacion": "Estanflación"
+ },
+ "sectorMapSource": "Merrill Lynch (2004) Tabla 6, retorno anual relativo al mercado, vía investment_clock_analisis.md. Telecom→Communication, Pharma→Health Care, Oil & Gas→Energy, Consumo masivo→Consumer Staples.",
+ "sectorMap": {
+  "reflacion": {
+   "favored": [
+    "Consumer Staples",
+    "Financials",
+    "Consumer Disc."
+   ],
+   "avoided": [
+    "Energy",
+    "Communication"
+   ],
+   "note": "Consumo masivo +13,3, Financieras +11,0, Discrecional +8,9; peores Oil & Gas −12,8, Telecom −10,2."
+  },
+  "recuperacion": {
+   "favored": [
+    "Consumer Disc.",
+    "Communication",
+    "Technology"
+   ],
+   "avoided": [
+    "Health Care",
+    "Energy"
+   ],
+   "note": "Discrecional +3,8, Telecom +3,7, Tecnología +3,3; peores Pharma −4,5, Oil & Gas −4,4."
+  },
+  "sobrecalentamiento": {
+   "favored": [
+    "Technology",
+    "Industrials",
+    "Energy",
+    "Health Care"
+   ],
+   "avoided": [
+    "Consumer Disc.",
+    "Materials"
+   ],
+   "note": "Tecnología +4,7, Industriales +4,3, Oil & Gas +4,2, Pharma +2,9; peores Discrecional −5,8, Materiales −3,6."
+  },
+  "estanflacion": {
+   "favored": [
+    "Energy",
+    "Health Care",
+    "Utilities"
+   ],
+   "avoided": [
+    "Technology",
+    "Consumer Disc."
+   ],
+   "note": "Oil & Gas +14,7, Pharma +11,6, Utilities +6,4; peores Tecnología −12,5, Discrecional −8,9. Consumer Staples no figura entre los ganadores del paper en esta fase (sí en Reflación)."
+  }
+ },
+ "tickerSector": {
+  "MU": "Technology",
+  "ASML": "Technology",
+  "AVGO": "Technology",
+  "TSM": "Technology",
+  "005930.KS": "Technology",
+  "000660.KS": "Technology",
+  "FSLR": "Technology",
+  "META": "Communication",
+  "GOOGL": "Communication",
+  "DIS": "Communication",
+  "SPCX": "Communication",
+  "NIO": "Consumer Disc.",
+  "UBER": "Consumer Disc.",
+  "ABEV": "Consumer Staples",
+  "PM": "Consumer Staples",
+  "PG": "Consumer Staples",
+  "UNH": "Health Care",
+  "MRK": "Health Care",
+  "BMY": "Health Care",
+  "PFE": "Health Care",
+  "JNJ": "Health Care",
+  "AZN": "Health Care",
+  "ABBV": "Health Care",
+  "LLY": "Health Care",
+  "GGAL": "Financials",
+  "MA": "Financials",
+  "V": "Financials",
+  "YPF": "Energy",
+  "VIST": "Energy",
+  "XOM": "Energy",
+  "CVX": "Energy",
+  "COP": "Energy",
+  "EOG": "Energy",
+  "OXY": "Energy",
+  "DVN": "Energy",
+  "SLB": "Energy",
+  "PBR": "Energy",
+  "PRIO3.SA": "Energy",
+  "CCJ": "Energy",
+  "VST": "Utilities",
+  "CEG": "Utilities",
+  "NRG": "Utilities",
+  "NEE": "Utilities",
+  "DUK": "Utilities",
+  "SO": "Utilities",
+  "AEP": "Utilities",
+  "EQTL3.SA": "Utilities",
+  "CMIG4.SA": "Utilities",
+  "CPFE3.SA": "Utilities",
+  "CPLE3.SA": "Utilities",
+  "TAEE11.SA": "Utilities",
+  "AXIA3.SA": "Utilities",
+  "EGIE3.SA": "Utilities",
+  "BEP": "Utilities",
+  "OKLO": "Utilities",
+  "SMR": "Utilities",
+  "BE": "Industrials",
+  "GEV": "Industrials"
+ },
+ "tickerSectorNote": "Sector económico asignado a las empresas con DCF (juicio propio a partir de la descripción de valuation_summary.json). ADRs argentinos se asignan a su sector real (YPF/VIST Energy, GGAL Financials)."
+}

@@ -14,7 +14,11 @@ UNIVERSE = {
  "XOM":"Energy","CVX":"Energy","PG":"Consumer Staples","KO":"Consumer Staples","WMT":"Consumer Staples",
  "CAT":"Industrials","BA":"Industrials","NEE":"Utilities","AMT":"Real Estate","LIN":"Materials",
  "YPF":"Argentina ADR","GGAL":"Argentina ADR","MELI":"Argentina ADR","PAM":"Argentina ADR","NIO":"Consumer Disc.",
- "MU":"Technology","ASML":"Technology"}
+ "MU":"Technology","ASML":"Technology",
+ "VST":"Utilities","TQQQ":"Technology","SPY":"Financials","EWY":"Financials","SMH":"Technology",
+ "EWZ":"Materials","ABEV":"Consumer Staples","DIS":"Communication",
+ "BMY":"Health Care","NRG":"Utilities","AZN":"Health Care","PBR":"Energy",
+ "CMIG4.SA":"Utilities","AXIA3.SA":"Utilities"}
 BENCH = "SPY"
 
 def clean(x):
@@ -30,7 +34,7 @@ def dump(name, obj):
 def main():
     os.makedirs(OUT, exist_ok=True)
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-    tickers = list(UNIVERSE) + [BENCH]
+    tickers = list(dict.fromkeys([*UNIVERSE, BENCH]))
     px = yf.download(tickers, period="2y", interval="1d", auto_adjust=False, group_by="ticker", progress=False, threads=True)
     close = pd.DataFrame({t: px[t]["Adj Close"] for t in tickers}).dropna(how="all")
     rets = close.pct_change().dropna(how="all")

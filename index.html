@@ -30,6 +30,7 @@
   <button data-tab="activity">Company Activity</button>
   <button data-tab="macro">Macro</button>
   <button data-tab="valuation">Valuation &amp; M&amp;A</button>
+  <button data-tab="tesis">Tesis / Decisión</button>
   <span class="ink" id="ink"></span>
 </nav>
 <main>
@@ -133,6 +134,13 @@
   </div>
   <div class="card"><div class="card-h"><h3>SEC XBRL cross-check (reported, USD m)</h3></div><div class="tablewrap"><table id="vSec"></table></div></div>
 </section>
+<section id="tesis" class="tab">
+  <div class="card"><h3 style="margin:0">Tesis / Decisión: embudo de selección</h3><p class="muted small" style="margin:4px 0 0">Proceso secuencial de la tesina: <b>1. Ciclo</b> (Investment Clock) → <b>2. Fundamental</b> (firmas bajo su valor intrínseco por DCF) → <b>3. Markowitz</b> (pesos óptimos). Estimaciones de modelo, no asesoramiento.</p></div>
+  <ol class="tesis-steps" id="tSteps"></ol>
+  <div class="card tesis-step"><div class="card-h"><h3><span class="tesis-n">1</span> Ciclo económico</h3><span class="muted small" id="tAsof"></span></div><div id="tClock"></div></div>
+  <div class="card tesis-step"><div class="card-h"><h3><span class="tesis-n">2</span> Shortlist: subvaluadas en sectores favorecidos</h3><span class="muted small" id="tCount"></span></div><div id="tShort"></div></div>
+  <div class="card tesis-step tesis-act"><div class="card-h"><h3><span class="tesis-n">3</span> Elegí tu acción</h3></div><div id="tCta"></div></div>
+</section>
 </main>
 <footer><p id="foot"></p><p>Data snapshot from Yahoo Finance (yfinance), SEC EDGAR, U.S. Treasury and BCRA. For educational and portfolio purposes only — <b>not investment advice</b>.</p></footer>
 <div id="toast" class="toast"></div>
@@ -140,4 +148,5 @@
 <script src="valuation.js"></script>
 <script src="reverse_dcf.js"></script>
 <script src="wacc_hist.js"></script>
+<script src="tesis.js"></script>
 </body></html>

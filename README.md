@@ -211,3 +211,6 @@ This project is for **educational and portfolio purposes only**. It is **not inv
 
 ### Multiples & commodity decks
 `validate_dashboard.py --export` also writes `data/multiples.json` (EV/EBITDA, P/E, forward P/E, P/FCF, FCF yield, dividend yield, net debt/EBITDA, P/B per ticker, plus sector median/mean by the `group` field in `data/valuation_assumptions.json`). Oil names carry a `priceDeck` (assumed Brent path) shown in the Valuation tab and use through-cycle comps (`compsCycle`). Year-end FX for revenue CAGRs is cached in `data/fx_yearend_cache.json` (ECB; BRL via BCB PTAX). All of this runs in `make update`.
+
+## Tesis / Decisión tab
+`#tesis` walks the thesis buy funnel: Investment Clock phase (`data/investment_clock.json`, from the monthly US clock) → favored sectors → names below DCF intrinsic value (`data/valuation_summary.json`) → load the shortlist into the Markowitz Portfolio Builder. Users can override the phase to simulate. Sell signals are shown only as a caution (methods conflict on horizon).

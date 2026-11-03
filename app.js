@@ -1,6 +1,6 @@
 "use strict";
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const S={m:null,p:null,a:null,x:null,ccy:"USD",sel:"AAPL",tab:"overview",sort:{k:"marketCap",d:-1},w:{},chartType:"candle",ins:"",brush:null,drawn:{}};
+const S={T:{phase:null,sel:null,focus:null},m:null,p:null,a:null,x:null,ccy:"USD",sel:"AAPL",tab:"overview",sort:{k:"marketCap",d:-1},w:{},chartType:"candle",ins:"",brush:null,drawn:{}};
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const fx=()=>S.ccy==="ARS"?(S.x.fx.ARS_BCRA||S.x.fx.ARS_market_yahoo):1;
 const pct=(v,d=1)=>v==null?"—":(v*100).toFixed(d)+"%";
@@ -20,6 +20,7 @@ function renderKpis(el,arr){el.innerHTML=arr.map((k,i)=>`<div class="kpi" style=
 async function load(){
   const [m,p,a,x]=await Promise.all(["market","prices","activity","macro"].map(n=>fetch(`data/${n}.json`).then(r=>r.json())));
   Object.assign(S,{m,p,a,x});
+  [S.clock,S.vsum]=await Promise.all(["investment_clock","valuation_summary"].map(n=>fetch(`data/${n}.json`).then(r=>r.ok?r.json():null).catch(()=>null)));
   const d=new Date(m.generatedAt);
   $("#asof").textContent=`Market close ${m.asOf} · snapshot ${d.toISOString().slice(0,16).replace("T"," ")} UTC`;
   $("#foot").textContent=`Universe: ${m.companies.length} companies · ${a.filings.length} SEC filings · ${a.insiders.length} insider transactions · USD/ARS (BCRA) ${x.fx.ARS_BCRA??"n/a"} on ${x.fx.BCRA_date??"n/a"}`;
@@ -63,7 +64,7 @@ function switchTab(t){S.tab=t;$$("#tabs button").forEach(b=>b.classList.toggle("
 function openCo(t){S.sel=t;S.drawn.company=0;switchTab("company")}
 function renderAll(){tape();switchTab(S.tab)}
 function renderTab(){const t=S.tab;if(S.drawn[t])return void $$(`#${t} .js-plotly-plot`).forEach(e=>Plotly.Plots.resize(e));S.drawn[t]=1;
-  ({overview:()=>{overviewK();treemap();movers("ret1d");screener()},company,risk:()=>{scatter();heat();selTable()},portfolio:()=>{sliders();frontier()},activity:()=>{activityK();feed();insiders();timeline();earnings()},macro,valuation:()=>valTab()})[t]()}
+  ({overview:()=>{overviewK();treemap();movers("ret1d");screener()},company,risk:()=>{scatter();heat();selTable()},portfolio:()=>{sliders();frontier()},activity:()=>{activityK();feed();insiders();timeline();earnings()},macro,valuation:()=>valTab(),tesis:()=>typeof tesisTab==="function"&&tesisTab()})[t]()}
 
 function overviewK(){const c=S.m.companies,cap=c.reduce((a,b)=>a+(b.marketCap||0),0),adv=c.filter(x=>x.ret1d>0).length;
   const spy=S.p.SPY.c,sr=spy.at(-1)/spy.at(-2)-1,s1y=spy.at(-1)/spy.at(-253)-1,mv=[...c].sort((a,b)=>b.ret1d-a.ret1d)[0];

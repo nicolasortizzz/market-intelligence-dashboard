@@ -1,0 +1,63 @@
+{
+ "asOf": "2026-11-02",
+ "source": "portfolio-tracker docs/pnl.csv (posiciones abiertas, market_value USD). Cash (USD MEP/CABLE/ARS) excluido. CEDEAR DISN \u2192 DIS.",
+ "totalUsd": 11844.73,
+ "holdings": [
+  {
+   "ticker": "NIO",
+   "marketValueUsd": 2566.36,
+   "weightPct": 21.67
+  },
+  {
+   "ticker": "VST",
+   "marketValueUsd": 1718.87,
+   "weightPct": 14.51
+  },
+  {
+   "ticker": "TQQQ",
+   "marketValueUsd": 1396.12,
+   "weightPct": 11.79
+  },
+  {
+   "ticker": "SPY",
+   "marketValueUsd": 981.9,
+   "weightPct": 8.29
+  },
+  {
+   "ticker": "EWY",
+   "marketValueUsd": 966.47,
+   "weightPct": 8.16
+  },
+  {
+   "ticker": "META",
+   "marketValueUsd": 910.09,
+   "weightPct": 7.68
+  },
+  {
+   "ticker": "SMH",
+   "marketValueUsd": 843.79,
+   "weightPct": 7.12
+  },
+  {
+   "ticker": "EWZ",
+   "marketValueUsd": 836.16,
+   "weightPct": 7.06
+  },
+  {
+   "ticker": "ABEV",
+   "marketValueUsd": 653.67,
+   "weightPct": 5.52
+  },
+  {
+   "ticker": "DIS",
+   "marketValueUsd": 631.53,
+   "weightPct": 5.33,
+   "cedear": "DISN"
+  },
+  {
+   "ticker": "UNH",
+   "marketValueUsd": 339.77,
+   "weightPct": 2.87
+  }
+ ]
+}

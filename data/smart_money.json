@@ -46,17 +46,17 @@
     "items": [
      {
       "who": "David Tepper",
-      "action": "sumó (+9,5%), 4,7% de la cartera",
-      "amount": null,
+      "action": "sumó +9,54% · 4,70% de la cartera",
+      "amount": "2.215.272 acciones",
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "Stephen Mandel",
       "action": "vendió todo",
-      "amount": null,
+      "amount": "6.187.585 acciones",
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -86,17 +86,17 @@
     "items": [
      {
       "who": "Chase Coleman",
-      "action": "recortó (−15%), 0,5%",
+      "action": "recortó −15,1% · 0,52% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "David Tepper",
       "action": "vendió todo",
-      "amount": null,
+      "amount": "90.000 acciones",
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -119,38 +119,38 @@
     "items": [
      {
       "who": "Bill Ackman",
-      "action": "sumó (+20%), 9,3%",
+      "action": "sumó +20,1% · 9,25% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "Chase Coleman",
-      "action": "6,6%",
+      "action": "recortó −8,5% · 6,63% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "David Tepper",
-      "action": "sumó (+55%), 5,1%",
+      "action": "sumó +54,6% · 5,09% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "Dan Loeb",
       "action": "vendió todo",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      },
      {
       "who": "Bill Nygren",
-      "action": "0,00% (+4,35%)",
+      "action": "sumó +4,35% · 0,00% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "informe 3-11 (Dataroma)"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -462,14 +462,14 @@
     "items": []
    },
    "superinvestors": {
-    "status": "con posición",
+    "status": "con movimiento",
     "items": [
      {
       "who": "David Tepper",
-      "action": "6,6%",
+      "action": "sumó +1,0% · 6,55% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -484,10 +484,10 @@
     "items": [
      {
       "who": "Bill Nygren",
-      "action": "~0% (−72%)",
+      "action": "recortó −72,2% · 0,00% de la cartera",
       "amount": null,
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }
@@ -523,9 +523,9 @@
      {
       "who": "Dan Loeb",
       "action": "vendió todo",
-      "amount": null,
+      "amount": "40.000 acciones",
       "date": "Q2-2026",
-      "source": "Dataroma 13F Q2-2026 (30-06), relevado 3-11"
+      "source": "Dataroma 13F Q2-2026 (informe 3-11 L130-147)"
      }
     ]
    }

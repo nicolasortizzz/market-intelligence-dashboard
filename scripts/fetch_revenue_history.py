@@ -54,6 +54,8 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "MA": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "V": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "PM": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "PG": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),  # FY ends June 30
+       "PG": ("us-gaap", ["NetSales", "RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
        "BEP": ("ifrs-full", ["Revenue"], "USD"),
        "PBR": ("ifrs-full", ["Revenue"], "USD")}
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")

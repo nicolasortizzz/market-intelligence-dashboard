@@ -4,7 +4,7 @@
 
 🔗 **Live dashboard:** https://nicolasortizzz.github.io/market-intelligence-dashboard/
 
-An interactive, fully static market-intelligence web app built on **real data** for 31 companies (26 US large caps across 11 sectors, the Argentine ADRs YPF, GGAL, MELI and PAM, and NIO), benchmarked against the S&P 500 (SPY). It brings together prices, risk metrics, fundamentals, a Markowitz portfolio builder, SEC filings, insider trades and US Treasury yields.
+An interactive, fully static market-intelligence web app built on **real data** for 58 companies (US large caps across sectors, Argentine/Brazilian ADRs, NIO, and staples including PG), benchmarked against the S&P 500 (SPY). It brings together prices, risk metrics, fundamentals, a Markowitz portfolio builder, SEC filings, insider trades and US Treasury yields.
 
 ![Overview](docs/overview.png)
 

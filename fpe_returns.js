@@ -1,13 +1,10 @@
-/* Forward P/E vs subsequent returns (EWZ / EWY). Data: data/fpe_returns.json */
+/* Forward P/E vs subsequent returns (EWZ / EWY). Data: data/fpe_returns.json
+   Own tab: both tickers rendered side-by-side (stacked cards), no toggle. */
 (function () {
-  let tk = "EWZ";
+  const TICKERS = ["EWZ", "EWY"];
   function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || undefined; }
   function pct(x, d = 1) { return x == null || !isFinite(x) ? "—" : (x * 100).toFixed(d) + "%"; }
   function num(x, d = 2) { return x == null || !isFinite(x) ? "—" : Number(x).toFixed(d); }
-
-  function T() {
-    return (S.fpe && S.fpe.tickers && S.fpe.tickers[tk]) || null;
-  }
 
   function panel(elId, pointsDam, pointsSib, reg, cur, yTitle) {
     const el = document.getElementById(elId);
@@ -42,7 +39,6 @@
         hoverinfo: "skip",
       });
     }
-    // Current MSCI FPE marker (no completed subsequent return yet)
     const yCur = reg && reg.implied_at_current != null ? reg.implied_at_current : 0;
     traces.push({
       type: "scatter", mode: "markers+text", name: `Hoy MSCI ${num(cur.fpe, 2)}x (${cur.date})`,
@@ -62,7 +58,7 @@
     }, { displayModeBar: false, responsive: true });
   }
 
-  function table(t) {
+  function table(tk, t) {
     const rows = [];
     (t.points_1y_damodaran || []).forEach(p => {
       const p5 = (t.points_5y_damodaran || []).find(x => x.asof === p.asof);
@@ -72,42 +68,47 @@
       rows.push({ asof: p.asof, fpe: p.fpe, r1: p.ret, r5: null, series: "Siblis" });
     });
     rows.sort((a, b) => a.asof < b.asof ? 1 : -1);
-    const el = document.getElementById("fpeTbl");
+    const el = document.getElementById("fpeTbl" + tk);
     if (!el) return;
     el.innerHTML = `<thead><tr><th>As-of</th><th>Serie FPE</th><th>Forward P/E</th><th>Retorno 1Y</th><th>Retorno 5Y ann.</th></tr></thead>` +
       `<tbody>${rows.map(r => `<tr><td>${r.asof}</td><td>${r.series}</td><td>${num(r.fpe, 2)}x</td><td>${pct(r.r1)}</td><td>${pct(r.r5)}</td></tr>`).join("")}</tbody>`;
   }
 
-  window.fpeTab = function fpeTab() {
-    const box = document.getElementById("fpeBox");
+  function renderOne(tk) {
+    const box = document.getElementById("fpeBox" + tk);
     if (!box) return;
-    if (!S.fpe || !S.fpe.tickers) {
-      box.querySelector("#fpeNote").innerHTML = "No se pudo cargar <code>data/fpe_returns.json</code>.";
+    const t = S.fpe && S.fpe.tickers && S.fpe.tickers[tk];
+    const noteEl = document.getElementById("fpeNote" + tk);
+    if (!t) {
+      if (noteEl) noteEl.innerHTML = `Sin datos para <b>${tk}</b> en <code>data/fpe_returns.json</code>.`;
       return;
     }
-    const t = T();
-    if (!t) return;
     const cur = t.current_msci;
     const yt = t.yahoo_trailing || {};
-    document.getElementById("fpeNote").innerHTML =
+    const reg1 = t.regression_1y_damodaran, reg5 = t.regression_5y_damodaran;
+
+    const sub = document.getElementById("fpeSub" + tk);
+    if (sub) sub.textContent = `${t.proxy || "proxy documentado"} · MSCI ${num(cur.fpe, 2)}x @ ${cur.date}`;
+
+    let note =
       `<b>Proxy documentado:</b> ${t.proxy}. ` +
       `Marcador actual = <b>${num(cur.fpe, 2)}x</b> (${cur.date}, ${cur.source}). ` +
       `Yahoo trailing P/E del ETF (no forward): <b>${num(yt.trailingPE, 2)}x</b>. ` +
       `Histórico anual = Damodaran firm avg/median Forward PE (gap sin ene-2014). ` +
-      `Puntos recientes índice = Siblis IBOV/KOSPI. Retornos = Yahoo total return de ${tk}. ` +
+      `Puntos recientes índice = Siblis. Retornos = Yahoo total return de ${tk}. ` +
       `Muestra chica — no inventamos puntos.`;
 
-    const reg1 = t.regression_1y_damodaran, reg5 = t.regression_5y_damodaran;
     const oos = [];
     [reg1, reg5].forEach((r, i) => {
       if (r && (cur.fpe < r.x_min || cur.fpe > r.x_max))
-        oos.push((i ? "5Y" : "1Y") + ` (muestra Damodaran ${num(r.x_min,1)}–${num(r.x_max,1)}x)`);
+        oos.push((i ? "5Y" : "1Y") + ` (muestra Damodaran ${num(r.x_min, 1)}–${num(r.x_max, 1)}x)`);
     });
     if (oos.length) {
-      document.getElementById("fpeNote").innerHTML +=
-        ` <b style="color:#f59e0b">Aviso:</b> el FPE MSCI actual (${num(cur.fpe,2)}x) queda fuera del rango histórico Damodaran en ${oos.join(" y ")}; el OLS implícito es extrapolación, no interpolación.`;
+      note += ` <b style="color:#f59e0b">Aviso:</b> el FPE MSCI actual (${num(cur.fpe, 2)}x) queda fuera del rango histórico Damodaran en ${oos.join(" y ")}; el OLS implícito es extrapolación, no interpolación.`;
     }
-    const k = document.getElementById("fpeK");
+    if (noteEl) noteEl.innerHTML = note;
+
+    const k = document.getElementById("fpeK" + tk);
     if (k) {
       k.innerHTML = [
         [`MSCI FPE hoy`, `${num(cur.fpe, 2)}x`, cur.date],
@@ -117,9 +118,20 @@
       ].map(([a, b, c]) => `<div class="kpi"><div class="k-l">${a}</div><div class="k-v">${b}</div><div class="k-s">${c}</div></div>`).join("");
     }
 
-    panel("fpe1y", t.points_1y_damodaran, t.points_1y_siblis, reg1, cur, "Retorno total 1 año");
-    panel("fpe5y", t.points_5y_damodaran, t.points_5y_siblis, reg5, cur, "Retorno anualizado 5 años");
-    table(t);
+    panel("fpe" + tk + "1y", t.points_1y_damodaran, t.points_1y_siblis, reg1, cur, "Retorno total 1 año");
+    panel("fpe" + tk + "5y", t.points_5y_damodaran, t.points_5y_siblis, reg5, cur, "Retorno anualizado 5 años");
+    table(tk, t);
+  }
+
+  window.fpeTab = function fpeTab() {
+    if (!S.fpe || !S.fpe.tickers) {
+      TICKERS.forEach(tk => {
+        const noteEl = document.getElementById("fpeNote" + tk);
+        if (noteEl) noteEl.innerHTML = "No se pudo cargar <code>data/fpe_returns.json</code>.";
+      });
+      return;
+    }
+    TICKERS.forEach(renderOne);
 
     const src = document.getElementById("fpeSrc");
     if (src) {
@@ -129,16 +141,4 @@
         (gaps ? `<ul class="muted small" style="margin:6px 0 0;padding-left:18px">${gaps}</ul>` : "");
     }
   };
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const seg = document.getElementById("fpeSeg");
-    if (!seg) return;
-    seg.addEventListener("click", e => {
-      const b = e.target.closest("button[data-k]");
-      if (!b) return;
-      tk = b.dataset.k;
-      [...seg.querySelectorAll("button")].forEach(x => x.classList.toggle("on", x === b));
-      fpeTab();
-    });
-  });
 })();

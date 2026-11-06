@@ -118,7 +118,8 @@
     "risk": 6,
     "valuation": null,
     "rationale": "Quality: best-in-class ad platform with ~41% operating margin (FY2025) and >3B daily users; a net-cash-light balance sheet after the AI build-out is still investment-grade. Growth: consensus has revenue +26% in 2026 and +21% in 2027, exceptional for a $1.9T company. Risk: the main risk is capital intensity (2026 capex is ~55% of revenue, which drove Q2 FCF down to $0.8B) and regulation (EU DMA, youth-safety suits). Valuation: scored from the model's implied upside."
-   }
+   },
+   "displayName": "Meta Platforms · moat"
   },
   "UNH": {
    "group": "Healthcare",
@@ -905,7 +906,7 @@
   },
   "ASML": {
    "group": "Semiconductors",
-   "displayName": "ASML Holding",
+   "displayName": "ASML · moat",
    "sector": "Semiconductor equipment (EUV/DUV lithography)",
    "betaAdj": "blume",
    "betaOverride": null,
@@ -1279,7 +1280,8 @@
     "risk": 6,
     "valuation": null,
     "rationale": "Quality: dominant beer share in Brazil (~60%), net cash and strong cash conversion (FCF ~R$20B in 2025). Growth: low, with consensus net revenue +3% in 2026 and +5% in 2027 in BRL. Risk: BRL and Brazil country risk, tax reform, tax contingencies and Argentina. Valuation: scored from the model's implied upside."
-   }
+   },
+   "displayName": "Ambev · moat"
   },
   "UBER": {
    "group": "Internet platforms",
@@ -1690,7 +1692,8 @@
     "risk": 5,
     "valuation": null,
     "rationale": "Quality: leader in custom AI accelerators and Ethernet switching, with very high margins and a large recurring software base. Growth: consensus revenue +66% in FY2026 and +64% in FY2027 on AI. Risk: customer concentration (a handful of hyperscalers), TSMC/Taiwan dependence, ~$59B of debt and VMware churn. Valuation from the model."
-   }
+   },
+   "displayName": "Broadcom · moat"
   },
   "VIST": {
    "group": "Oil & gas",
@@ -3994,7 +3997,8 @@
     "risk": 7,
     "valuation": null,
     "rationale": "Quality: dominant search, YouTube, Android, Cloud and in-house AI chips. Growth: AI and Cloud. Risk: antitrust, AI disruption. Valuation from the model."
-   }
+   },
+   "displayName": "Alphabet · moat"
   },
   "NEE": {
    "group": "Power: regulated utilities",
@@ -5985,7 +5989,8 @@
     "risk": 6,
     "valuation": null,
     "rationale": "Quality: oncology leader, strong vaccines, net margins ~30%. Growth: low through the Keytruda cliff. Risk: patent cliff, pricing policy. Valuation from the model."
-   }
+   },
+   "displayName": "Merck · moat"
   },
   "BMY": {
    "group": "Pharma",
@@ -6100,7 +6105,8 @@
     "risk": 5,
     "valuation": null,
     "rationale": "Quality: cash-generative, ~25% FCF margin. Growth: negative through 2028-30 cliffs. Risk: patent cliffs, execution on launches. Valuation from the model."
-   }
+   },
+   "displayName": "Bristol-Myers Squibb · moat"
   },
   "V": {
    "group": "Payments networks",
@@ -6214,7 +6220,8 @@
     "risk": 3,
     "valuation": null,
     "rationale": "Quality: two-sided network duopoly, ~65% EBIT margins, minimal capital. Growth: high single/low double digit. Risk: regulation and litigation, not competition. Valuation from the model."
-   }
+   },
+   "displayName": "Visa · moat"
   },
   "MA": {
    "group": "Payments networks",
@@ -6328,7 +6335,8 @@
     "risk": 3,
     "valuation": null,
     "rationale": "Quality: network duopoly, ~60% EBIT margins. Growth: low double digit with services mix. Risk: regulation. Valuation from the model."
-   }
+   },
+   "displayName": "Mastercard · moat"
   },
   "PM": {
    "group": "Consumer staples",
@@ -6443,7 +6451,8 @@
     "risk": 5,
     "valuation": null,
     "rationale": "Quality: pricing power, global brands, defensive in stagflation. Growth: mid single digit led by smoke-free. Risk: regulation, litigation, FX and leverage. Valuation from the model."
-   }
+   },
+   "displayName": "Philip Morris · moat"
   },
   "PG": {
    "group": "Consumer staples",
@@ -6558,7 +6567,8 @@
     "risk": 8,
     "valuation": null,
     "rationale": "Quality: category leadership, high ROIC, 68+ years of dividend growth. Growth: low-to-mid single digit. Risk: low (defensive, AA- credit); FX and private label. Valuation from the model."
-   }
+   },
+   "displayName": "Procter & Gamble · moat"
   },
   "PFE": {
    "group": "Pharma",
@@ -6788,7 +6798,8 @@
     "risk": 7,
     "valuation": null,
     "rationale": "Quality: AAA balance sheet, diversified. Growth: mid-single digit through Stelara LOE. Risk: low, talc tail. Valuation from the model."
-   }
+   },
+   "displayName": "Johnson & Johnson · moat"
   },
   "AZN": {
    "group": "Pharma",
@@ -7018,7 +7029,8 @@
     "risk": 6,
     "valuation": null,
     "rationale": "Quality: high margins, proven Humira transition. Growth: high-single digit. Risk: leverage, immunology concentration. Valuation from the model."
-   }
+   },
+   "displayName": "AbbVie · moat"
   },
   "LLY": {
    "group": "Pharma",
@@ -7133,6 +7145,3929 @@
     "risk": 5,
     "valuation": null,
     "rationale": "Quality: best-in-class margins and pipeline. Growth: highest in large pharma. Risk: GLP-1 concentration, pricing. Valuation from the model."
+   },
+   "displayName": "Eli Lilly · moat"
+  },
+  "AAPL": {
+   "displayName": "Apple · moat",
+   "group": "Consumer tech",
+   "groupPeersFromComps": true,
+   "sector": "Consumer electronics, services and wearables (iPhone, Mac, Services, Wearables)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.09).",
+   "crp": 0,
+   "kdSpread": 0.006,
+   "tax": 0.21,
+   "ebit1": 0.33,
+   "growthNote": "Apple. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~33% (Yahoo statements); D&A ~2.8% of sales; capex ~1.9% of sales. Base mid-term growth ~10.2%; steady-state EBIT ~34%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.028,
+   "daPctT": 0.028,
+   "capexPct1": 0.0189,
+   "capexPctT": 0.02,
+   "nwcPct": 0.0,
+   "terminalG": 0.025,
+   "ronic": 0.35,
+   "shareChange": -0.015,
+   "precedentEvEbitda": [
+    14,
+    22
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Consumer tech M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for AAPL is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: MSFT, GOOGL, AMZN, META, DELL, HPQ (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.062,
+     "midGrowth": 0.072,
+     "ebitT": 0.297,
+     "desc": "Demand softens and margins compress vs the AAPL base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.102,
+     "ebitT": 0.337,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.132,
+     "midGrowth": 0.132,
+     "ebitT": 0.367,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.022,
+     "midGrowth": 0.052,
+     "ebitT": 0.257,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.042,
+     "midGrowth": 0.062,
+     "ebitT": 0.277,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.152,
+     "midGrowth": 0.152,
+     "ebitT": 0.387,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "AAPL results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "MSFT": {
+   "displayName": "Microsoft · moat",
+   "group": "Software platforms",
+   "groupPeersFromComps": true,
+   "sector": "Cloud (Azure), Office/LinkedIn, Windows, Gaming, AI/Copilot",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.04).",
+   "crp": 0,
+   "kdSpread": 0.006,
+   "tax": 0.21,
+   "ebit1": 0.468,
+   "growthNote": "Microsoft. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~47% (Yahoo statements); D&A ~11.6% of sales; capex ~34.9% of sales. Base mid-term growth ~12.0%; steady-state EBIT ~47%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.1161,
+   "daPctT": 0.08,
+   "capexPct1": 0.3494,
+   "capexPctT": 0.12,
+   "nwcPct": 0.0,
+   "terminalG": 0.025,
+   "ronic": 0.24,
+   "shareChange": -0.015,
+   "precedentEvEbitda": [
+    16,
+    28
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Software platforms M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for MSFT is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: GOOGL, AAPL, AMZN, ORCL, SAP, ADBE (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.09,
+     "ebitT": 0.428,
+     "desc": "Demand softens and margins compress vs the MSFT base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.468,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.15,
+     "ebitT": 0.498,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.07,
+     "ebitT": 0.388,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "aiCapexTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.0,
+     "midGrowth": 0.04,
+     "ebitT": 0.348,
+     "desc": "Hyperscaler AI capex pauses; GPU/cloud growth normalises hard."
+    },
+    {
+     "id": "aiSuperTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.22,
+     "midGrowth": 0.2,
+     "ebitT": 0.508,
+     "desc": "AI infrastructure spend stays elevated for years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "MSFT results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "AMZN": {
+   "displayName": "Amazon · moat",
+   "group": "Internet platforms",
+   "groupPeersFromComps": true,
+   "sector": "E-commerce, AWS cloud, advertising, subscription (Prime)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.50).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.112,
+   "growthNote": "Amazon. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~11% (Yahoo statements); D&A ~9.2% of sales; capex ~18.4% of sales. Base mid-term growth ~10.5%; steady-state EBIT ~15%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0917,
+   "daPctT": 0.08,
+   "capexPct1": 0.1839,
+   "capexPctT": 0.08,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.192,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    22
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Internet platforms M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for AMZN is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: GOOGL, MSFT, WMT, COST, BABA, MELI (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.065,
+     "midGrowth": 0.075,
+     "ebitT": 0.112,
+     "desc": "Demand softens and margins compress vs the AMZN base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.105,
+     "ebitT": 0.152,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.135,
+     "midGrowth": 0.135,
+     "ebitT": 0.182,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.025,
+     "midGrowth": 0.055,
+     "ebitT": 0.072,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "aiCapexTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.015,
+     "midGrowth": 0.025,
+     "ebitT": 0.15,
+     "desc": "Hyperscaler AI capex pauses; GPU/cloud growth normalises hard."
+    },
+    {
+     "id": "aiSuperTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.205,
+     "midGrowth": 0.185,
+     "ebitT": 0.192,
+     "desc": "AI infrastructure spend stays elevated for years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "AMZN results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "NVDA": {
+   "displayName": "NVIDIA · moat",
+   "group": "Semiconductors",
+   "groupPeersFromComps": true,
+   "sector": "AI GPUs/accelerators, data-center networking, gaming, automotive",
+   "betaAdj": "blume",
+   "betaOverride": 1.6,
+   "betaNote": "Yahoo 5Y beta (~2.25) is extreme; Blume toward 1 still leaves a high used beta — cap override 1.6 for cost of equity stability.",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.604,
+   "growthNote": "NVIDIA. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~60% (Yahoo statements); D&A ~1.3% of sales; capex ~2.8% of sales. Base mid-term growth ~18.0%; steady-state EBIT ~58%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0132,
+   "daPctT": 0.02,
+   "capexPct1": 0.028,
+   "capexPctT": 0.028,
+   "nwcPct": 0.02,
+   "terminalG": 0.03,
+   "ronic": 0.35,
+   "shareChange": 0.01,
+   "precedentEvEbitda": [
+    14,
+    28
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Semiconductors M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for NVDA is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: AMD, AVGO, TSM, MU, QCOM, MRVL (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.14,
+     "midGrowth": 0.15,
+     "ebitT": 0.54,
+     "desc": "Demand softens and margins compress vs the NVDA base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.18,
+     "ebitT": 0.58,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.21,
+     "midGrowth": 0.21,
+     "ebitT": 0.61,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.1,
+     "midGrowth": 0.13,
+     "ebitT": 0.5,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "aiCapexTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.1,
+     "ebitT": 0.46,
+     "desc": "Hyperscaler AI capex pauses; GPU/cloud growth normalises hard."
+    },
+    {
+     "id": "aiSuperTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.28,
+     "midGrowth": 0.25,
+     "ebitT": 0.62,
+     "desc": "AI infrastructure spend stays elevated for years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "NVDA results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 9,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "KO": {
+   "displayName": "Coca-Cola · moat",
+   "group": "Beverages",
+   "groupPeersFromComps": true,
+   "sector": "Sparkling soft drinks, juices, hydration, concentrate + bottling system",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.27) understates long-run equity risk; assumed 0.55.",
+   "crp": 0,
+   "kdSpread": 0.006,
+   "tax": 0.21,
+   "ebit1": 0.311,
+   "growthNote": "Coca-Cola. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~31% (Yahoo statements); D&A ~2.2% of sales; capex ~4.4% of sales. Base mid-term growth ~5.2%; steady-state EBIT ~32%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0219,
+   "daPctT": 0.0219,
+   "capexPct1": 0.0441,
+   "capexPctT": 0.0441,
+   "nwcPct": 0.0,
+   "terminalG": 0.02,
+   "ronic": 0.284,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    18
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Beverages M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for KO is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: PEP, MNST, KDP, CELH, BUD (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.012,
+     "midGrowth": 0.022,
+     "ebitT": 0.277,
+     "desc": "Demand softens and margins compress vs the KO base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.052,
+     "ebitT": 0.317,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.082,
+     "midGrowth": 0.082,
+     "ebitT": 0.347,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.028,
+     "midGrowth": 0.002,
+     "ebitT": 0.237,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.008,
+     "midGrowth": 0.012,
+     "ebitT": 0.257,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.102,
+     "midGrowth": 0.102,
+     "ebitT": 0.367,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "KO results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "PEP": {
+   "displayName": "PepsiCo · moat",
+   "group": "Beverages",
+   "groupPeersFromComps": true,
+   "sector": "Beverages (Pepsi, Gatorade) and convenient foods (Frito-Lay, Quaker)",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.32) understates long-run equity risk; assumed 0.55.",
+   "crp": 0,
+   "kdSpread": 0.006,
+   "tax": 0.21,
+   "ebit1": 0.144,
+   "growthNote": "PepsiCo. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~14% (Yahoo statements); D&A ~4.5% of sales; capex ~4.7% of sales. Base mid-term growth ~3.9%; steady-state EBIT ~15%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0445,
+   "daPctT": 0.0445,
+   "capexPct1": 0.047,
+   "capexPctT": 0.047,
+   "nwcPct": 0.02,
+   "terminalG": 0.02,
+   "ronic": 0.35,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    18
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Beverages M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for PEP is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: KO, MNST, KDP, MDLZ, GIS (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": -0.001,
+     "midGrowth": 0.009,
+     "ebitT": 0.107,
+     "desc": "Demand softens and margins compress vs the PEP base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.039,
+     "ebitT": 0.147,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.069,
+     "midGrowth": 0.069,
+     "ebitT": 0.177,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.041,
+     "midGrowth": -0.01,
+     "ebitT": 0.067,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.021,
+     "midGrowth": 0.0,
+     "ebitT": 0.087,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.089,
+     "midGrowth": 0.089,
+     "ebitT": 0.197,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "PEP results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "COST": {
+   "displayName": "Costco · moat",
+   "group": "Retail",
+   "groupPeersFromComps": true,
+   "sector": "Membership warehouse retail (US + international)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.85).",
+   "crp": 0,
+   "kdSpread": 0.006,
+   "tax": 0.21,
+   "ebit1": 0.039,
+   "growthNote": "Costco. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~4% (Yahoo statements); D&A ~0.9% of sales; capex ~2.1% of sales. Base mid-term growth ~6.0%; steady-state EBIT ~4%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0088,
+   "daPctT": 0.02,
+   "capexPct1": 0.0212,
+   "capexPctT": 0.0212,
+   "nwcPct": 0.0,
+   "terminalG": 0.02,
+   "ronic": 0.199,
+   "shareChange": -0.015,
+   "precedentEvEbitda": [
+    12,
+    20
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Retail M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for COST is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: WMT, TGT, BJ, DG, DLTR (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.02,
+     "midGrowth": 0.03,
+     "ebitT": 0.02,
+     "desc": "Demand softens and margins compress vs the COST base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.06,
+     "ebitT": 0.044,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.09,
+     "midGrowth": 0.09,
+     "ebitT": 0.074,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.01,
+     "ebitT": 0.01,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.0,
+     "midGrowth": 0.02,
+     "ebitT": 0.01,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.11,
+     "midGrowth": 0.11,
+     "ebitT": 0.094,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "COST results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 7,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "HD": {
+   "displayName": "Home Depot · moat",
+   "group": "Retail",
+   "groupPeersFromComps": true,
+   "sector": "Home improvement retail (US DIY + Pro)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.95).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.127,
+   "growthNote": "Home Depot. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~13% (Yahoo statements); D&A ~2.5% of sales; capex ~2.2% of sales. Base mid-term growth ~4.0%; steady-state EBIT ~13%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.025,
+   "daPctT": 0.025,
+   "capexPct1": 0.0223,
+   "capexPctT": 0.0223,
+   "nwcPct": 0.02,
+   "terminalG": 0.02,
+   "ronic": 0.35,
+   "shareChange": -0.015,
+   "precedentEvEbitda": [
+    12,
+    20
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Retail M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for HD is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: LOW, TSCO, WSM, FND (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": -0.0,
+     "midGrowth": 0.01,
+     "ebitT": 0.089,
+     "desc": "Demand softens and margins compress vs the HD base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.04,
+     "ebitT": 0.129,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.07,
+     "midGrowth": 0.07,
+     "ebitT": 0.159,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.04,
+     "midGrowth": -0.01,
+     "ebitT": 0.049,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.0,
+     "ebitT": 0.069,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.09,
+     "midGrowth": 0.09,
+     "ebitT": 0.179,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "HD results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "ORCL": {
+   "displayName": "Oracle · moat",
+   "group": "Software platforms",
+   "groupPeersFromComps": true,
+   "sector": "Database, cloud applications, OCI hyperscale cloud",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.78).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.333,
+   "growthNote": "Oracle. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~33% (Yahoo statements); D&A ~13.8% of sales; capex ~55.0% of sales. Base mid-term growth ~14.8%; steady-state EBIT ~34%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.138,
+   "daPctT": 0.08,
+   "capexPct1": 0.55,
+   "capexPctT": 0.12,
+   "nwcPct": 0.02,
+   "terminalG": 0.03,
+   "ronic": 0.288,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    16,
+    28
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Software platforms M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for ORCL is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: MSFT, SAP, CRM, IBM, NOW (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.108,
+     "midGrowth": 0.118,
+     "ebitT": 0.3,
+     "desc": "Demand softens and margins compress vs the ORCL base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.148,
+     "ebitT": 0.34,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.178,
+     "midGrowth": 0.178,
+     "ebitT": 0.37,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.068,
+     "midGrowth": 0.098,
+     "ebitT": 0.26,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "aiCapexTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.028,
+     "midGrowth": 0.068,
+     "ebitT": 0.22,
+     "desc": "Hyperscaler AI capex pauses; GPU/cloud growth normalises hard."
+    },
+    {
+     "id": "aiSuperTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.248,
+     "midGrowth": 0.228,
+     "ebitT": 0.38,
+     "desc": "AI infrastructure spend stays elevated for years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "ORCL results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 9,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "NKE": {
+   "displayName": "Nike · moat",
+   "group": "Consumer discretionary",
+   "groupPeersFromComps": true,
+   "sector": "Athletic footwear and apparel (Nike, Jordan, Converse)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.03).",
+   "crp": 0,
+   "kdSpread": 0.015,
+   "tax": 0.21,
+   "ebit1": 0.082,
+   "growthNote": "Nike. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~8% (Yahoo statements); D&A ~1.7% of sales; capex ~1.5% of sales. Base mid-term growth ~4.0%; steady-state EBIT ~12%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0172,
+   "daPctT": 0.02,
+   "capexPct1": 0.0147,
+   "capexPctT": 0.02,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.151,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Consumer discretionary M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for NKE is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: DECK, LULU, UAA, ADDYY, ONON (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.0,
+     "midGrowth": 0.01,
+     "ebitT": 0.082,
+     "desc": "Demand softens and margins compress vs the NKE base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.04,
+     "ebitT": 0.122,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.07,
+     "midGrowth": 0.07,
+     "ebitT": 0.152,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.04,
+     "midGrowth": -0.01,
+     "ebitT": 0.042,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.0,
+     "ebitT": 0.062,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.09,
+     "midGrowth": 0.09,
+     "ebitT": 0.172,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "NKE results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 3,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "MELI": {
+   "displayName": "MercadoLibre · moat",
+   "group": "Internet platforms",
+   "groupPeersFromComps": true,
+   "sector": "LatAm e-commerce marketplace, fintech (Mercado Pago), logistics",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.39).",
+   "crp": 0,
+   "kdSpread": 0.012,
+   "tax": 0.22,
+   "ebit1": 0.111,
+   "growthNote": "MercadoLibre. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~11% (Yahoo statements); D&A ~2.8% of sales; capex ~4.7% of sales. Base mid-term growth ~18.0%; steady-state EBIT ~15%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0283,
+   "daPctT": 0.0283,
+   "capexPct1": 0.0465,
+   "capexPctT": 0.0465,
+   "nwcPct": 0.02,
+   "terminalG": 0.03,
+   "ronic": 0.193,
+   "shareChange": 0.01,
+   "precedentEvEbitda": [
+    12,
+    22
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Internet platforms M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for MELI is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: AMZN, SE, CPNG, SHOP, BABA (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.14,
+     "midGrowth": 0.15,
+     "ebitT": 0.111,
+     "desc": "Demand softens and margins compress vs the MELI base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.18,
+     "ebitT": 0.151,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.21,
+     "midGrowth": 0.21,
+     "ebitT": 0.181,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.1,
+     "midGrowth": 0.13,
+     "ebitT": 0.071,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.12,
+     "midGrowth": 0.14,
+     "ebitT": 0.091,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.23,
+     "midGrowth": 0.23,
+     "ebitT": 0.201,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "MELI results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 9,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "AMGN": {
+   "displayName": "Amgen · moat",
+   "group": "Biotech",
+   "groupPeersFromComps": true,
+   "sector": "Biologic pharmaceuticals (oncology, inflammation, bone health)",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.42) understates long-run equity risk; assumed 0.55.",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.247,
+   "growthNote": "Amgen. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~25% (Yahoo statements); D&A ~14.1% of sales; capex ~5.1% of sales. Base mid-term growth ~8.0%; steady-state EBIT ~25%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.1406,
+   "daPctT": 0.08,
+   "capexPct1": 0.0506,
+   "capexPctT": 0.0506,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.35,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    18
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Biotech M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for AMGN is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: GILD, ABBV, REGN, VRTX, BIIB (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.05,
+     "ebitT": 0.212,
+     "desc": "Demand softens and margins compress vs the AMGN base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.08,
+     "ebitT": 0.252,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.11,
+     "midGrowth": 0.11,
+     "ebitT": 0.282,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.001,
+     "midGrowth": 0.029,
+     "ebitT": 0.172,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.02,
+     "midGrowth": 0.04,
+     "ebitT": 0.192,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.13,
+     "midGrowth": 0.13,
+     "ebitT": 0.302,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "AMGN results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "GILD": {
+   "displayName": "Gilead · moat",
+   "group": "Biotech",
+   "groupPeersFromComps": true,
+   "sector": "Antivirals (HIV, hepatitis) and oncology",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.37) understates long-run equity risk; assumed 0.55.",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.397,
+   "growthNote": "Gilead. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~40% (Yahoo statements); D&A ~9.4% of sales; capex ~1.9% of sales. Base mid-term growth ~6.8%; steady-state EBIT ~40%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0937,
+   "daPctT": 0.08,
+   "capexPct1": 0.0191,
+   "capexPctT": 0.02,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.08,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    18
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Biotech M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for GILD is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: AMGN, ABBV, MRK, BIIB, REGN (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.028,
+     "midGrowth": 0.038,
+     "ebitT": 0.365,
+     "desc": "Demand softens and margins compress vs the GILD base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.068,
+     "ebitT": 0.405,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.098,
+     "midGrowth": 0.098,
+     "ebitT": 0.435,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.012,
+     "midGrowth": 0.018,
+     "ebitT": 0.325,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.008,
+     "midGrowth": 0.028,
+     "ebitT": 0.345,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.118,
+     "midGrowth": 0.118,
+     "ebitT": 0.455,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "GILD results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "MO": {
+   "displayName": "Altria · moat",
+   "group": "Tobacco",
+   "groupPeersFromComps": true,
+   "sector": "US combustible tobacco (Marlboro) and oral nicotine (on!, IQOS partnership)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.46).",
+   "crp": 0,
+   "kdSpread": 0.015,
+   "tax": 0.21,
+   "ebit1": 0.598,
+   "growthNote": "Altria. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~60% (Yahoo statements); D&A ~1.3% of sales; capex ~1.1% of sales. Base mid-term growth ~2.5%; steady-state EBIT ~55%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0132,
+   "daPctT": 0.02,
+   "capexPct1": 0.0107,
+   "capexPctT": 0.02,
+   "nwcPct": 0.0,
+   "terminalG": 0.02,
+   "ronic": 0.105,
+   "shareChange": -0.015,
+   "precedentEvEbitda": [
+    8,
+    12
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Tobacco M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for MO is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: PM, BTI, UVV, IMBBY (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.2178,
+     "growthAdj": 0,
+     "g2": -0.015,
+     "midGrowth": 0.0,
+     "ebitT": 0.51,
+     "desc": "Demand softens and margins compress vs the MO base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.3961,
+     "growthAdj": 0,
+     "midGrowth": 0.025,
+     "ebitT": 0.55,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.1782,
+     "growthAdj": 0,
+     "g2": 0.055,
+     "midGrowth": 0.055,
+     "ebitT": 0.58,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.0792,
+     "growthAdj": 0,
+     "g2": -0.05,
+     "midGrowth": -0.01,
+     "ebitT": 0.47,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: US nicotine regulation shock",
+     "p": 0.0792,
+     "growthAdj": 0,
+     "g2": -0.04,
+     "midGrowth": -0.01,
+     "ebitT": 0.45,
+     "desc": "FDA menthol ban / nicotine cap accelerates volume decline."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.0495,
+     "growthAdj": 0,
+     "g2": 0.075,
+     "midGrowth": 0.075,
+     "ebitT": 0.6,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "MO results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 4,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "CAT": {
+   "displayName": "Caterpillar · moat",
+   "group": "Industrials",
+   "groupPeersFromComps": true,
+   "sector": "Construction, mining, energy & transportation equipment; Cat Financial",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.64).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.165,
+   "growthNote": "Caterpillar. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~16% (Yahoo statements); D&A ~3.4% of sales; capex ~6.3% of sales. Base mid-term growth ~12.0%; steady-state EBIT ~17%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0335,
+   "daPctT": 0.0335,
+   "capexPct1": 0.0634,
+   "capexPctT": 0.06,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.35,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Industrials M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for CAT is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: DE, CMI, PCAR, WAB, TEX (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.09,
+     "ebitT": 0.128,
+     "desc": "Demand softens and margins compress vs the CAT base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.168,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.15,
+     "ebitT": 0.198,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.07,
+     "ebitT": 0.088,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.08,
+     "ebitT": 0.108,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.17,
+     "midGrowth": 0.17,
+     "ebitT": 0.218,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "CAT results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "DE": {
+   "displayName": "Deere · moat",
+   "group": "Industrials",
+   "groupPeersFromComps": true,
+   "sector": "Agricultural and construction equipment; John Deere Financial",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.90).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.188,
+   "growthNote": "Deere. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~19% (Yahoo statements); D&A ~5.0% of sales; capex ~9.5% of sales. Base mid-term growth ~5.4%; steady-state EBIT ~19%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0499,
+   "daPctT": 0.0499,
+   "capexPct1": 0.0947,
+   "capexPctT": 0.06,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.128,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Industrials M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for DE is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: CAT, AGCO, CNHI, PCAR (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.014,
+     "midGrowth": 0.024,
+     "ebitT": 0.152,
+     "desc": "Demand softens and margins compress vs the DE base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.054,
+     "ebitT": 0.192,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.084,
+     "midGrowth": 0.084,
+     "ebitT": 0.222,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.026,
+     "midGrowth": 0.004,
+     "ebitT": 0.112,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.006,
+     "midGrowth": 0.014,
+     "ebitT": 0.132,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.104,
+     "midGrowth": 0.104,
+     "ebitT": 0.242,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "DE results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 4,
+    "risk": 7,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "GE": {
+   "displayName": "GE Aerospace · moat",
+   "group": "Aerospace & defense",
+   "groupPeersFromComps": true,
+   "sector": "Commercial engines, defense & systems, aftermarket services (GE Aerospace)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.41).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.189,
+   "growthNote": "GE Aerospace. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~19% (Yahoo statements); D&A ~2.7% of sales; capex ~2.8% of sales. Base mid-term growth ~12.0%; steady-state EBIT ~19%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0266,
+   "daPctT": 0.0266,
+   "capexPct1": 0.0278,
+   "capexPctT": 0.0278,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.35,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Aerospace & defense M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for GE is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: RTX, LMT, HON, BA, TDG (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.09,
+     "ebitT": 0.153,
+     "desc": "Demand softens and margins compress vs the GE base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.193,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.15,
+     "ebitT": 0.223,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.07,
+     "ebitT": 0.113,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "budgetTail",
+     "name": "Tail: US defense budget cut",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.01,
+     "ebitT": 0.163,
+     "desc": "US DoD budget austerity or program cancellations."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.17,
+     "midGrowth": 0.17,
+     "ebitT": 0.243,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "GE results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "LMT": {
+   "displayName": "Lockheed Martin · moat",
+   "group": "Aerospace & defense",
+   "groupPeersFromComps": true,
+   "sector": "Defense primes: aeronautics, missiles, rotary & mission systems",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.08) understates long-run equity risk; assumed 0.55.",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.103,
+   "growthNote": "Lockheed Martin. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~10% (Yahoo statements); D&A ~2.2% of sales; capex ~2.2% of sales. Base mid-term growth ~9.9%; steady-state EBIT ~10%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0225,
+   "daPctT": 0.0225,
+   "capexPct1": 0.022,
+   "capexPctT": 0.022,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.35,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Aerospace & defense M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for LMT is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: RTX, NOC, GD, HII, BA (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.059,
+     "midGrowth": 0.069,
+     "ebitT": 0.065,
+     "desc": "Demand softens and margins compress vs the LMT base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.099,
+     "ebitT": 0.105,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.129,
+     "midGrowth": 0.129,
+     "ebitT": 0.135,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.019,
+     "midGrowth": 0.049,
+     "ebitT": 0.025,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "budgetTail",
+     "name": "Tail: US defense budget cut",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.01,
+     "ebitT": 0.075,
+     "desc": "US DoD budget austerity or program cancellations."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.149,
+     "midGrowth": 0.149,
+     "ebitT": 0.155,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "LMT results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "ADI": {
+   "displayName": "Analog Devices · moat",
+   "group": "Semiconductors",
+   "groupPeersFromComps": true,
+   "sector": "Analog, mixed-signal and power management semiconductors",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.26).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.272,
+   "growthNote": "Analog Devices. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~27% (Yahoo statements); D&A ~18.1% of sales; capex ~4.8% of sales. Base mid-term growth ~12.0%; steady-state EBIT ~28%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.1814,
+   "daPctT": 0.08,
+   "capexPct1": 0.0484,
+   "capexPctT": 0.0484,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.086,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    14,
+    28
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Semiconductors M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for ADI is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: TXN, NXPI, MCHP, ON, AVGO (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.09,
+     "ebitT": 0.238,
+     "desc": "Demand softens and margins compress vs the ADI base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.278,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.15,
+     "ebitT": 0.308,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.07,
+     "ebitT": 0.198,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.08,
+     "ebitT": 0.218,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.17,
+     "midGrowth": 0.17,
+     "ebitT": 0.328,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "ADI results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 9,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "AMAT": {
+   "displayName": "Applied Materials · moat",
+   "group": "Semi equipment",
+   "groupPeersFromComps": true,
+   "sector": "Semiconductor capital equipment (deposition, etch, CMP, inspection)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.67).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.299,
+   "growthNote": "Applied Materials. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~30% (Yahoo statements); D&A ~1.5% of sales; capex ~8.0% of sales. Base mid-term growth ~12.4%; steady-state EBIT ~30%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0153,
+   "daPctT": 0.02,
+   "capexPct1": 0.0797,
+   "capexPctT": 0.06,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.287,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    20
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Semi equipment M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for AMAT is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: LRCX, KLAC, ASML, TER (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.084,
+     "midGrowth": 0.094,
+     "ebitT": 0.265,
+     "desc": "Demand softens and margins compress vs the AMAT base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.124,
+     "ebitT": 0.305,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.154,
+     "midGrowth": 0.154,
+     "ebitT": 0.335,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.044,
+     "midGrowth": 0.074,
+     "ebitT": 0.225,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "aiCapexTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.004,
+     "midGrowth": 0.044,
+     "ebitT": 0.185,
+     "desc": "Hyperscaler AI capex pauses; GPU/cloud growth normalises hard."
+    },
+    {
+     "id": "aiSuperTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.224,
+     "midGrowth": 0.204,
+     "ebitT": 0.345,
+     "desc": "AI infrastructure spend stays elevated for years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "AMAT results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "ANET": {
+   "displayName": "Arista Networks · moat",
+   "group": "Networking",
+   "groupPeersFromComps": true,
+   "sector": "Cloud networking switches and software (campus + data center)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.64).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.428,
+   "growthNote": "Arista Networks. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~43% (Yahoo statements); D&A ~0.8% of sales; capex ~1.3% of sales. Base mid-term growth ~18.0%; steady-state EBIT ~44%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0081,
+   "daPctT": 0.02,
+   "capexPct1": 0.0133,
+   "capexPctT": 0.02,
+   "nwcPct": 0.02,
+   "terminalG": 0.03,
+   "ronic": 0.235,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    14,
+    24
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Networking M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for ANET is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: CSCO, JNPR, DELL, HPE, AVGO (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.14,
+     "midGrowth": 0.15,
+     "ebitT": 0.397,
+     "desc": "Demand softens and margins compress vs the ANET base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.18,
+     "ebitT": 0.437,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.21,
+     "midGrowth": 0.21,
+     "ebitT": 0.467,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.1,
+     "midGrowth": 0.13,
+     "ebitT": 0.357,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "aiCapexTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.1,
+     "ebitT": 0.317,
+     "desc": "Hyperscaler AI capex pauses; GPU/cloud growth normalises hard."
+    },
+    {
+     "id": "aiSuperTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.28,
+     "midGrowth": 0.25,
+     "ebitT": 0.477,
+     "desc": "AI infrastructure spend stays elevated for years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "ANET results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 9,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "ADP": {
+   "displayName": "ADP · moat",
+   "group": "Business services",
+   "groupPeersFromComps": true,
+   "sector": "HR/payroll outsourcing and HCM software",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.79).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.263,
+   "growthNote": "ADP. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~26% (Yahoo statements); D&A ~2.7% of sales; capex ~3.0% of sales. Base mid-term growth ~4.3%; steady-state EBIT ~27%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0267,
+   "daPctT": 0.0267,
+   "capexPct1": 0.0303,
+   "capexPctT": 0.0303,
+   "nwcPct": 0.0,
+   "terminalG": 0.02,
+   "ronic": 0.35,
+   "shareChange": -0.015,
+   "precedentEvEbitda": [
+    14,
+    22
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Business services M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for ADP is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: PAYX, PCTY, WDAY, INTU, PAYC (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.003,
+     "midGrowth": 0.013,
+     "ebitT": 0.229,
+     "desc": "Demand softens and margins compress vs the ADP base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.043,
+     "ebitT": 0.269,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.073,
+     "midGrowth": 0.073,
+     "ebitT": 0.299,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.037,
+     "midGrowth": -0.007,
+     "ebitT": 0.189,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.017,
+     "midGrowth": 0.003,
+     "ebitT": 0.209,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.093,
+     "midGrowth": 0.093,
+     "ebitT": 0.319,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "ADP results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 7,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "ABNB": {
+   "displayName": "Airbnb · moat",
+   "group": "Travel & lodging",
+   "groupPeersFromComps": true,
+   "sector": "Online short-term lodging marketplace",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.27).",
+   "crp": 0,
+   "kdSpread": 0.012,
+   "tax": 0.21,
+   "ebit1": 0.208,
+   "growthNote": "Airbnb. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~21% (Yahoo statements); D&A ~nan% of sales; capex ~5.0% of sales. Base mid-term growth ~12.0%; steady-state EBIT ~21%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.03,
+   "daPctT": 0.02,
+   "capexPct1": 0.05,
+   "capexPctT": 0.05,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.242,
+   "shareChange": 0.01,
+   "precedentEvEbitda": [
+    12,
+    20
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Travel & lodging M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for ABNB is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: BKNG, EXPE, MAR, HLT, UBER (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.09,
+     "ebitT": 0.172,
+     "desc": "Demand softens and margins compress vs the ABNB base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.212,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.15,
+     "ebitT": 0.242,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.07,
+     "ebitT": 0.132,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.08,
+     "ebitT": 0.152,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.17,
+     "midGrowth": 0.17,
+     "ebitT": 0.262,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "ABNB results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "DHR": {
+   "displayName": "Danaher · moat",
+   "group": "Life sciences tools",
+   "groupPeersFromComps": true,
+   "sector": "Life sciences & diagnostics tools ( bioprocessing, diagnostics)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.80).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.191,
+   "growthNote": "Danaher. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~19% (Yahoo statements); D&A ~10.0% of sales; capex ~4.7% of sales. Base mid-term growth ~7.8%; steady-state EBIT ~20%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0996,
+   "daPctT": 0.08,
+   "capexPct1": 0.0471,
+   "capexPctT": 0.0471,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.08,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    14,
+    22
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Life sciences tools M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for DHR is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: TMO, A, IQV, WAT, MTD (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.038,
+     "midGrowth": 0.048,
+     "ebitT": 0.155,
+     "desc": "Demand softens and margins compress vs the DHR base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.078,
+     "ebitT": 0.195,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.108,
+     "midGrowth": 0.108,
+     "ebitT": 0.225,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.002,
+     "midGrowth": 0.028,
+     "ebitT": 0.115,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.018,
+     "midGrowth": 0.038,
+     "ebitT": 0.135,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.128,
+     "midGrowth": 0.128,
+     "ebitT": 0.245,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "DHR results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 7,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "ISRG": {
+   "displayName": "Intuitive Surgical · moat",
+   "group": "Medtech",
+   "groupPeersFromComps": true,
+   "sector": "Robotic-assisted surgery systems (da Vinci) and instruments",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.44).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.293,
+   "growthNote": "Intuitive Surgical. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~29% (Yahoo statements); D&A ~6.7% of sales; capex ~5.4% of sales. Base mid-term growth ~12.0%; steady-state EBIT ~30%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0673,
+   "daPctT": 0.0673,
+   "capexPct1": 0.0536,
+   "capexPctT": 0.0536,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.126,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    16,
+    26
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Medtech M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for ISRG is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: SYK, MDT, BSX, EW, ZBH (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.09,
+     "ebitT": 0.259,
+     "desc": "Demand softens and margins compress vs the ISRG base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.299,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.15,
+     "ebitT": 0.329,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.07,
+     "ebitT": 0.219,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.08,
+     "ebitT": 0.239,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.17,
+     "midGrowth": 0.17,
+     "ebitT": 0.349,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "ISRG results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "LRCX": {
+   "displayName": "Lam Research · moat",
+   "group": "Semi equipment",
+   "groupPeersFromComps": true,
+   "sector": "Wafer fabrication equipment (etch, deposition) for leading-edge nodes",
+   "betaAdj": "blume",
+   "betaOverride": 1.6,
+   "betaNote": "Yahoo 5Y beta (~2.01) is extreme; Blume toward 1 still leaves a high used beta — cap override 1.6 for cost of equity stability.",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.353,
+   "growthNote": "Lam Research. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~35% (Yahoo statements); D&A ~1.9% of sales; capex ~4.2% of sales. Base mid-term growth ~18.0%; steady-state EBIT ~36%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.019,
+   "daPctT": 0.02,
+   "capexPct1": 0.0416,
+   "capexPctT": 0.0416,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.35,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    20
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Semi equipment M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for LRCX is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: AMAT, KLAC, ASML, TER (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.14,
+     "midGrowth": 0.15,
+     "ebitT": 0.32,
+     "desc": "Demand softens and margins compress vs the LRCX base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.18,
+     "ebitT": 0.36,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.21,
+     "midGrowth": 0.21,
+     "ebitT": 0.39,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.1,
+     "midGrowth": 0.13,
+     "ebitT": 0.28,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "aiCapexTail",
+     "name": "Tail: AI capex bust",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.1,
+     "ebitT": 0.24,
+     "desc": "Hyperscaler AI capex pauses; GPU/cloud growth normalises hard."
+    },
+    {
+     "id": "aiSuperTail",
+     "name": "Tail: AI super-cycle",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.28,
+     "midGrowth": 0.25,
+     "ebitT": 0.4,
+     "desc": "AI infrastructure spend stays elevated for years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "LRCX results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 9,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "MDLZ": {
+   "displayName": "Mondelez · moat",
+   "group": "Consumer staples",
+   "groupPeersFromComps": true,
+   "sector": "Global snacks (Oreos, Cadbury, Halls) and biscuits",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.36) understates long-run equity risk; assumed 0.55.",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.094,
+   "growthNote": "Mondelez. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~9% (Yahoo statements); D&A ~3.5% of sales; capex ~3.3% of sales. Base mid-term growth ~2.0%; steady-state EBIT ~10%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0352,
+   "daPctT": 0.0352,
+   "capexPct1": 0.0332,
+   "capexPctT": 0.0332,
+   "nwcPct": 0.02,
+   "terminalG": 0.02,
+   "ronic": 0.108,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    18
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Consumer staples M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for MDLZ is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: HSY, GIS, KHC, CPG, NESN.SW (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.0,
+     "ebitT": 0.056,
+     "desc": "Demand softens and margins compress vs the MDLZ base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.02,
+     "ebitT": 0.096,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.05,
+     "midGrowth": 0.05,
+     "ebitT": 0.126,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.05,
+     "midGrowth": -0.01,
+     "ebitT": 0.016,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.03,
+     "midGrowth": 0.0,
+     "ebitT": 0.036,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.07,
+     "midGrowth": 0.07,
+     "ebitT": 0.146,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "MDLZ results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 4,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "PANW": {
+   "displayName": "Palo Alto Networks · moat",
+   "group": "Cybersecurity",
+   "groupPeersFromComps": true,
+   "sector": "Network, cloud and security operations (firewall, Prisma, Cortex)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.97).",
+   "crp": 0,
+   "kdSpread": 0.012,
+   "tax": 0.21,
+   "ebit1": 0.061,
+   "growthNote": "Palo Alto Networks. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~6% (Yahoo statements); D&A ~7.4% of sales; capex ~3.8% of sales. Base mid-term growth ~12.0%; steady-state EBIT ~10%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0745,
+   "daPctT": 0.0745,
+   "capexPct1": 0.0383,
+   "capexPctT": 0.0383,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.08,
+   "shareChange": 0.01,
+   "precedentEvEbitda": [
+    18,
+    30
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Cybersecurity M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for PANW is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: CRWD, FTNT, ZS, S, NET (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.09,
+     "ebitT": 0.061,
+     "desc": "Demand softens and margins compress vs the PANW base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.12,
+     "ebitT": 0.101,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.15,
+     "ebitT": 0.131,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.07,
+     "ebitT": 0.021,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.06,
+     "midGrowth": 0.08,
+     "ebitT": 0.041,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.17,
+     "midGrowth": 0.17,
+     "ebitT": 0.151,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "PANW results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 9,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "RTX": {
+   "displayName": "RTX · moat",
+   "group": "Aerospace & defense",
+   "groupPeersFromComps": true,
+   "sector": "Aerospace & defense (Collins, Pratt & Whitney, Raytheon)",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.28) understates long-run equity risk; assumed 0.55.",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.105,
+   "growthNote": "RTX. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~10% (Yahoo statements); D&A ~4.9% of sales; capex ~3.5% of sales. Base mid-term growth ~9.8%; steady-state EBIT ~11%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0494,
+   "daPctT": 0.0494,
+   "capexPct1": 0.0352,
+   "capexPctT": 0.0352,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.09,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Aerospace & defense M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for RTX is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: LMT, NOC, GD, HON, GE (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.058,
+     "midGrowth": 0.068,
+     "ebitT": 0.067,
+     "desc": "Demand softens and margins compress vs the RTX base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.098,
+     "ebitT": 0.107,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.128,
+     "midGrowth": 0.128,
+     "ebitT": 0.137,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.018,
+     "midGrowth": 0.048,
+     "ebitT": 0.027,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "budgetTail",
+     "name": "Tail: US defense budget cut",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.01,
+     "ebitT": 0.077,
+     "desc": "US DoD budget austerity or program cancellations."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.148,
+     "midGrowth": 0.148,
+     "ebitT": 0.157,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "RTX results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "SPGI": {
+   "displayName": "S&P Global · moat",
+   "group": "Financial data",
+   "groupPeersFromComps": true,
+   "sector": "Ratings, indices, market intelligence and commodity insights",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.03).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.403,
+   "growthNote": "S&P Global. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~40% (Yahoo statements); D&A ~7.7% of sales; capex ~1.3% of sales. Base mid-term growth ~4.8%; steady-state EBIT ~40%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0769,
+   "daPctT": 0.0769,
+   "capexPct1": 0.0127,
+   "capexPctT": 0.02,
+   "nwcPct": 0.0,
+   "terminalG": 0.025,
+   "ronic": 0.125,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    16,
+    26
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Financial data M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for SPGI is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: MCO, MSCI, FDS, ICE, CME (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.008,
+     "midGrowth": 0.018,
+     "ebitT": 0.363,
+     "desc": "Demand softens and margins compress vs the SPGI base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.048,
+     "ebitT": 0.403,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.078,
+     "midGrowth": 0.078,
+     "ebitT": 0.433,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.032,
+     "midGrowth": -0.002,
+     "ebitT": 0.323,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.012,
+     "midGrowth": 0.008,
+     "ebitT": 0.343,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.098,
+     "midGrowth": 0.098,
+     "ebitT": 0.453,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "SPGI results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "TMO": {
+   "displayName": "Thermo Fisher · moat",
+   "group": "Life sciences tools",
+   "groupPeersFromComps": true,
+   "sector": "Life sciences tools, diagnostics, analytical instruments, pharma services",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.84).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.182,
+   "growthNote": "Thermo Fisher. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~18% (Yahoo statements); D&A ~6.2% of sales; capex ~3.4% of sales. Base mid-term growth ~8.4%; steady-state EBIT ~19%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0624,
+   "daPctT": 0.0624,
+   "capexPct1": 0.0342,
+   "capexPctT": 0.0342,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.094,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    14,
+    22
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Life sciences tools M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for TMO is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: DHR, A, IQV, WAT, MTD (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.044,
+     "midGrowth": 0.054,
+     "ebitT": 0.146,
+     "desc": "Demand softens and margins compress vs the TMO base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.084,
+     "ebitT": 0.186,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.114,
+     "midGrowth": 0.114,
+     "ebitT": 0.216,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.004,
+     "midGrowth": 0.034,
+     "ebitT": 0.106,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.024,
+     "midGrowth": 0.044,
+     "ebitT": 0.126,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.134,
+     "midGrowth": 0.134,
+     "ebitT": 0.236,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "TMO results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 7,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "VRSN": {
+   "displayName": "Verisign · moat",
+   "group": "Internet infrastructure",
+   "groupPeersFromComps": true,
+   "sector": ".com/.net DNS registry (exclusive contracts)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.67).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.21,
+   "ebit1": 0.677,
+   "growthNote": "Verisign. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~68% (Yahoo statements); D&A ~1.9% of sales; capex ~1.4% of sales. Base mid-term growth ~4.0%; steady-state EBIT ~55%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0188,
+   "daPctT": 0.02,
+   "capexPct1": 0.0138,
+   "capexPctT": 0.02,
+   "nwcPct": 0.0,
+   "terminalG": 0.02,
+   "ronic": 0.105,
+   "shareChange": -0.015,
+   "precedentEvEbitda": [
+    14,
+    22
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Internet infrastructure M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for VRSN is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: GOOGL, AKAM, FFIV, GDDY (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": -0.0,
+     "midGrowth": 0.01,
+     "ebitT": 0.58,
+     "desc": "Demand softens and margins compress vs the VRSN base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.04,
+     "ebitT": 0.65,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.07,
+     "midGrowth": 0.07,
+     "ebitT": 0.68,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.04,
+     "midGrowth": -0.01,
+     "ebitT": 0.47,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.0,
+     "ebitT": 0.49,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.09,
+     "midGrowth": 0.09,
+     "ebitT": 0.6,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "VRSN results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 7,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "BABA": {
+   "displayName": "Alibaba · moat",
+   "group": "Internet platforms",
+   "groupPeersFromComps": true,
+   "sector": "China e-commerce (Taobao/Tmall), cloud, international commerce, logistics",
+   "betaAdj": "blume",
+   "betaOverride": 0.55,
+   "betaNote": "Yahoo 5Y beta (~0.40) understates long-run equity risk; assumed 0.55.",
+   "crp": 0.015,
+   "crpLabel": "Damodaran China CRP ~1.5% (assumed)",
+   "kdSpread": 0.012,
+   "tax": 0.2,
+   "ebit1": 0.058,
+   "growthNote": "Alibaba. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~6% (Yahoo statements); D&A ~4.6% of sales; capex ~12.4% of sales. Base mid-term growth ~7.0%; steady-state EBIT ~10%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.046,
+   "daPctT": 0.046,
+   "capexPct1": 0.124,
+   "capexPctT": 0.06,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.08,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    12,
+    22
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Internet platforms M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for BABA is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: JD, PDD, MELI, AMZN, BIDU (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.03,
+     "midGrowth": 0.04,
+     "ebitT": 0.058,
+     "desc": "Demand softens and margins compress vs the BABA base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.07,
+     "ebitT": 0.098,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.1,
+     "midGrowth": 0.1,
+     "ebitT": 0.128,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: China consumption freeze",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.02,
+     "ebitT": 0.04,
+     "desc": "Prolonged China consumer weakness and price war on platforms."
+    },
+    {
+     "id": "chinaRegTail",
+     "name": "Tail: China regulatory/geopolitical shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.05,
+     "midGrowth": 0.0,
+     "ebitT": 0.03,
+     "crpAdd": 0.03,
+     "desc": "Regulatory crackdown or Taiwan/US-China escalation; CRP rises."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.12,
+     "midGrowth": 0.12,
+     "ebitT": 0.148,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "BABA results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 8,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
+   }
+  },
+  "SAP": {
+   "displayName": "SAP · moat",
+   "group": "Software platforms",
+   "groupPeersFromComps": true,
+   "sector": "Enterprise application software (S/4HANA, cloud ERP, business AI)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.71).",
+   "crp": 0,
+   "kdSpread": 0.009,
+   "tax": 0.25,
+   "ebit1": 0.261,
+   "growthNote": "SAP. Year 1 / year 2 default to Yahoo consensus revenue estimates unless overridden. Latest FY EBIT margin ~26% (Yahoo statements); D&A ~3.6% of sales; capex ~2.0% of sales. Base mid-term growth ~11.2%; steady-state EBIT ~27%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.0356,
+   "daPctT": 0.0356,
+   "capexPct1": 0.0201,
+   "capexPctT": 0.0201,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.127,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    16,
+    28
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Software platforms M&A precedents are sparse for mega-caps; range anchored on sector trading/transaction bands (estimates). A control deal for SAP is unlikely; M&A view is a private-market cross-check.",
+   "compsNote": "Comps: ORCL, MSFT, ADBE, CRM, NOW (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.072,
+     "midGrowth": 0.082,
+     "ebitT": 0.227,
+     "desc": "Demand softens and margins compress vs the SAP base case."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.112,
+     "ebitT": 0.267,
+     "desc": "Consensus near-term, then mid-term growth/margins as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.142,
+     "midGrowth": 0.142,
+     "ebitT": 0.297,
+     "desc": "Share gains and operating leverage above the base path."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: recession / demand shock",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": 0.032,
+     "midGrowth": 0.062,
+     "ebitT": 0.187,
+     "desc": "Global recession hits volumes and pricing power."
+    },
+    {
+     "id": "competitionTail",
+     "name": "Tail: competitive / disruption shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.052,
+     "midGrowth": 0.072,
+     "ebitT": 0.207,
+     "desc": "Share loss or structural disruption to the moat economics."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.162,
+     "midGrowth": 0.162,
+     "ebitT": 0.317,
+     "desc": "Category expansion or AI/productivity upside compounds longer."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4/FY",
+     "event": "SAP results; guide and margin bridge",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Category / competitive updates vs moat thesis",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 7,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
    }
   }
  }

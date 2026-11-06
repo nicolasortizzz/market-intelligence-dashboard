@@ -58,7 +58,43 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            # batch 3: BRK / portfolio list
            "MA": ["V", "AXP", "PYPL", "FISV", "FIS"], "V": ["MA", "AXP", "PYPL", "FISV", "FIS"],
            "PM": ["MO", "BTI", "IMBBY", "JAPAY", "UVV"],
-           "PG": ["CL", "KMB", "UL", "PEP", "KO", "CHD", "EL"]}
+           "PG": ["CL", "KMB", "UL", "PEP", "KO", "CHD", "EL"],
+           # batch 4: Morningstar wide-moat ∩ BYMA CEDEAR (Nov 2026)
+           "AAPL": ["MSFT", "GOOGL", "AMZN", "META", "DELL", "HPQ"],
+           "MSFT": ["GOOGL", "AAPL", "AMZN", "ORCL", "SAP", "ADBE"],
+           "AMZN": ["GOOGL", "MSFT", "WMT", "COST", "BABA", "MELI"],
+           "NVDA": ["AMD", "AVGO", "TSM", "MU", "QCOM", "MRVL"],
+           "KO": ["PEP", "MNST", "KDP", "CELH", "BUD"],
+           "PEP": ["KO", "MNST", "KDP", "MDLZ", "GIS"],
+           "COST": ["WMT", "TGT", "BJ", "DG", "DLTR"],
+           "HD": ["LOW", "TSCO", "WSM", "FND"],
+           "ORCL": ["MSFT", "SAP", "CRM", "IBM", "NOW"],
+           "NKE": ["DECK", "LULU", "UAA", "ADDYY", "ONON"],
+           "MELI": ["AMZN", "SE", "CPNG", "SHOP", "BABA"],
+           "AMGN": ["GILD", "ABBV", "REGN", "VRTX", "BIIB"],
+           "GILD": ["AMGN", "ABBV", "MRK", "BIIB", "REGN"],
+           "MO": ["PM", "BTI", "UVV", "IMBBY"],
+           "CAT": ["DE", "CMI", "PCAR", "WAB", "TEX"],
+           "DE": ["CAT", "AGCO", "CNHI", "PCAR"],
+           "GE": ["RTX", "LMT", "HON", "BA", "TDG"],
+           "LMT": ["RTX", "NOC", "GD", "HII", "BA"],
+           "ADI": ["TXN", "NXPI", "MCHP", "ON", "AVGO"],
+           "AMAT": ["LRCX", "KLAC", "ASML", "TER"],
+           "ANET": ["CSCO", "JNPR", "DELL", "HPE", "AVGO"],
+           "ADP": ["PAYX", "PCTY", "WDAY", "INTU", "PAYC"],
+           "ABNB": ["BKNG", "EXPE", "MAR", "HLT", "UBER"],
+           "DHR": ["TMO", "A", "IQV", "WAT", "MTD"],
+           "ISRG": ["SYK", "MDT", "BSX", "EW", "ZBH"],
+           "LRCX": ["AMAT", "KLAC", "ASML", "TER"],
+           "MDLZ": ["HSY", "GIS", "KHC", "CPG", "NESN.SW"],
+           "PANW": ["CRWD", "FTNT", "ZS", "S", "NET"],
+           "RTX": ["LMT", "NOC", "GD", "HON", "GE"],
+           "SPGI": ["MCO", "MSCI", "FDS", "ICE", "CME"],
+           "TMO": ["DHR", "A", "IQV", "WAT", "MTD"],
+           "VRSN": ["GOOGL", "AKAM", "FFIV", "GDDY"],
+           "BABA": ["JD", "PDD", "MELI", "AMZN", "BIDU"],
+           "SAP": ["ORCL", "MSFT", "ADBE", "CRM", "NOW"],
+}
 # Local-currency listings (Samsung: KRX common in KRW). Price, market cap, 52w range and targets are converted to USD at the
 # official rate (fx.KRWUSD: ECB reference rates, KRW/EUR divided by USD/EUR, same fixing date); KRW originals are kept as *Local.
 LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred shares (KRX)", "SMSN.IL": "GDR, London (1 GDR = 25 common shares)"}},
@@ -341,8 +377,8 @@ def main():
     path = os.path.join(OUT, "valuation.json")
     res = json.load(open(path)) if only and os.path.exists(path) else {"companies": {}}
     res["generatedAt"] = now
-    if not only or "NIO" in only: res.setdefault("fx", {})["CNYUSD"] = cny
-    if not only or "ASML" in only:
+    if not only or {"NIO", "BABA"} & set(only): res.setdefault("fx", {})["CNYUSD"] = cny
+    if not only or {"ASML", "SAP"} & set(only):
         try:
             ed, ev = ecb_eurusd()
             res.setdefault("fx", {}).update({"EURUSD": 1 / ev, "EURUSD_ecb": ev, "EUR_date": ed, "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"})

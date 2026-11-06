@@ -2,7 +2,7 @@
 /* Valuation & M&A tab: DCF, comps, precedents, scenarios, Monte Carlo, scorecard.
    All projections are ESTIMATES driven by data/valuation_assumptions.json + real financials in data/valuation.json */
 const V={tk:"META",scen:"base",ov:{},A:null,D:null,mc:{}};
-const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER","BE","AVGO","VIST","TSM","SPCX","005930.KS","000660.KS","GOOGL","XOM","CVX","COP","EOG","OXY","DVN","SLB","PBR","PRIO3.SA","CEG","NRG","NEE","DUK","SO","AEP","EQTL3.SA","CMIG4.SA","CPFE3.SA","CPLE3.SA","TAEE11.SA","AXIA3.SA","EGIE3.SA","BEP","GEV","FSLR","CCJ","OKLO","SMR","MRK","BMY","PFE","JNJ","AZN","ABBV","LLY","MA","V","PM","PG"];
+const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER","BE","AVGO","VIST","TSM","SPCX","005930.KS","000660.KS","GOOGL","XOM","CVX","COP","EOG","OXY","DVN","SLB","PBR","PRIO3.SA","CEG","NRG","NEE","DUK","SO","AEP","EQTL3.SA","CMIG4.SA","CPFE3.SA","CPLE3.SA","TAEE11.SA","AXIA3.SA","EGIE3.SA","BEP","GEV","FSLR","CCJ","OKLO","SMR","MRK","BMY","PFE","JNJ","AZN","ABBV","LLY","MA","V","PM","PG","AAPL","MSFT","AMZN","NVDA","KO","PEP","COST","HD","ORCL","NKE","MELI","AMGN","GILD","MO","CAT","DE","GE","LMT","ADI","AMAT","ANET","ADP","ABNB","DHR","ISRG","LRCX","MDLZ","PANW","RTX","SPGI","TMO","VRSN","BABA","SAP"];
 const isBank=tk=>["bank","utility"].includes(V.A.companies[tk].model); // equity (residual-income) engine: banks and regulated utilities
 const isUtil=tk=>V.A.companies[tk].model==="utility",UN=()=>isUtil(V.tk)?"share":"ADR";
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
@@ -363,8 +363,8 @@ function initPicker(){initInd();const box=$("#vPick");if(!box||box.dataset.init)
 
 /* Full-analysis coverage index: every ticker with BOTH a hand-authored entry in data/valuation_assumptions.json
    and a valuation payload in data/valuation.json (i.e. the full workbench renders). Grouped by sector group, filterable by model. */
-const VMODEL={bank:"Residual income",ddm:"DDM",utility:"Utility DCF"},vModel=t=>VMODEL[V.A.companies[t].model]||"DCF";
-const vFull=()=>VT.filter(t=>V.A.companies[t]&&V.D.companies[t]);
+const VMODEL={bank:"Residual income",ddm:"DDM",utility:"Utility DCF"},vModel=t=>VMODEL[(V.A.companies[t]||{}).model]||"DCF";
+const vFull=()=>VT.filter(t=>V.A&&V.D&&V.A.companies[t]&&V.D.companies[t]);
 let vCovM="All";
 function drawCov(){const box=$("#vCov");if(!box)return;const T=vFull().filter(t=>vIndF==="All"||vIndOf(t)===vIndF),ms=["All",...new Set(T.map(vModel))];$("#vCovN").textContent=T.length;
   $("#vCovF").innerHTML=ms.map(m=>`<button class="chip ${m===vCovM?"active":""}" data-m="${vEsc(m)}">${vEsc(m)} <span class="muted">${m==="All"?T.length:T.filter(t=>vModel(t)===m).length}</span></button>`).join("");

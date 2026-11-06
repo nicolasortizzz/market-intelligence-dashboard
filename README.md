@@ -4,7 +4,7 @@
 
 🔗 **Live dashboard:** https://nicolasortizzz.github.io/market-intelligence-dashboard/
 
-An interactive, fully static market-intelligence web app built on **real data** for 58 companies (US large caps across sectors, Argentine/Brazilian ADRs, NIO, and staples including PG), benchmarked against the S&P 500 (SPY). It brings together prices, risk metrics, fundamentals, a Markowitz portfolio builder, SEC filings, insider trades and US Treasury yields.
+An interactive, fully static market-intelligence web app built on **real data** for 93 companies (US large caps across sectors, Argentine/Brazilian ADRs, NIO, and staples including PG), benchmarked against the S&P 500 (SPY). It brings together prices, risk metrics, fundamentals, a Markowitz portfolio builder, SEC filings, insider trades and US Treasury yields.
 
 ![Overview](docs/overview.png)
 
@@ -19,7 +19,7 @@ An interactive, fully static market-intelligence web app built on **real data** 
 | **Risk & Correlation** | Risk/return scatter (bubble = market cap) with **brush selection** that filters the table, plus a 31×31 correlation heatmap |
 | **Portfolio Builder** | Weight sliders, add/remove assets, **Equal / Min-variance / Max-Sharpe** optimizers, an efficient-frontier cloud colored by Sharpe, the capital market line and parametric 1-day VaR (95%) |
 | **Company Activity** | SEC EDGAR feed of 8-K/10-Q/10-K/Form 4/20-F/6-K filings (180 days) with filters, parsed Form 4 insider transactions, net insider flow by ticker, a filing timeline and upcoming earnings dates |
-| **Valuation & M&A** | DCF workbench for **META, UNH, DIS, NIO, YPF, MU, ASML, VST, ABEV, UBER, BE, AVGO, VIST, TSM, SPCX, 005930.KS (Samsung Electronics), 000660.KS (SK hynix)** plus a residual-income (bank) model for **GGAL**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a **reverse DCF** (growth and margin implied by the current price, with a growth × margin grid), a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
+| **Valuation & M&A** | DCF workbench for **92 names** (US large-caps, ADRs, Argentine/Brazilian listings, plus Morningstar wide-moat ∩ BYMA CEDEAR batch) including **META, AAPL, MSFT, AMZN, NVDA, UNH, DIS, NIO, YPF, MU, ASML, VST, ABEV, UBER, BE, AVGO, VIST, TSM, SPCX, 005930.KS, 000660.KS, KO, PEP, COST, HD, ORCL, MELI, BABA, SAP, …** plus a residual-income (bank) model for **GGAL**: 10-year projections, WACC/terminal-growth/margin/capex sliders, a WACC × g sensitivity heatmap, an EV→equity bridge, trading comps, a precedent-transaction and control-premium view, a football field, Bear/Base/Bull plus tail scenarios with probabilities, a Monte Carlo distribution, a **reverse DCF** (growth and margin implied by the current price, with a growth × margin grid), a catalyst calendar, quarter-by-quarter timing of the Avengers: Doomsday tail for DIS, and a scored assessment |
 | **Macro** | US Treasury par yield curve (latest vs ~1M and ~6M ago), 10Y vs 2Y with the spread, and the official USD/ARS rate from BCRA |
 
 Also included: global ticker search (press `/`, use arrow keys), a **USD ⇄ ARS** toggle (BCRA official rate), dark/light theme, skeleton loaders, animated counters and transitions, a responsive layout and deep links (`#company/MELI`).

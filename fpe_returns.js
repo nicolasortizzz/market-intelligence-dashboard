@@ -1,10 +1,12 @@
 /* Forward P/E vs subsequent returns (EWZ / EWY). Data: data/fpe_returns.json
-   Own tab: both tickers rendered side-by-side (stacked cards), no toggle. */
+   Own tab: both tickers rendered stacked, no toggle. All available Damodaran
+   / Siblis years — no invented points; incomplete return windows stay off-scatter. */
 (function () {
   const TICKERS = ["EWZ", "EWY"];
   function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || undefined; }
   function pct(x, d = 1) { return x == null || !isFinite(x) ? "—" : (x * 100).toFixed(d) + "%"; }
   function num(x, d = 2) { return x == null || !isFinite(x) ? "—" : Number(x).toFixed(d); }
+  function yr(asof) { return (asof || "").slice(0, 4); }
 
   function panel(elId, pointsDam, pointsSib, reg, cur, yTitle) {
     const el = document.getElementById(elId);
@@ -12,21 +14,26 @@
     const traces = [];
     if (pointsDam && pointsDam.length) {
       traces.push({
-        type: "scatter", mode: "markers", name: "Damodaran anual",
+        type: "scatter", mode: "markers+text", name: "Damodaran anual",
         x: pointsDam.map(p => p.fpe), y: pointsDam.map(p => p.ret),
-        text: pointsDam.map(p => p.asof.slice(0, 4)),
+        text: pointsDam.map(p => yr(p.asof)),
+        textposition: "top center",
+        textfont: { size: 10, color: css("--tx") || "#e2e8f0" },
         customdata: pointsDam.map(p => [p.asof, p.window_end, p.fpe_method || ""]),
         marker: { size: 9, color: css("--ac") || "#5b8cff", opacity: 0.85 },
-        hovertemplate: "%{customdata[0]}<br>FPE %{x:.2f}x<br>Ret %{y:.1%}<br>→%{customdata[1]}<extra>Damodaran</extra>",
+        hovertemplate: "%{customdata[0]} (%{text})<br>FPE %{x:.2f}x<br>Ret %{y:.1%}<br>→%{customdata[1]}<extra>Damodaran</extra>",
       });
     }
     if (pointsSib && pointsSib.length) {
       traces.push({
-        type: "scatter", mode: "markers", name: "Siblis índice (reciente)",
+        type: "scatter", mode: "markers+text", name: "Siblis índice",
         x: pointsSib.map(p => p.fpe), y: pointsSib.map(p => p.ret),
-        text: pointsSib.map(p => p.asof),
+        text: pointsSib.map(p => (p.asof || "").slice(0, 7)),
+        textposition: "bottom center",
+        textfont: { size: 9, color: "#f59e0b" },
+        customdata: pointsSib.map(p => [p.asof, p.window_end]),
         marker: { size: 8, symbol: "square", color: "#f59e0b", opacity: 0.9 },
-        hovertemplate: "%{text}<br>FPE %{x:.2f}x<br>Ret %{y:.1%}<extra>Siblis</extra>",
+        hovertemplate: "%{customdata[0]}<br>FPE %{x:.2f}x<br>Ret %{y:.1%}<br>→%{customdata[1]}<extra>Siblis</extra>",
       });
     }
     if (reg && reg.n >= 5) {
@@ -44,34 +51,57 @@
       type: "scatter", mode: "markers+text", name: `Hoy MSCI ${num(cur.fpe, 2)}x (${cur.date})`,
       x: [cur.fpe], y: [yCur],
       text: [`hoy ${num(cur.fpe, 2)}x`], textposition: "top center",
+      textfont: { size: 10, color: "#ef4444" },
       marker: { symbol: "diamond", size: 14, color: "#ef4444", line: { width: 1.5, color: "#fff" } },
       hovertemplate: `MSCI FPE %{x:.2f}x @ ${cur.date}<br>OLS implícito %{y:.1%}<extra>actual</extra>`,
     });
     Plotly.newPlot(el, traces, {
-      margin: { l: 56, r: 16, t: 10, b: 48 },
+      margin: { l: 56, r: 16, t: 28, b: 56 },
       paper_bgcolor: "transparent", plot_bgcolor: "transparent",
       font: { color: css("--tx") || "#e2e8f0", size: 11, family: "Inter" },
       xaxis: { title: "Forward P/E (proxy)", gridcolor: css("--bd") || "#334155", zeroline: false },
       yaxis: { title: yTitle, tickformat: ".0%", gridcolor: css("--bd") || "#334155", zeroline: true, zerolinecolor: "#64748b" },
-      legend: { orientation: "h", y: -0.22, font: { size: 10 } },
+      legend: { orientation: "h", y: -0.28, font: { size: 10 } },
       hovermode: "closest",
     }, { displayModeBar: false, responsive: true });
   }
 
   function table(tk, t) {
-    const rows = [];
+    const byAsof = {};
+    (t.damodaran_fpe || []).forEach(r => {
+      byAsof[r.date] = { asof: r.date, fpe: r.fpe, r1: null, r5: null, series: "Damodaran", pending: true };
+    });
     (t.points_1y_damodaran || []).forEach(p => {
-      const p5 = (t.points_5y_damodaran || []).find(x => x.asof === p.asof);
-      rows.push({ asof: p.asof, fpe: p.fpe, r1: p.ret, r5: p5 ? p5.ret : null, series: "Damodaran" });
+      const row = byAsof[p.asof] || { asof: p.asof, fpe: p.fpe, series: "Damodaran" };
+      row.r1 = p.ret; row.fpe = p.fpe; row.pending = false; byAsof[p.asof] = row;
+    });
+    (t.points_5y_damodaran || []).forEach(p => {
+      const row = byAsof[p.asof] || { asof: p.asof, fpe: p.fpe, series: "Damodaran" };
+      row.r5 = p.ret; row.fpe = p.fpe; byAsof[p.asof] = row;
+    });
+    (t.siblis_fpe || []).forEach(r => {
+      const key = "sib:" + r.date;
+      byAsof[key] = { asof: r.date, fpe: r.fpe, r1: null, r5: null, series: "Siblis", pending: true };
     });
     (t.points_1y_siblis || []).forEach(p => {
-      rows.push({ asof: p.asof, fpe: p.fpe, r1: p.ret, r5: null, series: "Siblis" });
+      const key = "sib:" + p.asof;
+      const row = byAsof[key] || { asof: p.asof, fpe: p.fpe, series: "Siblis" };
+      row.r1 = p.ret; row.fpe = p.fpe; row.pending = false; byAsof[key] = row;
     });
-    rows.sort((a, b) => a.asof < b.asof ? 1 : -1);
+    (t.points_5y_siblis || []).forEach(p => {
+      const key = "sib:" + p.asof;
+      const row = byAsof[key] || { asof: p.asof, fpe: p.fpe, series: "Siblis" };
+      row.r5 = p.ret; row.fpe = p.fpe; byAsof[key] = row;
+    });
+    const rows = Object.values(byAsof).sort((a, b) => a.asof < b.asof ? 1 : -1);
     const el = document.getElementById("fpeTbl" + tk);
     if (!el) return;
-    el.innerHTML = `<thead><tr><th>As-of</th><th>Serie FPE</th><th>Forward P/E</th><th>Retorno 1Y</th><th>Retorno 5Y ann.</th></tr></thead>` +
-      `<tbody>${rows.map(r => `<tr><td>${r.asof}</td><td>${r.series}</td><td>${num(r.fpe, 2)}x</td><td>${pct(r.r1)}</td><td>${pct(r.r5)}</td></tr>`).join("")}</tbody>`;
+    el.innerHTML = `<thead><tr><th>Año / as-of</th><th>Serie FPE</th><th>Forward P/E</th><th>Retorno 1Y</th><th>Retorno 5Y ann.</th></tr></thead>` +
+      `<tbody>${rows.map(r => {
+        const y = yr(r.asof);
+        const pending = (r.r1 == null && r.r5 == null) ? ' <span class="muted">(ventana incompleta)</span>' : '';
+        return `<tr><td><b>${y}</b> <span class="muted small">${r.asof}</span>${pending}</td><td>${r.series}</td><td>${num(r.fpe, 2)}x</td><td>${pct(r.r1)}</td><td>${pct(r.r5)}</td></tr>`;
+      }).join("")}</tbody>`;
   }
 
   function renderOne(tk) {
@@ -86,17 +116,24 @@
     const cur = t.current_msci;
     const yt = t.yahoo_trailing || {};
     const reg1 = t.regression_1y_damodaran, reg5 = t.regression_5y_damodaran;
+    const yearsDam = (t.years && t.years.damodaran_all) || (t.damodaran_fpe || []).map(r => r.date.slice(0, 4));
+    const years1 = (t.years && t.years.damodaran_1y_scatter) || (t.points_1y_damodaran || []).map(p => p.asof.slice(0, 4));
+    const years5 = (t.years && t.years.damodaran_5y_scatter) || (t.points_5y_damodaran || []).map(p => p.asof.slice(0, 4));
 
     const sub = document.getElementById("fpeSub" + tk);
-    if (sub) sub.textContent = `${t.proxy || "proxy documentado"} · MSCI ${num(cur.fpe, 2)}x @ ${cur.date}`;
+    if (sub) {
+      sub.textContent = `Damodaran ${yearsDam[0] || "—"}–${yearsDam.at(-1) || "—"} (todos los XLS públicos) · MSCI ${num(cur.fpe, 2)}x @ ${cur.date}`;
+    }
 
     let note =
       `<b>Proxy documentado:</b> ${t.proxy}. ` +
+      `<b>Años Damodaran (todos los disponibles):</b> ${yearsDam.join(", ") || "—"}. ` +
+      `Scatter 1Y = ${years1.join(", ") || "—"} (n=${t.n["1y_dam"]}); scatter 5Y = ${years5.join(", ") || "—"} (n=${t.n["5y_dam"]}). ` +
+      `Gap real: sin ene-2014; sin archivos pre-2012 en el archive público. ` +
       `Marcador actual = <b>${num(cur.fpe, 2)}x</b> (${cur.date}, ${cur.source}). ` +
       `Yahoo trailing P/E del ETF (no forward): <b>${num(yt.trailingPE, 2)}x</b>. ` +
-      `Histórico anual = Damodaran firm avg/median Forward PE (gap sin ene-2014). ` +
-      `Puntos recientes índice = Siblis. Retornos = Yahoo total return de ${tk}. ` +
-      `Muestra chica — no inventamos puntos.`;
+      `Siblis índice: ${(t.n && t.n.siblis) || (t.siblis_fpe || []).length} snapshots (scatter 1Y n=${t.n["1y_sib"]}). ` +
+      `Cada punto del gráfico lleva su año en la etiqueta. No inventamos puntos.`;
 
     const oos = [];
     [reg1, reg5].forEach((r, i) => {
@@ -114,7 +151,7 @@
         [`MSCI FPE hoy`, `${num(cur.fpe, 2)}x`, cur.date],
         [`OLS 1Y @ hoy`, reg1 ? pct(reg1.implied_at_current) : "—", reg1 ? `n=${reg1.n} · R²=${num(reg1.r2, 2)} · slope ${num(reg1.slope, 3)}` : "n insuficiente"],
         [`OLS 5Y ann. @ hoy`, reg5 ? pct(reg5.implied_at_current) : "—", reg5 ? `n=${reg5.n} · R²=${num(reg5.r2, 2)} · slope ${num(reg5.slope, 3)}` : "n insuficiente"],
-        [`Muestra`, `${t.n["1y_dam"]} pts 1Y / ${t.n["5y_dam"]} pts 5Y`, `Damodaran · +${t.n["1y_sib"]} Siblis 1Y`],
+        [`Años en scatter`, `${t.n["1y_dam"]} pts 1Y / ${t.n["5y_dam"]} pts 5Y`, `Damodaran ${yearsDam[0]}–${yearsDam.at(-1)} · +${t.n["1y_sib"]} Siblis 1Y`],
       ].map(([a, b, c]) => `<div class="kpi"><div class="k-l">${a}</div><div class="k-v">${b}</div><div class="k-s">${c}</div></div>`).join("");
     }
 

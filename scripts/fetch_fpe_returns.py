@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Forward P/E vs subsequent ETF returns for EWZ and EWY.
+"""Forward P/E vs subsequent ETF returns for EWZ, EWY and MCHI (China).
 
 Real public sources only — no interpolated Forward P/E points.
 
 Sources
 -------
 * Current Forward P/E marker: MSCI country-index factsheet P/E Fwd
-  (EWZ → MSCI Brazil; EWY → MSCI Korea). ETF-native forwardPE is not
+  (EWZ → MSCI Brazil; EWY → MSCI Korea; MCHI → MSCI China). ETF-native forwardPE is not
   published historically on Yahoo for these funds.
 * Annual historical Forward P/E: Damodaran Country Stats
   (average firm Forward PE through the 2020-01 update; median thereafter).
   Embedded snapshot extracted from the public XLS archives; refresh the
   DAMODARAN_ANNUAL block when Damodaran publishes a new January file.
 * Sparse recent index-level Forward P/E: Siblis Research free API
-  (IBOV for Brazil, KOSPI for Korea).
+  (IBOV for Brazil, KOSPI for Korea, SSE for China mainland).
 * Subsequent returns: Yahoo Finance adjusted closes of EWZ / EWY
-  (1-year simple; 5-year annualized), month-end to month-end.
+  (1-year simple; 5-year annualized), month-end to month-end. MCHI preferred over FXI because it tracks MSCI China.
 
 Not investment advice.
 """
@@ -72,6 +72,22 @@ DAMODARAN_ANNUAL = {
         {"date": "2025-01-05", "fpe": 9.50, "method": "Damodaran median firm Forward PE", "file": "countrystats24.xls"},
         {"date": "2026-01-05", "fpe": 12.27, "method": "Damodaran median firm Forward PE", "file": "countrystats.xls"},
     ],
+    "China": [
+        {"date": "2012-01-05", "fpe": 24.57, "method": "Damodaran average firm Forward PE", "file": "countrystats12.xls"},
+        {"date": "2013-01-05", "fpe": 28.70, "method": "Damodaran average firm Forward PE", "file": "countrystats13.xls"},
+        {"date": "2015-01-05", "fpe": 42.92, "method": "Damodaran average firm Forward PE", "file": "countrystats14.xls"},
+        {"date": "2016-01-05", "fpe": 78.27, "method": "Damodaran average firm Forward PE", "file": "countrystats15.xls"},
+        {"date": "2017-01-05", "fpe": 57.52, "method": "Damodaran average firm Forward PE", "file": "countrystats16.xls"},
+        {"date": "2018-01-05", "fpe": 37.50, "method": "Damodaran average firm Forward PE", "file": "countrystats17.xls"},
+        {"date": "2019-01-05", "fpe": 22.17, "method": "Damodaran average firm Forward PE", "file": "countrystats18.xls"},
+        {"date": "2020-01-05", "fpe": 28.53, "method": "Damodaran average firm Forward PE", "file": "countrystats19.xls"},
+        {"date": "2021-01-05", "fpe": 34.69, "method": "Damodaran median firm Forward PE", "file": "countrystats20.xls"},
+        {"date": "2022-01-05", "fpe": 24.94, "method": "Damodaran median firm Forward PE", "file": "countrystats21.xls"},
+        {"date": "2023-01-05", "fpe": 20.54, "method": "Damodaran median firm Forward PE", "file": "countrystats22.xls"},
+        {"date": "2024-01-05", "fpe": 20.40, "method": "Damodaran median firm Forward PE", "file": "countrystats23.xls"},
+        {"date": "2025-01-05", "fpe": 20.80, "method": "Damodaran median firm Forward PE", "file": "countrystats24.xls"},
+        {"date": "2026-01-05", "fpe": 26.46, "method": "Damodaran median firm Forward PE", "file": "countrystats.xls"},
+    ],
 }
 DAMODARAN_URL = "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
 
@@ -91,6 +107,13 @@ MSCI_CURRENT = {
         "source": "MSCI Korea Index (USD) factsheet fundamentals",
         "url": "https://www.msci.com/documents/10199/255599/msci-korea-index.pdf",
     },
+    "MCHI": {
+        "fpe": 9.32, "trailing_pe": 11.96, "pb": 1.29, "div_yld": 2.63,
+        "date": "2026-10-30",
+        "label": "MSCI China Index P/E Fwd (proxy for MCHI)",
+        "source": "MSCI China Index (USD) factsheet fundamentals",
+        "url": "https://www.msci.com/documents/10199/255599/msci-china-index.pdf",
+    },
 }
 
 META = {
@@ -103,6 +126,11 @@ META = {
         "etf": "EWY", "name": "iShares MSCI South Korea ETF",
         "proxy": "MSCI Korea / KOSPI Forward P/E (ETF-native FPE history not published)",
         "dam_key": "South Korea", "sib_key": "KOSPI",
+    },
+    "MCHI": {
+        "etf": "MCHI", "name": "iShares MSCI China ETF",
+        "proxy": "MSCI China / SSE Composite Forward P/E (chosen over FXI: MCHI tracks MSCI China directly; ETF-native FPE history not published)",
+        "dam_key": "China", "sib_key": "SSE",
     },
 }
 
@@ -225,10 +253,11 @@ def build_points(fpe_rows, price_series, years: int):
 
 
 def main():
-    px = {t: month_end_prices(t) for t in ("EWZ", "EWY")}
-    sib = {"IBOV": siblis_fpe("IBOV"), "KOSPI": siblis_fpe("KOSPI")}
+    px = {t: month_end_prices(t) for t in META}
+    sib_keys = sorted({m["sib_key"] for m in META.values()})
+    sib = {k: siblis_fpe(k) for k in sib_keys}
     yahoo_trail = {}
-    for t in ("EWZ", "EWY"):
+    for t in META:
         info = yf.Ticker(t).info
         yahoo_trail[t] = {
             "trailingPE": info.get("trailingPE"),
@@ -295,28 +324,30 @@ def main():
 
     payload = {
         "generatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat(),
-        "title": "Forward P/E vs subsequent returns — EWZ / EWY",
+        "title": "Forward P/E vs subsequent returns — EWZ / EWY / MCHI",
         "methodology": [
             "ETF-native historical Forward P/E for EWZ/EWY is not published as a continuous public series (Yahoo forwardPE is null for these ETFs).",
-            "Current Forward P/E marker = official MSCI country-index factsheet P/E Fwd (EWZ→Brazil, EWY→Korea), dated 2026-10-30.",
+            "Current Forward P/E marker = official MSCI country-index factsheet P/E Fwd (EWZ→Brazil, EWY→Korea, MCHI→China), dated 2026-10-30.",
             "Annual historical Forward P/E = every Damodaran Country Stats January workbook publicly archived (countrystats12.xls → current countrystats.xls): firm-average through 2020-01, firm-median from 2021-01. Not identical to MSCI index aggregate FPE; documented firm-distribution proxy. No pre-2012 archive file; no Jan-2014 workbook (countrystats14.xls dated 2015-01-05). All available years are embedded — scatter points require a completed subsequent-return window.",
-            "Sparse recent index-level Forward P/E = Siblis free API for IBOV (Brazil) and KOSPI (Korea).",
+            "Sparse recent index-level Forward P/E = Siblis free API for IBOV (Brazil), KOSPI (Korea) and SSE (China mainland Composite; free-tier stand-in — not identical to MSCI China which also includes H/Red/P/ADR).",
             "Subsequent returns = Yahoo Finance adjusted close of EWZ/EWY, month-end to month-end (1y simple; 5y annualized). Incomplete windows omitted.",
             "OLS regression only on the Damodaran annual sample (homogeneous method). Small-N — descriptive, not predictive. No invented FPE points.",
         ],
         "sources": [
             {"name": "MSCI Brazil Index factsheet", "url": MSCI_CURRENT["EWZ"]["url"]},
             {"name": "MSCI Korea Index factsheet", "url": MSCI_CURRENT["EWY"]["url"]},
+            {"name": "MSCI China Index factsheet", "url": MSCI_CURRENT["MCHI"]["url"]},
             {"name": "Damodaran Country Stats", "url": DAMODARAN_URL},
             {"name": "Siblis Research free valuations API", "url": "https://siblisresearch.com/financial-data-api/"},
-            {"name": "Yahoo Finance (yfinance) EWZ/EWY adjusted closes", "url": "https://finance.yahoo.com/"},
+            {"name": "Yahoo Finance (yfinance) EWZ/EWY/MCHI adjusted closes", "url": "https://finance.yahoo.com/"},
         ],
         "gaps": [
             "No continuous ETF-native Forward P/E history for EWZ/EWY in free public APIs.",
             "Damodaran Country Stats public XLS archives start at countrystats12.xls (Date updated ~2012-01); no pre-2012 Forward PE country file retrieved (countrystats05–11 → 404).",
             "Damodaran annual series has no January 2014 observation: countrystats14.xls is dated 2015-01-05 (archives jump 2013→2015).",
             "Damodaran asof 2026-01 is stored but omitted from completed-return scatters until the 1Y/5Y window finishes.",
-            "Siblis free tier only exposes a handful of recent month-ends (currently ~9 IBOV/KOSPI snapshots from 2023-12 onward) — too few for a 5-year completed window; points without a finished return window stay in siblis_fpe but not in scatter series.",
+            "Siblis free tier only exposes a handful of recent month-ends (currently ~9 IBOV/KOSPI/SSE snapshots from 2023-12 onward) — too few for a 5-year completed window; points without a finished return window stay in siblis_fpe but not in scatter series.",
+            "China sparse recent series = Siblis SSE Composite (mainland), not MSCI China aggregate; Damodaran China is firm-distribution across Chinese listings. Documented proxy stack, not identical series.",
             "Update MSCI_CURRENT in this script when new MSCI factsheets publish (or wire a PDF parser).",
         ],
         "tickers": tickers,

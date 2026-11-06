@@ -1,8 +1,8 @@
-/* Forward P/E vs subsequent returns (EWZ / EWY). Data: data/fpe_returns.json
+/* Forward P/E vs subsequent returns (EWZ / EWY / MCHI). Data: data/fpe_returns.json
    Own tab: both tickers rendered stacked, no toggle. All available Damodaran
    / Siblis years — no invented points; incomplete return windows stay off-scatter. */
 (function () {
-  const TICKERS = ["EWZ", "EWY"];
+  const TICKERS = ["EWZ", "EWY", "MCHI"];
   function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || undefined; }
   function pct(x, d = 1) { return x == null || !isFinite(x) ? "—" : (x * 100).toFixed(d) + "%"; }
   function num(x, d = 2) { return x == null || !isFinite(x) ? "—" : Number(x).toFixed(d); }

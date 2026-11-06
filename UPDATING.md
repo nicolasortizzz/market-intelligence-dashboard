@@ -83,35 +83,31 @@ consensus revision, restated statements) that deserves a look at the assumptions
    leaves other tickers untouched), then `make update ARGS="--skip market,valuation,reverse"`, preview with
    `make serve`, and update the README.
 
-## 5. Optional: weekly GitHub Actions refresh (not installed)
+## 5. Automated refresh (GitHub Actions)
 
-The deploy token used so far has no `workflow` scope, so this file is **not** in the repo. To enable it, save it as
-`.github/workflows/update.yml` with a token that has `workflow` scope (and allow Actions to write to the repo):
+Canonical workflow YAML (ready to install): [`docs/ci/update.yml`](docs/ci/update.yml).
 
-```yaml
-name: Weekly data refresh
-on:
-  schedule:
-    - cron: "0 12 * * 6"      # Saturdays 12:00 UTC (09:00 Buenos Aires), after the Friday close
-  workflow_dispatch: {}
-permissions:
-  contents: write
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.13" }
-      - run: pip install -r requirements.txt && python -m playwright install --with-deps chromium
-      - name: Refresh, validate and deploy
-        run: |
-          git config user.name  "Nicolas Ortiz Armesto"
-          git config user.email "150628077+nicolasortizzz@users.noreply.github.com"
-          python scripts/update_all.py --deploy
-```
+| Trigger | When (UTC) | Buenos Aires |
+|---|---|---|
+| `schedule` | Mon–Fri `0 22 * * 1-5` | 19:00 (after US cash close ~18:00 BA / 21:00 UTC in EST) |
+| `workflow_dispatch` | manual from the Actions tab | — |
+
+Runs `python scripts/update_all.py --deploy` (**never** `--apply-embi`): refresh prices / DCF / reverse / WACC / EMBI / macro clock, validate, then push `main` and `main:gh-pages` with `GITHUB_TOKEN` (`permissions: contents: write`). No PAT secret is required for the scheduled job itself.
+
+### Install (one-time)
+
+GitHub refuses commits that create/update `.github/workflows/*` unless the credential has the **`workflow`** scope. Until that is granted, the YAML lives under `docs/ci/`.
+
+1. **Option A — CLI (preferred):** give the deploy token `workflow` scope (`gh auth refresh -h github.com -s repo,workflow` or a classic PAT with `repo` + `workflow`), then:
+   ```bash
+   mkdir -p .github/workflows && cp docs/ci/update.yml .github/workflows/update.yml
+   git add .github/workflows/update.yml && git commit -m "Install valuations Actions workflow" && git push
+   ```
+2. **Option B — GitHub UI:** Repo → Add file → create `.github/workflows/update.yml` → paste the contents of `docs/ci/update.yml` → commit to `main` (or to this PR branch).
+3. **Actions write:** Settings → Actions → General → Workflow permissions → **Read and write permissions** (repo currently defaults to read-only; the workflow also sets `permissions: contents: write`, which is enough on a personal public repo, but flipping the default to write avoids surprises). Confirm Actions are enabled (already are).
+4. Smoke-test: Actions → **Valuations data refresh** → Run workflow.
+
+After install, scheduled runs commit under `github-actions[bot]` and update the live Pages site from `gh-pages`.
 
 ## Optional per-ticker assumption keys
 - `compsRef`: peers shown but excluded from the comps statistics. `peExcludePeers`: peers excluded from P/E only (e.g. one-off tax gains).

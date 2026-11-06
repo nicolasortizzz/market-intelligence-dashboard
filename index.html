@@ -133,6 +133,20 @@
       <p class="muted small">Sources: Yahoo Finance via yfinance (annual statements, TTM figures, consensus revenue/EPS, analyst targets, peer data); SEC EDGAR XBRL companyfacts (cross-check of reported revenue and operating income); U.S. Treasury 10Y par yield (risk-free); hand-authored assumptions in <code>data/valuation_assumptions.json</code>. Scenario probabilities, margins, tails and precedent ranges are <b>analyst estimates</b>. <b>Not investment advice.</b></p></div>
   </div>
   <div class="card"><div class="card-h"><h3>SEC XBRL cross-check (reported, USD m)</h3></div><div class="tablewrap"><table id="vSec"></table></div></div>
+  <div class="card" id="fpeBox">
+    <div class="card-h">
+      <h3>Forward P/E vs subsequent returns — EWZ / EWY</h3>
+      <div class="seg" id="fpeSeg"><button data-k="EWZ" class="on">EWZ</button><button data-k="EWY">EWY</button></div>
+    </div>
+    <p class="muted small" id="fpeNote" style="margin:0 0 10px"></p>
+    <div class="kpis mini" id="fpeK"></div>
+    <div class="grid g2">
+      <div><h3 class="small" style="margin:0 0 6px">Forward P/E → retorno 1 año</h3><div id="fpe1y" class="chart tall sk"></div></div>
+      <div><h3 class="small" style="margin:0 0 6px">Forward P/E → retorno 5 años (anualizado)</h3><div id="fpe5y" class="chart tall sk"></div></div>
+    </div>
+    <div class="tablewrap" style="margin-top:12px"><table id="fpeTbl" class="vt"></table></div>
+    <p class="muted small" id="fpeSrc" style="margin:10px 0 0"></p>
+  </div>
 </section>
 <section id="tesis" class="tab">
   <div class="card"><h3 style="margin:0">Tesis / Decisión: asistente de compra</h3><p class="muted small" style="margin:4px 0 0">Paso a paso según la conclusión de la tesina: <b>Ciclo</b> (hoy, año+1, año+2) → <b>Fair value</b> (DCF, CEDEARs BYMA) → <b>Markowitz</b> (fit con tu cartera) + nota de smart money. Solo compra; estimaciones de modelo, no asesoramiento.</p></div>
@@ -148,4 +162,5 @@
 <script src="reverse_dcf.js"></script>
 <script src="wacc_hist.js"></script>
 <script src="tesis.js"></script>
+<script src="fpe_returns.js"></script>
 </body></html>

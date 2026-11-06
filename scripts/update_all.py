@@ -6,6 +6,8 @@ Steps (in order):
   4. fetch_revenue_history.py revenue_history.json (5y revenue CAGR, SEC XBRL)
   5. fetch_wacc_history.py    wacc_history.json (FY2021-FY2025 + current WACC)
   6. fetch_embi.py            embi.json (Argentina EMBI; model CRP is only changed with --apply-embi)
+  7. fetch_macro_clock.py     macro_clock.json
+  8. fetch_fpe_returns.py     fpe_returns.json (EWZ/EWY Forward P/E vs subsequent returns)
 Then validates every JSON (parses, no NaN/Infinity, generatedAt refreshed, prices > 0 and dated within 7 days,
 WACC/CAGR within sanity bounds), computes fair values with the real JS engine in headless Chromium (if Playwright is
 installed) and prints a before/after diff of prices and fair values. Exit code 1 if validation fails.
@@ -20,9 +22,9 @@ import json, os, sys, subprocess, shutil, datetime as dt, math, time, socket, te
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DATA = os.path.join(ROOT, "data"); PY = sys.executable
 STEPS = [("market", ["fetch_data.py"]), ("valuation", ["fetch_valuation.py"]), ("reverse", ["fetch_reverse_dcf.py"]),
-         ("revenue", ["fetch_revenue_history.py"]), ("wacc", ["fetch_wacc_history.py"]), ("embi", ["fetch_embi.py"]), ("macro_clock", ["fetch_macro_clock.py"])]
+         ("revenue", ["fetch_revenue_history.py"]), ("wacc", ["fetch_wacc_history.py"]), ("embi", ["fetch_embi.py"]), ("macro_clock", ["fetch_macro_clock.py"]), ("fpe", ["fetch_fpe_returns.py"])]
 FILES = ["market.json", "prices.json", "activity.json", "macro.json", "valuation.json", "reverse_dcf.json",
-         "revenue_history.json", "wacc_history.json", "embi.json", "macro_clock.json"]
+         "revenue_history.json", "wacc_history.json", "embi.json", "macro_clock.json", "fpe_returns.json"]
 
 def arg(name): return name in sys.argv
 def skipped():
@@ -87,7 +89,8 @@ SKIPPED_FILES = set()
 def main():
     global SKIPPED_FILES
     skip = skipped(); fmap = {"market": FILES[:4], "valuation": ["valuation.json"], "reverse": ["reverse_dcf.json"],
-                              "revenue": ["revenue_history.json"], "wacc": ["wacc_history.json"], "embi": ["embi.json"]}
+                              "revenue": ["revenue_history.json"], "wacc": ["wacc_history.json"], "embi": ["embi.json"],
+                              "macro_clock": ["macro_clock.json"], "fpe": ["fpe_returns.json"]}
     SKIPPED_FILES = {f for s in skip for f in fmap.get(s, [])}
     prev = tempfile.mkdtemp(prefix="mid_prev_"); shutil.copytree(ROOT, os.path.join(prev, "site"), ignore=shutil.ignore_patterns(".git", "docs", "node_modules"))
     print("== computing fair values on the previous snapshot"); before = fair_values(os.path.join(prev, "site"))

@@ -30,6 +30,7 @@
   <button data-tab="activity">Company Activity</button>
   <button data-tab="macro">Macro</button>
   <button data-tab="valuation">Valuation &amp; M&amp;A</button>
+  <button data-tab="fpe">Forward P/E</button>
   <button data-tab="tesis">Tesis / Decisión</button>
   <span class="ink" id="ink"></span>
 </nav>
@@ -133,26 +134,38 @@
       <p class="muted small">Sources: Yahoo Finance via yfinance (annual statements, TTM figures, consensus revenue/EPS, analyst targets, peer data); SEC EDGAR XBRL companyfacts (cross-check of reported revenue and operating income); U.S. Treasury 10Y par yield (risk-free); hand-authored assumptions in <code>data/valuation_assumptions.json</code>. Scenario probabilities, margins, tails and precedent ranges are <b>analyst estimates</b>. <b>Not investment advice.</b></p></div>
   </div>
   <div class="card"><div class="card-h"><h3>SEC XBRL cross-check (reported, USD m)</h3></div><div class="tablewrap"><table id="vSec"></table></div></div>
-  <div class="card" id="fpeBox">
-    <div class="card-h">
-      <h3>Forward P/E vs subsequent returns — EWZ / EWY</h3>
-      <div class="seg" id="fpeSeg"><button data-k="EWZ" class="on">EWZ</button><button data-k="EWY">EWY</button></div>
-    </div>
-    <p class="muted small" id="fpeNote" style="margin:0 0 10px"></p>
-    <div class="kpis mini" id="fpeK"></div>
-    <div class="grid g2">
-      <div><h3 class="small" style="margin:0 0 6px">Forward P/E → retorno 1 año</h3><div id="fpe1y" class="chart tall sk"></div></div>
-      <div><h3 class="small" style="margin:0 0 6px">Forward P/E → retorno 5 años (anualizado)</h3><div id="fpe5y" class="chart tall sk"></div></div>
-    </div>
-    <div class="tablewrap" style="margin-top:12px"><table id="fpeTbl" class="vt"></table></div>
-    <p class="muted small" id="fpeSrc" style="margin:10px 0 0"></p>
+</section>
+<section id="fpe" class="tab">
+  <div class="card"><h3 style="margin:0">Forward P/E vs subsequent returns</h3>
+    <p class="muted small" style="margin:4px 0 0">Scatter estilo Magnin para <b>EWZ</b> (Brasil) y <b>EWY</b> (Corea) por separado, con <b>todos los años disponibles</b> de las series reales (Damodaran Country Stats 2012–2026, gap ene-2014; Siblis IBOV/KOSPI desde dic-2023). Cada punto muestra su año. Proxy documentado + marcador MSCI del día. Retornos = Yahoo total return del ETF. Ventanas incompletas quedan fuera del scatter pero figuran en la tabla. No inventamos puntos. <b>No es asesoramiento.</b></p>
   </div>
+  <div class="card" id="fpeBoxEWZ">
+    <div class="card-h"><h3>EWZ — Brasil (iShares MSCI Brazil)</h3><span class="muted small" id="fpeSubEWZ"></span></div>
+    <p class="muted small" id="fpeNoteEWZ" style="margin:0 0 10px"></p>
+    <div class="kpis mini" id="fpeKEWZ"></div>
+    <div class="grid g2">
+      <div><h3 class="small" style="margin:0 0 6px">Forward P/E → retorno 1 año</h3><div id="fpeEWZ1y" class="chart tall sk"></div></div>
+      <div><h3 class="small" style="margin:0 0 6px">Forward P/E → retorno 5 años (anualizado)</h3><div id="fpeEWZ5y" class="chart tall sk"></div></div>
+    </div>
+    <div class="tablewrap" style="margin-top:12px"><table id="fpeTblEWZ" class="vt"></table></div>
+  </div>
+  <div class="card" id="fpeBoxEWY">
+    <div class="card-h"><h3>EWY — Corea (iShares MSCI South Korea)</h3><span class="muted small" id="fpeSubEWY"></span></div>
+    <p class="muted small" id="fpeNoteEWY" style="margin:0 0 10px"></p>
+    <div class="kpis mini" id="fpeKEWY"></div>
+    <div class="grid g2">
+      <div><h3 class="small" style="margin:0 0 6px">Forward P/E → retorno 1 año</h3><div id="fpeEWY1y" class="chart tall sk"></div></div>
+      <div><h3 class="small" style="margin:0 0 6px">Forward P/E → retorno 5 años (anualizado)</h3><div id="fpeEWY5y" class="chart tall sk"></div></div>
+    </div>
+    <div class="tablewrap" style="margin-top:12px"><table id="fpeTblEWY" class="vt"></table></div>
+  </div>
+  <div class="card"><p class="muted small" id="fpeSrc" style="margin:0"></p></div>
 </section>
 <section id="tesis" class="tab">
   <div class="card"><h3 style="margin:0">Tesis / Decisión: asistente de compra</h3><p class="muted small" style="margin:4px 0 0">Paso a paso según la conclusión de la tesina: <b>Ciclo</b> (hoy, año+1, año+2) → <b>Fair value</b> (DCF, CEDEARs BYMA) → <b>Markowitz</b> (fit con tu cartera) + nota de smart money. Solo compra; estimaciones de modelo, no asesoramiento.</p></div>
   <ol class="tesis-steps" id="tSteps"></ol>
   <div class="card tesis-step" id="tWiz"></div>
-  <div class="card" id="tHub"><h3 style="margin:0 0 8px">Explorar libremente</h3><div class="hub"><button class="chip" data-go="valuation">DCF y valuaciones</button><button class="chip" data-go="macro">Macro</button><button class="chip" data-go="portfolio">Portfolio / Markowitz</button><button class="chip" data-go="company">Empresa</button><button class="chip" data-go="risk">Riesgo</button></div></div>
+  <div class="card" id="tHub"><h3 style="margin:0 0 8px">Explorar libremente</h3><div class="hub"><button class="chip" data-go="valuation">DCF y valuaciones</button><button class="chip" data-go="fpe">Forward P/E EWZ·EWY</button><button class="chip" data-go="macro">Macro</button><button class="chip" data-go="portfolio">Portfolio / Markowitz</button><button class="chip" data-go="company">Empresa</button><button class="chip" data-go="risk">Riesgo</button></div></div>
 </section>
 </main>
 <footer><p id="foot"></p><p>Data snapshot from Yahoo Finance (yfinance), SEC EDGAR, U.S. Treasury and BCRA. For educational and portfolio purposes only — <b>not investment advice</b>.</p></footer>

@@ -272,9 +272,26 @@ def main():
             "regression_5y_damodaran": reg5,
             "price_asof": px[tk].index[-1].date().isoformat(),
             "price_last": float(px[tk].iloc[-1]),
-            "n": {"damodaran": len(dam), "1y_dam": len(p1_d), "5y_dam": len(p5_d), "1y_sib": len(p1_s), "5y_sib": len(p5_s)},
+            "n": {
+                "damodaran": len(dam),
+                "siblis": len(sib_rows),
+                "1y_dam": len(p1_d),
+                "5y_dam": len(p5_d),
+                "1y_sib": len(p1_s),
+                "5y_sib": len(p5_s),
+            },
+            "years": {
+                "damodaran_all": [r["date"][:4] for r in dam],
+                "damodaran_1y_scatter": [p["asof"][:4] for p in p1_d],
+                "damodaran_5y_scatter": [p["asof"][:4] for p in p5_d],
+                "siblis_all": [r["date"][:10] for r in sib_rows],
+                "siblis_1y_scatter": [p["asof"][:10] for p in p1_s],
+            },
         }
-        print(f"{tk}: MSCI FPE {cur['fpe']}x @ {cur['date']} | 1Y n={len(p1_d)} | 5Y n={len(p5_d)} | Siblis 1Y n={len(p1_s)}")
+        print(
+            f"{tk}: MSCI FPE {cur['fpe']}x @ {cur['date']} | Damodaran years={','.join(r['date'][:4] for r in dam)} "
+            f"| 1Y n={len(p1_d)} | 5Y n={len(p5_d)} | Siblis raw={len(sib_rows)} 1Y n={len(p1_s)}"
+        )
 
     payload = {
         "generatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat(),
@@ -282,7 +299,7 @@ def main():
         "methodology": [
             "ETF-native historical Forward P/E for EWZ/EWY is not published as a continuous public series (Yahoo forwardPE is null for these ETFs).",
             "Current Forward P/E marker = official MSCI country-index factsheet P/E Fwd (EWZ→Brazil, EWY→Korea), dated 2026-10-30.",
-            "Annual historical Forward P/E = Damodaran Country Stats firm-average (through 2020-01 update) then firm-median (from 2021-01). Not identical to MSCI index aggregate FPE; documented firm-distribution proxy. Public archive gap: no Jan-2014 workbook.",
+            "Annual historical Forward P/E = every Damodaran Country Stats January workbook publicly archived (countrystats12.xls → current countrystats.xls): firm-average through 2020-01, firm-median from 2021-01. Not identical to MSCI index aggregate FPE; documented firm-distribution proxy. No pre-2012 archive file; no Jan-2014 workbook (countrystats14.xls dated 2015-01-05). All available years are embedded — scatter points require a completed subsequent-return window.",
             "Sparse recent index-level Forward P/E = Siblis free API for IBOV (Brazil) and KOSPI (Korea).",
             "Subsequent returns = Yahoo Finance adjusted close of EWZ/EWY, month-end to month-end (1y simple; 5y annualized). Incomplete windows omitted.",
             "OLS regression only on the Damodaran annual sample (homogeneous method). Small-N — descriptive, not predictive. No invented FPE points.",
@@ -296,8 +313,10 @@ def main():
         ],
         "gaps": [
             "No continuous ETF-native Forward P/E history for EWZ/EWY in free public APIs.",
-            "Damodaran annual series has no January 2014 observation in the retrieved archives.",
-            "Siblis free tier only exposes a handful of recent month-ends — too few for a 5-year completed window.",
+            "Damodaran Country Stats public XLS archives start at countrystats12.xls (Date updated ~2012-01); no pre-2012 Forward PE country file retrieved (countrystats05–11 → 404).",
+            "Damodaran annual series has no January 2014 observation: countrystats14.xls is dated 2015-01-05 (archives jump 2013→2015).",
+            "Damodaran asof 2026-01 is stored but omitted from completed-return scatters until the 1Y/5Y window finishes.",
+            "Siblis free tier only exposes a handful of recent month-ends (currently ~9 IBOV/KOSPI snapshots from 2023-12 onward) — too few for a 5-year completed window; points without a finished return window stay in siblis_fpe but not in scatter series.",
             "Update MSCI_CURRENT in this script when new MSCI factsheets publish (or wire a PDF parser).",
         ],
         "tickers": tickers,

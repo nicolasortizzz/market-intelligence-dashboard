@@ -1,63 +1,63 @@
 {
- "asOf": "2026-11-02",
- "source": "portfolio-tracker docs/pnl.csv (posiciones abiertas, market_value USD). Cash (USD MEP/CABLE/ARS) excluido. CEDEAR DISN \u2192 DIS.",
- "totalUsd": 11844.73,
+ "asOf": "2026-11-05",
+ "source": "informe_2026-11-06.md §1 (cierres Yahoo 5/11; market_value USD). Cash (USD MEP/CABLE/ARS) excluido. Pesos = % de activos invertidos (informe pesos 21,1% etc. son vs total con caja). CEDEAR DISN → DIS. SPY/EWY compra aproximada no verificada.",
+ "totalUsd": 11142,
  "holdings": [
   {
    "ticker": "NIO",
-   "marketValueUsd": 2566.36,
-   "weightPct": 21.67
+   "marketValueUsd": 2574,
+   "weightPct": 23.09
   },
   {
    "ticker": "VST",
-   "marketValueUsd": 1718.87,
-   "weightPct": 14.51
+   "marketValueUsd": 1442,
+   "weightPct": 12.94
   },
   {
    "ticker": "TQQQ",
-   "marketValueUsd": 1396.12,
-   "weightPct": 11.79
+   "marketValueUsd": 1185,
+   "weightPct": 10.64
   },
   {
    "ticker": "SPY",
-   "marketValueUsd": 981.9,
-   "weightPct": 8.29
-  },
-  {
-   "ticker": "EWY",
-   "marketValueUsd": 966.47,
-   "weightPct": 8.16
+   "marketValueUsd": 957,
+   "weightPct": 8.59
   },
   {
    "ticker": "META",
-   "marketValueUsd": 910.09,
-   "weightPct": 7.68
+   "marketValueUsd": 908,
+   "weightPct": 8.15
   },
   {
-   "ticker": "SMH",
-   "marketValueUsd": 843.79,
-   "weightPct": 7.12
+   "ticker": "EWY",
+   "marketValueUsd": 839,
+   "weightPct": 7.53
   },
   {
    "ticker": "EWZ",
-   "marketValueUsd": 836.16,
-   "weightPct": 7.06
+   "marketValueUsd": 826,
+   "weightPct": 7.41
+  },
+  {
+   "ticker": "SMH",
+   "marketValueUsd": 743,
+   "weightPct": 6.67
   },
   {
    "ticker": "ABEV",
-   "marketValueUsd": 653.67,
-   "weightPct": 5.52
+   "marketValueUsd": 678,
+   "weightPct": 6.09
   },
   {
    "ticker": "DIS",
-   "marketValueUsd": 631.53,
-   "weightPct": 5.33,
+   "marketValueUsd": 654,
+   "weightPct": 5.87,
    "cedear": "DISN"
   },
   {
    "ticker": "UNH",
-   "marketValueUsd": 339.77,
-   "weightPct": 2.87
+   "marketValueUsd": 336,
+   "weightPct": 3.02
   }
  ]
 }

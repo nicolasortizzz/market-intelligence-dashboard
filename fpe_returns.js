@@ -98,6 +98,15 @@
       `Muestra chica — no inventamos puntos.`;
 
     const reg1 = t.regression_1y_damodaran, reg5 = t.regression_5y_damodaran;
+    const oos = [];
+    [reg1, reg5].forEach((r, i) => {
+      if (r && (cur.fpe < r.x_min || cur.fpe > r.x_max))
+        oos.push((i ? "5Y" : "1Y") + ` (muestra Damodaran ${num(r.x_min,1)}–${num(r.x_max,1)}x)`);
+    });
+    if (oos.length) {
+      document.getElementById("fpeNote").innerHTML +=
+        ` <b style="color:#f59e0b">Aviso:</b> el FPE MSCI actual (${num(cur.fpe,2)}x) queda fuera del rango histórico Damodaran en ${oos.join(" y ")}; el OLS implícito es extrapolación, no interpolación.`;
+    }
     const k = document.getElementById("fpeK");
     if (k) {
       k.innerHTML = [

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-06T03:09:23+00:00",
-  "title": "Forward P/E vs subsequent returns \u2014 EWZ / EWY",
+  "generatedAt": "2026-11-06T03:29:13+00:00",
+  "title": "Forward P/E vs subsequent returns \u2014 EWZ / EWY / MCHI",
   "methodology": [
     "ETF-native historical Forward P/E for EWZ/EWY is not published as a continuous public series (Yahoo forwardPE is null for these ETFs).",
-    "Current Forward P/E marker = official MSCI country-index factsheet P/E Fwd (EWZ\u2192Brazil, EWY\u2192Korea), dated 2026-10-30.",
+    "Current Forward P/E marker = official MSCI country-index factsheet P/E Fwd (EWZ\u2192Brazil, EWY\u2192Korea, MCHI\u2192China), dated 2026-10-30.",
     "Annual historical Forward P/E = every Damodaran Country Stats January workbook publicly archived (countrystats12.xls \u2192 current countrystats.xls): firm-average through 2020-01, firm-median from 2021-01. Not identical to MSCI index aggregate FPE; documented firm-distribution proxy. No pre-2012 archive file; no Jan-2014 workbook (countrystats14.xls dated 2015-01-05). All available years are embedded \u2014 scatter points require a completed subsequent-return window.",
-    "Sparse recent index-level Forward P/E = Siblis free API for IBOV (Brazil) and KOSPI (Korea).",
+    "Sparse recent index-level Forward P/E = Siblis free API for IBOV (Brazil), KOSPI (Korea) and SSE (China mainland Composite; free-tier stand-in \u2014 not identical to MSCI China which also includes H/Red/P/ADR).",
     "Subsequent returns = Yahoo Finance adjusted close of EWZ/EWY, month-end to month-end (1y simple; 5y annualized). Incomplete windows omitted.",
     "OLS regression only on the Damodaran annual sample (homogeneous method). Small-N \u2014 descriptive, not predictive. No invented FPE points."
   ],
@@ -19,6 +19,10 @@
       "url": "https://www.msci.com/documents/10199/255599/msci-korea-index.pdf"
     },
     {
+      "name": "MSCI China Index factsheet",
+      "url": "https://www.msci.com/documents/10199/255599/msci-china-index.pdf"
+    },
+    {
       "name": "Damodaran Country Stats",
       "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
     },
@@ -27,7 +31,7 @@
       "url": "https://siblisresearch.com/financial-data-api/"
     },
     {
-      "name": "Yahoo Finance (yfinance) EWZ/EWY adjusted closes",
+      "name": "Yahoo Finance (yfinance) EWZ/EWY/MCHI adjusted closes",
       "url": "https://finance.yahoo.com/"
     }
   ],
@@ -36,7 +40,8 @@
     "Damodaran Country Stats public XLS archives start at countrystats12.xls (Date updated ~2012-01); no pre-2012 Forward PE country file retrieved (countrystats05\u201311 \u2192 404).",
     "Damodaran annual series has no January 2014 observation: countrystats14.xls is dated 2015-01-05 (archives jump 2013\u21922015).",
     "Damodaran asof 2026-01 is stored but omitted from completed-return scatters until the 1Y/5Y window finishes.",
-    "Siblis free tier only exposes a handful of recent month-ends (currently ~9 IBOV/KOSPI snapshots from 2023-12 onward) \u2014 too few for a 5-year completed window; points without a finished return window stay in siblis_fpe but not in scatter series.",
+    "Siblis free tier only exposes a handful of recent month-ends (currently ~9 IBOV/KOSPI/SSE snapshots from 2023-12 onward) \u2014 too few for a 5-year completed window; points without a finished return window stay in siblis_fpe but not in scatter series.",
+    "China sparse recent series = Siblis SSE Composite (mainland), not MSCI China aggregate; Damodaran China is firm-distribution across Chinese listings. Documented proxy stack, not identical series.",
     "Update MSCI_CURRENT in this script when new MSCI factsheets publish (or wire a PDF parser)."
   ],
   "tickers": {
@@ -253,8 +258,8 @@
         {
           "asof": "2012-01-05",
           "fpe": 19.32,
-          "ret": 0.003595,
-          "ret_total": 0.003595,
+          "ret": 0.003594,
+          "ret_total": 0.003594,
           "window_start": "2011-12-31",
           "window_end": "2012-12-31",
           "fpe_source": "Damodaran countrystats (countrystats12.xls)",
@@ -283,8 +288,8 @@
         {
           "asof": "2016-01-05",
           "fpe": 17.11,
-          "ret": 0.644732,
-          "ret_total": 0.644732,
+          "ret": 0.644731,
+          "ret_total": 0.644731,
           "window_start": "2015-12-31",
           "window_end": "2016-12-31",
           "fpe_source": "Damodaran countrystats (countrystats15.xls)",
@@ -436,7 +441,7 @@
           "asof": "2018-01-05",
           "fpe": 25.16,
           "ret": -0.016823,
-          "ret_total": -0.081324,
+          "ret_total": -0.081323,
           "window_start": "2017-12-31",
           "window_end": "2022-12-31",
           "fpe_source": "Damodaran countrystats (countrystats17.xls)",
@@ -517,8 +522,8 @@
         {
           "asof": "2025-06-30",
           "fpe": 8.27,
-          "ret": 0.249526,
-          "ret_total": 0.249526,
+          "ret": 0.249527,
+          "ret_total": 0.249527,
           "window_start": "2025-06-30",
           "window_end": "2026-06-30",
           "fpe_source": "Siblis Research free API (IBOV pe-forward)",
@@ -550,8 +555,8 @@
         {
           "asof": "2012-01-05",
           "fpe": 19.32,
-          "ret": 0.003595,
-          "ret_total": 0.003595,
+          "ret": 0.003594,
+          "ret_total": 0.003594,
           "window_start": "2011-12-31",
           "window_end": "2012-12-31",
           "fpe_source": "Damodaran countrystats (countrystats12.xls)",
@@ -583,8 +588,8 @@
         {
           "asof": "2016-01-05",
           "fpe": 17.11,
-          "ret": 0.644732,
-          "ret_total": 0.644732,
+          "ret": 0.644731,
+          "ret_total": 0.644731,
           "window_start": "2015-12-31",
           "window_end": "2016-12-31",
           "fpe_source": "Damodaran countrystats (countrystats15.xls)",
@@ -737,8 +742,8 @@
         {
           "asof": "2025-06-30",
           "fpe": 8.27,
-          "ret": 0.249526,
-          "ret_total": 0.249526,
+          "ret": 0.249527,
+          "ret_total": 0.249527,
           "window_start": "2025-06-30",
           "window_end": "2026-06-30",
           "fpe_source": "Siblis Research free API (IBOV pe-forward)",
@@ -828,7 +833,7 @@
           "asof": "2018-01-05",
           "fpe": 25.16,
           "ret": -0.016823,
-          "ret_total": -0.081324,
+          "ret_total": -0.081323,
           "window_start": "2017-12-31",
           "window_end": "2022-12-31",
           "fpe_source": "Damodaran countrystats (countrystats17.xls)",
@@ -870,13 +875,13 @@
         }
       ],
       "regression_1y_damodaran": {
-        "slope": -0.008767243796061312,
-        "intercept": 0.23927883949238257,
-        "r2": 0.09630287473530241,
+        "slope": -0.008767241095396465,
+        "intercept": 0.2392786308435067,
+        "r2": 0.09630289784994317,
         "n": 13,
         "x_min": 7.92,
         "x_max": 53.66,
-        "implied_at_current": 0.17282313151823783
+        "implied_at_current": 0.1728229433404015
       },
       "regression_5y_damodaran": {
         "slope": -0.003282447882577184,
@@ -1215,8 +1220,8 @@
         {
           "asof": "2017-01-05",
           "fpe": 16.66,
-          "ret": 0.449717,
-          "ret_total": 0.449717,
+          "ret": 0.449718,
+          "ret_total": 0.449718,
           "window_start": "2016-12-31",
           "window_end": "2017-12-31",
           "fpe_source": "Damodaran countrystats (countrystats16.xls)",
@@ -1338,7 +1343,7 @@
           "asof": "2016-01-05",
           "fpe": 19.59,
           "ret": 0.135049,
-          "ret_total": 0.884457,
+          "ret_total": 0.884458,
           "window_start": "2015-12-31",
           "window_end": "2020-12-31",
           "fpe_source": "Damodaran countrystats (countrystats15.xls)",
@@ -1516,8 +1521,8 @@
         {
           "asof": "2017-01-05",
           "fpe": 16.66,
-          "ret": 0.449717,
-          "ret_total": 0.449717,
+          "ret": 0.449718,
+          "ret_total": 0.449718,
           "window_start": "2016-12-31",
           "window_end": "2017-12-31",
           "fpe_source": "Damodaran countrystats (countrystats16.xls)",
@@ -1728,7 +1733,7 @@
           "asof": "2016-01-05",
           "fpe": 19.59,
           "ret": 0.135049,
-          "ret_total": 0.884457,
+          "ret_total": 0.884458,
           "window_start": "2015-12-31",
           "window_end": "2020-12-31",
           "fpe_source": "Damodaran countrystats (countrystats15.xls)",
@@ -1792,13 +1797,13 @@
         }
       ],
       "regression_1y_damodaran": {
-        "slope": -0.027309441410890645,
-        "intercept": 0.555644784656143,
-        "r2": 0.11519154718012481,
+        "slope": -0.027309437766861948,
+        "intercept": 0.5556448036195418,
+        "r2": 0.11519146000288405,
         "n": 13,
         "x_min": 9.5,
         "x_max": 21.2,
-        "implied_at_current": 0.4464070190125804
+        "implied_at_current": 0.446407052552094
       },
       "regression_5y_damodaran": {
         "slope": 0.003422798017629324,
@@ -1881,6 +1886,906 @@
           "2025-06-30",
           "2025-09-30",
           "2025-12-30"
+        ]
+      }
+    },
+    "MCHI": {
+      "etf": "MCHI",
+      "name": "iShares MSCI China ETF",
+      "proxy": "MSCI China / SSE Composite Forward P/E (chosen over FXI: MCHI tracks MSCI China directly; ETF-native FPE history not published)",
+      "dam_key": "China",
+      "sib_key": "SSE",
+      "current_msci": {
+        "fpe": 9.32,
+        "trailing_pe": 11.96,
+        "pb": 1.29,
+        "div_yld": 2.63,
+        "date": "2026-10-30",
+        "label": "MSCI China Index P/E Fwd (proxy for MCHI)",
+        "source": "MSCI China Index (USD) factsheet fundamentals",
+        "url": "https://www.msci.com/documents/10199/255599/msci-china-index.pdf"
+      },
+      "yahoo_trailing": {
+        "trailingPE": 11.75619,
+        "asof_price": 52.04,
+        "source": "Yahoo Finance info.trailingPE (ETF-native trailing P/E, not forward)"
+      },
+      "damodaran_fpe": [
+        {
+          "date": "2012-01-05",
+          "fpe": 24.57,
+          "method": "Damodaran average firm Forward PE",
+          "file": "countrystats12.xls",
+          "source": "Damodaran countrystats (countrystats12.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2013-01-05",
+          "fpe": 28.7,
+          "method": "Damodaran average firm Forward PE",
+          "file": "countrystats13.xls",
+          "source": "Damodaran countrystats (countrystats13.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2015-01-05",
+          "fpe": 42.92,
+          "method": "Damodaran average firm Forward PE",
+          "file": "countrystats14.xls",
+          "source": "Damodaran countrystats (countrystats14.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2016-01-05",
+          "fpe": 78.27,
+          "method": "Damodaran average firm Forward PE",
+          "file": "countrystats15.xls",
+          "source": "Damodaran countrystats (countrystats15.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2017-01-05",
+          "fpe": 57.52,
+          "method": "Damodaran average firm Forward PE",
+          "file": "countrystats16.xls",
+          "source": "Damodaran countrystats (countrystats16.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2018-01-05",
+          "fpe": 37.5,
+          "method": "Damodaran average firm Forward PE",
+          "file": "countrystats17.xls",
+          "source": "Damodaran countrystats (countrystats17.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2019-01-05",
+          "fpe": 22.17,
+          "method": "Damodaran average firm Forward PE",
+          "file": "countrystats18.xls",
+          "source": "Damodaran countrystats (countrystats18.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2020-01-05",
+          "fpe": 28.53,
+          "method": "Damodaran average firm Forward PE",
+          "file": "countrystats19.xls",
+          "source": "Damodaran countrystats (countrystats19.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2021-01-05",
+          "fpe": 34.69,
+          "method": "Damodaran median firm Forward PE",
+          "file": "countrystats20.xls",
+          "source": "Damodaran countrystats (countrystats20.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2022-01-05",
+          "fpe": 24.94,
+          "method": "Damodaran median firm Forward PE",
+          "file": "countrystats21.xls",
+          "source": "Damodaran countrystats (countrystats21.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2023-01-05",
+          "fpe": 20.54,
+          "method": "Damodaran median firm Forward PE",
+          "file": "countrystats22.xls",
+          "source": "Damodaran countrystats (countrystats22.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2024-01-05",
+          "fpe": 20.4,
+          "method": "Damodaran median firm Forward PE",
+          "file": "countrystats23.xls",
+          "source": "Damodaran countrystats (countrystats23.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2025-01-05",
+          "fpe": 20.8,
+          "method": "Damodaran median firm Forward PE",
+          "file": "countrystats24.xls",
+          "source": "Damodaran countrystats (countrystats24.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        },
+        {
+          "date": "2026-01-05",
+          "fpe": 26.46,
+          "method": "Damodaran median firm Forward PE",
+          "file": "countrystats.xls",
+          "source": "Damodaran countrystats (countrystats.xls)",
+          "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/countrystats.html"
+        }
+      ],
+      "siblis_fpe": [
+        {
+          "date": "2023-12-29",
+          "fpe": 10.74,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        },
+        {
+          "date": "2024-06-28",
+          "fpe": 11.23,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        },
+        {
+          "date": "2024-12-31",
+          "fpe": 13.05,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        },
+        {
+          "date": "2025-03-31",
+          "fpe": 12.83,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        },
+        {
+          "date": "2025-06-30",
+          "fpe": 13.21,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        },
+        {
+          "date": "2025-09-30",
+          "fpe": 15.31,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        },
+        {
+          "date": "2025-12-31",
+          "fpe": 14.93,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        },
+        {
+          "date": "2026-06-30",
+          "fpe": 15.38,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        },
+        {
+          "date": "2026-09-30",
+          "fpe": 13.29,
+          "source": "Siblis Research free API (SSE pe-forward)",
+          "method": "Index-level Forward P/E (aggregate)",
+          "url": "https://siblisresearch.com/financial-data-api/",
+          "index": "SSE Composite Index"
+        }
+      ],
+      "points_1y_damodaran": [
+        {
+          "asof": "2012-01-05",
+          "fpe": 24.57,
+          "ret": 0.232133,
+          "ret_total": 0.232133,
+          "window_start": "2011-12-31",
+          "window_end": "2012-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats12.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2013-01-05",
+          "fpe": 28.7,
+          "ret": 0.021834,
+          "ret_total": 0.021834,
+          "window_start": "2012-12-31",
+          "window_end": "2013-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats13.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2015-01-05",
+          "fpe": 42.92,
+          "ret": -0.08995,
+          "ret_total": -0.08995,
+          "window_start": "2014-12-31",
+          "window_end": "2015-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats14.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2016-01-05",
+          "fpe": 78.27,
+          "ret": -0.00323,
+          "ret_total": -0.00323,
+          "window_start": "2015-12-31",
+          "window_end": "2016-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats15.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2017-01-05",
+          "fpe": 57.52,
+          "ret": 0.546697,
+          "ret_total": 0.546697,
+          "window_start": "2016-12-31",
+          "window_end": "2017-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats16.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2018-01-05",
+          "fpe": 37.5,
+          "ret": -0.197864,
+          "ret_total": -0.197864,
+          "window_start": "2017-12-31",
+          "window_end": "2018-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats17.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2019-01-05",
+          "fpe": 22.17,
+          "ret": 0.237206,
+          "ret_total": 0.237206,
+          "window_start": "2018-12-31",
+          "window_end": "2019-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats18.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2020-01-05",
+          "fpe": 28.53,
+          "ret": 0.277788,
+          "ret_total": 0.277788,
+          "window_start": "2019-12-31",
+          "window_end": "2020-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats19.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2021-01-05",
+          "fpe": 34.69,
+          "ret": -0.21742,
+          "ret_total": -0.21742,
+          "window_start": "2020-12-31",
+          "window_end": "2021-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats20.xls)",
+          "fpe_method": "Damodaran median firm Forward PE"
+        },
+        {
+          "asof": "2022-01-05",
+          "fpe": 24.94,
+          "ret": -0.227635,
+          "ret_total": -0.227635,
+          "window_start": "2021-12-31",
+          "window_end": "2022-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats21.xls)",
+          "fpe_method": "Damodaran median firm Forward PE"
+        },
+        {
+          "asof": "2023-01-05",
+          "fpe": 20.54,
+          "ret": -0.112915,
+          "ret_total": -0.112915,
+          "window_start": "2022-12-31",
+          "window_end": "2023-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats22.xls)",
+          "fpe_method": "Damodaran median firm Forward PE"
+        },
+        {
+          "asof": "2024-01-05",
+          "fpe": 20.4,
+          "ret": 0.17733,
+          "ret_total": 0.17733,
+          "window_start": "2023-12-31",
+          "window_end": "2024-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats23.xls)",
+          "fpe_method": "Damodaran median firm Forward PE"
+        },
+        {
+          "asof": "2025-01-05",
+          "fpe": 20.8,
+          "ret": 0.310396,
+          "ret_total": 0.310396,
+          "window_start": "2024-12-31",
+          "window_end": "2025-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats24.xls)",
+          "fpe_method": "Damodaran median firm Forward PE"
+        }
+      ],
+      "points_5y_damodaran": [
+        {
+          "asof": "2012-01-05",
+          "fpe": 24.57,
+          "ret": 0.040591,
+          "ret_total": 0.220216,
+          "window_start": "2011-12-31",
+          "window_end": "2016-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats12.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2013-01-05",
+          "fpe": 28.7,
+          "ret": 0.089035,
+          "ret_total": 0.531737,
+          "window_start": "2012-12-31",
+          "window_end": "2017-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats13.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2015-01-05",
+          "fpe": 42.92,
+          "ret": 0.068452,
+          "ret_total": 0.392372,
+          "window_start": "2014-12-31",
+          "window_end": "2019-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats14.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2016-01-05",
+          "fpe": 78.27,
+          "ret": 0.14342,
+          "ret_total": 0.95501,
+          "window_start": "2015-12-31",
+          "window_end": "2020-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats15.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2017-01-05",
+          "fpe": 57.52,
+          "ret": 0.089486,
+          "ret_total": 0.534909,
+          "window_start": "2016-12-31",
+          "window_end": "2021-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats16.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2018-01-05",
+          "fpe": 37.5,
+          "ret": -0.051807,
+          "ret_total": -0.233521,
+          "window_start": "2017-12-31",
+          "window_end": "2022-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats17.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2019-01-05",
+          "fpe": 22.17,
+          "ret": -0.032521,
+          "ret_total": -0.152349,
+          "window_start": "2018-12-31",
+          "window_end": "2023-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats18.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2020-01-05",
+          "fpe": 28.53,
+          "ret": -0.042051,
+          "ret_total": -0.193371,
+          "window_start": "2019-12-31",
+          "window_end": "2024-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats19.xls)",
+          "fpe_method": "Damodaran average firm Forward PE"
+        },
+        {
+          "asof": "2021-01-05",
+          "fpe": 34.69,
+          "ret": -0.037233,
+          "ret_total": -0.172787,
+          "window_start": "2020-12-31",
+          "window_end": "2025-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats20.xls)",
+          "fpe_method": "Damodaran median firm Forward PE"
+        }
+      ],
+      "points_1y_siblis": [
+        {
+          "asof": "2023-12-29",
+          "fpe": 10.74,
+          "ret": 0.140983,
+          "ret_total": 0.140983,
+          "window_start": "2023-11-30",
+          "window_end": "2024-11-30",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)"
+        },
+        {
+          "asof": "2024-06-28",
+          "fpe": 11.23,
+          "ret": 0.233795,
+          "ret_total": 0.233795,
+          "window_start": "2024-05-31",
+          "window_end": "2025-05-31",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)"
+        },
+        {
+          "asof": "2024-12-31",
+          "fpe": 13.05,
+          "ret": 0.310396,
+          "ret_total": 0.310396,
+          "window_start": "2024-12-31",
+          "window_end": "2025-12-31",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)"
+        },
+        {
+          "asof": "2025-03-31",
+          "fpe": 12.83,
+          "ret": 0.055674,
+          "ret_total": 0.055674,
+          "window_start": "2025-03-31",
+          "window_end": "2026-03-31",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)"
+        },
+        {
+          "asof": "2025-06-30",
+          "fpe": 13.21,
+          "ret": -0.056333,
+          "ret_total": -0.056333,
+          "window_start": "2025-06-30",
+          "window_end": "2026-06-30",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)"
+        },
+        {
+          "asof": "2025-09-30",
+          "fpe": 15.31,
+          "ret": -0.192437,
+          "ret_total": -0.192437,
+          "window_start": "2025-09-30",
+          "window_end": "2026-09-30",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)"
+        }
+      ],
+      "points_5y_siblis": [],
+      "points_1y": [
+        {
+          "asof": "2012-01-05",
+          "fpe": 24.57,
+          "ret": 0.232133,
+          "ret_total": 0.232133,
+          "window_start": "2011-12-31",
+          "window_end": "2012-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats12.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2013-01-05",
+          "fpe": 28.7,
+          "ret": 0.021834,
+          "ret_total": 0.021834,
+          "window_start": "2012-12-31",
+          "window_end": "2013-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats13.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2015-01-05",
+          "fpe": 42.92,
+          "ret": -0.08995,
+          "ret_total": -0.08995,
+          "window_start": "2014-12-31",
+          "window_end": "2015-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats14.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2016-01-05",
+          "fpe": 78.27,
+          "ret": -0.00323,
+          "ret_total": -0.00323,
+          "window_start": "2015-12-31",
+          "window_end": "2016-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats15.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2017-01-05",
+          "fpe": 57.52,
+          "ret": 0.546697,
+          "ret_total": 0.546697,
+          "window_start": "2016-12-31",
+          "window_end": "2017-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats16.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2018-01-05",
+          "fpe": 37.5,
+          "ret": -0.197864,
+          "ret_total": -0.197864,
+          "window_start": "2017-12-31",
+          "window_end": "2018-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats17.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2019-01-05",
+          "fpe": 22.17,
+          "ret": 0.237206,
+          "ret_total": 0.237206,
+          "window_start": "2018-12-31",
+          "window_end": "2019-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats18.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2020-01-05",
+          "fpe": 28.53,
+          "ret": 0.277788,
+          "ret_total": 0.277788,
+          "window_start": "2019-12-31",
+          "window_end": "2020-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats19.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2021-01-05",
+          "fpe": 34.69,
+          "ret": -0.21742,
+          "ret_total": -0.21742,
+          "window_start": "2020-12-31",
+          "window_end": "2021-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats20.xls)",
+          "fpe_method": "Damodaran median firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2022-01-05",
+          "fpe": 24.94,
+          "ret": -0.227635,
+          "ret_total": -0.227635,
+          "window_start": "2021-12-31",
+          "window_end": "2022-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats21.xls)",
+          "fpe_method": "Damodaran median firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2023-01-05",
+          "fpe": 20.54,
+          "ret": -0.112915,
+          "ret_total": -0.112915,
+          "window_start": "2022-12-31",
+          "window_end": "2023-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats22.xls)",
+          "fpe_method": "Damodaran median firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2023-12-29",
+          "fpe": 10.74,
+          "ret": 0.140983,
+          "ret_total": 0.140983,
+          "window_start": "2023-11-30",
+          "window_end": "2024-11-30",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)",
+          "series": "siblis"
+        },
+        {
+          "asof": "2024-01-05",
+          "fpe": 20.4,
+          "ret": 0.17733,
+          "ret_total": 0.17733,
+          "window_start": "2023-12-31",
+          "window_end": "2024-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats23.xls)",
+          "fpe_method": "Damodaran median firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2024-06-28",
+          "fpe": 11.23,
+          "ret": 0.233795,
+          "ret_total": 0.233795,
+          "window_start": "2024-05-31",
+          "window_end": "2025-05-31",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)",
+          "series": "siblis"
+        },
+        {
+          "asof": "2024-12-31",
+          "fpe": 13.05,
+          "ret": 0.310396,
+          "ret_total": 0.310396,
+          "window_start": "2024-12-31",
+          "window_end": "2025-12-31",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)",
+          "series": "siblis"
+        },
+        {
+          "asof": "2025-01-05",
+          "fpe": 20.8,
+          "ret": 0.310396,
+          "ret_total": 0.310396,
+          "window_start": "2024-12-31",
+          "window_end": "2025-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats24.xls)",
+          "fpe_method": "Damodaran median firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2025-03-31",
+          "fpe": 12.83,
+          "ret": 0.055674,
+          "ret_total": 0.055674,
+          "window_start": "2025-03-31",
+          "window_end": "2026-03-31",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)",
+          "series": "siblis"
+        },
+        {
+          "asof": "2025-06-30",
+          "fpe": 13.21,
+          "ret": -0.056333,
+          "ret_total": -0.056333,
+          "window_start": "2025-06-30",
+          "window_end": "2026-06-30",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)",
+          "series": "siblis"
+        },
+        {
+          "asof": "2025-09-30",
+          "fpe": 15.31,
+          "ret": -0.192437,
+          "ret_total": -0.192437,
+          "window_start": "2025-09-30",
+          "window_end": "2026-09-30",
+          "fpe_source": "Siblis Research free API (SSE pe-forward)",
+          "fpe_method": "Index-level Forward P/E (aggregate)",
+          "series": "siblis"
+        }
+      ],
+      "points_5y": [
+        {
+          "asof": "2012-01-05",
+          "fpe": 24.57,
+          "ret": 0.040591,
+          "ret_total": 0.220216,
+          "window_start": "2011-12-31",
+          "window_end": "2016-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats12.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2013-01-05",
+          "fpe": 28.7,
+          "ret": 0.089035,
+          "ret_total": 0.531737,
+          "window_start": "2012-12-31",
+          "window_end": "2017-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats13.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2015-01-05",
+          "fpe": 42.92,
+          "ret": 0.068452,
+          "ret_total": 0.392372,
+          "window_start": "2014-12-31",
+          "window_end": "2019-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats14.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2016-01-05",
+          "fpe": 78.27,
+          "ret": 0.14342,
+          "ret_total": 0.95501,
+          "window_start": "2015-12-31",
+          "window_end": "2020-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats15.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2017-01-05",
+          "fpe": 57.52,
+          "ret": 0.089486,
+          "ret_total": 0.534909,
+          "window_start": "2016-12-31",
+          "window_end": "2021-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats16.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2018-01-05",
+          "fpe": 37.5,
+          "ret": -0.051807,
+          "ret_total": -0.233521,
+          "window_start": "2017-12-31",
+          "window_end": "2022-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats17.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2019-01-05",
+          "fpe": 22.17,
+          "ret": -0.032521,
+          "ret_total": -0.152349,
+          "window_start": "2018-12-31",
+          "window_end": "2023-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats18.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2020-01-05",
+          "fpe": 28.53,
+          "ret": -0.042051,
+          "ret_total": -0.193371,
+          "window_start": "2019-12-31",
+          "window_end": "2024-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats19.xls)",
+          "fpe_method": "Damodaran average firm Forward PE",
+          "series": "damodaran"
+        },
+        {
+          "asof": "2021-01-05",
+          "fpe": 34.69,
+          "ret": -0.037233,
+          "ret_total": -0.172787,
+          "window_start": "2020-12-31",
+          "window_end": "2025-12-31",
+          "fpe_source": "Damodaran countrystats (countrystats20.xls)",
+          "fpe_method": "Damodaran median firm Forward PE",
+          "series": "damodaran"
+        }
+      ],
+      "regression_1y_damodaran": {
+        "slope": 0.0004399800379168273,
+        "intercept": 0.05846898571214037,
+        "r2": 0.0009671364403974758,
+        "n": 13,
+        "x_min": 20.4,
+        "x_max": 78.27,
+        "implied_at_current": 0.0625695996655252
+      },
+      "regression_5y_damodaran": {
+        "slope": 0.0027278990423613737,
+        "intercept": -0.07785305924030897,
+        "r2": 0.467746394726854,
+        "n": 9,
+        "x_min": 22.17,
+        "x_max": 78.27,
+        "implied_at_current": -0.05242904016550097
+      },
+      "price_asof": "2026-11-30",
+      "price_last": 52.040000915527344,
+      "n": {
+        "damodaran": 14,
+        "siblis": 9,
+        "1y_dam": 13,
+        "5y_dam": 9,
+        "1y_sib": 6,
+        "5y_sib": 0
+      },
+      "years": {
+        "damodaran_all": [
+          "2012",
+          "2013",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "damodaran_1y_scatter": [
+          "2012",
+          "2013",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "damodaran_5y_scatter": [
+          "2012",
+          "2013",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021"
+        ],
+        "siblis_all": [
+          "2023-12-29",
+          "2024-06-28",
+          "2024-12-31",
+          "2025-03-31",
+          "2025-06-30",
+          "2025-09-30",
+          "2025-12-31",
+          "2026-06-30",
+          "2026-09-30"
+        ],
+        "siblis_1y_scatter": [
+          "2023-12-29",
+          "2024-06-28",
+          "2024-12-31",
+          "2025-03-31",
+          "2025-06-30",
+          "2025-09-30"
         ]
       }
     }

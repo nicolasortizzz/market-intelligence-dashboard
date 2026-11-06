@@ -58,7 +58,52 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            # batch 3: BRK / portfolio list
            "MA": ["V", "AXP", "PYPL", "FISV", "FIS"], "V": ["MA", "AXP", "PYPL", "FISV", "FIS"],
            "PM": ["MO", "BTI", "IMBBY", "JAPAY", "UVV"],
-           "PG": ["CL", "KMB", "UL", "PEP", "KO", "CHD", "EL"]}
+           "PG": ["CL", "KMB", "UL", "PEP", "KO", "CHD", "EL"],
+           # batch 4: Morningstar wide-moat ∩ BYMA CEDEAR (Nov 2026)
+           "AAPL": ["MSFT", "GOOGL", "AMZN", "META", "DELL", "HPQ"],
+           "MSFT": ["GOOGL", "AAPL", "AMZN", "ORCL", "SAP", "ADBE"],
+           "AMZN": ["GOOGL", "MSFT", "WMT", "COST", "BABA", "MELI"],
+           "NVDA": ["AMD", "AVGO", "TSM", "MU", "QCOM", "MRVL"],
+           "KO": ["PEP", "MNST", "KDP", "CELH", "BUD"],
+           "PEP": ["KO", "MNST", "KDP", "MDLZ", "GIS"],
+           "COST": ["WMT", "TGT", "BJ", "DG", "DLTR"],
+           "HD": ["LOW", "TSCO", "WSM", "FND"],
+           "ORCL": ["MSFT", "SAP", "CRM", "IBM", "NOW"],
+           "NKE": ["DECK", "LULU", "UAA", "ADDYY", "ONON"],
+           "MELI": ["AMZN", "SE", "CPNG", "SHOP", "BABA"],
+           "AMGN": ["GILD", "ABBV", "REGN", "VRTX", "BIIB"],
+           "GILD": ["AMGN", "ABBV", "MRK", "BIIB", "REGN"],
+           "MO": ["PM", "BTI", "UVV", "IMBBY"],
+           "CAT": ["DE", "CMI", "PCAR", "WAB", "TEX"],
+           "DE": ["CAT", "AGCO", "CNHI", "PCAR"],
+           "GE": ["RTX", "LMT", "HON", "BA", "TDG"],
+           "LMT": ["RTX", "NOC", "GD", "HII", "BA"],
+           "ADI": ["TXN", "NXPI", "MCHP", "ON", "AVGO"],
+           "AMAT": ["LRCX", "KLAC", "ASML", "TER"],
+           "ANET": ["CSCO", "JNPR", "DELL", "HPE", "AVGO"],
+           "ADP": ["PAYX", "PCTY", "WDAY", "INTU", "PAYC"],
+           "ABNB": ["BKNG", "EXPE", "MAR", "HLT", "UBER"],
+           "DHR": ["TMO", "A", "IQV", "WAT", "MTD"],
+           "ISRG": ["SYK", "MDT", "BSX", "EW", "ZBH"],
+           "LRCX": ["AMAT", "KLAC", "ASML", "TER"],
+           "MDLZ": ["HSY", "GIS", "KHC", "CPG", "NESN.SW"],
+           "PANW": ["CRWD", "FTNT", "ZS", "S", "NET"],
+           "RTX": ["LMT", "NOC", "GD", "HON", "GE"],
+           "SPGI": ["MCO", "MSCI", "FDS", "ICE", "CME"],
+           "TMO": ["DHR", "A", "IQV", "WAT", "MTD"],
+           "VRSN": ["GOOGL", "AKAM", "FFIV", "GDDY"],
+           "BABA": ["JD", "PDD", "MELI", "AMZN", "BIDU"],
+           "SAP": ["ORCL", "MSFT", "ADBE", "CRM", "NOW"],
+           # batch 5: remaining wide-moat CEDEAR (USD bank RI + IBKR/BA/NVO/SONY)
+           "JPM": ["BAC", "WFC", "C", "GS", "MS"],
+           "GS": ["MS", "JPM", "BAC", "SCHW", "BX"],
+           "SCHW": ["IBKR", "AMP", "RJF", "BAC", "JPM"],
+           "AXP": ["V", "MA", "COF", "DFS", "SYF"],
+           "IBKR": ["SCHW", "RJF", "LPLA", "AMP", "HOOD"],
+           "BA": ["RTX", "LMT", "NOC", "GD", "HON"],
+           "NVO": ["LLY", "NVS", "AZN", "JNJ", "PFE", "AMGN"],
+           "SONY": ["DIS", "NFLX", "MSFT", "TCEHY", "6758.T"]
+}
 # Local-currency listings (Samsung: KRX common in KRW). Price, market cap, 52w range and targets are converted to USD at the
 # official rate (fx.KRWUSD: ECB reference rates, KRW/EUR divided by USD/EUR, same fixing date); KRW originals are kept as *Local.
 LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred shares (KRX)", "SMSN.IL": "GDR, London (1 GDR = 25 common shares)"}},
@@ -72,7 +117,8 @@ LOCAL_LISTING = {"005930.KS": {"ccy": "KRW", "related": {"005935.KS": "Preferred
 UNIT_DIV = {"TAEE11.SA": 3, "ALUP11.SA": 3, "ENGI11.SA": 5}   # B3 listing in BRL, converted at the BCB PTAX rate (fx.BRLUSD)
 SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU FY2026 ended 2026-09-03): append that year from SEC XBRL
 USD_STMT = {"YPF", "PBR"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
-BANKS = {"GGAL": 10}
+BANKS = {"GGAL": 10}  # ARS residual-income via bank_block (BCRA FX)
+USD_BANKS = {"JPM": 1, "GS": 1, "SCHW": 1, "AXP": 1}  # USD residual-income via usd_bank_block (ratio=local shares per listed share)
 # Latest filed quarter newer than Yahoo's snapshot (applied only while Yahoo's last quarter is older than "period").
 # SPCX: Q3 2026 earnings release (8-K Ex-99.1, accession 0001628280-26-066482, filed 2026-10-20), USD millions.
 FILING_OVERRIDE = {"SPCX": {"period": "2026-09-30", "accn": "0001628280-26-066482",
@@ -316,6 +362,28 @@ def bank_block(d, k, ratio):
                  "divTTMperADR": f(divs[divs.index > cut].sum()) if cut is not None else None, "hist": hist,
                  "fxSource": "BCRA Com. A3500 (api.bcra.gob.ar estadisticascambiarias)"}
 
+
+def usd_bank_block(d, k, ratio=1):
+    """US-listed banks / specialty finance: residual-income inputs in USD per listed share (no FX)."""
+    qb, qi = k.quarterly_balance_sheet, k.quarterly_income_stmt
+    col = qb.columns[0]
+    eq = f(qb.loc["Stockholders Equity", col]) if "Stockholders Equity" in qb.index else None
+    sh = f(qb.loc["Ordinary Shares Number", col]) if "Ordinary Shares Number" in qb.index else (d.get("sharesOutstanding") or d.get("impliedShares"))
+    if not eq or not sh: raise ValueError(f"usd_bank_block missing equity/shares for {d.get('ticker')}")
+    listed = sh / ratio
+    q4 = sorted(qi.columns)[-4:]
+    ni_row = "Net Income Common Stockholders" if "Net Income Common Stockholders" in qi.index else "Net Income"
+    ni_ttm = sum(f(qi.loc[ni_row, c]) or 0 for c in q4 if ni_row in qi.index)
+    divs = k.dividends; cut = divs.index.max() - pd.Timedelta(days=365) if len(divs) else None
+    ee = d.get("earningsEstimate") or {}
+    d["bank"] = {"usd": True, "adrRatio": ratio, "localShares": sh, "adrShares": listed,
+                 "equityUSD": eq, "bvDate": col.strftime("%Y-%m-%d"), "fxBv": 1.0, "fxBvDate": col.strftime("%Y-%m-%d"),
+                 "bvPerADR": eq / listed, "niTTM_USD": ni_ttm, "ttmQuarters": [c.strftime("%Y-%m-%d") for c in q4],
+                 "niTTMperADR": ni_ttm / listed,
+                 "eps0y": (ee.get("0y") or {}).get("avg"), "eps1y": (ee.get("+1y") or {}).get("avg"),
+                 "divTTMperADR": f(divs[divs.index > cut].sum()) if cut is not None else None,
+                 "fxSource": "USD (reporting and listing currency)"}
+
 def filing_override(d, o):
     """Use the latest filed quarter (balance sheet, TTM, share count) while Yahoo's statements still stop at an older quarter."""
     yq = max(d.get("qIncome", {}).get("years") or ["0000"])
@@ -341,8 +409,8 @@ def main():
     path = os.path.join(OUT, "valuation.json")
     res = json.load(open(path)) if only and os.path.exists(path) else {"companies": {}}
     res["generatedAt"] = now
-    if not only or "NIO" in only: res.setdefault("fx", {})["CNYUSD"] = cny
-    if not only or "ASML" in only:
+    if not only or {"NIO", "BABA"} & set(only): res.setdefault("fx", {})["CNYUSD"] = cny
+    if not only or {"ASML", "SAP"} & set(only):
         try:
             ed, ev = ecb_eurusd()
             res.setdefault("fx", {}).update({"EURUSD": 1 / ev, "EURUSD_ecb": ev, "EUR_date": ed, "EUR_source": "ECB euro reference rate (data-api.ecb.europa.eu EXR D.USD.EUR.SP00.A)"})
@@ -380,6 +448,12 @@ def main():
         except Exception as ex: print("boc fail", ex)
     if res.get("fx", {}).get("CADUSD"): FXC["CAD"] = res["fx"]["CADUSD"]
     FXC["CNY"] = cny
+    if not only or {"NVO"} & set(only):
+        dkk = f(yf.Ticker("DKK=X").history(period="5d")["Close"].iloc[-1])  # DKK per USD
+        if dkk: res.setdefault("fx", {})["DKKUSD"] = dkk; FXC["DKK"] = dkk
+    if not only or {"SONY"} & set(only):
+        jpy = f(yf.Ticker("JPY=X").history(period="5d")["Close"].iloc[-1])  # JPY per USD
+        if jpy: res.setdefault("fx", {})["JPYUSD"] = jpy; FXC["JPY"] = jpy
     for t, peers in TARGETS.items():
         if only and t not in only: continue
         k = yf.Ticker(t); i = k.info or {}
@@ -410,6 +484,7 @@ def main():
         if t in UNIT_DIV and d.get("marketCap"): d["marketCap"] /= UNIT_DIV[t]; d["sharesPerUnit"] = UNIT_DIV[t]
         if t in USD_STMT: usd_stmt_fix(d, k)
         if t in BANKS: bank_block(d, k, BANKS[t])
+        if t in USD_BANKS: usd_bank_block(d, k, USD_BANKS[t])
         if t in SEC_APPEND: sec_append(d, cik[t])
         if t in LOCAL_LISTING: local_listing(d, LOCAL_LISTING[t], k)
         if t in FILING_OVERRIDE: filing_override(d, FILING_OVERRIDE[t])

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T03:05:47Z",
+ "generatedAt": "2026-11-06T04:10:01Z",
  "quotes": {
   "META": {
    "price": 606.73,
@@ -396,6 +396,258 @@
   "PG": {
    "price": 163.56,
    "priceDate": "2026-11-02",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AAPL": {
+   "price": 344.17,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "MSFT": {
+   "price": 535.93,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AMZN": {
+   "price": 260.21,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "NVDA": {
+   "price": 181.6,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "KO": {
+   "price": 95.73,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "PEP": {
+   "price": 142.71,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "COST": {
+   "price": 1065.59,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "HD": {
+   "price": 349.94,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ORCL": {
+   "price": 115.16,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "NKE": {
+   "price": 39.56,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "MELI": {
+   "price": 1530.28,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AMGN": {
+   "price": 460.28,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "GILD": {
+   "price": 167.57,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "MO": {
+   "price": 77.58,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "CAT": {
+   "price": 553.64,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "DE": {
+   "price": 663.31,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "GE": {
+   "price": 314.73,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "LMT": {
+   "price": 576.16,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ADI": {
+   "price": 361.01,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AMAT": {
+   "price": 319.25,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ANET": {
+   "price": 159.16,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ADP": {
+   "price": 307.14,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ABNB": {
+   "price": 170.13,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "DHR": {
+   "price": 226.34,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "ISRG": {
+   "price": 468.52,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "LRCX": {
+   "price": 185.2,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "MDLZ": {
+   "price": 66.82,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "PANW": {
+   "price": 314.67,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "RTX": {
+   "price": 191.88,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SPGI": {
+   "price": 472.41,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "TMO": {
+   "price": 676.94,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "VRSN": {
+   "price": 312.06,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "BABA": {
+   "price": 108.07,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SAP": {
+   "price": 243.53,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "JPM": {
+   "price": 337.34,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "GS": {
+   "price": 868.95,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SCHW": {
+   "price": 92.58,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AXP": {
+   "price": 324.97,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "IBKR": {
+   "price": 72.73,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "BA": {
+   "price": 172.5,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "NVO": {
+   "price": 40.3,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SONY": {
+   "price": 27.54,
+   "priceDate": "2026-11-05",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   }

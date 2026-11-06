@@ -163,3 +163,7 @@ Charts live under **Valuation & M&A** → “Forward P/E vs subsequent returns�
 - **China** = ETF `MCHI` (iShares MSCI China; preferred over FXI) + MSCI China factsheet FPE + Damodaran `China` + Siblis SSE.
 - **Returns** = Yahoo adjusted closes of EWZ/EWY.
 - Do **not** invent Forward P/E points. If a source is missing, omit the observation.
+
+### Wide-moat CEDEAR skip (Nov 2026)
+
+- **BX (Blackstone)**: CEDEAR exists, but the repo has no fee-related earnings (FRE/DE) methodology for alternative asset managers; residual-income on thin GAAP book and FCFF without Operating Income would misstate economics. Skipped until an FRE model is added.

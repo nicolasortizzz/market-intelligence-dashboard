@@ -57,7 +57,50 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "PG": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),  # FY ends June 30
        "PG": ("us-gaap", ["NetSales", "RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
        "BEP": ("ifrs-full", ["Revenue"], "USD"),
-       "PBR": ("ifrs-full", ["Revenue"], "USD")}
+       "PBR": ("ifrs-full", ["Revenue"], "USD"),
+       "AAPL": ("us-gaap", ["NetSales", "RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
+       "MSFT": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
+       "AMZN": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
+       "NVDA": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "KO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "PEP": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "COST": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "NetSales"], "USD"),
+       "HD": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "ORCL": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
+       "NKE": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "MELI": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "USD"),
+       "AMGN": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "GILD": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "MO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "CAT": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "DE": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "GE": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "LMT": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "ADI": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "AMAT": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "ANET": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "ADP": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "ABNB": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "DHR": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "ISRG": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "LRCX": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "MDLZ": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "PANW": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "RTX": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "SPGI": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "TMO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "VRSN": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "BABA": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "CNY"),
+       "SAP": ("ifrs-full", ["Revenue"], "EUR"),
+       "JPM": ("us-gaap", ["Revenues", "InterestAndDividendIncomeOperating", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "GS": ("us-gaap", ["Revenues", "InterestAndDividendIncomeOperating", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "SCHW": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "AXP": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "IBKR": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "BA": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "NVO": ("ifrs-full", ["Revenue"], "DKK"),
+       "SONY": ("ifrs-full", ["Revenue"], "JPY")
+}
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",
                    "source": "Grupo Galicia Form 20-F FY2020 (selected financial data, IFRS, Dec-2020 pesos)",
@@ -146,8 +189,14 @@ SEC_FALLBACK = {"XOM": {2020: {"val": 178574e6, "end": "2020-12-31", "accn": "",
                                 "tag": "ifrs-full:Revenue (FY2025 20-F filed 2026-04-28, 'Revenue from contracts with customers' US$2,474,197k; not in companyfacts)"}}}
 
 # Shorter histories (spin-offs): the longest available window is used and flagged (periods < 5)
-SHORT = {"GEV": "GE Vernova was spun off from GE on 2024-04-02; its SEC filings carry audited revenue from FY2022 only, so a 3-year window is used"}
+SHORT = {"GEV": "GE Vernova was spun off from GE on 2024-04-02; its SEC filings carry audited revenue from FY2022 only, so a 3-year window is used",
+         "GE": "GE Aerospace continuing operations after HealthCare (2023) and Vernova (2024) spins; FY2020 CY frame missing and FY2021 still includes pre-spin scope, so FY2021-FY2025 is used"}
 SEC_FALLBACK["AEP"] = {2020: {"val": 14918.5e6, "end": "2020-12-31", "accn": "", "tag": "10-K FY2020 total revenues (CY2020 frame missing in companyfacts)"}}
+SEC_FALLBACK["CAT"] = {
+ 2024: {"val": 64809e6, "end": "2024-12-31", "accn": "", "tag": "10-K FY2024 Sales and revenues (CY2024 frame missing in companyfacts; Yahoo statements)"},
+ 2025: {"val": 67589e6, "end": "2025-12-31", "accn": "", "tag": "10-K FY2025 Sales and revenues (CY2025 frame missing in companyfacts; Yahoo statements)"},
+}
+
 
 def sec_series(cik, ns, tags, unit):
     j = requests.get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json", headers=UA, timeout=60).json()
@@ -206,11 +255,25 @@ def main():
     for t, (ns, tags, unit) in SEC.items():
         s = sec_series(cik[t], ns, tags, unit); y0 = END - 5
         for y, v in SEC_FALLBACK.get(t, {}).items(): s.setdefault(y, v)
-        if y0 not in s and SHORT.get(t):   # spin-offs: longest available window (fewer than 5 compounding periods, flagged)
-            y0 = min(y for y in s if y > END - 5)
-        n = END - y0; a, b = s[y0], s[END]
-        d = {"start": f"FY{y0}", "end": f"FY{END}", "startEnd": a["end"], "endEnd": b["end"], "currency": unit,
-             "values": {f"FY{y}": s[y]["val"] for y in range(y0, END + 1) if y in s}, "cagr5": cagr(a["val"], b["val"], n),
+        if END not in s and s:
+            # Prefer a shorter window over failing when the latest CY frame is not yet in companyfacts
+            end_y = max(s)
+            if end_y < END:
+                SHORT.setdefault(t, f"{t}: FY{END} not yet in SEC companyfacts CY frames; using FY{end_y} as end")
+            end_use = end_y
+        else:
+            end_use = END
+        if y0 not in s and s:   # spin-offs / late XBRL: start at earliest year >= target window start
+            later = [y for y in s if y0 <= y <= end_use]
+            if later:
+                y0 = min(later)
+            else:
+                y0 = max(y for y in s if y <= end_use)
+            if end_use - y0 < 5:
+                SHORT.setdefault(t, f"{t}: incomplete CY frames in companyfacts; using FY{y0}-FY{end_use}")
+        n = end_use - y0; a, b = s[y0], s[end_use]
+        d = {"start": f"FY{y0}", "end": f"FY{end_use}", "startEnd": a["end"], "endEnd": b["end"], "currency": unit,
+             "values": {f"FY{y}": s[y]["val"] for y in range(y0, end_use + 1) if y in s}, "cagr5": cagr(a["val"], b["val"], n),
              **({"periods": n, "shortNote": SHORT[t]} if n < 5 else {}),
              "definition": "Total revenue as reported", "source": f"SEC EDGAR XBRL companyfacts ({a['tag']}, {unit}; 10-K/20-F)",
              "accn": [a["accn"], b["accn"]]}
@@ -233,6 +296,12 @@ def main():
                         "fx": {f"FY{y0}": [e0d, e0], f"FY{END}": [e1d, e1], "source": "ECB euro reference rate"},
                         "note": f"translated at the ECB year-end rates ({e0} USD/EUR on {e0d}, {e1} on {e1d}), so it mixes FX moves"}
             d["note"] = "Constant currency (EUR, reporting currency; US GAAP 20-F net sales)."
+        if t == "SAP":
+            (e0d, e0), (e1d, e1) = ecb(a["end"]), ecb(b["end"])
+            d["usd"] = {"values": {f"FY{y0}": a["val"] * e0, f"FY{END}": b["val"] * e1}, "cagr5": cagr(a["val"] * e0, b["val"] * e1, 5),
+                        "fx": {f"FY{y0}": [e0d, e0], f"FY{END}": [e1d, e1], "source": "ECB euro reference rate"},
+                        "note": f"translated at the ECB year-end rates ({e0} USD/EUR on {e0d}, {e1} on {e1d}), so it mixes FX moves"}
+            d["note"] = "Constant currency (EUR, reporting currency; IFRS 20-F revenue)."
         if t == "VST":
             d["note"] = ("Total revenues including hedging/derivative results. Growth is partly inorganic: Energy Harbor (nuclear + retail, closed 2024-03-01) "
                          "added ~4 GW of nuclear; FY2021 includes Winter Storm Uri.")

@@ -11069,6 +11069,881 @@
     "valuation": null,
     "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk scored from trailing fundamentals and beta; valuation from the model."
    }
+  },
+  "JPM": {
+   "displayName": "JPMorgan Chase · moat",
+   "group": "Banks",
+   "sector": "US universal bank (CB, CIB, AWM, CC)",
+   "model": "bank",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.02).",
+   "crp": 0,
+   "kdSpread": 0.0,
+   "tax": 0.21,
+   "terminalG": 0.03,
+   "shareChange": 0.0,
+   "precedentPB": [
+    1.0,
+    2.2
+   ],
+   "controlPremium": [
+    0.15,
+    0.3
+   ],
+   "precedentNote": "US large-bank control deals are rare; P/BV range anchored on historical mega-bank trading bands and past deals (estimates). M&A view is a private-market cross-check.",
+   "compsNote": "Comps: BAC, WFC, C, GS, MS (P/BV primary; Yahoo TTM).",
+   "growthNote": "JPMorgan Chase. Residual-income model on USD book equity (same engine as GGAL/utilities). Year-1/2 ROE from consensus EPS ÷ book; sustainable ROE converges to ~16% in the Base case; book growth ~7%/yr mid-term. Morningstar wide-moat (Nov 2026).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "roeAdj": -0.04,
+     "midGrowth": 0.04000000000000001,
+     "ebitT": 0.11,
+     "desc": "Credit costs rise, NII compresses; ROE stays below cost of equity for longer."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "roeAdj": 0,
+     "midGrowth": 0.07,
+     "ebitT": 0.16,
+     "desc": "Consensus near-term EPS, then sustainable ROE and book growth as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "roeAdj": 0.03,
+     "midGrowth": 0.1,
+     "ebitT": 0.2,
+     "desc": "Fee growth and credit normalisation lift ROE above the base path."
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / recession shock",
+     "p": 0.1,
+     "roeAdj": -0.1,
+     "midGrowth": 0.0,
+     "ebitT": 0.06,
+     "desc": "Deep recession: charge-offs spike and loan growth stalls."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: capital / regulation shock",
+     "p": 0.05,
+     "roeAdj": -0.05,
+     "midGrowth": 0.02,
+     "ebitT": 0.1,
+     "desc": "Higher capital requirements or litigation compress ROE."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable franchise upside",
+     "p": 0.03,
+     "roeAdj": 0.05,
+     "midGrowth": 0.11000000000000001,
+     "ebitT": 0.22,
+     "desc": "Share gains in payments/wealth and operating leverage."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4",
+     "event": "Results; NII, credit costs, capital return",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Fed/regulatory and credit-cycle updates",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 5,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk from franchise and credit cycle; valuation from residual-income model."
+   }
+  },
+  "GS": {
+   "displayName": "Goldman Sachs · moat",
+   "group": "Banks",
+   "sector": "Global investment bank and asset/wealth manager",
+   "model": "bank",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.27).",
+   "crp": 0,
+   "kdSpread": 0.0,
+   "tax": 0.21,
+   "terminalG": 0.03,
+   "shareChange": 0.0,
+   "precedentPB": [
+    1.0,
+    2.2
+   ],
+   "controlPremium": [
+    0.15,
+    0.3
+   ],
+   "precedentNote": "US large-bank control deals are rare; P/BV range anchored on historical mega-bank trading bands and past deals (estimates). M&A view is a private-market cross-check.",
+   "compsNote": "Comps: MS, JPM, BAC, SCHW, BX (P/BV primary; Yahoo TTM).",
+   "growthNote": "Goldman Sachs. Residual-income model on USD book equity (same engine as GGAL/utilities). Year-1/2 ROE from consensus EPS ÷ book; sustainable ROE converges to ~14% in the Base case; book growth ~6%/yr mid-term. Morningstar wide-moat (Nov 2026).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "roeAdj": -0.04,
+     "midGrowth": 0.03,
+     "ebitT": 0.09000000000000001,
+     "desc": "Credit costs rise, NII compresses; ROE stays below cost of equity for longer."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "roeAdj": 0,
+     "midGrowth": 0.06,
+     "ebitT": 0.14,
+     "desc": "Consensus near-term EPS, then sustainable ROE and book growth as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "roeAdj": 0.03,
+     "midGrowth": 0.09,
+     "ebitT": 0.18000000000000002,
+     "desc": "Fee growth and credit normalisation lift ROE above the base path."
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / recession shock",
+     "p": 0.1,
+     "roeAdj": -0.1,
+     "midGrowth": 0.0,
+     "ebitT": 0.05,
+     "desc": "Deep recession: charge-offs spike and loan growth stalls."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: capital / regulation shock",
+     "p": 0.05,
+     "roeAdj": -0.05,
+     "midGrowth": 0.02,
+     "ebitT": 0.08000000000000002,
+     "desc": "Higher capital requirements or litigation compress ROE."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable franchise upside",
+     "p": 0.03,
+     "roeAdj": 0.05,
+     "midGrowth": 0.1,
+     "ebitT": 0.2,
+     "desc": "Share gains in payments/wealth and operating leverage."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4",
+     "event": "Results; NII, credit costs, capital return",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Fed/regulatory and credit-cycle updates",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 8,
+    "growth": 5,
+    "risk": 4,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk from franchise and credit cycle; valuation from residual-income model."
+   }
+  },
+  "SCHW": {
+   "displayName": "Charles Schwab · moat",
+   "group": "Banks",
+   "sector": "US broker-dealer / custody bank (wealth platform)",
+   "model": "bank",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.75).",
+   "crp": 0,
+   "kdSpread": 0.0,
+   "tax": 0.21,
+   "terminalG": 0.03,
+   "shareChange": 0.0,
+   "precedentPB": [
+    1.0,
+    2.2
+   ],
+   "controlPremium": [
+    0.15,
+    0.3
+   ],
+   "precedentNote": "US large-bank control deals are rare; P/BV range anchored on historical mega-bank trading bands and past deals (estimates). M&A view is a private-market cross-check.",
+   "compsNote": "Comps: IBKR, AMP, RJF, BAC, JPM (P/BV primary; Yahoo TTM).",
+   "growthNote": "Charles Schwab. Residual-income model on USD book equity (same engine as GGAL/utilities). Year-1/2 ROE from consensus EPS ÷ book; sustainable ROE converges to ~18% in the Base case; book growth ~8%/yr mid-term. Morningstar wide-moat (Nov 2026).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "roeAdj": -0.04,
+     "midGrowth": 0.05,
+     "ebitT": 0.13,
+     "desc": "Credit costs rise, NII compresses; ROE stays below cost of equity for longer."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "roeAdj": 0,
+     "midGrowth": 0.08,
+     "ebitT": 0.18,
+     "desc": "Consensus near-term EPS, then sustainable ROE and book growth as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "roeAdj": 0.03,
+     "midGrowth": 0.11,
+     "ebitT": 0.22,
+     "desc": "Fee growth and credit normalisation lift ROE above the base path."
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / recession shock",
+     "p": 0.1,
+     "roeAdj": -0.1,
+     "midGrowth": 0.0,
+     "ebitT": 0.07999999999999999,
+     "desc": "Deep recession: charge-offs spike and loan growth stalls."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: capital / regulation shock",
+     "p": 0.05,
+     "roeAdj": -0.05,
+     "midGrowth": 0.02,
+     "ebitT": 0.12,
+     "desc": "Higher capital requirements or litigation compress ROE."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable franchise upside",
+     "p": 0.03,
+     "roeAdj": 0.05,
+     "midGrowth": 0.12,
+     "ebitT": 0.24,
+     "desc": "Share gains in payments/wealth and operating leverage."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4",
+     "event": "Results; NII, credit costs, capital return",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Fed/regulatory and credit-cycle updates",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk from franchise and credit cycle; valuation from residual-income model."
+   }
+  },
+  "AXP": {
+   "displayName": "American Express · moat",
+   "group": "Payments networks",
+   "sector": "Closed-loop card network, lending and travel",
+   "model": "bank",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.08). Specialty finance / payments: residual income on book (FCFF not used — Yahoo has no Operating Income line).",
+   "crp": 0,
+   "kdSpread": 0.0,
+   "tax": 0.21,
+   "terminalG": 0.03,
+   "shareChange": 0.0,
+   "precedentPB": [
+    1.0,
+    2.2
+   ],
+   "controlPremium": [
+    0.15,
+    0.3
+   ],
+   "precedentNote": "US large-bank control deals are rare; P/BV range anchored on historical mega-bank trading bands and past deals (estimates). M&A view is a private-market cross-check.",
+   "compsNote": "Comps: V, MA, COF, DFS, SYF (P/BV primary for lending book; network peers for context).",
+   "growthNote": "American Express. Residual-income model on USD book equity (same engine as GGAL/utilities). Year-1/2 ROE from consensus EPS ÷ book; sustainable ROE converges to ~30% in the Base case; book growth ~8%/yr mid-term. Morningstar wide-moat (Nov 2026).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "roeAdj": -0.04,
+     "midGrowth": 0.05,
+     "ebitT": 0.25,
+     "desc": "Credit costs rise, NII compresses; ROE stays below cost of equity for longer."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "roeAdj": 0,
+     "midGrowth": 0.08,
+     "ebitT": 0.3,
+     "desc": "Consensus near-term EPS, then sustainable ROE and book growth as assumed."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "roeAdj": 0.03,
+     "midGrowth": 0.11,
+     "ebitT": 0.33999999999999997,
+     "desc": "Fee growth and credit normalisation lift ROE above the base path."
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / recession shock",
+     "p": 0.1,
+     "roeAdj": -0.1,
+     "midGrowth": 0.0,
+     "ebitT": 0.19999999999999998,
+     "desc": "Deep recession: charge-offs spike and loan growth stalls."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: capital / regulation shock",
+     "p": 0.05,
+     "roeAdj": -0.05,
+     "midGrowth": 0.02,
+     "ebitT": 0.24,
+     "desc": "Higher capital requirements or litigation compress ROE."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable franchise upside",
+     "p": 0.03,
+     "roeAdj": 0.05,
+     "midGrowth": 0.12,
+     "ebitT": 0.36,
+     "desc": "Share gains in payments/wealth and operating leverage."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4",
+     "event": "Results; NII, credit costs, capital return",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Fed/regulatory and credit-cycle updates",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat (Nov 2026). Growth/risk from franchise and credit cycle; valuation from residual-income model."
+   }
+  },
+  "IBKR": {
+   "displayName": "Interactive Brokers · moat",
+   "group": "Brokers",
+   "groupPeersFromComps": true,
+   "sector": "Electronic brokerage and market making",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.38).",
+   "crp": 0,
+   "kdSpread": 0.01,
+   "tax": 0.15,
+   "ebit1": 0.78,
+   "growthNote": "Interactive Brokers. Year 1/2 = Yahoo consensus revenue. High operating margins from automated brokerage; Base mid-term growth ~10%; steady-state EBIT ~75%. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.02,
+   "daPctT": 0.02,
+   "capexPct1": 0.03,
+   "capexPctT": 0.025,
+   "nwcPct": 0.0,
+   "terminalG": 0.03,
+   "ronic": 0.25,
+   "shareChange": 0.01,
+   "precedentEvEbitda": [
+    12,
+    20
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Broker/dealer control deals are infrequent; range from sector trading bands (estimates).",
+   "compsNote": "Comps: SCHW, RJF, LPLA, AMP, HOOD (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.04,
+     "midGrowth": 0.05,
+     "ebitT": 0.65,
+     "desc": "Volumes and net interest income fall with rates/activity."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.1,
+     "ebitT": 0.75,
+     "desc": "Consensus then ~10%/yr; margins stay high."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.14,
+     "midGrowth": 0.13,
+     "ebitT": 0.8,
+     "desc": "Account and share gains continue; rate NII resilient."
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: activity drought",
+     "p": 0.08,
+     "growthAdj": 0,
+     "g2": -0.05,
+     "midGrowth": 0.02,
+     "ebitT": 0.55,
+     "desc": "Prolonged low volumes and rate compression."
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / clearing shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.02,
+     "midGrowth": 0.04,
+     "ebitT": 0.6,
+     "desc": "Capital or clearing rules raise costs."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: share-gain upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.18,
+     "midGrowth": 0.15,
+     "ebitT": 0.82,
+     "desc": "Accelerated customer acquisition vs incumbents."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4",
+     "event": "Results; DARTs, NII, margins",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Competitive pricing and rate path",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 7,
+    "risk": 4,
+    "valuation": null,
+    "rationale": "Quality: Morningstar wide-moat. Automated low-cost broker; valuation from DCF."
+   }
+  },
+  "BA": {
+   "displayName": "Boeing · moat",
+   "group": "Aerospace & defense",
+   "groupPeersFromComps": true,
+   "sector": "Commercial airplanes, defense, services (BCA, BDS, BGS)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~1.33).",
+   "crp": 0,
+   "kdSpread": 0.02,
+   "tax": 0.15,
+   "ebit1": 0.04,
+   "ebitBase0": -0.02,
+   "growthNote": "Boeing. FY OpInc still negative after quality/delivery issues; model starts from a mildly negative EBIT margin (ebitBase0) and ramps to mid-single-digit then ~10% steady-state as 737/787 deliveries normalise. Year 1/2 = consensus where available. High leverage in the EV bridge. Morningstar wide-moat (Nov 2026) on installed base/services.",
+   "daPct0": 0.03,
+   "daPctT": 0.03,
+   "capexPct1": 0.04,
+   "capexPctT": 0.035,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.12,
+   "shareChange": 0.01,
+   "precedentEvEbitda": [
+    10,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Aerospace primes rarely change hands; range from defense/aero trading bands (estimates).",
+   "compsNote": "Comps: RTX, LMT, NOC, GD, AIR.PA (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "growthAdj": 0,
+     "g2": 0.02,
+     "midGrowth": 0.03,
+     "ebitT": 0.05,
+     "desc": "Delivery recovery stalls; further charges and cash burn."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.08,
+     "ebitT": 0.1,
+     "desc": "Gradual return to mid-single-digit then ~10% EBIT as rates recover."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.12,
+     "midGrowth": 0.1,
+     "ebitT": 0.13,
+     "desc": "Faster FAA/quality clearance and defense strength."
+    },
+    {
+     "id": "safetyTail",
+     "name": "Tail: renewed grounding / quality shock",
+     "p": 0.1,
+     "growthAdj": 0,
+     "g2": -0.05,
+     "midGrowth": 0.0,
+     "ebitT": 0.02,
+     "desc": "Another major safety event interrupts deliveries."
+    },
+    {
+     "id": "cashTail",
+     "name": "Tail: liquidity / dilution shock",
+     "p": 0.04,
+     "growthAdj": 0,
+     "g2": 0.0,
+     "midGrowth": 0.02,
+     "ebitT": 0.04,
+     "shareChange": 0.05,
+     "desc": "Equity raise or distressed funding."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: full franchise recovery",
+     "p": 0.03,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.12,
+     "ebitT": 0.15,
+     "desc": "Return toward historical mid-teens margins."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4",
+     "event": "Deliveries, cash flow, quality metrics",
+     "impact": "High",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "FAA / 737 MAX and defense awards",
+     "impact": "High",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 7,
+    "growth": 4,
+    "risk": 3,
+    "valuation": null,
+    "rationale": "Wide-moat on installed base but execution/credit risk elevated; valuation from recovery DCF."
+   }
+  },
+  "NVO": {
+   "displayName": "Novo Nordisk · moat",
+   "group": "Pharma",
+   "groupPeersFromComps": true,
+   "sector": "Diabetes and obesity care (GLP-1), rare disease",
+   "betaAdj": "blume",
+   "betaOverride": 0.85,
+   "betaNote": "Yahoo 5Y beta unavailable for NVO ADR; assumed 0.85 (large-cap pharma) then Blume not applied (override).",
+   "crp": 0,
+   "kdSpread": 0.008,
+   "tax": 0.22,
+   "ebit1": 0.4,
+   "growthNote": "Novo Nordisk (DKK statements; ADR priced in USD at Yahoo DKK=X). Year 1/2 = consensus (DKK). GLP-1 franchise (Ozempic/Wegovy) drives near-term growth; Base fades to high-single-digit with competition (Lilly) and capacity. Capex elevated for fill-finish. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.05,
+   "daPctT": 0.04,
+   "capexPct1": 0.25,
+   "capexPctT": 0.1,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.25,
+   "shareChange": -0.005,
+   "precedentEvEbitda": [
+    15,
+    25
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Large-cap pharma M&A bands (estimates); a control deal for NVO is unlikely.",
+   "compsNote": "Comps: LLY, NVS, AZN, JNJ, PFE, AMGN (TTM, Yahoo).",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.02,
+     "midGrowth": 0.04,
+     "ebitT": 0.32,
+     "desc": "Obesity competition and pricing pressure cut growth/margins."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.09,
+     "ebitT": 0.4,
+     "desc": "Consensus then high-single-digit; margins ~40%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.15,
+     "midGrowth": 0.12,
+     "ebitT": 0.44,
+     "desc": "Capacity and oral GLP-1 extend the franchise."
+    },
+    {
+     "id": "compTail",
+     "name": "Tail: GLP-1 share loss",
+     "p": 0.1,
+     "growthAdj": 0,
+     "g2": -0.02,
+     "midGrowth": 0.02,
+     "ebitT": 0.28,
+     "desc": "Lilly/compounders erode share faster."
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US pricing / IRA shock",
+     "p": 0.07,
+     "growthAdj": 0,
+     "g2": 0.03,
+     "midGrowth": 0.05,
+     "ebitT": 0.3,
+     "desc": "Drug-pricing policy hits obesity franchise."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: pipeline / indication upside",
+     "p": 0.03,
+     "growthAdj": 0,
+     "g2": 0.18,
+     "midGrowth": 0.14,
+     "ebitT": 0.46,
+     "desc": "New indications keep growth elevated."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-01",
+     "q": "Q4",
+     "event": "Obesity volumes, capacity, guidance",
+     "impact": "High",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "Competitive GLP-1 and oral data",
+     "impact": "High",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Wide-moat GLP-1 franchise; competition and policy are the risks; DCF in DKK→USD."
+   }
+  },
+  "SONY": {
+   "displayName": "Sony · moat",
+   "group": "Consumer tech",
+   "groupPeersFromComps": true,
+   "sector": "Gaming (PlayStation), music, pictures, imaging, semiconductors (image sensors)",
+   "betaAdj": "blume",
+   "betaNote": "Blume-adjusted Yahoo 5Y beta (~0.85).",
+   "crp": 0,
+   "kdSpread": 0.01,
+   "tax": 0.25,
+   "ebit1": 0.12,
+   "growthNote": "Sony Group (JPY statements; ADR in USD at Yahoo JPY=X). Year 1/2 = consensus (JPY). Mix of Game & Network, Music, Pictures and I&SS sensors; Base mid-single to high-single digit growth, EBIT ~14% steady-state. Morningstar wide-moat (Nov 2026).",
+   "daPct0": 0.09,
+   "daPctT": 0.07,
+   "capexPct1": 0.04,
+   "capexPctT": 0.04,
+   "nwcPct": 0.02,
+   "terminalG": 0.025,
+   "ronic": 0.12,
+   "shareChange": -0.01,
+   "precedentEvEbitda": [
+    10,
+    16
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Conglomerate media/tech deals (estimates); control of SONY is unlikely.",
+   "compsNote": "Comps: DIS, NFLX, MSFT, TCEHY, 6758.T peers via Yahoo where available.",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "growthAdj": 0,
+     "g2": 0.0,
+     "midGrowth": 0.02,
+     "ebitT": 0.09,
+     "desc": "Console cycle trough and sensor ASP pressure."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "growthAdj": 0,
+     "midGrowth": 0.05,
+     "ebitT": 0.14,
+     "desc": "Consensus then mid-single digit; margins ~14%."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "growthAdj": 0,
+     "g2": 0.08,
+     "midGrowth": 0.07,
+     "ebitT": 0.16,
+     "desc": "Music/streaming and sensors outperform."
+    },
+    {
+     "id": "cycleTail",
+     "name": "Tail: console/sensor downturn",
+     "p": 0.1,
+     "growthAdj": 0,
+     "g2": -0.05,
+     "midGrowth": 0.0,
+     "ebitT": 0.07,
+     "desc": "Prolonged hardware downturn."
+    },
+    {
+     "id": "yenTail",
+     "name": "Tail: JPY shock (translation)",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.02,
+     "midGrowth": 0.03,
+     "ebitT": 0.11,
+     "desc": "FX translation volatility dominates USD ADR returns."
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: content + sensor upside",
+     "p": 0.05,
+     "growthAdj": 0,
+     "g2": 0.1,
+     "midGrowth": 0.08,
+     "ebitT": 0.17,
+     "desc": "Hit content and share gains in image sensors."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-04",
+     "q": "FY",
+     "event": "FY results; Game & Network outlook",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "2026-2027",
+     "q": "Ongoing",
+     "event": "PS5 cycle and sensor demand",
+     "impact": "Medium",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 8,
+    "growth": 5,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Wide-moat IP/platforms; DCF in JPY→USD."
+   }
   }
  }
 }

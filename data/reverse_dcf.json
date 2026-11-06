@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T03:46:29Z",
+ "generatedAt": "2026-11-06T04:10:01Z",
  "quotes": {
   "META": {
    "price": 606.73,
@@ -599,6 +599,54 @@
   },
   "SAP": {
    "price": 243.53,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "JPM": {
+   "price": 337.34,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "GS": {
+   "price": 868.95,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SCHW": {
+   "price": 92.58,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "AXP": {
+   "price": 324.97,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "IBKR": {
+   "price": 72.73,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "BA": {
+   "price": 172.5,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "NVO": {
+   "price": 40.3,
+   "priceDate": "2026-11-05",
+   "field": "Close (unadjusted, last trading day)",
+   "source": "Yahoo Finance via yfinance"
+  },
+  "SONY": {
+   "price": 27.54,
    "priceDate": "2026-11-05",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"

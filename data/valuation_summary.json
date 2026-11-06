@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T04:02:28Z",
+ "generatedAt": "2026-11-06T04:13:34Z",
  "source": "market-intelligence-dashboard valuation engine (valuation.js valSummary, model defaults)",
  "dashboard": "https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation",
  "fx": {
@@ -40,7 +40,9 @@
   "ASML",
   "AVGO",
   "AXIA3.SA",
+  "AXP",
   "AZN",
+  "BA",
   "BABA",
   "BE",
   "BEP",
@@ -68,9 +70,12 @@
   "GGAL",
   "GILD",
   "GOOGL",
+  "GS",
   "HD",
+  "IBKR",
   "ISRG",
   "JNJ",
+  "JPM",
   "KO",
   "LLY",
   "LMT",
@@ -88,6 +93,7 @@
   "NKE",
   "NRG",
   "NVDA",
+  "NVO",
   "OKLO",
   "ORCL",
   "OXY",
@@ -100,9 +106,11 @@
   "PRIO3.SA",
   "RTX",
   "SAP",
+  "SCHW",
   "SLB",
   "SMR",
   "SO",
+  "SONY",
   "SPCX",
   "SPGI",
   "TAEE11.SA",
@@ -18147,6 +18155,1572 @@
     "pb": {
      "med": 6.01114806004799,
      "mean": 10.122556165486463,
+     "n": 10
+    }
+   }
+  },
+  "JPM": {
+   "ticker": "JPM",
+   "name": "JPMorgan Chase \u00b7 moat",
+   "sector": "US universal bank (CB, CIB, AWM, CC)",
+   "model": "residual income (bank)",
+   "preRevenue": false,
+   "price": 337.34,
+   "priceDate": "2026-11-05",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 323.41,
+   "probWeighted": 296.07,
+   "comps": 203.08,
+   "compsCycleAdjusted": false,
+   "triangulated": 258.88,
+   "upside": -0.23259866025715425,
+   "wacc": null,
+   "costOfEquity": 0.09470300000000001,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 107.88,
+    "p50": 284.27,
+    "p90": 504.2,
+    "pAbovePrice": 0.367
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 182.69
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "value": 323.41
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 482.68
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / recession shock",
+     "p": 0.1,
+     "value": 81.47
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: capital / regulation shock",
+     "p": 0.05,
+     "value": 158.17
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable franchise upside",
+     "p": 0.03,
+     "value": 570.29
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.0833231657743454,
+    "impliedMargin": 0.1655955731868744,
+    "baseMargin": 0.16
+   },
+   "revenueCagr": {
+    "value": 0.08749325184956946,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.060754618500251975
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.10283976316439825
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.08808483878484746
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.09210157848356348
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.0857912220003508
+    },
+    {
+     "year": "current",
+     "date": "2026-11-05",
+     "value": 0.09371464741263634
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 9,
+    "growth": 5,
+    "risk": 5,
+    "valuation": 3,
+    "total": 5.5
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 23,
+    "targetMean": 373.47827
+   },
+   "group": "Banks",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "JPM",
+    "group": "Banks",
+    "bank": true,
+    "marketCap": 895843303424,
+    "ev": null,
+    "evEbitda": null,
+    "pe": 13.883231974889394,
+    "fpe": 13.191225310459155,
+    "pfcf": null,
+    "fcfY": null,
+    "divY": 0.018557932996158634,
+    "ndE": null,
+    "pb": 2.4058009910196363
+   },
+   "groupMultiples": {
+    "members": [
+     "GGAL",
+     "JPM",
+     "GS",
+     "SCHW"
+    ],
+    "evEbitda": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pe": {
+     "med": 13.883231974889394,
+     "mean": 13.764024584718099,
+     "n": 3
+    },
+    "fpe": {
+     "med": 11.753949728313316,
+     "mean": 10.342580231975047,
+     "n": 4
+    },
+    "pfcf": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "fcfY": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "divY": {
+     "med": 0.019806217199392094,
+     "mean": 14.737072626710948,
+     "n": 4
+    },
+    "ndE": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pb": {
+     "med": 2.206011220097384,
+     "mean": 2.134944118050023,
+     "n": 4
+    }
+   }
+  },
+  "GS": {
+   "ticker": "GS",
+   "name": "Goldman Sachs \u00b7 moat",
+   "sector": "Global investment bank and asset/wealth manager",
+   "model": "residual income (bank)",
+   "preRevenue": false,
+   "price": 868.95,
+   "priceDate": "2026-11-05",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 720.76,
+   "probWeighted": 659.12,
+   "comps": 1051.93,
+   "compsCycleAdjusted": false,
+   "triangulated": 816.24,
+   "upside": -0.06065373352431047,
+   "wacc": null,
+   "costOfEquity": 0.10230080000000001,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 249.25,
+    "p50": 656.16,
+    "p90": 1142.17,
+    "pAbovePrice": 0.257
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 386.23
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "value": 720.76
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 1096.49
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / recession shock",
+     "p": 0.1,
+     "value": 181.08
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: capital / regulation shock",
+     "p": 0.05,
+     "value": 333.24
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable franchise upside",
+     "p": 0.03,
+     "value": 1309.82
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.1394941717386246,
+    "impliedMargin": 0.16326825022697455,
+    "baseMargin": 0.14
+   },
+   "revenueCagr": {
+    "value": 0.4247796093512375,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.07155344355605286
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.11455633781689134
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.09866517340733374
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.09996960771429804
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.09303767430768126
+    },
+    {
+     "year": "current",
+     "date": "2026-11-05",
+     "value": 0.10153343845005258
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 8,
+    "growth": 5,
+    "risk": 4,
+    "valuation": 4,
+    "total": 5.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 21,
+    "targetMean": 1030.6666
+   },
+   "group": "Banks",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "GS",
+    "group": "Banks",
+    "bank": true,
+    "marketCap": 250635239424,
+    "ev": null,
+    "evEbitda": null,
+    "pe": 11.799041849891102,
+    "fpe": 11.643459860943516,
+    "pfcf": null,
+    "fcfY": null,
+    "divY": 0.021054501402625554,
+    "ndE": null,
+    "pb": 2.0062214491751313
+   },
+   "groupMultiples": {
+    "members": [
+     "GGAL",
+     "JPM",
+     "GS",
+     "SCHW"
+    ],
+    "evEbitda": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pe": {
+     "med": 13.883231974889394,
+     "mean": 13.764024584718099,
+     "n": 3
+    },
+    "fpe": {
+     "med": 11.753949728313316,
+     "mean": 10.342580231975047,
+     "n": 4
+    },
+    "pfcf": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "fcfY": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "divY": {
+     "med": 0.019806217199392094,
+     "mean": 14.737072626710948,
+     "n": 4
+    },
+    "ndE": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pb": {
+     "med": 2.206011220097384,
+     "mean": 2.134944118050023,
+     "n": 4
+    }
+   }
+  },
+  "SCHW": {
+   "ticker": "SCHW",
+   "name": "Charles Schwab \u00b7 moat",
+   "sector": "US broker-dealer / custody bank (wealth platform)",
+   "model": "residual income (bank)",
+   "preRevenue": false,
+   "price": 92.58,
+   "priceDate": "2026-11-05",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 98.03,
+   "probWeighted": 90.33,
+   "comps": 69.81,
+   "compsCycleAdjusted": false,
+   "triangulated": 82.13,
+   "upside": -0.11292936386868835,
+   "wacc": null,
+   "costOfEquity": 0.08665295,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 40.87,
+    "p50": 89.91,
+    "p90": 153.65,
+    "pAbovePrice": 0.47675
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 59.24
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "value": 98.03
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 142.2
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / recession shock",
+     "p": 0.1,
+     "value": 30.49
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: capital / regulation shock",
+     "p": 0.05,
+     "value": 50.15
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable franchise upside",
+     "p": 0.03,
+     "value": 165.79
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.06481833159923554,
+    "impliedMargin": 0.17144150137901304,
+    "baseMargin": 0.18
+   },
+   "revenueCagr": {
+    "value": 0.15394612763864335,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.058727146712566125
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.0968285113851646
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.08497604424962918
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08856323423419005
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08212683684269995
+    },
+    {
+     "year": "current",
+     "date": "2026-11-05",
+     "value": 0.08519560357674358
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 5,
+    "valuation": 4,
+    "total": 6
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 22,
+    "targetMean": 116.86364
+   },
+   "group": "Banks",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "SCHW",
+    "group": "Banks",
+    "bank": true,
+    "marketCap": 160101908480,
+    "ev": null,
+    "evEbitda": null,
+    "pe": 15.6097999293738,
+    "fpe": 11.864439595683114,
+    "pfcf": null,
+    "fcfY": null,
+    "divY": 0.014546984618181111,
+    "ndE": null,
+    "pb": 3.1926517733862445
+   },
+   "groupMultiples": {
+    "members": [
+     "GGAL",
+     "JPM",
+     "GS",
+     "SCHW"
+    ],
+    "evEbitda": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pe": {
+     "med": 13.883231974889394,
+     "mean": 13.764024584718099,
+     "n": 3
+    },
+    "fpe": {
+     "med": 11.753949728313316,
+     "mean": 10.342580231975047,
+     "n": 4
+    },
+    "pfcf": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "fcfY": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "divY": {
+     "med": 0.019806217199392094,
+     "mean": 14.737072626710948,
+     "n": 4
+    },
+    "ndE": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pb": {
+     "med": 2.206011220097384,
+     "mean": 2.134944118050023,
+     "n": 4
+    }
+   }
+  },
+  "AXP": {
+   "ticker": "AXP",
+   "name": "American Express \u00b7 moat",
+   "sector": "Closed-loop card network, lending and travel",
+   "model": "residual income (bank)",
+   "preRevenue": false,
+   "price": 324.97,
+   "priceDate": "2026-11-05",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 279.5,
+   "probWeighted": 262.17,
+   "comps": 68.67,
+   "compsCycleAdjusted": false,
+   "triangulated": 184.77,
+   "upside": -0.4314153141477941,
+   "wacc": null,
+   "costOfEquity": 0.09642155,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 146.85,
+    "p50": 257.35,
+    "p90": 392.64,
+    "pAbovePrice": 0.24825
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 201.25
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.42,
+     "value": 279.5
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 368.77
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / recession shock",
+     "p": 0.1,
+     "value": 131.62
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: capital / regulation shock",
+     "p": 0.05,
+     "value": 171.6
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: durable franchise upside",
+     "p": 0.03,
+     "value": 412.95
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.1139079123735428,
+    "impliedMargin": 0.3465923726558685,
+    "baseMargin": 0.3
+   },
+   "revenueCagr": {
+    "value": 0.13453160423162558,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.06444108776495744
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.10372629059156929
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.09131421776841216
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.09577430811419868
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.08827674142510089
+    },
+    {
+     "year": "current",
+     "date": "2026-11-05",
+     "value": 0.0952574604486987
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 9,
+    "growth": 6,
+    "risk": 5,
+    "valuation": 1,
+    "total": 5.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 24,
+    "targetMean": 365.78708
+   },
+   "group": "Payments networks",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "AXP",
+    "group": "Payments networks",
+    "bank": true,
+    "marketCap": 217909280768,
+    "ev": null,
+    "evEbitda": null,
+    "pe": 18.020945762044153,
+    "fpe": 16.106864349378892,
+    "pfcf": null,
+    "fcfY": null,
+    "divY": 0.010421768141292937,
+    "ndE": null,
+    "pb": 6.087361532195436
+   },
+   "groupMultiples": {
+    "members": [
+     "MA",
+     "V",
+     "AXP"
+    ],
+    "extraPeers": [
+     "PYPL",
+     "FISV",
+     "FIS"
+    ],
+    "evEbitda": {
+     "med": 18.053984019530112,
+     "mean": 17.232625120192722,
+     "n": 4
+    },
+    "pe": {
+     "med": 18.020945762044153,
+     "mean": 19.95200499958969,
+     "n": 5
+    },
+    "fpe": {
+     "med": 12.931435174689446,
+     "mean": 14.974850812314601,
+     "n": 6
+    },
+    "pfcf": {
+     "med": 34.8529394709435,
+     "mean": 34.8529394709435,
+     "n": 2
+    },
+    "fcfY": {
+     "med": 0.028719593149617362,
+     "mean": 0.028719593149617362,
+     "n": 2
+    },
+    "divY": {
+     "med": 0.005976745171206752,
+     "mean": 0.007121484398535508,
+     "n": 3
+    },
+    "ndE": {
+     "med": 0.42057265708673053,
+     "mean": 0.42057265708673053,
+     "n": 2
+    },
+    "pb": {
+     "med": 4.267092979822504,
+     "mean": 19.167795607546726,
+     "n": 6
+    }
+   }
+  },
+  "IBKR": {
+   "ticker": "IBKR",
+   "name": "Interactive Brokers \u00b7 moat",
+   "sector": "Electronic brokerage and market making",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 72.73,
+   "priceDate": "2026-11-05",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 110.04,
+   "probWeighted": 102.4,
+   "comps": 32.75,
+   "compsCycleAdjusted": false,
+   "triangulated": 74.54,
+   "upside": 0.02490500284221331,
+   "wacc": 0.09333409007504541,
+   "costOfEquity": null,
+   "terminalG": 0.03,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 77.37,
+    "p50": 104.63,
+    "p90": 128.25,
+    "pAbovePrice": 0.9625
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 86.07
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 110.04
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 118.8
+    },
+    {
+     "id": "recessionTail",
+     "name": "Tail: activity drought",
+     "p": 0.08,
+     "value": 74
+    },
+    {
+     "id": "regTail",
+     "name": "Tail: regulatory / clearing shock",
+     "p": 0.07,
+     "value": 81.14
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: share-gain upside",
+     "p": 0.05,
+     "value": 129.33
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": -0.10067626535892485,
+    "impliedMargin": 0.2820920646190644,
+    "baseMargin": 0.75
+   },
+   "revenueCagr": {
+    "value": 0.13648119997675012,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.04814273902465188
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.08894903656453167
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.07666502768775706
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.08537024465991673
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.09073010959323659
+    },
+    {
+     "year": "current",
+     "date": "2026-11-05",
+     "value": 0.10515185919052228
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 7,
+    "risk": 4,
+    "valuation": 5,
+    "total": 6.25
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 16,
+    "targetMean": 104.1625
+   },
+   "group": "Brokers",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "IBKR",
+    "group": "Brokers",
+    "bank": false,
+    "marketCap": 123918508032,
+    "ev": 44264508224,
+    "evEbitda": null,
+    "pe": 105.28336004259562,
+    "fpe": 21.91679374075131,
+    "pfcf": 7.870840195121951,
+    "fcfY": 0.12705123915738528,
+    "divY": 0.001081355821080388,
+    "ndE": null,
+    "pb": 20.98890718699187
+   },
+   "groupMultiples": {
+    "members": [
+     "IBKR"
+    ],
+    "extraPeers": [
+     "SCHW",
+     "RJF",
+     "LPLA",
+     "AMP",
+     "HOOD"
+    ],
+    "evEbitda": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pe": {
+     "med": 15.6097999293738,
+     "mean": 18.40756683109445,
+     "n": 5
+    },
+    "fpe": {
+     "med": 10.98851775,
+     "mean": 14.468477706791885,
+     "n": 6
+    },
+    "pfcf": {
+     "med": 7.870840195121951,
+     "mean": 7.870840195121951,
+     "n": 1
+    },
+    "fcfY": {
+     "med": 0.12705123915738528,
+     "mean": 0.12705123915738528,
+     "n": 1
+    },
+    "divY": {
+     "med": 0.001081355821080388,
+     "mean": 0.001081355821080388,
+     "n": 1
+    },
+    "ndE": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pb": {
+     "med": 5.544655011691145,
+     "mean": 7.736139404996383,
+     "n": 6
+    }
+   }
+  },
+  "BA": {
+   "ticker": "BA",
+   "name": "Boeing \u00b7 moat",
+   "sector": "Commercial airplanes, defense, services (BCA, BDS, BGS)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 172.5,
+   "priceDate": "2026-11-05",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "USD",
+   "fx": null,
+   "base": 137.83,
+   "probWeighted": 108.24,
+   "comps": 188.51,
+   "compsCycleAdjusted": false,
+   "triangulated": 140.35,
+   "upside": -0.1863908007276338,
+   "wacc": 0.09221155182385535,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 0,
+    "p50": 119.06,
+    "p90": 221.38,
+    "pAbovePrice": 0.24
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 28.66
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 137.83
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 206.73
+    },
+    {
+     "id": "safetyTail",
+     "name": "Tail: renewed grounding / quality shock",
+     "p": 0.1,
+     "value": 0
+    },
+    {
+     "id": "cashTail",
+     "name": "Tail: liquidity / dilution shock",
+     "p": 0.04,
+     "value": 11.64
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: full franchise recovery",
+     "p": 0.03,
+     "value": 275.57
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.11980372369289398,
+    "impliedMargin": 0.11984385848045352,
+    "baseMargin": 0.1
+   },
+   "revenueCagr": {
+    "value": 0.0899505600378272,
+    "currency": "USD",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.058342566709739994
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.08788419904900915
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.08562603209726176
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.0883802430769006
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.07756795461395145
+    },
+    {
+     "year": "current",
+     "date": "2026-11-05",
+     "value": 0.08587498718812904
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 7,
+    "growth": 4,
+    "risk": 3,
+    "valuation": 3,
+    "total": 4.25
+   },
+   "analyst": {
+    "rec": "strong_buy",
+    "n": 26,
+    "targetMean": 233.34615
+   },
+   "group": "Aerospace & defense",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "BA",
+    "group": "Aerospace & defense",
+    "bank": false,
+    "marketCap": 136697610240,
+    "ev": 164491609792,
+    "evEbitda": 81.75527325646124,
+    "pe": 18.700083152720843,
+    "fpe": 79.75587766141895,
+    "pfcf": null,
+    "fcfY": -0.01379687616110296,
+    "divY": 0.002421402974191453,
+    "ndE": 13.812624031809145,
+    "pb": 20.879427255231402
+   },
+   "groupMultiples": {
+    "members": [
+     "GE",
+     "LMT",
+     "RTX",
+     "BA"
+    ],
+    "extraPeers": [
+     "HON",
+     "TDG",
+     "NOC",
+     "GD",
+     "HII"
+    ],
+    "evEbitda": {
+     "med": 14.888027971052102,
+     "mean": 15.87656587175866,
+     "n": 8
+    },
+    "pe": {
+     "med": 20.435380025773732,
+     "mean": 22.24331163657043,
+     "n": 9
+    },
+    "fpe": {
+     "med": 21.898638,
+     "mean": 27.705776228589098,
+     "n": 9
+    },
+    "pfcf": {
+     "med": 34.76512556820623,
+     "mean": 32.99562092661709,
+     "n": 3
+    },
+    "fcfY": {
+     "med": 0.02550449853329402,
+     "mean": 0.02227866297682866,
+     "n": 4
+    },
+    "divY": {
+     "med": 0.009124690670484976,
+     "mean": 0.011048805827151974,
+     "n": 4
+    },
+    "ndE": {
+     "med": 1.612989806125324,
+     "mean": 4.491787594210541,
+     "n": 4
+    },
+    "pb": {
+     "med": 3.8665214392108256,
+     "mean": 8.641379725283578,
+     "n": 8
+    }
+   }
+  },
+  "NVO": {
+   "ticker": "NVO",
+   "name": "Novo Nordisk \u00b7 moat",
+   "sector": "Diabetes and obesity care (GLP-1), rare disease",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 40.3,
+   "priceDate": "2026-11-05",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "DKK",
+   "fx": {
+    "rate": 6.67533016204834,
+    "quote": "DKK per USD",
+    "date": null,
+    "source": "Yahoo Finance FX (CNY=X)"
+   },
+   "base": 60.31,
+   "probWeighted": 56.54,
+   "comps": 92.69,
+   "compsCycleAdjusted": false,
+   "triangulated": 71,
+   "upside": 0.7617373921918733,
+   "wacc": 0.0829904677166834,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 29.3,
+    "p50": 54.13,
+    "p90": 94.19,
+    "pAbovePrice": 0.7075
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 37.73
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 60.31
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 86.94
+    },
+    {
+     "id": "compTail",
+     "name": "Tail: GLP-1 share loss",
+     "p": 0.1,
+     "value": 28.14
+    },
+    {
+     "id": "policyTail",
+     "name": "Tail: US pricing / IRA shock",
+     "p": 0.07,
+     "value": 37.05
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: pipeline / indication upside",
+     "p": 0.03,
+     "value": 101.95
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": -8.645653724665363e-06,
+    "impliedMargin": 0.2801361620426178,
+    "baseMargin": 0.4
+   },
+   "revenueCagr": {
+    "value": 0.19477432144485918,
+    "currency": "DKK",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2025",
+    "periods": 5
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.03806704130923425
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.07151253835999025
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.06409053503439041
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.06551397903181012
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.05906119374576015
+    },
+    {
+     "year": "current",
+     "date": "2026-11-05",
+     "value": 0.06464653707322314
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 9,
+    "growth": 8,
+    "risk": 5,
+    "valuation": 10,
+    "total": 8
+   },
+   "analyst": {
+    "rec": "none",
+    "n": 12,
+    "targetMean": 45.111515
+   },
+   "group": "Pharma",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "NVO",
+    "group": "Pharma",
+    "bank": false,
+    "marketCap": 177692573696,
+    "ev": 190894617933.0086,
+    "evEbitda": 7.2831661893557795,
+    "pe": 10.480544421317989,
+    "fpe": 11.753502051179142,
+    "pfcf": 40.91747203300929,
+    "fcfY": 0.024439437490010905,
+    "divY": 0.04363926326521903,
+    "ndE": 0.5036950923943997,
+    "pb": 5.446031702027099
+   },
+   "groupMultiples": {
+    "members": [
+     "MRK",
+     "BMY",
+     "PFE",
+     "JNJ",
+     "AZN",
+     "ABBV",
+     "LLY",
+     "NVO"
+    ],
+    "extraPeers": [
+     "NVS",
+     "GILD",
+     "ABT",
+     "GSK",
+     "AMGN"
+    ],
+    "evEbitda": {
+     "med": 16.084735526979184,
+     "mean": 15.74722928320646,
+     "n": 13
+    },
+    "pe": {
+     "med": 29.768661617780396,
+     "mean": 29.540534274195046,
+     "n": 10
+    },
+    "fpe": {
+     "med": 16.935712547134777,
+     "mean": 17.20594614828183,
+     "n": 12
+    },
+    "pfcf": {
+     "med": 29.886510394822007,
+     "mean": 28.173878067314753,
+     "n": 7
+    },
+    "fcfY": {
+     "med": 0.03165010571556626,
+     "mean": 0.03851541693074924,
+     "n": 8
+    },
+    "divY": {
+     "med": 0.022200961887741892,
+     "mean": 0.02795653760947152,
+     "n": 8
+    },
+    "ndE": {
+     "med": 0.6492592914194039,
+     "mean": 0.8476583264330282,
+     "n": 8
+    },
+    "pb": {
+     "med": 6.960501303028144,
+     "mean": 10.721061570331551,
+     "n": 12
+    }
+   }
+  },
+  "SONY": {
+   "ticker": "SONY",
+   "name": "Sony \u00b7 moat",
+   "sector": "Gaming (PlayStation), music, pictures, imaging, semiconductors (image sensors)",
+   "model": "DCF (FCFF)",
+   "preRevenue": false,
+   "price": 27.54,
+   "priceDate": "2026-11-05",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "JPY",
+   "fx": {
+    "rate": 157.8209991455078,
+    "quote": "JPY per USD",
+    "date": null,
+    "source": "Yahoo Finance FX (CNY=X)"
+   },
+   "base": 27.84,
+   "probWeighted": 26.17,
+   "comps": 26.54,
+   "compsCycleAdjusted": false,
+   "triangulated": 26.32,
+   "upside": -0.04426936641892609,
+   "wacc": 0.08635910849243178,
+   "costOfEquity": null,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 15.44,
+    "p50": 26.16,
+    "p90": 38.83,
+    "pAbovePrice": 0.433
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.22,
+     "value": 18.23
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.4,
+     "value": 27.84
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.18,
+     "value": 36.23
+    },
+    {
+     "id": "cycleTail",
+     "name": "Tail: console/sensor downturn",
+     "p": 0.1,
+     "value": 13.82
+    },
+    {
+     "id": "yenTail",
+     "name": "Tail: JPY shock (translation)",
+     "p": 0.05,
+     "value": 22.17
+    },
+    {
+     "id": "upsideTail",
+     "name": "Tail: content + sensor upside",
+     "p": 0.05,
+     "value": 40.25
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": 0.035448113083839425,
+    "impliedMargin": 0.13805205225944517,
+    "baseMargin": 0.14
+   },
+   "revenueCagr": {
+    "value": 0.09542381427939683,
+    "currency": "JPY",
+    "usd": null,
+    "start": "FY2020",
+    "end": "FY2024",
+    "periods": 4
+   },
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.019086346883082788
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.03689167004306808
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.03101904405362672
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.03732785681429616
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.035392031029118615
+    },
+    {
+     "year": "current",
+     "date": "2026-11-05",
+     "value": 0.04081802404553679
+    }
+   ],
+   "waccHistoryMetric": "WACC",
+   "score": {
+    "quality": 8,
+    "growth": 5,
+    "risk": 5,
+    "valuation": 5,
+    "total": 5.75
+   },
+   "analyst": {
+    "rec": "none",
+    "n": 4,
+    "targetMean": 29.5
+   },
+   "group": "Consumer tech",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "SONY",
+    "group": "Consumer tech",
+    "bank": false,
+    "marketCap": 160829358080,
+    "ev": 161432300607.56738,
+    "evEbitda": 12.253265475328899,
+    "pe": 22.78423098839028,
+    "fpe": 19.22472891704002,
+    "pfcf": 17.058697406418187,
+    "fcfY": 0.058621123065572336,
+    "divY": 0.005319780558638343,
+    "ndE": -0.14400543594436888,
+    "pb": 3.032795374610375
+   },
+   "groupMultiples": {
+    "members": [
+     "AAPL",
+     "SONY"
+    ],
+    "extraPeers": [
+     "MSFT",
+     "GOOGL",
+     "AMZN",
+     "META",
+     "DELL",
+     "HPQ",
+     "DIS",
+     "NFLX",
+     "TCEHY",
+     "6758.T"
+    ],
+    "evEbitda": {
+     "med": 13.149493802527786,
+     "mean": 15.090850079575501,
+     "n": 12
+    },
+    "pe": {
+     "med": 20.71794308592731,
+     "mean": 20.923693210327418,
+     "n": 12
+    },
+    "fpe": {
+     "med": 18.238125,
+     "mean": 18.973447065950282,
+     "n": 11
+    },
+    "pfcf": {
+     "med": 26.909799843563064,
+     "mean": 26.909799843563064,
+     "n": 2
+    },
+    "fcfY": {
+     "med": 0.042911968706690035,
+     "mean": 0.042911968706690035,
+     "n": 2
+    },
+    "divY": {
+     "med": 0.004231505806608984,
+     "mean": 0.004231505806608984,
+     "n": 2
+    },
+    "ndE": {
+     "med": 0.038084977021688976,
+     "mean": 0.038084977021688976,
+     "n": 2
+    },
+    "pb": {
+     "med": 4.856355407190186,
+     "mean": 8.846096143798471,
      "n": 10
     }
    }

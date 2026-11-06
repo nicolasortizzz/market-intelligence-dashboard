@@ -2,7 +2,7 @@
 /* Valuation & M&A tab: DCF, comps, precedents, scenarios, Monte Carlo, scorecard.
    All projections are ESTIMATES driven by data/valuation_assumptions.json + real financials in data/valuation.json */
 const V={tk:"META",scen:"base",ov:{},A:null,D:null,mc:{}};
-const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER","BE","AVGO","VIST","TSM","SPCX","005930.KS","000660.KS","GOOGL","XOM","CVX","COP","EOG","OXY","DVN","SLB","PBR","PRIO3.SA","CEG","NRG","NEE","DUK","SO","AEP","EQTL3.SA","CMIG4.SA","CPFE3.SA","CPLE3.SA","TAEE11.SA","AXIA3.SA","EGIE3.SA","BEP","GEV","FSLR","CCJ","OKLO","SMR","MRK","BMY","PFE","JNJ","AZN","ABBV","LLY","MA","V","PM","PG","AAPL","MSFT","AMZN","NVDA","KO","PEP","COST","HD","ORCL","NKE","MELI","AMGN","GILD","MO","CAT","DE","GE","LMT","ADI","AMAT","ANET","ADP","ABNB","DHR","ISRG","LRCX","MDLZ","PANW","RTX","SPGI","TMO","VRSN","BABA","SAP"];
+const VT=["META","UNH","DIS","NIO","YPF","GGAL","MU","ASML","VST","ABEV","UBER","BE","AVGO","VIST","TSM","SPCX","005930.KS","000660.KS","GOOGL","XOM","CVX","COP","EOG","OXY","DVN","SLB","PBR","PRIO3.SA","CEG","NRG","NEE","DUK","SO","AEP","EQTL3.SA","CMIG4.SA","CPFE3.SA","CPLE3.SA","TAEE11.SA","AXIA3.SA","EGIE3.SA","BEP","GEV","FSLR","CCJ","OKLO","SMR","MRK","BMY","PFE","JNJ","AZN","ABBV","LLY","MA","V","PM","PG","AAPL","MSFT","AMZN","NVDA","KO","PEP","COST","HD","ORCL","NKE","MELI","AMGN","GILD","MO","CAT","DE","GE","LMT","ADI","AMAT","ANET","ADP","ABNB","DHR","ISRG","LRCX","MDLZ","PANW","RTX","SPGI","TMO","VRSN","BABA","SAP","JPM","GS","SCHW","AXP","IBKR","BA","NVO","SONY"];
 const isBank=tk=>["bank","utility"].includes(V.A.companies[tk].model); // equity (residual-income) engine: banks and regulated utilities
 const isUtil=tk=>V.A.companies[tk].model==="utility",UN=()=>isUtil(V.tk)?"share":"ADR";
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
@@ -18,7 +18,9 @@ function inputs(tk){
   if(isBank(tk))return inputsBank(tk);
   const c=V.D.companies[tk],a=V.A.companies[tk],k=(c.financialCurrency&&c.financialCurrency!=="USD"&&V.D.fx[c.financialCurrency+"USD"])||1; // units of reporting currency per USD (CNY: Yahoo FX, EUR: ECB)
   const I=c.income,CF=c.cashflow,B=c.balance,iy=lastIdx(I["Total Revenue"]);
-  const rev0=a.revBase0??I["Total Revenue"][iy]/k,ebit0=(I["Operating Income"]||I.EBIT)[iy]/k;
+  const rev0=a.revBase0??I["Total Revenue"][iy]/k;
+  const _oi=I["Operating Income"],_eb=I.EBIT,_ebitRaw=a.ebitBase0!=null?a.ebitBase0*rev0:((_oi&&_oi[iy]!=null?_oi[iy]:null)??(_eb&&_eb[iy]!=null?_eb[iy]:null));
+  const ebit0=(_ebitRaw!=null?_ebitRaw:0)/k;
   const da0=(I["Reconciled Depreciation"]||[])[iy]/k||rev0*a.daPct0,capex0=-(CF["Capital Expenditure"]||[])[iy]/k;
   const fyEnd=new Date(I.years[iy]);
   const re=c.revenueEstimate||{},e0=re["0y"]?.avg,e1=re["+1y"]?.avg;
@@ -40,9 +42,10 @@ function inputs(tk){
 }
 /* Bank inputs (GGAL): per ADR in USD. Book value = IAS 29-restated equity / ADR-equivalent shares / BCRA rate on the balance-sheet date. */
 function inputsBank(tk){if(isUtil(tk))return inputsUtil(tk);const c=V.D.companies[tk],a=V.A.companies[tk],bk=c.bank,bv0=bk.bvPerADR,shares=bk.adrShares;
-  const rf=(S.x.treasury[0]?.["10 Yr"]||4.5)/100,rawBeta=c.beta??1,beta=a.betaOverride??rawBeta;
-  const roe1=bk.eps0y?bk.eps0y/bv0:0.1,roe2=bk.eps1y?bk.eps1y/(bv0*1.1):roe1;
-  return{c,a,k:V.D.fx.ARSUSD_BCRA,bank:true,bv0,shares,roe1,roe2,rev0:bv0,ebit0:bk.niTTMperADR,fyEnd:new Date(c.income.years[lastIdx(c.income["Total Revenue"])]),
+  const rf=(S.x.treasury[0]?.["10 Yr"]||4.5)/100,rawBeta=c.beta??1,beta=a.betaOverride??(a.betaAdj==="blume"?0.67*rawBeta+0.33:rawBeta);
+  const roe1=bk.eps0y?bk.eps0y/bv0:(bk.niTTMperADR/bv0||0.1),roe2=bk.eps1y?bk.eps1y/(bv0*1.1):roe1;
+  const k=bk.usd?1:(V.D.fx.ARSUSD_BCRA||bk.fxBv||1);
+  return{c,a,k,bank:true,bv0,shares,roe1,roe2,rev0:bv0,ebit0:bk.niTTMperADR,fyEnd:new Date(c.income.years[lastIdx(c.income["Total Revenue"])]||c.balanceDate||Date.now()),
     g1:0,g2:0,cash:0,debt:0,minority:0,netDebt:0,rf,rawBeta,beta,hist:[]}}
 /* Regulated utilities: residual income on book equity, per listed share in USD (Brazil: B3 share/unit at PTAX). Regulated returns are earned on the
    regulated asset base, which book equity finances, so value = book + PV[(ROE - Ke) x book]; the dividend path (DDM view) is the implied payout
@@ -176,7 +179,7 @@ var drawVal=function(full){const tk=V.tk,a=V.A.companies[tk],ov=V.ov[tk]||{},r=d
   if(BK)drawBankBridge(r);else plot("vBridge",[{type:"waterfall",orientation:"v",x:["PV FCFF (10y)","PV terminal value","Enterprise value","− Net debt","− Minority int.",...(b.nonOp?["+ Equity stakes (non-op.)"]:[]),...(r.s.oneOff?["One-off (fine/settlement)"]:[]),"Equity value"],
     measure:["relative","relative","total","relative","relative",...(b.nonOp?["relative"]:[]),...(r.s.oneOff?["relative"]:[]),"total"],y:[r.pv*f,r.pvTV*f,0,-b.netDebt*f,-b.minority*f,...(b.nonOp?[b.nonOp*f]:[]),...(r.s.oneOff?[r.s.oneOff*f]:[]),0],
     connector:{line:{color:css("--bd")}},increasing:{marker:{color:css("--up")}},decreasing:{marker:{color:css("--dn")}},totals:{marker:{color:css("--ac")}},text:[bn(r.pv),bn(r.pvTV),bn(r.ev),bn(-b.netDebt),bn(-b.minority),...(b.nonOp?[bn(b.nonOp)]:[]),...(r.s.oneOff?[bn(r.s.oneOff)]:[]),bn(Math.max(r.eq,0))],textposition:"outside",cliponaxis:false,hoverinfo:"x+text"}],{yaxis:{tickprefix:S.ccy==="ARS"?"ARS ":"$",ticksuffix:"B",tickformat:",.0f",gridcolor:css("--bd")},margin:{l:64,r:10,t:44,b:60}});
-  $("#vBridgeNote").innerHTML=BK?`Terminal residual income = ${pct(r.tvShare)} of value · Ke ${pct2(r.ke)} = rf ${pct2(r.rf)} + β ${r.beta.toFixed(2)} × ERP ${pct2(r.erp)} + CRP ${pct2((a.crp||0)+(r.s.crpAdd||0))} · ${b.util?`${(r.shares/1e6).toFixed(1)}M shares${b.c.sharesPerUnit?` (units of ${b.c.sharesPerUnit} shares)`:""}`:`${(r.shares/1e6).toFixed(1)}M ADR-equivalents (${b.c.bank.adrRatio} Class B shares per ADS)`}`:`Terminal value = ${pct(r.tvShare)} of EV · Ke ${pct2(r.ke)} · Kd after-tax ${pct2(r.kd)} · diluted shares ${(r.shares/1e9).toFixed(3)}B${a.scenarios.find(s=>s.id===V.scen).shareChange||a.shareChange>0?" (after assumed dilution)":""}`;
+  $("#vBridgeNote").innerHTML=BK?`Terminal residual income = ${pct(r.tvShare)} of value · Ke ${pct2(r.ke)} = rf ${pct2(r.rf)} + β ${r.beta.toFixed(2)} × ERP ${pct2(r.erp)} + CRP ${pct2((a.crp||0)+(r.s.crpAdd||0))} · ${b.util?`${(r.shares/1e6).toFixed(1)}M shares${b.c.sharesPerUnit?` (units of ${b.c.sharesPerUnit} shares)`:""}`:`${(r.shares/1e6).toFixed(1)}M ${(b.c.bank&&b.c.bank.usd)?"shares":"ADR-equivalents ("+b.c.bank.adrRatio+" Class B shares per ADS)"}`}`:`Terminal value = ${pct(r.tvShare)} of EV · Ke ${pct2(r.ke)} · Kd after-tax ${pct2(r.kd)} · diluted shares ${(r.shares/1e9).toFixed(3)}B${a.scenarios.find(s=>s.id===V.scen).shareChange||a.shareChange>0?" (after assumed dilution)":""}`;
   // sensitivity
   const ws=[-0.02,-0.015,-0.01,-0.005,0,0.005,0.01,0.015,0.02].map(d=>r.wacc+d),gs=[-0.01,-0.005,0,0.005,0.01].map(d=>r.g+d);
   const z=gs.map(g=>ws.map(w=>g<w-0.01?dcf(tk,V.scen,{...ov,wacc:w,g}).ps*fu:null));
@@ -256,6 +259,14 @@ function drawUtilAssump(r,a,b,c){const bk=c.bank,cur=bk.ccy&&bk.ccy!=="USD";
     ["Cost of equity",`${pct2(r.ke)} = ${pct2(r.rf)} + ${r.beta.toFixed(2)} × ${pct2(r.erp)}${a.crp?" + "+pct2(a.crp)+" CRP":""}${r.s.crpAdd?" + "+pct2(r.s.crpAdd)+" (scenario)":""}`],
     ["Analyst consensus",`${c.recKey||"—"} · ${c.nAnalysts||"?"} analysts · mean target ${usd(c.targetMean)}`]].map(x=>`<span>${x[0]}</span><span>${x[1]}</span>`).join("")}</div>`}
 function drawBankAssump(r,a,b,c){if(c.bank.util)return drawUtilAssump(r,a,b,c);const bk=c.bank;
+  if(bk.usd){$("#vAssump").innerHTML=`<p class="muted small" style="margin:0 0 8px">Banks / specialty finance are valued on equity, not FCFF: deposits and wholesale funding are raw material, so a residual-income (excess-return) model on book value replaces the DCF; EV-based multiples are replaced by P/BV and P/E.</p><div class="kv">${[
+    ["Book value / share",`${usd(b.bv0)} (${bk.bvDate}; equity ${bn(bk.equityUSD)} / ${(bk.adrShares/1e6).toFixed(1)}M shares)`],
+    ["P/BV at price",num(c.price/b.bv0,2)+"x"],
+    ["TTM net income / share (ROE)",usd(bk.niTTMperADR)+" ("+pct(bk.niTTMperADR/b.bv0)+")"],
+    ["Consensus EPS FY1 / FY2",`${bk.eps0y!=null?usd(bk.eps0y):"—"} / ${bk.eps1y!=null?usd(bk.eps1y):"—"} → ROE ${pct(b.roe1)} / ${pct(b.roe2)}`],
+    ["Dividends paid, last 12m",bk.divTTMperADR!=null?usd(bk.divTTMperADR)+"/share":"—"],
+    ["Cost of equity",`${pct2(r.ke)} = ${pct2(r.rf)} + ${r.beta.toFixed(2)} × ${pct2(r.erp)}${a.crp?" + "+pct2(a.crp)+" CRP":""}${r.s.crpAdd?" + "+pct2(r.s.crpAdd)+" (scenario)":""}`],
+    ["Analyst consensus",`${c.recKey||"—"} · ${c.nAnalysts||"?"} analysts · mean target ${usd(c.targetMean)}`]].map(x=>`<span>${x[0]}</span><span>${x[1]}</span>`).join("")}</div>`;return}
   $("#vAssump").innerHTML=`<p class="muted small" style="margin:0 0 8px">Banks are valued on equity, not FCFF: debt and deposits are raw material, so a residual-income (excess-return) model on book value replaces the DCF; EV-based multiples are replaced by P/BV and P/E.</p><div class="kv">${[
     ["Book value / ADR",`${usd(b.bv0)} (${bk.bvDate}; ARS ${(bk.equityARS/1e12).toFixed(2)}T equity / ${(bk.adrShares/1e6).toFixed(1)}M ADR-eq. / ${bk.fxBv} ARS/USD)`],
     ["ADR ratio","1 ADS = "+bk.adrRatio+" Class B shares ("+(bk.localShares/1e9).toFixed(3)+"B Class A+B shares)"],
@@ -279,7 +290,7 @@ const _dv=drawVal;drawVal=function(full){_dv(full);secTable()};
    pages (e.g. the ModelosArgentina site) read; the numbers come from this same engine, so there is one source of truth. */
 function valSummary(tk){const MX=multiplesOf(tk);const a=V.A.companies[tk],ov={},r=dcf(tk,"base",ov),pw=probWeighted(tk,ov),cm=comps(tk),b=r.b,c=b.c,BK=!!r.bank;
   const compMid=compMidOf(cm),tri=compMid!=null?0.6*pw.pw+0.4*compMid:pw.pw,fxd=V.D.fx||{},cc=c.financialCurrency,
-    FXS={EUR:["EURUSD_ecb","EUR_date","EUR_source","USD per EUR"],BRL:["BRLUSD","BRL_date","BRL_source","BRL per USD"],TWD:["TWDUSD","TWD_date","TWD_source","TWD per USD"],KRW:["KRWUSD","KRW_date","KRW_source","KRW per USD"],CNY:["CNYUSD",null,null,"CNY per USD"],ARS:["ARSUSD_BCRA","ARS_date","BCRA_SRC","ARS per USD"]}[cc];
+    FXS={EUR:["EURUSD_ecb","EUR_date","EUR_source","USD per EUR"],BRL:["BRLUSD","BRL_date","BRL_source","BRL per USD"],TWD:["TWDUSD","TWD_date","TWD_source","TWD per USD"],KRW:["KRWUSD","KRW_date","KRW_source","KRW per USD"],CNY:["CNYUSD",null,null,"CNY per USD"],DKK:["DKKUSD",null,null,"DKK per USD"],JPY:["JPYUSD",null,null,"JPY per USD"],ARS:["ARSUSD_BCRA","ARS_date","BCRA_SRC","ARS per USD"]}[cc];
   const sc=a.scenarios.map(s=>{const x=dcf(tk,s.id,ov);return{id:s.id,name:s.name,p:s.p,value:x.ps}}),q=x=>Math.round(x*100)/100;
   const mcO=V.mc[tk+"{}"]||monteCarlo(tk),mq=p=>mcO[Math.min(mcO.length-1,Math.floor(p*mcO.length))];
   const h=RV.H?.companies?.[tk],R=(typeof reverse==="function")?reverse(tk):null,wh=WH.D?.companies?.[tk];

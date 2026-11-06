@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T04:00:26Z",
+ "generatedAt": "2026-11-06T04:11:24Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -1792,6 +1792,183 @@
     "note": "translated at the ECB year-end rates (1.2271 USD/EUR on 2020-12-31, 1.175 on 2025-12-31), so it mixes FX moves"
    },
    "note": "Constant currency (EUR, reporting currency; IFRS 20-F revenue)."
+  },
+  "JPM": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 119951000000,
+    "FY2021": 121649000000,
+    "FY2022": 128695000000,
+    "FY2023": 158104000000,
+    "FY2024": 177556000000,
+    "FY2025": 182447000000
+   },
+   "cagr5": 0.08749325184956946,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000019617-23-000231",
+    "0001628280-26-008131"
+   ]
+  },
+  "GS": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 13689000000,
+    "FY2021": 12120000000,
+    "FY2022": 29024000000,
+    "FY2023": 68515000000,
+    "FY2024": 81397000000,
+    "FY2025": 80373000000
+   },
+   "cagr5": 0.4247796093512375,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:InterestAndDividendIncomeOperating, USD; 10-K/20-F)",
+   "accn": [
+    "0000886982-23-000003",
+    "0000886982-26-000091"
+   ]
+  },
+  "SCHW": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 11691000000,
+    "FY2021": 18520000000,
+    "FY2022": 20762000000,
+    "FY2023": 18837000000,
+    "FY2024": 19606000000,
+    "FY2025": 23921000000
+   },
+   "cagr5": 0.15394612763864335,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000316709-23-000009",
+    "0000316709-26-000009"
+   ]
+  },
+  "AXP": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 21974000000,
+    "FY2021": 27716000000,
+    "FY2022": 34219000000,
+    "FY2023": 37218000000,
+    "FY2024": 38825000000,
+    "FY2025": 41304000000
+   },
+   "cagr5": 0.13453160423162558,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0000004962-23-000006",
+    "0000004962-26-000080"
+   ]
+  },
+  "IBKR": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 1287000000,
+    "FY2021": 1568000000,
+    "FY2022": 1506000000,
+    "FY2023": 1557000000,
+    "FY2024": 1977000000,
+    "FY2025": 2440000000
+   },
+   "cagr5": 0.13648119997675012,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, USD; 10-K/20-F)",
+   "accn": [
+    "0001381197-23-000014",
+    "0001381197-26-000062"
+   ]
+  },
+  "BA": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "USD",
+   "values": {
+    "FY2020": 58158000000,
+    "FY2021": 62286000000,
+    "FY2022": 66608000000,
+    "FY2023": 77794000000,
+    "FY2024": 66517000000,
+    "FY2025": 89463000000
+   },
+   "cagr5": 0.0899505600378272,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
+   "accn": [
+    "0000012927-23-000007",
+    "0001628280-26-004357"
+   ]
+  },
+  "NVO": {
+   "start": "FY2020",
+   "end": "FY2025",
+   "startEnd": "2020-12-31",
+   "endEnd": "2025-12-31",
+   "currency": "DKK",
+   "values": {
+    "FY2020": 126946000000,
+    "FY2021": 140800000000,
+    "FY2022": 176954000000,
+    "FY2023": 232261000000,
+    "FY2024": 290403000000,
+    "FY2025": 309064000000
+   },
+   "cagr5": 0.19477432144485918,
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (ifrs-full:Revenue, DKK; 10-K/20-F)",
+   "accn": [
+    "0001628280-23-001868",
+    "0000353278-26-000012"
+   ]
+  },
+  "SONY": {
+   "start": "FY2020",
+   "end": "FY2024",
+   "startEnd": "2021-03-31",
+   "endEnd": "2025-03-31",
+   "currency": "JPY",
+   "values": {
+    "FY2020": 8998661000000,
+    "FY2021": 9921513000000,
+    "FY2022": 10974373000000,
+    "FY2023": 13020768000000,
+    "FY2024": 12957064000000
+   },
+   "cagr5": 0.09542381427939683,
+   "periods": 4,
+   "shortNote": "SONY: FY2025 not yet in SEC companyfacts CY frames; using FY2024 as end",
+   "definition": "Total revenue as reported",
+   "source": "SEC EDGAR XBRL companyfacts (ifrs-full:Revenue, JPY; 10-K/20-F)",
+   "accn": [
+    "0001193125-23-169510",
+    "0001193125-25-143137"
+   ]
   },
   "GGAL": {
    "start": "FY2020",

@@ -91,7 +91,15 @@ SEC = {"META": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax
        "TMO": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "VRSN": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
        "BABA": ("us-gaap", ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues"], "CNY"),
-       "SAP": ("ifrs-full", ["Revenue"], "EUR")
+       "SAP": ("ifrs-full", ["Revenue"], "EUR"),
+       "JPM": ("us-gaap", ["Revenues", "InterestAndDividendIncomeOperating", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "GS": ("us-gaap", ["Revenues", "InterestAndDividendIncomeOperating", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "SCHW": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "AXP": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "IBKR": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "BA": ("us-gaap", ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"], "USD"),
+       "NVO": ("ifrs-full", ["Revenue"], "DKK"),
+       "SONY": ("ifrs-full", ["Revenue"], "JPY")
 }
 END = 2025  # common FY2020-FY2025 window for all names (MU has also completed FY2026; shown as "latest")
 GGAL = {"FY2020": {"netOperatingIncome": 182711e6, "loanLossProvisions": 34680e6, "fyEnd": "2020-12-31",

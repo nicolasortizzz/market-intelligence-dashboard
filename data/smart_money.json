@@ -1,8 +1,8 @@
 {
  "asOf": "2026-11-06",
  "sources": {
-  "politicians": "informe 6-11 (Quiver/House Clerk PTR; cruce por ticker sep–nov 2026). Capitol Trades 403 / Unusual Whales no usable.",
-  "superinvestors": "Dataroma 13F Q2-2026 (30-06), relevado 6-11 — los 14 gestores aún sin Q3; Q3 parcial home 10/82 filings"
+  "politicians": "informe 6-11 (Quiver/House Clerk PTR; cruce por ticker sep–nov 2026 para cartera). Universo CEDEAR ampliado (moat ∩ BYMA / fair-value): sin cruce Quiver → no verificado. Capitol Trades 403 / Unusual Whales no usable.",
+  "superinvestors": "Dataroma 13F Q2-2026 (30-06), relevado 6-11 — los 14 gestores aún sin Q3; Q3 parcial home 10/82. Universo CEDEAR ampliado (moat ∩ BYMA / PR #13 + step 4 fair value)."
  },
  "lag": "STOCK Act: hasta 45 días de atraso; 13F: hasta 45 días después del trimestre (Q3 vence ~14-11).",
  "default": "no verificado",
@@ -554,6 +554,897 @@
    },
    "superinvestors": {
     "status": "sin posición (14 gestores seguidos)",
+    "items": []
+   }
+  },
+  "005930.KS": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "AAPL": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con posición",
+    "items": [
+     {
+      "who": "Warren Buffett",
+      "action": "22,04% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "ABBV": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "ABNB": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Bill Nygren",
+      "action": "3,59% de la cartera (Oakmark Funds, no Select)",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     },
+     {
+      "who": "Chuck Akre",
+      "action": "recortó −41,82%",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "ADI": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "ADP": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "AMAT": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Josh Gottheimer",
+      "action": "compra",
+      "amount": "1k–15k",
+      "date": "op. 06-08, decl. 14-09-2026",
+      "source": "informe 6-11 (Quiver/House Clerk PTR)"
+     },
+     {
+      "who": "Josh Gottheimer",
+      "action": "venta",
+      "amount": "1k–15k",
+      "date": "op. 15-09, decl. 07-10-2026",
+      "source": "informe 6-11 (Quiver/House Clerk PTR)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Stephen Mandel",
+      "action": "compra nueva · 5,34% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "AMGN": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Sheldon Whitehouse",
+      "action": "venta full",
+      "amount": "15k–50k",
+      "date": "op. 15-10, decl. 02-11-2026",
+      "source": "informe 6-11 (Quiver/House Clerk PTR)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "AMZN": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "David Tepper",
+      "action": "sumó +15,74% · 15,95% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     },
+     {
+      "who": "Seth Klarman",
+      "action": "sumó +20% · 16,48% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     },
+     {
+      "who": "Bill Ackman",
+      "action": "recortó −25,22% · 10,49% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     },
+     {
+      "who": "Chase Coleman",
+      "action": "9,62% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     },
+     {
+      "who": "Dan Loeb",
+      "action": "9,13% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "ANET": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "ASML": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con posición",
+    "items": [
+     {
+      "who": "Stephen Mandel",
+      "action": "6,92% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "AVGO": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "AXP": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con posición",
+    "items": [
+     {
+      "who": "Warren Buffett",
+      "action": "17,14% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "AZN": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "BA": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "David Tepper",
+      "action": "compra nueva",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "BABA": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "BMY": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "CAT": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "CCJ": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "COP": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "COST": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "CVX": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "DE": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "DHR": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "FSLR": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "GE": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con posición",
+    "items": [
+     {
+      "who": "Chris Hohn",
+      "action": "33,59% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "GEV": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "GGAL": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "GILD": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "GS": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "HD": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Stephen Mandel",
+      "action": "compra nueva · 5,61% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "IBKR": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "ISRG": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "JNJ": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "JPM": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "KO": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con posición",
+    "items": [
+     {
+      "who": "Warren Buffett",
+      "action": "10,86% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "LLY": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "LMT": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "LRCX": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "MDLZ": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "MELI": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "MO": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "MRK": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "MSFT": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Josh Gottheimer",
+      "action": "rotación de calls (compras y ventas) — neto no verificado",
+      "amount": "250k–1M (rangos)",
+      "date": "op. 14-08, decl. 14-09-2026",
+      "source": "informe 6-11 (Quiver/House Clerk PTR)"
+     },
+     {
+      "who": "Sheldon Whitehouse",
+      "action": "venta parcial",
+      "amount": "1k–15k",
+      "date": "op. 15-10, decl. 02-11-2026",
+      "source": "informe 6-11 (Quiver/House Clerk PTR)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Bill Ackman",
+      "action": "11,89% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     },
+     {
+      "who": "Chris Hohn",
+      "action": "vendió todo (salida 100%)",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "NKE": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "NVDA": {
+   "politicians": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Dan Meuser",
+      "action": "venta parcial",
+      "amount": "1k–15k",
+      "date": "op. 25-09, notificada 14-10, firmada 05-11-2026",
+      "source": "informe 6-11 (Quiver/House Clerk PTR)"
+     },
+     {
+      "who": "Dan Meuser",
+      "action": "venta parcial",
+      "amount": "1k–15k",
+      "date": "op. 31-08, decl. 14-10-2026",
+      "source": "informe 6-11 (Quiver/House Clerk PTR)"
+     }
+    ]
+   },
+   "superinvestors": {
+    "status": "con posición",
+    "items": [
+     {
+      "who": "Chase Coleman",
+      "action": "9,34% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "NVO": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "OKLO": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "ORCL": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "OXY": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Li Lu",
+      "action": "vendió todo (salida 100%)",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "PANW": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "PBR": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "PEP": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado (14 gestores); home Dataroma: 5ª compras Q3 parcial (10/82)",
+    "items": []
+   }
+  },
+  "PG": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "PM": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "RTX": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "SAP": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "SCHW": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "SLB": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "SONY": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "SPCX": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "SPGI": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "con movimiento",
+    "items": [
+     {
+      "who": "Chris Hohn",
+      "action": "10,87% de la cartera",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     },
+     {
+      "who": "Bill Ackman",
+      "action": "compra nueva",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     },
+     {
+      "who": "Li Lu",
+      "action": "vendió todo (salida 100%)",
+      "amount": null,
+      "date": "Q2-2026",
+      "source": "Dataroma 13F Q2-2026 (30-06), informe 6-11 (sin Q3 de los 14; Q3 parcial 10/82)"
+     }
+    ]
+   }
+  },
+  "TMO": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado (14 gestores); home Dataroma: 8ª compras 2Q y 3ª Q3 parcial (10/82)",
+    "items": []
+   }
+  },
+  "VIST": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "VRSN": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "XOM": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
+    "items": []
+   }
+  },
+  "YPF": {
+   "politicians": {
+    "status": "no verificado",
+    "items": []
+   },
+   "superinvestors": {
+    "status": "no verificado",
     "items": []
    }
   }

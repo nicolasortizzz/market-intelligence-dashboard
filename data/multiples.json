@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T04:13:34Z",
+ "generatedAt": "2026-11-16T02:58:04Z",
  "source": "valuation.js multiplesOf / mxGroup (model inputs, USD at official rates)",
  "definitions": {
   "evEbitda": "EV / TTM EBITDA (EV = market cap + net debt + minority interest)",
@@ -1811,6 +1811,24 @@
    "price": 27.54,
    "priceDate": "2026-11-05",
    "name": "Sony \u00b7 moat"
+  },
+  "BBD": {
+   "ticker": "BBD",
+   "group": "Banks",
+   "bank": true,
+   "marketCap": 28695019520,
+   "ev": null,
+   "evEbitda": null,
+   "pe": 5.9491675841837015,
+   "fpe": 5.21795613108399,
+   "pfcf": null,
+   "fcfY": null,
+   "divY": 0,
+   "ndE": null,
+   "pb": 0.8581210666651956,
+   "price": 2.57,
+   "priceDate": "2026-11-13",
+   "name": "Banco Bradesco"
   }
  },
  "groups": {
@@ -2070,7 +2088,8 @@
     "GGAL",
     "JPM",
     "GS",
-    "SCHW"
+    "SCHW",
+    "BBD"
    ],
    "evEbitda": {
     "med": null,
@@ -2078,14 +2097,14 @@
     "n": 0
    },
    "pe": {
-    "med": 13.883231974889394,
-    "mean": 13.764024584718099,
-    "n": 3
+    "med": 12.841136912390247,
+    "mean": 11.8103103345845,
+    "n": 4
    },
    "fpe": {
-    "med": 11.753949728313316,
-    "mean": 10.342580231975047,
-    "n": 4
+    "med": 11.643459860943516,
+    "mean": 9.317655411796835,
+    "n": 5
    },
    "pfcf": {
     "med": null,
@@ -2098,9 +2117,9 @@
     "n": 0
    },
    "divY": {
-    "med": 0.019806217199392094,
-    "mean": 14.737072626710948,
-    "n": 4
+    "med": 0.018557932996158634,
+    "mean": 11.789658101368758,
+    "n": 5
    },
    "ndE": {
     "med": null,
@@ -2108,9 +2127,9 @@
     "n": 0
    },
    "pb": {
-    "med": 2.206011220097384,
-    "mean": 2.134944118050023,
-    "n": 4
+    "med": 2.0062214491751313,
+    "mean": 1.8795795077730575,
+    "n": 5
    }
   },
   "Semiconductors": {

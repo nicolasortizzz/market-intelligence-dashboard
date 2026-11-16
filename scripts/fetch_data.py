@@ -18,7 +18,7 @@ UNIVERSE = {
  "VST":"Utilities","TQQQ":"Technology","SPY":"Financials","EWY":"Financials","SMH":"Technology",
  "EWZ":"Materials","ABEV":"Consumer Staples","DIS":"Communication",
  "BMY":"Health Care","NRG":"Utilities","AZN":"Health Care","PBR":"Energy",
- "CMIG4.SA":"Utilities","AXIA3.SA":"Utilities"}
+ "CMIG4.SA":"Utilities","AXIA3.SA":"Utilities","BBD":"Financials"}
 BENCH = "SPY"
 
 def clean(x):

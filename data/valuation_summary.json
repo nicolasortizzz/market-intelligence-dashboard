@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T04:13:34Z",
+ "generatedAt": "2026-11-16T02:58:04Z",
  "source": "market-intelligence-dashboard valuation engine (valuation.js valSummary, model defaults)",
  "dashboard": "https://nicolasortizzz.github.io/market-intelligence-dashboard/#valuation",
  "fx": {
@@ -123,7 +123,8 @@
   "VRSN",
   "VST",
   "XOM",
-  "YPF"
+  "YPF",
+  "BBD"
  ],
  "companies": {
   "META": {
@@ -1190,7 +1191,11 @@
    },
    "groupMultiples": {
     "members": [
-     "GGAL"
+     "GGAL",
+     "JPM",
+     "GS",
+     "SCHW",
+     "BBD"
     ],
     "evEbitda": {
      "med": null,
@@ -1198,14 +1203,14 @@
      "n": 0
     },
     "pe": {
-     "med": null,
-     "mean": null,
-     "n": 0
+     "med": 12.841136912390247,
+     "mean": 11.8103103345845,
+     "n": 4
     },
     "fpe": {
-     "med": 4.671196160814404,
-     "mean": 4.671196160814404,
-     "n": 1
+     "med": 11.643459860943516,
+     "mean": 9.317655411796835,
+     "n": 5
     },
     "pfcf": {
      "med": null,
@@ -1218,9 +1223,9 @@
      "n": 0
     },
     "divY": {
-     "med": 58.89413108782683,
-     "mean": 58.89413108782683,
-     "n": 1
+     "med": 0.018557932996158634,
+     "mean": 11.789658101368758,
+     "n": 5
     },
     "ndE": {
      "med": null,
@@ -1228,9 +1233,9 @@
      "n": 0
     },
     "pb": {
-     "med": 0.9351022586190805,
-     "mean": 0.9351022586190805,
-     "n": 1
+     "med": 2.0062214491751313,
+     "mean": 1.8795795077730575,
+     "n": 5
     }
    }
   },
@@ -18305,7 +18310,8 @@
      "GGAL",
      "JPM",
      "GS",
-     "SCHW"
+     "SCHW",
+     "BBD"
     ],
     "evEbitda": {
      "med": null,
@@ -18313,14 +18319,14 @@
      "n": 0
     },
     "pe": {
-     "med": 13.883231974889394,
-     "mean": 13.764024584718099,
-     "n": 3
+     "med": 12.841136912390247,
+     "mean": 11.8103103345845,
+     "n": 4
     },
     "fpe": {
-     "med": 11.753949728313316,
-     "mean": 10.342580231975047,
-     "n": 4
+     "med": 11.643459860943516,
+     "mean": 9.317655411796835,
+     "n": 5
     },
     "pfcf": {
      "med": null,
@@ -18333,9 +18339,9 @@
      "n": 0
     },
     "divY": {
-     "med": 0.019806217199392094,
-     "mean": 14.737072626710948,
-     "n": 4
+     "med": 0.018557932996158634,
+     "mean": 11.789658101368758,
+     "n": 5
     },
     "ndE": {
      "med": null,
@@ -18343,9 +18349,9 @@
      "n": 0
     },
     "pb": {
-     "med": 2.206011220097384,
-     "mean": 2.134944118050023,
-     "n": 4
+     "med": 2.0062214491751313,
+     "mean": 1.8795795077730575,
+     "n": 5
     }
    }
   },
@@ -18495,7 +18501,8 @@
      "GGAL",
      "JPM",
      "GS",
-     "SCHW"
+     "SCHW",
+     "BBD"
     ],
     "evEbitda": {
      "med": null,
@@ -18503,14 +18510,14 @@
      "n": 0
     },
     "pe": {
-     "med": 13.883231974889394,
-     "mean": 13.764024584718099,
-     "n": 3
+     "med": 12.841136912390247,
+     "mean": 11.8103103345845,
+     "n": 4
     },
     "fpe": {
-     "med": 11.753949728313316,
-     "mean": 10.342580231975047,
-     "n": 4
+     "med": 11.643459860943516,
+     "mean": 9.317655411796835,
+     "n": 5
     },
     "pfcf": {
      "med": null,
@@ -18523,9 +18530,9 @@
      "n": 0
     },
     "divY": {
-     "med": 0.019806217199392094,
-     "mean": 14.737072626710948,
-     "n": 4
+     "med": 0.018557932996158634,
+     "mean": 11.789658101368758,
+     "n": 5
     },
     "ndE": {
      "med": null,
@@ -18533,9 +18540,9 @@
      "n": 0
     },
     "pb": {
-     "med": 2.206011220097384,
-     "mean": 2.134944118050023,
-     "n": 4
+     "med": 2.0062214491751313,
+     "mean": 1.8795795077730575,
+     "n": 5
     }
    }
   },
@@ -18685,7 +18692,8 @@
      "GGAL",
      "JPM",
      "GS",
-     "SCHW"
+     "SCHW",
+     "BBD"
     ],
     "evEbitda": {
      "med": null,
@@ -18693,14 +18701,14 @@
      "n": 0
     },
     "pe": {
-     "med": 13.883231974889394,
-     "mean": 13.764024584718099,
-     "n": 3
+     "med": 12.841136912390247,
+     "mean": 11.8103103345845,
+     "n": 4
     },
     "fpe": {
-     "med": 11.753949728313316,
-     "mean": 10.342580231975047,
-     "n": 4
+     "med": 11.643459860943516,
+     "mean": 9.317655411796835,
+     "n": 5
     },
     "pfcf": {
      "med": null,
@@ -18713,9 +18721,9 @@
      "n": 0
     },
     "divY": {
-     "med": 0.019806217199392094,
-     "mean": 14.737072626710948,
-     "n": 4
+     "med": 0.018557932996158634,
+     "mean": 11.789658101368758,
+     "n": 5
     },
     "ndE": {
      "med": null,
@@ -18723,9 +18731,9 @@
      "n": 0
     },
     "pb": {
-     "med": 2.206011220097384,
-     "mean": 2.134944118050023,
-     "n": 4
+     "med": 2.0062214491751313,
+     "mean": 1.8795795077730575,
+     "n": 5
     }
    }
   },
@@ -19722,6 +19730,184 @@
      "med": 4.856355407190186,
      "mean": 8.846096143798471,
      "n": 10
+    }
+   }
+  },
+  "BBD": {
+   "ticker": "BBD",
+   "name": "Banco Bradesco",
+   "sector": "Brazilian universal bank (retail, corporate, insurance via Bradesco Seguros)",
+   "model": "residual income (bank)",
+   "preRevenue": false,
+   "price": 2.57,
+   "priceDate": "2026-11-13",
+   "priceLocal": null,
+   "currencyLocal": null,
+   "reportingCurrency": "BRL",
+   "fx": null,
+   "base": 3.64,
+   "probWeighted": 3.33,
+   "comps": 4.08,
+   "compsCycleAdjusted": false,
+   "triangulated": 3.63,
+   "upside": 0.41280477933287196,
+   "wacc": null,
+   "costOfEquity": 0.11435,
+   "terminalG": 0.025,
+   "monteCarlo": {
+    "n": 4000,
+    "p10": 2.13,
+    "p50": 3.2,
+    "p90": 4.9,
+    "pAbovePrice": 0.71225
+   },
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "value": 2.59
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "value": 3.64
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "value": 5.03
+    },
+    {
+     "id": "brlTail",
+     "name": "Tail: BRL / fiscal crisis",
+     "p": 0.1,
+     "value": 1.82
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / regulatory shock",
+     "p": 0.05,
+     "value": 2.21
+    }
+   ],
+   "reverse": {
+    "impliedGrowth5y": null,
+    "impliedMargin": 0.08911017775535583,
+    "baseMargin": 0.12
+   },
+   "revenueCagr": null,
+   "waccHistory": [
+    {
+     "year": 2021,
+     "date": "2021-12-31",
+     "value": 0.08413300901514892
+    },
+    {
+     "year": 2022,
+     "date": "2022-12-30",
+     "value": 0.1396769459333438
+    },
+    {
+     "year": 2023,
+     "date": "2023-12-29",
+     "value": 0.12876245218975763
+    },
+    {
+     "year": 2024,
+     "date": "2024-12-31",
+     "value": 0.1191123131490173
+    },
+    {
+     "year": 2025,
+     "date": "2025-12-31",
+     "value": 0.10375921566383692
+    },
+    {
+     "year": "current",
+     "date": "2026-11-13",
+     "value": 0.11692333178954663
+    }
+   ],
+   "waccHistoryMetric": "cost of equity",
+   "score": {
+    "quality": 6,
+    "growth": 4,
+    "risk": 5,
+    "valuation": 9,
+    "total": 6
+   },
+   "analyst": {
+    "rec": "buy",
+    "n": 6,
+    "targetMean": 4.18667
+   },
+   "group": "Banks",
+   "priceDeck": null,
+   "multiples": {
+    "ticker": "BBD",
+    "group": "Banks",
+    "bank": true,
+    "marketCap": 28695019520,
+    "ev": null,
+    "evEbitda": null,
+    "pe": 5.9491675841837015,
+    "fpe": 5.21795613108399,
+    "pfcf": null,
+    "fcfY": null,
+    "divY": 0,
+    "ndE": null,
+    "pb": 0.8581210666651956
+   },
+   "groupMultiples": {
+    "members": [
+     "GGAL",
+     "JPM",
+     "GS",
+     "SCHW",
+     "BBD"
+    ],
+    "evEbitda": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pe": {
+     "med": 12.841136912390247,
+     "mean": 11.8103103345845,
+     "n": 4
+    },
+    "fpe": {
+     "med": 11.643459860943516,
+     "mean": 9.317655411796835,
+     "n": 5
+    },
+    "pfcf": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "fcfY": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "divY": {
+     "med": 0.018557932996158634,
+     "mean": 11.789658101368758,
+     "n": 5
+    },
+    "ndE": {
+     "med": null,
+     "mean": null,
+     "n": 0
+    },
+    "pb": {
+     "med": 2.0062214491751313,
+     "mean": 1.8795795077730575,
+     "n": 5
     }
    }
   }

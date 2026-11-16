@@ -11944,6 +11944,111 @@
     "valuation": null,
     "rationale": "Wide-moat IP/platforms; DCF in JPY→USD."
    }
+  },
+  "BBD": {
+   "displayName": "Banco Bradesco",
+   "group": "Banks",
+   "sector": "Brazilian universal bank (retail, corporate, insurance via Bradesco Seguros)",
+   "model": "bank",
+   "betaAdj": "none",
+   "betaOverride": 0.73,
+   "betaNote": "Yahoo's 5Y beta (0.31) is distorted by BRL moves and local trading; the model uses 0.73 = 60 monthly ADR returns vs the S&P 500 to 2026-11-13, Blume-adjusted (same series as the Historical WACC card), plus the Brazil CRP (3.24%, as for ABEV/PBR and the B3 names).",
+   "crp": 0.0324,
+   "crpLabel": "Brazil CRP, Damodaran Jan-2026 (Ba1)",
+   "kdSpread": 0.0,
+   "tax": 0.45,
+   "terminalG": 0.025,
+   "shareChange": 0.0,
+   "compsRoeAdj": true,
+   "precedentPB": [
+    0.8,
+    1.5
+   ],
+   "controlPremium": [
+    0.2,
+    0.35
+   ],
+   "precedentNote": "Estimates. LatAm bank control deals in normal times ~1.0-1.5x book (same reference band as GGAL); the low end is cut to 0.8x because large Brazilian banks other than Itaú trade below book today. Bradesco is controlled by Cidade de Deus / Fundação Bradesco, so a takeover is not a realistic case: the M&A view is a private-market cross-check only.",
+   "compsNote": "Comps: Itaú (ITUB), Santander Brasil (BSBR), Banco do Brasil (BBAS3, B3 listing at PTAX), Grupo Cibest/Bancolombia (CIB) and Credicorp (BAP); multiples recomputed in USD from Yahoo (BRL, COP, PEN financials converted). P/BV is primary but ROE-adjusted (peer P/BV × Bradesco TTM ROE ÷ peer TTM ROE), because ITUB/CIB/BAP earn ~19-21% ROE vs ~13% at Bradesco; raw P/BV comps would overstate value. P/E × FY1 consensus EPS is shown for reference only.",
+   "growthNote": "Banco Bradesco reports in BRL (IFRS, 20-F). Residual-income model in USD per ADR (1 ADR = 1 preferred share; book and net income spread over all ON+PN shares). Book = IFRS equity at 2026-06-30 (latest quarter in Yahoo; Q3-2026 not yet loaded) at the BCB PTAX of that date. Year-1/2 ROE from Yahoo consensus EPS (USD per ADR) ÷ book. Because the model holds FX flat, sustainable ROE and book growth are set in USD-equivalent terms, i.e. below nominal BRL ROE by roughly the Brazil-US inflation gap.",
+   "scenarios": [
+    {
+     "id": "bear",
+     "name": "Bear",
+     "p": 0.25,
+     "roeAdj": -0.03,
+     "midGrowth": 0.01,
+     "ebitT": 0.09,
+     "desc": "Turnaround stalls: credit costs stay high, Selic cuts lag and fee/insurance growth slows; USD-equivalent ROE ~9%, below the cost of equity."
+    },
+    {
+     "id": "base",
+     "name": "Base",
+     "p": 0.45,
+     "roeAdj": 0,
+     "midGrowth": 0.04,
+     "ebitT": 0.12,
+     "desc": "Consensus EPS for the next two years, then a gradual recovery; ROE converges to ~12% in USD-equivalent terms and book grows ~4%/yr in USD."
+    },
+    {
+     "id": "bull",
+     "name": "Bull",
+     "p": 0.15,
+     "roeAdj": 0.02,
+     "midGrowth": 0.07,
+     "ebitT": 0.15,
+     "desc": "Turnaround delivers: lower funding costs as the Selic falls, better credit quality and insurance earnings lift ROE toward Itaú-like levels (~15% USD-equivalent)."
+    },
+    {
+     "id": "brlTail",
+     "name": "Tail: BRL / fiscal crisis",
+     "p": 0.1,
+     "roeAdj": -0.07,
+     "midGrowth": -0.04,
+     "ebitT": 0.07,
+     "crpAdd": 0.03,
+     "desc": "A fiscal scare sends the BRL sharply lower and Brazil's country risk up ~300 bp; USD book value shrinks and credit losses rise."
+    },
+    {
+     "id": "creditTail",
+     "name": "Tail: credit / regulatory shock",
+     "p": 0.05,
+     "roeAdj": -0.06,
+     "midGrowth": 0.0,
+     "ebitT": 0.08,
+     "desc": "Corporate or household credit event, or higher bank taxes (CSLL) / interest-on-capital (JCP) changes, compress ROE for several years."
+    }
+   ],
+   "catalysts": [
+    {
+     "date": "~2027-02",
+     "q": "Q4 2026",
+     "event": "Q4 2026 results and 2027 guidance (ROE, credit costs, insurance)",
+     "impact": "High",
+     "dir": "±"
+    },
+    {
+     "date": "Every ~6 weeks",
+     "q": "Ongoing",
+     "event": "Copom Selic decisions (funding cost, credit quality)",
+     "impact": "Medium",
+     "dir": "±"
+    },
+    {
+     "date": "Daily",
+     "q": "Any",
+     "event": "BRL/USD and Brazil fiscal framework / country risk",
+     "impact": "High",
+     "dir": "±"
+    }
+   ],
+   "score": {
+    "quality": 6,
+    "growth": 4,
+    "risk": 5,
+    "valuation": null,
+    "rationale": "Quality: one of Brazil's largest private banks with a large insurance arm, but ROE (~13% TTM) trails Itaú's. Growth: modest, tied to the turnaround and Selic path. Risk: Brazil macro, BRL and credit cycle. Valuation from the residual-income model."
+   }
   }
  }
 }

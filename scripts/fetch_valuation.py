@@ -17,6 +17,7 @@ TARGETS = {"META": ["GOOGL", "SNAP", "PINS", "AMZN", "MSFT"],
            "NIO": ["TSLA", "LI", "XPEV", "RIVN", "BYDDY"],
            "YPF": ["VIST", "PAM", "PBR", "EC"],
            "GGAL": ["BMA", "BBAR", "SUPV", "ITUB", "CIB"],
+           "BBD": ["ITUB", "BSBR", "BBAS3.SA", "CIB", "BAP"],   # Brazil/LatAm banks (P/BV primary)
            "MU": ["000660.KS", "005930.KS", "WDC", "SNDK", "NVDA", "AMD"],   # NVDA/AMD: reference only (excluded from comps stats)
            "ASML": ["AMAT", "LRCX", "KLAC", "8035.T"],
            "VST": ["CEG", "NRG", "TLN", "PEG", "ETR"],
@@ -119,6 +120,7 @@ SEC_APPEND = {"MU"}          # Yahoo annual statements lag the latest 10-K (MU F
 USD_STMT = {"YPF", "PBR"}           # statements reported in USD even though Yahoo's financialCurrency says ARS
 BANKS = {"GGAL": 10}  # ARS residual-income via bank_block (BCRA FX)
 USD_BANKS = {"JPM": 1, "GS": 1, "SCHW": 1, "AXP": 1}  # USD residual-income via usd_bank_block (ratio=local shares per listed share)
+BRL_BANKS = {"BBD": 1}  # BRL-reporting bank, USD ADR: residual-income via brl_bank_block (1 ADR = 1 preferred share; BCB PTAX on each statement date)
 # Latest filed quarter newer than Yahoo's snapshot (applied only while Yahoo's last quarter is older than "period").
 # SPCX: Q3 2026 earnings release (8-K Ex-99.1, accession 0001628280-26-066482, filed 2026-10-20), USD millions.
 FILING_OVERRIDE = {"SPCX": {"period": "2026-09-30", "accn": "0001628280-26-066482",
@@ -384,6 +386,36 @@ def usd_bank_block(d, k, ratio=1):
                  "divTTMperADR": f(divs[divs.index > cut].sum()) if cut is not None else None,
                  "fxSource": "USD (reporting and listing currency)"}
 
+def brl_bank_block(d, k, ratio=1):
+    """Brazilian bank with a USD ADR (BBD): residual-income inputs in USD per ADR. Book value = IFRS equity (BRL, latest quarter) /
+    total ON+PN shares (ex-treasury; 1 ADR = `ratio` preferred shares) / BCB PTAX selling rate on the balance-sheet date.
+    TTM net income uses Yahoo's 'Net Income' row (the 'Net Income Common Stockholders' row carries an unexplained negative Q4-2025
+    value), each quarter converted at the PTAX of its quarter end. Consensus EPS and dividends are Yahoo's ADR (USD) figures."""
+    qb, qi = k.quarterly_balance_sheet, k.quarterly_income_stmt
+    col = qb.columns[0]
+    eq = f(qb.loc["Stockholders Equity", col]); sh = f(qb.loc["Ordinary Shares Number", col])
+    if not eq or not sh: raise ValueError(f"brl_bank_block missing equity/shares for {d.get('ticker')}")
+    bd, fxb = ptax(col.strftime("%Y-%m-%d"))
+    adr = sh / ratio
+    q4 = sorted(qi.columns)[-4:]; ni_q = []
+    for c in q4:
+        v = f(qi.loc["Net Income", c]) if "Net Income" in qi.index else None
+        qd, qr = ptax(c.strftime("%Y-%m-%d"))
+        ni_q.append({"q": c.strftime("%Y-%m-%d"), "netIncomeBRL": v, "ptax": qr, "ptaxDate": qd, "netIncomeUSD": v / qr if (v is not None and qr) else None})
+    ni_ttm_brl = sum(x["netIncomeBRL"] or 0 for x in ni_q); ni_ttm_usd = sum(x["netIncomeUSD"] or 0 for x in ni_q)
+    divs = k.dividends; cut = divs.index.max() - pd.Timedelta(days=365) if len(divs) else None
+    ee = d.get("earningsEstimate") or {}
+    eps_ccy = {(ee.get(p) or {}).get("currency") for p in ("0y", "+1y")}
+    d["bank"] = {"usd": True, "ccy": "BRL", "adrRatio": ratio, "localShares": sh, "adrShares": adr,
+                 "equityBRL": eq, "equityUSD": eq / fxb if fxb else None, "bvDate": col.strftime("%Y-%m-%d"), "fxBv": fxb, "fxBvDate": bd,
+                 "bvPerADR": eq / adr / fxb if fxb else None, "niTTM_BRL": ni_ttm_brl, "niTTM_USD": ni_ttm_usd, "niQuarters": ni_q,
+                 "ttmQuarters": [x["q"] for x in ni_q], "niTTMperADR": ni_ttm_usd / adr,
+                 "eps0y": (ee.get("0y") or {}).get("avg") if eps_ccy <= {"USD"} else None,
+                 "eps1y": (ee.get("+1y") or {}).get("avg") if eps_ccy <= {"USD"} else None,
+                 "epsCurrency": "/".join(sorted(x for x in eps_ccy if x)),
+                 "divTTMperADR": f(divs[divs.index > cut].sum()) if cut is not None else None,
+                 "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br) on each statement date"}
+
 def filing_override(d, o):
     """Use the latest filed quarter (balance sheet, TTM, share count) while Yahoo's statements still stop at an older quarter."""
     yq = max(d.get("qIncome", {}).get("years") or ["0000"])
@@ -485,6 +517,7 @@ def main():
         if t in USD_STMT: usd_stmt_fix(d, k)
         if t in BANKS: bank_block(d, k, BANKS[t])
         if t in USD_BANKS: usd_bank_block(d, k, USD_BANKS[t])
+        if t in BRL_BANKS: brl_bank_block(d, k, BRL_BANKS[t])
         if t in SEC_APPEND: sec_append(d, cik[t])
         if t in LOCAL_LISTING: local_listing(d, LOCAL_LISTING[t], k)
         if t in FILING_OVERRIDE: filing_override(d, FILING_OVERRIDE[t])

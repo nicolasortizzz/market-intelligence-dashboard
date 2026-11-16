@@ -167,3 +167,9 @@ Charts live under **Valuation & M&A** → “Forward P/E vs subsequent returns�
 ### Wide-moat CEDEAR skip (Nov 2026)
 
 - **BX (Blackstone)**: CEDEAR exists, but the repo has no fee-related earnings (FRE/DE) methodology for alternative asset managers; residual-income on thin GAAP book and FCFF without Operating Income would misstate economics. Skipped until an FRE model is added.
+
+### BBD (Banco Bradesco, Nov 2026)
+
+- Bank residual-income model via `brl_bank_block` in `fetch_valuation.py` (`BRL_BANKS = {"BBD": 1}`): book and TTM net income in BRL converted at the BCB PTAX of each statement date; no FX refresh of the other BRL names when run alone (`fetch_valuation.py BBD` reuses the stored `fx.BRLUSD` for peer multiples).
+- Yahoo's quarterly statements stop at 2026-06-30; when Q3-2026 lands in Yahoo, rerun the three BBD scripts and `make summary`.
+- `fetch_data.py` UNIVERSE now includes BBD (Financials), so the Tesis/Decisión step 5 Fit (correlation / ΔSharpe) fills in after the next full `make update`; until then it shows "sin datos".

@@ -123,7 +123,7 @@ def main():
                       "weights": "Market cap (shares x close at year-end) vs book total debt at fiscal year-end, USD",
                       "currency": "USD terms for all tickers (ASML/ABEV: USD ADR beta and US rf; EUR debt at the ECB, BRL debt at the BCB PTAX and TWD debt at the Yahoo TWD=X year-end rate; Samsung: KRX price converted to USD at Yahoo KRW=X daily, KRW debt at year-end KRW=X)"},
            "erp": ERP, "companies": {}}
-    PXC = {}
+    PXC = {}; GENFX = {}
     ONLY = [x.upper() for x in sys.argv[1:]]
     WP = os.path.join(D, "wacc_history.json")
     if ONLY and os.path.exists(WP): out["companies"] = json.load(open(WP)).get("companies", {})   # ticker-scoped run: keep the others
@@ -136,6 +136,8 @@ def main():
         if tk in LOCAL_PX:   # convert the local close to USD at the daily Yahoo FX rate (beta and market cap in USD terms)
             fxh = yf.Ticker(LOCAL_PX[tk]).history(start="2015-12-01")["Close"]; fxh.index = fxh.index.tz_localize(None).normalize()
             idx = px.index.tz_localize(None).normalize(); px = px.copy(); px["Close"] = px["Close"].values / fxh.reindex(idx, method="ffill").values
+        try: SPL = k.splits
+        except Exception: SPL = None
         try: sh = k.get_shares_full(start="2020-06-01")
         except Exception: sh = None
         B, I = c["balance"], c["income"]; by = B.get("years", [])
@@ -180,6 +182,9 @@ def main():
                 s = None
                 if sh is not None and len(sh):
                     ss = sh[sh.index.tz_localize(None) <= pd.Timestamp(day)]; s = f(ss.iloc[-1]) if len(ss) else None
+                    if s and Y != "current" and SPL is not None and len(SPL):   # Yahoo's close is split-adjusted but get_shares_full is as-reported: scale the share count by every later split
+                        later = SPL[SPL.index.tz_localize(None) > pd.Timestamp(day)]
+                        if len(later): s = s * float(later.prod())
                 if Y == "current": s = c["marketCap"] / c["price"]; p = c["price"]   # already USD for local listings (fetch_valuation converts)
                 if not s: s = c["marketCap"] / c["price"]; row["flag"] = (row.get("flag", "") + "; current share count used").strip("; ")
                 E = p * s if p else None
@@ -191,6 +196,12 @@ def main():
                 if cur == "BRL": fx = ptax(day) if Y != "current" else V["fx"]["BRLUSD"]
                 if cur == "KRW": fx = close_at(krw, day)[0] if Y != "current" else V["fx"]["KRWUSD"]
                 if cur == "TWD": fx = close_at(twd, day)[0] if Y != "current" else V["fx"]["TWDUSD"]   # year-ends: Yahoo TWD=X; today: CBC closing rate
+                if cur not in ("USD", "CNY", "EUR", "BRL", "KRW", "TWD"):   # generic: any other reporting currency (JPY, CAD, DKK, ...) -> Yahoo {CCY}=X at year-end, model rate today
+                    if Y == "current": fx = V["fx"].get(f"{cur}USD")
+                    else:
+                        if cur not in GENFX: GENFX[cur] = yf.Ticker(f"{cur}=X").history(start="2020-12-01")
+                        fx = close_at(GENFX[cur], day)[0]
+                    if not fx: raise SystemExit(f"{tk}: no FX rate for reporting currency {cur} at {day}; refusing to mix currencies in WACC weights")
                 dl = debt.get(ys) if ys else None
                 if dl is None and ys:
                     later = sorted(x for x in debt if x > ys)

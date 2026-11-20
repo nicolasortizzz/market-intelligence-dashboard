@@ -24,7 +24,7 @@ function inputs(tk){
   const da0=(I["Reconciled Depreciation"]||[])[iy]/k||rev0*a.daPct0,capex0=-(CF["Capital Expenditure"]||[])[iy]/k;
   const fyEnd=new Date(I.years[iy]);
   const re=c.revenueEstimate||{},e0=re["0y"]?.avg,e1=re["+1y"]?.avg;
-  const g1=a.g1??(e0?e0/k/rev0-1:0.05),g2=a.g2??(e0&&e1?e1/e0-1:g1*0.7);
+  const g1=a.g1??(e0?e0/k/rev0-1:0.05),g2=a.g2??(e0&&e1?(a.g1==null&&g1<-0.5?e1/k/(rev0*0.5)-1:e1/e0-1):g1*0.7); // if the consensus year-1 drop is below the model's -50% growth floor, chain year 2 from the floored revenue so year-2 revenue still hits the FY+1 consensus level (else a near-zero FY1 consensus, e.g. SMR, compounds a huge g2 onto the wrong base)
   const shares=c.marketCap/c.price;
   const cash=(c.totalCash||0)/k,debt=(c.totalDebt||0)/k,minority=(last(B["Minority Interest"])||0)/k,nonOp=a.nonOpAssets?((last(B[a.nonOpAssets.row]||[])??a.nonOpAssets.fallback??0)/k):0; // non-operating equity stakes added in the EV bridge (UBER)
   // convertible notes (if-converted): in-the-money notes are treated as equity (conversion shares added, principal removed from debt);

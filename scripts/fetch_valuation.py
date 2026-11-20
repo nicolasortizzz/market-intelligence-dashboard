@@ -169,6 +169,51 @@ def fx_to_usd(cur):
     if cur not in FXC: FXC[cur] = f(yf.Ticker(f"{cur}=X").history(period="5d")["Close"].iloc[-1])
     return FXC[cur]
 
+def ebitda_ttm(t, i, kk=None):
+    """Yahoo `info.ebitda` is occasionally wrong (SMR, Nov-2026: +USD 250M while every quarterly statement EBITDA is negative, -USD 258M TTM;
+    non-operating gains leak into it). If its sign contradicts the sum of the last 4 quarterly EBITDA from the statements, use the statement sum."""
+    e = i.get("ebitda")
+    try:
+        qi = (kk or yf.Ticker(t)).quarterly_income_stmt
+        if qi is not None and "EBITDA" in qi.index:
+            v = qi.loc["EBITDA"].dropna().sort_index().iloc[-4:]
+            if len(v) == 4:
+                st = f(v.sum())
+                if st is not None and e is not None and (e > 0) != (st > 0) and abs(e - st) > 0.05 * max(abs(st), abs(e)) and not (i.get("financialCurrency") == "USD" and (i.get("currency") or "USD") != "USD"):
+                    print("ebitda sanity:", t, "info", e, "-> statements TTM", st); return st
+    except Exception as ex: print("ebitda sanity check failed", t, ex)
+    return e
+
+def stmt_k(i, qb, k):
+    """Units of STATEMENT currency per USD. Yahoo sometimes flips `financialCurrency` to USD (and converts the info totals) while the
+    financial statements stay in the local currency (seen with PRIO3.SA, Nov-2026). Detect it by comparing the latest statement
+    Total Debt with info totalDebt; if they differ by >30% on a non-USD listing, the statements are in the listing currency."""
+    qc = i.get("currency") or "USD"
+    try:
+        if (i.get("financialCurrency") or "USD") == "USD" and qc != "USD" and i.get("totalDebt"):
+            sd = f(qb.loc["Total Debt"].dropna().iloc[0])
+            if sd and (sd / i["totalDebt"] > 1.3 or sd / i["totalDebt"] < 0.77): return fx_to_usd(qc)
+    except Exception: pass
+    return k
+
+def stmt_currency_fix(d, k, ccy):
+    """Local listing whose Yahoo info is in USD but whose statements are in `ccy`: rebuild the balance/TTM totals from the quarterly
+    statements in `ccy` and restore financialCurrency=ccy so valuation.js converts everything with fx[ccy+'USD']."""
+    qb, qi, qc = k.quarterly_balance_sheet, k.quarterly_income_stmt, k.quarterly_cashflow
+    col = qb.columns[0]
+    g = lambda df, r, c: f(df.loc[r, c]) if r in df.index else None
+    q4 = sorted(qi.columns)[-4:]; q4c = sorted(qc.columns)[-4:]
+    d["yahooFinancialCurrency"] = d["financialCurrency"]; d["financialCurrency"] = ccy
+    d["totalDebt"] = g(qb, "Total Debt", col)
+    d["totalCash"] = g(qb, "Cash Cash Equivalents And Short Term Investments", col) or g(qb, "Cash And Cash Equivalents", col)
+    d["revenueTTM"] = sum(g(qi, "Total Revenue", c) or 0 for c in q4)
+    d["ebitdaTTM"] = sum(g(qi, "EBITDA", c) or 0 for c in q4)
+    d["ocfTTM"] = sum(g(qc, "Operating Cash Flow", c) or 0 for c in q4c)
+    d["fcfTTM"] = sum(g(qc, "Free Cash Flow", c) or 0 for c in q4c)
+    d["balanceDate"] = col.strftime("%Y-%m-%d"); d["ttmQuarters"] = [c.strftime("%Y-%m-%d") for c in q4]
+    d["currencyFix"] = f"Yahoo flipped financialCurrency to USD but statements are {ccy}; totals rebuilt from quarterly statements in {ccy}"
+    if d.get("self"): d["self"]["financialCurrency"] = ccy
+
 def multiples(t):
     """Peer multiples recomputed consistently in USD (Yahoo's own ratios mix ADR/reporting currencies)."""
     i = yf.Ticker(t).info or {}
@@ -177,13 +222,13 @@ def multiples(t):
     if mc and t in UNIT_DIV: mc = mc / UNIT_DIV[t]
     if mc and qc != "USD": mc = mc / fx_to_usd(qc)   # local listings (KRW, JPY): market cap to USD
     debt = (i.get("totalDebt") or 0) / k; cash = (i.get("totalCash") or 0) / k
-    rev = (i.get("totalRevenue") or 0) / k or None; ebitda = (i.get("ebitda") or 0) / k or None
+    rev = (i.get("totalRevenue") or 0) / k or None; ebitda = (ebitda_ttm(t, i) or 0) / k or None
     ni = (i.get("netIncomeToCommon") or 0) / k or None
     book = None
     try:
         qb = yf.Ticker(t).quarterly_balance_sheet
         if qb is not None and "Stockholders Equity" in qb.index:
-            book = f(qb.loc["Stockholders Equity"].dropna().iloc[0]) / k
+            book = f(qb.loc["Stockholders Equity"].dropna().iloc[0]) / stmt_k(i, qb, k)
     except Exception: pass
     ev = mc + debt - cash if mc else None
     fpe = i.get("forwardPE") if fin == (i.get("currency") or "USD") else None
@@ -253,6 +298,11 @@ def ecb_cross(ccy):
 def local_listing(d, cfg, k):
     """Convert a local listing's market fields to USD; keep the originals and quote related lines (preferred, GDR)."""
     fx = FXC[cfg["ccy"]]
+    if (d.get("financialCurrency") or "USD") == "USD" and cfg["ccy"] != "USD":
+        try:
+            sd = f(k.quarterly_balance_sheet.loc["Total Debt"].dropna().iloc[0])
+            if sd and d.get("totalDebt") and (sd / d["totalDebt"] > 1.3 or sd / d["totalDebt"] < 0.77): stmt_currency_fix(d, k, cfg["ccy"])
+        except Exception as ex: print("stmt currency check failed", d.get("ticker"), ex)
     for f_ in ("price", "low52", "high52", "targetLow", "targetMean", "targetMedian", "targetHigh", "marketCap", "enterpriseValue"):
         if d.get(f_) is not None: d[f_ + "Local"] = d[f_]; d[f_] = d[f_] / fx
     d["currencyLocal"] = cfg["ccy"]; d["currency"] = "USD"; d["related"] = {}
@@ -494,7 +544,7 @@ def main():
              "currency": i.get("currency"), "financialCurrency": i.get("financialCurrency"),
              "sharesOutstanding": i.get("sharesOutstanding"), "impliedShares": i.get("impliedSharesOutstanding"),
              "marketCap": i.get("marketCap"), "enterpriseValue": i.get("enterpriseValue"), "beta": i.get("beta"),
-             "totalCash": i.get("totalCash"), "totalDebt": i.get("totalDebt"), "ebitdaTTM": i.get("ebitda"),
+             "totalCash": i.get("totalCash"), "totalDebt": i.get("totalDebt"), "ebitdaTTM": ebitda_ttm(t, i, k),
              "revenueTTM": i.get("totalRevenue"), "fcfTTM": i.get("freeCashflow"), "ocfTTM": i.get("operatingCashflow"),
              "low52": i.get("fiftyTwoWeekLow"), "high52": i.get("fiftyTwoWeekHigh"),
              "targetLow": i.get("targetLowPrice"), "targetMean": i.get("targetMeanPrice"), "targetMedian": i.get("targetMedianPrice"),

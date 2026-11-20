@@ -1,659 +1,659 @@
 {
- "generatedAt": "2026-11-16T02:53:39Z",
+ "generatedAt": "2026-11-20T03:17:06Z",
  "quotes": {
   "META": {
-   "price": 606.73,
-   "priceDate": "2026-11-02",
+   "price": 616.38,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "UNH": {
-   "price": 400.44,
-   "priceDate": "2026-11-02",
+   "price": 330.48,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "DIS": {
-   "price": 113.11,
-   "priceDate": "2026-11-02",
+   "price": 120.25,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "NIO": {
-   "price": 3.19,
-   "priceDate": "2026-11-02",
+   "price": 2.77,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "YPF": {
-   "price": 43.85,
-   "priceDate": "2026-11-02",
+   "price": 33.28,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "GGAL": {
-   "price": 31.48,
-   "priceDate": "2026-11-02",
+   "price": 26.07,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "MU": {
-   "price": 833.59,
-   "priceDate": "2026-11-02",
+   "price": 690.44,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ASML": {
-   "price": 1526.14,
-   "priceDate": "2026-11-02",
+   "price": 1356.2,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "VST": {
-   "price": 134.61,
-   "priceDate": "2026-11-02",
+   "price": 125.58,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ABEV": {
-   "price": 2.69,
-   "priceDate": "2026-11-02",
+   "price": 2.66,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "UBER": {
-   "price": 66.71,
-   "priceDate": "2026-11-02",
+   "price": 68.76,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "BE": {
-   "price": 196.25,
-   "priceDate": "2026-11-02",
+   "price": 170.98,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AVGO": {
-   "price": 322.23,
-   "priceDate": "2026-11-02",
+   "price": 346.65,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "VIST": {
-   "price": 66.89,
-   "priceDate": "2026-11-02",
+   "price": 51.93,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "TSM": {
-   "price": 398.63,
-   "priceDate": "2026-11-02",
+   "price": 352.09,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SPCX": {
-   "price": 136.37,
-   "priceDate": "2026-11-02",
+   "price": 143.5,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "005930.KS": {
-   "price": 165.51,
-   "priceLocal": 221000.0,
+   "price": 138.8839,
+   "priceLocal": 184500.0,
    "currencyLocal": "KRW",
-   "fx": 1335.266738274257,
-   "fxDate": "2026-10-30",
+   "fx": 1328.4479621542941,
+   "fxDate": "2026-11-19",
    "fxSource": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)",
-   "priceDate": "2026-11-03",
+   "priceDate": "2026-11-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "000660.KS": {
-   "price": 1052.9731,
-   "priceLocal": 1406000.0,
+   "price": 835.5615,
+   "priceLocal": 1110000.0,
    "currencyLocal": "KRW",
-   "fx": 1335.266738274257,
-   "fxDate": "2026-10-30",
+   "fx": 1328.4479621542941,
+   "fxDate": "2026-11-19",
    "fxSource": "ECB euro reference rates, KRW/EUR divided by USD/EUR (data-api.ecb.europa.eu EXR)",
-   "priceDate": "2026-11-03",
+   "priceDate": "2026-11-20",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "GOOGL": {
-   "price": 278.99,
-   "priceDate": "2026-11-02",
+   "price": 272.66,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "XOM": {
-   "price": 179.67,
-   "priceDate": "2026-11-02",
+   "price": 158.93,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "CVX": {
-   "price": 227.77,
-   "priceDate": "2026-11-02",
+   "price": 206.5,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "COP": {
-   "price": 146.84,
-   "priceDate": "2026-11-02",
+   "price": 134.99,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "EOG": {
-   "price": 157.89,
-   "priceDate": "2026-11-02",
+   "price": 149.49,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "OXY": {
-   "price": 60.72,
-   "priceDate": "2026-11-02",
+   "price": 53.81,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "DVN": {
-   "price": 48.63,
-   "priceDate": "2026-11-02",
+   "price": 42.05,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SLB": {
-   "price": 52.31,
-   "priceDate": "2026-11-02",
+   "price": 47.9,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "PBR": {
-   "price": 21.16,
-   "priceDate": "2026-11-02",
+   "price": 16.29,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "PRIO3.SA": {
-   "price": 13.1871,
-   "priceLocal": 71.48999786376953,
+   "price": 10.5062,
+   "priceLocal": 61.869998931884766,
    "currencyLocal": "BRL",
-   "fx": 5.4212,
-   "fxDate": "2026-10-30",
+   "fx": 5.8889,
+   "fxDate": "2026-11-19",
    "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
-   "priceDate": "2026-10-30",
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "CEG": {
-   "price": 257.25,
-   "priceDate": "2026-11-02",
+   "price": 262.74,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "NRG": {
-   "price": 94.62,
-   "priceDate": "2026-11-02",
+   "price": 93.85,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AXIA3.SA": {
-   "price": 8.749,
-   "priceLocal": 47.43000030517578,
+   "price": 7.8622,
+   "priceLocal": 46.29999923706055,
    "currencyLocal": "BRL",
-   "fx": 5.4212,
-   "fxDate": "2026-10-30",
+   "fx": 5.8889,
+   "fxDate": "2026-11-19",
    "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
-   "priceDate": "2026-10-30",
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "EQTL3.SA": {
-   "price": 6.0134,
-   "priceLocal": 32.599998474121094,
+   "price": 5.7175,
+   "priceLocal": 33.66999816894531,
    "currencyLocal": "BRL",
-   "fx": 5.4212,
-   "fxDate": "2026-10-30",
+   "fx": 5.8889,
+   "fxDate": "2026-11-19",
    "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
-   "priceDate": "2026-10-30",
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "CMIG4.SA": {
-   "price": 1.8575,
-   "priceLocal": 10.069999694824219,
+   "price": 1.856,
+   "priceLocal": 10.930000305175781,
    "currencyLocal": "BRL",
-   "fx": 5.4212,
-   "fxDate": "2026-10-30",
+   "fx": 5.8889,
+   "fxDate": "2026-11-19",
    "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
-   "priceDate": "2026-10-30",
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "TAEE11.SA": {
-   "price": 7.3028,
-   "priceLocal": 39.59000015258789,
+   "price": 6.8875,
+   "priceLocal": 40.560001373291016,
    "currencyLocal": "BRL",
-   "fx": 5.4212,
-   "fxDate": "2026-10-30",
+   "fx": 5.8889,
+   "fxDate": "2026-11-19",
    "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
-   "priceDate": "2026-10-30",
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "CPFE3.SA": {
-   "price": 7.7289,
-   "priceLocal": 41.900001525878906,
+   "price": 7.4955,
+   "priceLocal": 44.13999938964844,
    "currencyLocal": "BRL",
-   "fx": 5.4212,
-   "fxDate": "2026-10-30",
+   "fx": 5.8889,
+   "fxDate": "2026-11-19",
    "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
-   "priceDate": "2026-10-30",
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "EGIE3.SA": {
-   "price": 4.8439,
-   "priceLocal": 26.260000228881836,
+   "price": 4.3285,
+   "priceLocal": 25.489999771118164,
    "currencyLocal": "BRL",
-   "fx": 5.4212,
-   "fxDate": "2026-10-30",
+   "fx": 5.8889,
+   "fxDate": "2026-11-19",
    "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
-   "priceDate": "2026-10-30",
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "CPLE3.SA": {
-   "price": 2.6415,
-   "priceLocal": 14.319999694824219,
+   "price": 2.5947,
+   "priceLocal": 15.279999732971191,
    "currencyLocal": "BRL",
-   "fx": 5.4212,
-   "fxDate": "2026-10-30",
+   "fx": 5.8889,
+   "fxDate": "2026-11-19",
    "fxSource": "Banco Central do Brasil PTAX selling rate (olinda.bcb.gov.br)",
-   "priceDate": "2026-10-30",
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "NEE": {
-   "price": 85.03,
-   "priceDate": "2026-11-02",
+   "price": 83.79,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "DUK": {
-   "price": 128.38,
-   "priceDate": "2026-11-02",
+   "price": 128.86,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SO": {
-   "price": 94.61,
-   "priceDate": "2026-11-02",
+   "price": 93.29,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AEP": {
-   "price": 130.33,
-   "priceDate": "2026-11-02",
+   "price": 124.97,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "BEP": {
-   "price": 30.05,
-   "priceDate": "2026-11-02",
+   "price": 30.01,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "GEV": {
-   "price": 862.25,
-   "priceDate": "2026-11-02",
+   "price": 772.22,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "FSLR": {
-   "price": 182.05,
-   "priceDate": "2026-11-02",
+   "price": 151.95,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "CCJ": {
-   "price": 73.38,
-   "priceDate": "2026-11-02",
+   "price": 61.42,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "OKLO": {
-   "price": 23.52,
-   "priceDate": "2026-11-02",
+   "price": 21.8,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SMR": {
-   "price": 5.35,
-   "priceDate": "2026-11-02",
+   "price": 3.91,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "MRK": {
-   "price": 148.36,
-   "priceDate": "2026-11-02",
+   "price": 132.81,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "BMY": {
-   "price": 63.02,
-   "priceDate": "2026-11-02",
+   "price": 58.34,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "PFE": {
-   "price": 30.67,
-   "priceDate": "2026-11-02",
+   "price": 27.54,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "JNJ": {
-   "price": 270.56,
-   "priceDate": "2026-11-02",
+   "price": 267.14,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AZN": {
-   "price": 186.58,
-   "priceDate": "2026-11-02",
+   "price": 175.41,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ABBV": {
-   "price": 288.84,
-   "priceDate": "2026-11-02",
+   "price": 286.01,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "LLY": {
-   "price": 1410.99,
-   "priceDate": "2026-11-02",
+   "price": 1351.12,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "MA": {
-   "price": 658.1,
-   "priceDate": "2026-11-02",
+   "price": 626.5,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "V": {
-   "price": 425.51,
-   "priceDate": "2026-11-02",
+   "price": 402.25,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "PM": {
-   "price": 208.29,
-   "priceDate": "2026-11-02",
+   "price": 186.43,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "PG": {
-   "price": 163.56,
-   "priceDate": "2026-11-02",
+   "price": 167.85,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AAPL": {
-   "price": 344.17,
-   "priceDate": "2026-11-05",
+   "price": 349.21,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "MSFT": {
-   "price": 535.93,
-   "priceDate": "2026-11-05",
+   "price": 498.3,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AMZN": {
-   "price": 260.21,
-   "priceDate": "2026-11-05",
+   "price": 257.37,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "NVDA": {
-   "price": 181.6,
-   "priceDate": "2026-11-05",
+   "price": 145.98,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "KO": {
-   "price": 95.73,
-   "priceDate": "2026-11-05",
+   "price": 96.09,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "PEP": {
-   "price": 142.71,
-   "priceDate": "2026-11-05",
+   "price": 139.0,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "COST": {
-   "price": 1065.59,
-   "priceDate": "2026-11-05",
+   "price": 1093.83,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "HD": {
-   "price": 349.94,
-   "priceDate": "2026-11-05",
+   "price": 336.68,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ORCL": {
-   "price": 115.16,
-   "priceDate": "2026-11-05",
+   "price": 110.57,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "NKE": {
-   "price": 39.56,
-   "priceDate": "2026-11-05",
+   "price": 34.33,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "MELI": {
-   "price": 1530.28,
-   "priceDate": "2026-11-05",
+   "price": 1355.49,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AMGN": {
-   "price": 460.28,
-   "priceDate": "2026-11-05",
+   "price": 438.82,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "GILD": {
-   "price": 167.57,
-   "priceDate": "2026-11-05",
+   "price": 166.53,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "MO": {
-   "price": 77.58,
-   "priceDate": "2026-11-05",
+   "price": 74.68,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "CAT": {
-   "price": 553.64,
-   "priceDate": "2026-11-05",
+   "price": 537.37,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "DE": {
-   "price": 663.31,
-   "priceDate": "2026-11-05",
+   "price": 624.89,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "GE": {
-   "price": 314.73,
-   "priceDate": "2026-11-05",
+   "price": 318.88,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "LMT": {
-   "price": 576.16,
-   "priceDate": "2026-11-05",
+   "price": 571.85,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ADI": {
-   "price": 361.01,
-   "priceDate": "2026-11-05",
+   "price": 377.44,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AMAT": {
-   "price": 319.25,
-   "priceDate": "2026-11-05",
+   "price": 338.93,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ANET": {
-   "price": 159.16,
-   "priceDate": "2026-11-05",
+   "price": 193.94,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ADP": {
-   "price": 307.14,
-   "priceDate": "2026-11-05",
+   "price": 301.19,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ABNB": {
-   "price": 170.13,
-   "priceDate": "2026-11-05",
+   "price": 180.21,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "DHR": {
-   "price": 226.34,
-   "priceDate": "2026-11-05",
+   "price": 227.56,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "ISRG": {
-   "price": 468.52,
-   "priceDate": "2026-11-05",
+   "price": 407.24,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "LRCX": {
-   "price": 185.2,
-   "priceDate": "2026-11-05",
+   "price": 203.68,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "MDLZ": {
-   "price": 66.82,
-   "priceDate": "2026-11-05",
+   "price": 65.69,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "PANW": {
-   "price": 314.67,
-   "priceDate": "2026-11-05",
+   "price": 339.92,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "RTX": {
-   "price": 191.88,
-   "priceDate": "2026-11-05",
+   "price": 193.44,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SPGI": {
-   "price": 472.41,
-   "priceDate": "2026-11-05",
+   "price": 442.66,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "TMO": {
-   "price": 676.94,
-   "priceDate": "2026-11-05",
+   "price": 688.75,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "VRSN": {
-   "price": 312.06,
-   "priceDate": "2026-11-05",
+   "price": 306.45,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "BABA": {
-   "price": 108.07,
-   "priceDate": "2026-11-05",
+   "price": 84.37,
+   "priceDate": "2026-11-18",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SAP": {
-   "price": 243.53,
-   "priceDate": "2026-11-05",
+   "price": 203.23,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "JPM": {
-   "price": 337.34,
-   "priceDate": "2026-11-05",
+   "price": 320.22,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "GS": {
-   "price": 868.95,
-   "priceDate": "2026-11-05",
+   "price": 847.53,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SCHW": {
-   "price": 92.58,
-   "priceDate": "2026-11-05",
+   "price": 92.12,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "AXP": {
-   "price": 324.97,
-   "priceDate": "2026-11-05",
+   "price": 311.11,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "IBKR": {
-   "price": 72.73,
-   "priceDate": "2026-11-05",
+   "price": 75.65,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "BA": {
-   "price": 172.5,
-   "priceDate": "2026-11-05",
+   "price": 160.51,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "NVO": {
-   "price": 40.3,
-   "priceDate": "2026-11-05",
+   "price": 38.87,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "SONY": {
-   "price": 27.54,
-   "priceDate": "2026-11-05",
+   "price": 27.2,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   },
   "BBD": {
-   "price": 2.57,
-   "priceDate": "2026-11-13",
+   "price": 2.3,
+   "priceDate": "2026-11-19",
    "field": "Close (unadjusted, last trading day)",
    "source": "Yahoo Finance via yfinance"
   }

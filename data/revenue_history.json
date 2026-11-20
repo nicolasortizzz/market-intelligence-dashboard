@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T04:11:24Z",
+ "generatedAt": "2026-11-20T03:17:06Z",
  "periods": 5,
  "companies": {
   "META": {
@@ -65,7 +65,7 @@
    "source": "SEC EDGAR XBRL companyfacts (us-gaap:Revenues, USD; 10-K/20-F)",
    "accn": [
     "0001744489-22-000213",
-    "0001744489-25-000155"
+    "0001744489-26-000066"
    ],
    "note": "Disney fiscal years end on the Saturday nearest 30 September (FY2020 ended 2020-10-03)."
   },

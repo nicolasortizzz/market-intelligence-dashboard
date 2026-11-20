@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T03:29:13+00:00",
+  "generatedAt": "2026-11-20T03:19:26+00:00",
   "title": "Forward P/E vs subsequent returns \u2014 EWZ / EWY / MCHI",
   "methodology": [
     "ETF-native historical Forward P/E for EWZ/EWY is not published as a continuous public series (Yahoo forwardPE is null for these ETFs).",
@@ -62,8 +62,8 @@
         "url": "https://www.msci.com/documents/10199/c35f1892-7d15-2c28-efe8-9122cf361772"
       },
       "yahoo_trailing": {
-        "trailingPE": 10.1539545,
-        "asof_price": 31.76,
+        "trailingPE": 9.435769,
+        "asof_price": 29.51,
         "source": "Yahoo Finance info.trailingPE (ETF-native trailing P/E, not forward)"
       },
       "damodaran_fpe": [
@@ -268,8 +268,8 @@
         {
           "asof": "2013-01-05",
           "fpe": 17.79,
-          "ret": -0.174813,
-          "ret_total": -0.174813,
+          "ret": -0.174812,
+          "ret_total": -0.174812,
           "window_start": "2012-12-31",
           "window_end": "2013-12-31",
           "fpe_source": "Damodaran countrystats (countrystats13.xls)",
@@ -288,8 +288,8 @@
         {
           "asof": "2016-01-05",
           "fpe": 17.11,
-          "ret": 0.644731,
-          "ret_total": 0.644731,
+          "ret": 0.644732,
+          "ret_total": 0.644732,
           "window_start": "2015-12-31",
           "window_end": "2016-12-31",
           "fpe_source": "Damodaran countrystats (countrystats15.xls)",
@@ -318,8 +318,8 @@
         {
           "asof": "2019-01-05",
           "fpe": 22.64,
-          "ret": 0.276667,
-          "ret_total": 0.276667,
+          "ret": 0.276668,
+          "ret_total": 0.276668,
           "window_start": "2018-12-31",
           "window_end": "2019-12-31",
           "fpe_source": "Damodaran countrystats (countrystats18.xls)",
@@ -328,8 +328,8 @@
         {
           "asof": "2020-01-05",
           "fpe": 53.66,
-          "ret": -0.203551,
-          "ret_total": -0.203551,
+          "ret": -0.203552,
+          "ret_total": -0.203552,
           "window_start": "2019-12-31",
           "window_end": "2020-12-31",
           "fpe_source": "Damodaran countrystats (countrystats19.xls)",
@@ -411,7 +411,7 @@
           "asof": "2015-01-05",
           "fpe": 17.92,
           "ret": 0.080601,
-          "ret_total": 0.473344,
+          "ret_total": 0.473345,
           "window_start": "2014-12-31",
           "window_end": "2019-12-31",
           "fpe_source": "Damodaran countrystats (countrystats14.xls)",
@@ -451,7 +451,7 @@
           "asof": "2019-01-05",
           "fpe": 22.64,
           "ret": 0.045618,
-          "ret_total": 0.249832,
+          "ret_total": 0.249833,
           "window_start": "2018-12-31",
           "window_end": "2023-12-31",
           "fpe_source": "Damodaran countrystats (countrystats18.xls)",
@@ -542,8 +542,8 @@
         {
           "asof": "2025-12-30",
           "fpe": 9.25,
-          "ret": -0.01262,
-          "ret_total": -0.01262,
+          "ret": -0.08257,
+          "ret_total": -0.08257,
           "window_start": "2025-11-30",
           "window_end": "2026-11-30",
           "fpe_source": "Siblis Research free API (IBOV pe-forward)",
@@ -566,8 +566,8 @@
         {
           "asof": "2013-01-05",
           "fpe": 17.79,
-          "ret": -0.174813,
-          "ret_total": -0.174813,
+          "ret": -0.174812,
+          "ret_total": -0.174812,
           "window_start": "2012-12-31",
           "window_end": "2013-12-31",
           "fpe_source": "Damodaran countrystats (countrystats13.xls)",
@@ -588,8 +588,8 @@
         {
           "asof": "2016-01-05",
           "fpe": 17.11,
-          "ret": 0.644731,
-          "ret_total": 0.644731,
+          "ret": 0.644732,
+          "ret_total": 0.644732,
           "window_start": "2015-12-31",
           "window_end": "2016-12-31",
           "fpe_source": "Damodaran countrystats (countrystats15.xls)",
@@ -621,8 +621,8 @@
         {
           "asof": "2019-01-05",
           "fpe": 22.64,
-          "ret": 0.276667,
-          "ret_total": 0.276667,
+          "ret": 0.276668,
+          "ret_total": 0.276668,
           "window_start": "2018-12-31",
           "window_end": "2019-12-31",
           "fpe_source": "Damodaran countrystats (countrystats18.xls)",
@@ -632,8 +632,8 @@
         {
           "asof": "2020-01-05",
           "fpe": 53.66,
-          "ret": -0.203551,
-          "ret_total": -0.203551,
+          "ret": -0.203552,
+          "ret_total": -0.203552,
           "window_start": "2019-12-31",
           "window_end": "2020-12-31",
           "fpe_source": "Damodaran countrystats (countrystats19.xls)",
@@ -764,8 +764,8 @@
         {
           "asof": "2025-12-30",
           "fpe": 9.25,
-          "ret": -0.01262,
-          "ret_total": -0.01262,
+          "ret": -0.08257,
+          "ret_total": -0.08257,
           "window_start": "2025-11-30",
           "window_end": "2026-11-30",
           "fpe_source": "Siblis Research free API (IBOV pe-forward)",
@@ -800,7 +800,7 @@
           "asof": "2015-01-05",
           "fpe": 17.92,
           "ret": 0.080601,
-          "ret_total": 0.473344,
+          "ret_total": 0.473345,
           "window_start": "2014-12-31",
           "window_end": "2019-12-31",
           "fpe_source": "Damodaran countrystats (countrystats14.xls)",
@@ -844,7 +844,7 @@
           "asof": "2019-01-05",
           "fpe": 22.64,
           "ret": 0.045618,
-          "ret_total": 0.249832,
+          "ret_total": 0.249833,
           "window_start": "2018-12-31",
           "window_end": "2023-12-31",
           "fpe_source": "Damodaran countrystats (countrystats18.xls)",
@@ -875,13 +875,13 @@
         }
       ],
       "regression_1y_damodaran": {
-        "slope": -0.008767241095396465,
-        "intercept": 0.2392786308435067,
-        "r2": 0.09630289784994317,
+        "slope": -0.008767264954852846,
+        "intercept": 0.2392792688530908,
+        "r2": 0.09630329222541523,
         "n": 13,
         "x_min": 7.92,
         "x_max": 53.66,
-        "implied_at_current": 0.1728229433404015
+        "implied_at_current": 0.17282340049530623
       },
       "regression_5y_damodaran": {
         "slope": -0.003282447882577184,
@@ -893,7 +893,7 @@
         "implied_at_current": 0.06882295301578992
       },
       "price_asof": "2026-11-30",
-      "price_last": 31.760000228881836,
+      "price_last": 29.510000228881836,
       "n": {
         "damodaran": 14,
         "siblis": 9,
@@ -984,8 +984,8 @@
         "url": "https://www.msci.com/documents/10199/255599/msci-korea-index.pdf"
       },
       "yahoo_trailing": {
-        "trailingPE": 8.960846,
-        "asof_price": 131.65,
+        "trailingPE": 9.160959,
+        "asof_price": 134.59,
         "source": "Yahoo Finance info.trailingPE (ETF-native trailing P/E, not forward)"
       },
       "damodaran_fpe": [
@@ -1220,8 +1220,8 @@
         {
           "asof": "2017-01-05",
           "fpe": 16.66,
-          "ret": 0.449718,
-          "ret_total": 0.449718,
+          "ret": 0.449717,
+          "ret_total": 0.449717,
           "window_start": "2016-12-31",
           "window_end": "2017-12-31",
           "fpe_source": "Damodaran countrystats (countrystats16.xls)",
@@ -1332,8 +1332,8 @@
         {
           "asof": "2015-01-05",
           "fpe": 21.19,
-          "ret": 0.04454,
-          "ret_total": 0.243402,
+          "ret": 0.044539,
+          "ret_total": 0.243401,
           "window_start": "2014-12-31",
           "window_end": "2019-12-31",
           "fpe_source": "Damodaran countrystats (countrystats14.xls)",
@@ -1464,8 +1464,8 @@
         {
           "asof": "2025-12-30",
           "fpe": 10.43,
-          "ret": 0.481313,
-          "ret_total": 0.481313,
+          "ret": 0.514393,
+          "ret_total": 0.514393,
           "window_start": "2025-11-30",
           "window_end": "2026-11-30",
           "fpe_source": "Siblis Research free API (KOSPI pe-forward)",
@@ -1521,8 +1521,8 @@
         {
           "asof": "2017-01-05",
           "fpe": 16.66,
-          "ret": 0.449718,
-          "ret_total": 0.449718,
+          "ret": 0.449717,
+          "ret_total": 0.449717,
           "window_start": "2016-12-31",
           "window_end": "2017-12-31",
           "fpe_source": "Damodaran countrystats (countrystats16.xls)",
@@ -1686,8 +1686,8 @@
         {
           "asof": "2025-12-30",
           "fpe": 10.43,
-          "ret": 0.481313,
-          "ret_total": 0.481313,
+          "ret": 0.514393,
+          "ret_total": 0.514393,
           "window_start": "2025-11-30",
           "window_end": "2026-11-30",
           "fpe_source": "Siblis Research free API (KOSPI pe-forward)",
@@ -1721,8 +1721,8 @@
         {
           "asof": "2015-01-05",
           "fpe": 21.19,
-          "ret": 0.04454,
-          "ret_total": 0.243402,
+          "ret": 0.044539,
+          "ret_total": 0.243401,
           "window_start": "2014-12-31",
           "window_end": "2019-12-31",
           "fpe_source": "Damodaran countrystats (countrystats14.xls)",
@@ -1797,25 +1797,25 @@
         }
       ],
       "regression_1y_damodaran": {
-        "slope": -0.027309437766861948,
-        "intercept": 0.5556448036195418,
-        "r2": 0.11519146000288405,
+        "slope": -0.027309441410890645,
+        "intercept": 0.555644784656143,
+        "r2": 0.11519154718012481,
         "n": 13,
         "x_min": 9.5,
         "x_max": 21.2,
-        "implied_at_current": 0.446407052552094
+        "implied_at_current": 0.4464070190125804
       },
       "regression_5y_damodaran": {
-        "slope": 0.003422798017629324,
-        "intercept": -0.020558575612972557,
-        "r2": 0.027042383218292,
+        "slope": 0.0034227418523643067,
+        "intercept": -0.020557668385423063,
+        "r2": 0.027041502705510534,
         "n": 9,
         "x_min": 12.74,
         "x_max": 21.2,
-        "implied_at_current": -0.006867383542455261
+        "implied_at_current": -0.006866700975965836
       },
       "price_asof": "2026-11-30",
-      "price_last": 131.64999389648438,
+      "price_last": 134.58999633789062,
       "n": {
         "damodaran": 14,
         "siblis": 9,
@@ -1906,8 +1906,8 @@
         "url": "https://www.msci.com/documents/10199/255599/msci-china-index.pdf"
       },
       "yahoo_trailing": {
-        "trailingPE": 11.75619,
-        "asof_price": 52.04,
+        "trailingPE": 10.622138,
+        "asof_price": 47.02,
         "source": "Yahoo Finance info.trailingPE (ETF-native trailing P/E, not forward)"
       },
       "damodaran_fpe": [
@@ -2142,8 +2142,8 @@
         {
           "asof": "2017-01-05",
           "fpe": 57.52,
-          "ret": 0.546697,
-          "ret_total": 0.546697,
+          "ret": 0.546698,
+          "ret_total": 0.546698,
           "window_start": "2016-12-31",
           "window_end": "2017-12-31",
           "fpe_source": "Damodaran countrystats (countrystats16.xls)",
@@ -2162,8 +2162,8 @@
         {
           "asof": "2019-01-05",
           "fpe": 22.17,
-          "ret": 0.237206,
-          "ret_total": 0.237206,
+          "ret": 0.237205,
+          "ret_total": 0.237205,
           "window_start": "2018-12-31",
           "window_end": "2019-12-31",
           "fpe_source": "Damodaran countrystats (countrystats18.xls)",
@@ -2202,8 +2202,8 @@
         {
           "asof": "2023-01-05",
           "fpe": 20.54,
-          "ret": -0.112915,
-          "ret_total": -0.112915,
+          "ret": -0.112916,
+          "ret_total": -0.112916,
           "window_start": "2022-12-31",
           "window_end": "2023-12-31",
           "fpe_source": "Damodaran countrystats (countrystats22.xls)",
@@ -2235,7 +2235,7 @@
           "asof": "2012-01-05",
           "fpe": 24.57,
           "ret": 0.040591,
-          "ret_total": 0.220216,
+          "ret_total": 0.220215,
           "window_start": "2011-12-31",
           "window_end": "2016-12-31",
           "fpe_source": "Damodaran countrystats (countrystats12.xls)",
@@ -2275,7 +2275,7 @@
           "asof": "2017-01-05",
           "fpe": 57.52,
           "ret": 0.089486,
-          "ret_total": 0.534909,
+          "ret_total": 0.53491,
           "window_start": "2016-12-31",
           "window_end": "2021-12-31",
           "fpe_source": "Damodaran countrystats (countrystats16.xls)",
@@ -2433,8 +2433,8 @@
         {
           "asof": "2017-01-05",
           "fpe": 57.52,
-          "ret": 0.546697,
-          "ret_total": 0.546697,
+          "ret": 0.546698,
+          "ret_total": 0.546698,
           "window_start": "2016-12-31",
           "window_end": "2017-12-31",
           "fpe_source": "Damodaran countrystats (countrystats16.xls)",
@@ -2455,8 +2455,8 @@
         {
           "asof": "2019-01-05",
           "fpe": 22.17,
-          "ret": 0.237206,
-          "ret_total": 0.237206,
+          "ret": 0.237205,
+          "ret_total": 0.237205,
           "window_start": "2018-12-31",
           "window_end": "2019-12-31",
           "fpe_source": "Damodaran countrystats (countrystats18.xls)",
@@ -2499,8 +2499,8 @@
         {
           "asof": "2023-01-05",
           "fpe": 20.54,
-          "ret": -0.112915,
-          "ret_total": -0.112915,
+          "ret": -0.112916,
+          "ret_total": -0.112916,
           "window_start": "2022-12-31",
           "window_end": "2023-12-31",
           "fpe_source": "Damodaran countrystats (countrystats22.xls)",
@@ -2601,7 +2601,7 @@
           "asof": "2012-01-05",
           "fpe": 24.57,
           "ret": 0.040591,
-          "ret_total": 0.220216,
+          "ret_total": 0.220215,
           "window_start": "2011-12-31",
           "window_end": "2016-12-31",
           "fpe_source": "Damodaran countrystats (countrystats12.xls)",
@@ -2645,7 +2645,7 @@
           "asof": "2017-01-05",
           "fpe": 57.52,
           "ret": 0.089486,
-          "ret_total": 0.534909,
+          "ret_total": 0.53491,
           "window_start": "2016-12-31",
           "window_end": "2021-12-31",
           "fpe_source": "Damodaran countrystats (countrystats16.xls)",
@@ -2698,13 +2698,13 @@
         }
       ],
       "regression_1y_damodaran": {
-        "slope": 0.0004399800379168273,
-        "intercept": 0.05846898571214037,
-        "r2": 0.0009671364403974758,
+        "slope": 0.00043999391569176456,
+        "intercept": 0.05846843742510011,
+        "r2": 0.0009671960885052622,
         "n": 13,
         "x_min": 20.4,
         "x_max": 78.27,
-        "implied_at_current": 0.0625695996655252
+        "implied_at_current": 0.06256918071934736
       },
       "regression_5y_damodaran": {
         "slope": 0.0027278990423613737,
@@ -2716,7 +2716,7 @@
         "implied_at_current": -0.05242904016550097
       },
       "price_asof": "2026-11-30",
-      "price_last": 52.040000915527344,
+      "price_last": 47.02000045776367,
       "n": {
         "damodaran": 14,
         "siblis": 9,
